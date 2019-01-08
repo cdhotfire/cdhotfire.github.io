@@ -32,16 +32,16 @@ $(document).ready(function() {
 		4. Magnific Popup
 	==============================*/
 	$('.gallery-popup').magnificPopup({
-	  delegate: 'a', // child items selector, by clicking on it popup will open
-	  gallery:{enabled:true},
+	  delegate: 'a',              // child items selector, by clicking on it popup will open
+	  gallery : {enabled:true},
 	  //type: 'image', //Detecta el tipo con la clase mfp-TYPE
-	  mainClass: 'mfp-with-zoom', // this class is for CSS animation below
+	  mainClass: 'mfp-with-zoom',   // this class is for CSS animation below
 
 	  zoom: {
-	    enabled: true, // By default it's false, so don't forget to enable it
+	    enabled: true,   // By default it's false, so don't forget to enable it
 
-	    duration: 300, // duration of the effect, in milliseconds
-	    easing: 'ease-in-out', // CSS transition easing function
+	    duration: 300,             // duration of the effect, in milliseconds
+	    easing  : 'ease-in-out',   // CSS transition easing function
 
 	    // The "opener" function should return the element from which popup will be zoomed in
 	    // and to which popup will be scaled down
@@ -49,7 +49,7 @@ $(document).ready(function() {
 	    opener: function(openerElement) {
 	      // openerElement is the element on which popup was initialized, in this case its <a> tag
 	      // you don't need to add "opener" option if this code matches your needs, it's defailt one.
-	      return openerElement.is('img') ? openerElement : openerElement.find('img');
+	      return openerElement.is('img') ? openerElement: openerElement.find('img');
 	    }
 	  },
 	  markup: '<div class="mfp-figure">'+
@@ -68,7 +68,7 @@ $(document).ready(function() {
 		5. Ajax Form
 	==============================*/
 	$('#ajaxFormSubmit').on('click',function(){
-		var Form = $('#ajaxForm');
+		var Form      = $('#ajaxForm');
 		var hasErrors = Form.validator('validate').has('.has-error').length
 		if (hasErrors){
 			
@@ -77,9 +77,9 @@ $(document).ready(function() {
 			$('#boxedResult').show();
 			$('#sendResult').html('<div class="uil-rolling-css"><div><div></div><div></div></div></div>');
 			$.ajax({
-				type: 'POST',
-				url: 'send_form.php',
-				data: Form.serialize(),
+				type   : 'POST',
+				url    : 'send_form.php',
+				data   : Form.serialize(),
 				success: function(msg){
 					$('#sendResult').html(msg)
 				},
@@ -118,7 +118,7 @@ $(document).ready(function() {
 
                 $.stellar({
                 	horizontalScrolling: false,
-					responsive: true,
+                	responsive         : true,
                });
                 
                 $(window).data('plugin_stellar').init();
@@ -131,9 +131,9 @@ $(document).ready(function() {
 		7. Owl Carrousel
 	==============================*/
 	$('#owl-logo').owlCarousel({
-		items : 3,
-		lazyLoad : true,
-		navigation : false
+		items     : 3,
+		lazyLoad  : true,
+		navigation: false
 	});
 	
 	/*==============================
@@ -141,12 +141,12 @@ $(document).ready(function() {
 	==============================*/
 	/*  */
 	$(".countdown").TimeCircles({
-		fg_width: 0.02,
-		bg_width: 0.3,
+		fg_width       : 0.02,
+		bg_width       : 0.3,
 		circle_bg_color: '#7b7571',
-		time: {
-			Days: { color: '#f9667e' },
-			Hours: { color: '#f9667e' },
+		time           : {
+			Days   : { color: '#f9667e' },
+			Hours  : { color: '#f9667e' },
 			Minutes: { color: '#f9667e' },
 			Seconds: { color: '#f9667e' }
 		},
