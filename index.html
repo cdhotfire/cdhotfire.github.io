@@ -21,32 +21,19 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS"
         crossorigin="anonymous">
 
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/"
+        crossorigin="anonymous">
+    <link href="libs/animate.css" rel="stylesheet">
+    <link href="css/default.css" rel="stylesheet">
+
     <!-- TimeCircles-countdown -->
     <link rel="stylesheet" href="libs/TimeCircles-countdown/TimeCircles.css">
 
-    <!-- Owl stylesheet -->
-    <link rel="stylesheet" href="libs/owl-carousel/owl.carousel.css">
-    <link rel="stylesheet" href="libs/owl-carousel/owl.theme.css">
 
-    <!-- Magnific Popup -->
-    <link rel="stylesheet" href="libs/magnific-popup/magnific-popup.css">
-
-    <!-- Loading Rolling -->
-    <link rel="stylesheet" href="libs/loading/rolling.css">
-
-    <!-- Fonts -->
-    <link rel='stylesheet' type='text/css' href='https://fonts.googleapis.com/css?family=Oswald:400,300,700'>
-    <link rel='stylesheet' type='text/css' href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800,300italic,400italic,700italic,600italic,800italic'>
-
-    <!-- FontAwesome Icons -->
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/"
-        crossorigin="anonymous">
-
-    <!-- Theme Main Style -->
-    <link rel="stylesheet" href="css/theme-style.css">
-
-    <!--========================Color Variant====================-->
-    <link rel="stylesheet" type="text/css" href="css/colors/pink.css">
+    <!-- google fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Great+Vibes" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Oswald:400,300,700">
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -54,255 +41,132 @@
       <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
+
+    <style type="text/css">
+        .no-js #loader {
+            display: none;
+        }
+
+        .js #loader {
+            display: block;
+            position: absolute;
+            left: 100px;
+            top: 0;
+        }
+
+        .se-pre-con {
+            position: fixed;
+            left: 0px;
+            top: 0px;
+            width: 100%;
+            height: 100%;
+            z-index: 9999999;
+            background: url(img/loader.gif) center no-repeat #fff;
+        }
+    </style>
 </head>
 
-<body>
-    <!-- END: fullscreenloading -->
-    <div id="fullscreenloading">
-        <div id="fullscreenloading-content">
-            <div id="boxedResult">
-                <div id="sendResult">
-                    <div class="uil-rolling-css">
-                        <div>
-                            <div></div>
-                            <div></div>
+<body id="body">
+    <div class="se-pre-con"></div>
+    <!-- header -->
+    <header style="background-image: url('img/cover.jpg');" id="welcome">
+        <div class="overlay"></div>
+        <div class="container">
+            <div class="intro-content">
+                <div class="title text-center">The Wedding Ceremony of</div>
+                <div class="brand text-center">
+                    <h1 class="wow fadeInDown">Isidro</h1>
+                    <div class="heart"> <i class="fa fa-heart" aria-hidden="true"></i>
+                    </div>
+                    <h1 class="wow fadeInDown">Jocelyn</h1>
+                </div>
+                <!-- brand -->
+                <div class="location text-center">Lake Mary</div>
+                <div class="date text-center">11 . 25 . 2019</div>
+                <div class="countdown" data-date="2019-11-25 17:00:00" data-tc-id="d9b28855-7300-309b-9ce7-b042ba0c3af4">
+                    <div class="time_circles"><canvas width="730" height="182"></canvas>
+                        <div class="textDiv_Days" style="top: 64px; left: 0px; width: 182.5px;">
+                            <h4 style="font-size: 13px; line-height: 13px;">Days</h4><span style="font-size: 38px; line-height: 13px;">320</span>
+                        </div>
+                        <div class="textDiv_Hours" style="top: 64px; left: 183px; width: 182.5px;">
+                            <h4 style="font-size: 13px; line-height: 13px;">Hours</h4><span style="font-size: 38px; line-height: 13px;">15</span>
+                        </div>
+                        <div class="textDiv_Minutes" style="top: 64px; left: 365px; width: 182.5px;">
+                            <h4 style="font-size: 13px; line-height: 13px;">Minutes</h4><span style="font-size: 38px; line-height: 13px;">17</span>
+                        </div>
+                        <div class="textDiv_Seconds" style="top: 64px; left: 548px; width: 182.5px;">
+                            <h4 style="font-size: 13px; line-height: 13px;">Seconds</h4><span style="font-size: 38px; line-height: 13px;">22</span>
                         </div>
                     </div>
                 </div>
+            </div>
+            <!-- intro-content -->
+        </div>
+        <!-- container -->
+    </header>
+    <div class="lead text-center">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">We Cordially invite you to the wedding ceremony</div>
             </div>
         </div>
     </div>
-    <!-- END: fullscreenloading -->
-    <!-- START SECTION: home -->
-    <section id="home" data-stellar-background-ratio="0.5">
-        <div class="convtainer">
-            <div class="row">
-                <div class="col-12">
-                    <h3 class="title"><span></span>We are getting married!<span></span></h3>
-                    <ul class="names">
-                        <li>Isidro</li>
-                        <li class="circle">&amp;</li>
-                        <li>Jocelyn</li>
-                    </ul>
-                    <div class="date">Nov <span>25</span> 2019</div>
-                    <div class="hour">5:00 <span>PM</span>
-                    </div>
-                    <div class="place">
-                        <h3>Lake Mary</h3>
-                        <!-- <p>453 West Street #56-WE3547 - Macondo, Florida.</p> -->
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- END SECTION: home -->
-    <!-- START: main-sticky-nav -->
-    <header>
-        <div class="sticky-wrapper" id="nav-sticky-wrapper">
-            <nav id="nav" class="navbar navbar-light bg-light navbar-expand-md">
-                <div class="container"> <a class="navbar-brand" href="#">
-                        <ul class="names">
-                            <li>Isidro</li>
-                            <li class="circle">&amp;</li>
-                            <li>Jocelyn</li>
-                        </ul>
-                    </a>
-                    <!-- Brand and toggle get grouped for better mobile
-                display -->
-                    <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#nav_menu"> <span
-                            class="sr-only">Toggle navigation</span>
-                        &#x2630;</button>
-                    <!-- Collect
-                the nav links, forms, and other content for toggling -->
-                    <div class="collapse navbar-collapse" id="nav_menu">
-                        <ul id="nav_list" class="nav navbar-nav ml-auto">
-                            <li class="active nav-item"><a href="#home" class="nav-link">Home</a>
-                            </li>
-                            <li class="nav-item"><a href="#couple" class="nav-link">Couple</a>
-                            </li>
-                            <li class="nav-item"><a href="#our-story" class="nav-link">Our Story</a>
-                            </li>
-                            <!-- <li class="nav-item"><a href="#gallery" class="nav-link">Gallery</a>
-                            </li>
-                            <li class="nav-item"><a href="#rsvp" class="nav-link">RSVP</a>
-                            </li> -->
-                        </ul>
-                    </div>
-                    <!-- /.navbar-collapse -->
-                </div>
-                <!-- /.container -->
-            </nav>
-        </div>
-    </header>
-    <!-- END: main-sticky-nav -->
-    <!-- START SECTION: couple -->
-    <section id="couple" class="bg-gray-1">
+    <!-- lead -->
+    <div class="section section-about" style="background-image: url(&apos;img/pw_maze_white.png&apos;);">
         <div class="container">
             <div class="row">
-                <div class="col-lg-6 col-12 text-center">
-                    <div class="profile">
-                        <h2>Isidro <span>Arribas Jr</span></h2>
-                        <img src="img/pic-groom.jpg" class="img-fluid rounded-circle" alt="Groom">
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris porttitor
-                            non sem eu faucibus. Aenean pellentesque dui tincidunt, dictum massa congue,
-                            euismod ipsum. Duis auctor in est ac dignissim.</p>
+                <div class="col-lg-6">
+                    <div class="media media-about wow fadeInRight">
+                        <div class="media-body text-right">
+                            <div class="title">The Groom</div>
+                            <h2 class="media-heading">Isidro Arribas Jr</h2>
+                            <p></p>
+                        </div>
+                        <div class="media-right">
+                            <img class="media-object" src="img/pic-groom.jpg" alt="...">
+                        </div>
                     </div>
+                    <!-- media -->
                 </div>
-                <div class="col-lg-6 col-12 text-center">
-                    <div class="profile">
-                        <h2>Jocelyn <span>Pui-Yin</span> <span>Wong</span></h2>
-                        <img src="img/pic-bride.jpg" class="img-fluid rounded-circle" alt="Groom">
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris porttitor
-                            non sem eu faucibus. Aenean pellentesque dui tincidunt, dictum massa congue,
-                            euismod ipsum. Duis auctor in est ac dignissim.</p>
+                <!-- col 6 -->
+                <div class="col-lg-6">
+                    <div class="media media-about wow fadeInLeft">
+                        <div class="media-left">
+                            <img class="media-object" src="img/pic-bride.jpg" alt="...">
+                        </div>
+                        <div class="media-body">
+                            <div class="title">The Bride</div>
+                            <h2 class="media-heading">Jocelyn Pui-Yin Wong</h2>
+                            <p></p>
+                        </div>
                     </div>
+                    <!-- media -->
                 </div>
+                <!-- col 6 -->
             </div>
+            <!-- row -->
         </div>
-    </section>
-    <!-- END SECTION: couple -->
-    <!-- START SECTION: frase -->
-    <section id="frase" class="img-bg-2" data-stellar-background-ratio="0.5">
+        <!-- container -->
+    </div>
+    <div class="section section-story" id="story">
         <div class="container">
-            <div class="row">
-                <div class="col-lg-8 offset-md-2 col-12 text-center">
-                    <h2><i class="fas fa-quote-left" aria-hidden="true"></i> Celebrate love with all your heart and
-                        share it with all your loved ones. Now you can start to do it with this HTML template... is
-                        perfect for you!. <i class="fas fa-quote-right" aria-hidden="true"></i></h2>
-                </div>
-            </div>
+            <h1 class="text-center wow fadeInDown">Our Story</h1>
+            <div class="sub-title text-center wow fadeInDown">It was raining when we first met each other</div>
+            <p class="text-center wow fadeIn">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+                cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat
+                non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
         </div>
-    </section>
-    <!-- END SECTION: frase -->
-    <!-- START SECTION: our-story -->
-    <section id="our-story">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-8 offset-md-2 col-12 text-center">
-                    <div class="title-block">
-                        <h1>Our <span><em>Story</em></span></h1>
-                        <div class="divider"></div>
-                        <p><em>Dolor sit amet, consectetur adipiscing elit. Mauris porttitor non sem eu faucibus.
-                                Aenean pellentesque dui tincidunt, dictum massa congue, euismod ipsum. Duis auctor in
-                                est ac dignissim.</em>
-                        </p>
-                    </div>
-                </div>
-            </div>
-            <ul class="timeline">
-                <li>
-                    <div class="timeline-badge"><i class="fas fa-heart" aria-hidden="true"></i>
-                    </div>
-                    <div class="timeline-panel">
-                        <div class="timeline-heading">
-                            <h2 class="timeline-title">May <span>04</span> 2015</h2>
-                        </div>
-                        <div class="timeline-body text-center">
-                            <img src="img/story/story-img-01.jpg" class="img-fluid" alt="Our Story">
-                            <h2 class="timeline-title">Our first meeting</h2>
-                            <p>Mussum ipsum cacilds, vidis litro abertis. Consetis adipiscings elitis.
-                                Pra l&#xE1; , depois divoltis porris, paradis. Paisis, filhis, espiritis
-                                santis.</p>
-                        </div>
-                    </div>
-                </li>
-                <li class="timeline-inverted">
-                    <div class="timeline-badge"><i class="fas fa-heart" aria-hidden="true"></i>
-                    </div>
-                    <div class="timeline-panel">
-                        <div class="timeline-heading">
-                            <h2 class="timeline-title">Dec <span>28</span> 2015</h2>
-                        </div>
-                        <div class="timeline-body text-center">
-                            <img src="img/story/story-img-02.jpg" class="img-fluid" alt="Our Story">
-                            <h2 class="timeline-title">Great witer days</h2>
-                            <p>Mussum ipsum cacilds, vidis litro abertis. Mauris porttitor non sem eu
-                                faucibus. Aenean pellentesque dui tincidunt mauris porttitor non sem eu
-                                faucibus. Aenean pellentesque dui tincidunt,Consetis adipiscings elitis.
-                                Pra l&#xE1; , depois divoltis porris, paradis. Paisis, filhis, espiritis
-                                santis .</p>
-                        </div>
-                    </div>
-                </li>
-                <li>
-                    <div class="timeline-badge"><i class="fas fa-heart" aria-hidden="true"></i>
-                    </div>
-                    <div class="timeline-panel">
-                        <div class="timeline-heading">
-                            <h2 class="timeline-title">Feb <span>16</span> 2016</h2>
-                        </div>
-                        <div class="timeline-body text-center">
-                            <img src="img/story/story-img-03.jpg" class="img-fluid" alt="Our Story">
-                            <h2 class="timeline-title">Trip to caribbean</h2>
-                            <p>Mussum ipsum cacilds, vidis litro abertis. Consetis adipiscings elitis.
-                                Pra l&#xE1; , depois divoltis porris, paradis. Paisis, filhis, espiritis
-                                santis.</p>
-                        </div>
-                    </div>
-                </li>
-                <li class="timeline-inverted">
-                    <div class="timeline-badge"><i class="fas fa-heart" aria-hidden="true"></i>
-                    </div>
-                    <div class="timeline-panel">
-                        <div class="timeline-heading">
-                            <h2 class="timeline-title">Oct <span>18</span> 2017</h2>
-                        </div>
-                        <div class="timeline-body text-center">
-                            <img src="img/story/story-img-04.jpg" class="img-fluid" alt="Our Story">
-                            <h2 class="timeline-title">Autumn love</h2>
-                            <p>Mussum ipsum cacilds, vidis litro abertis. Consetis adipiscings elitis.
-                                Pra l&#xE1; , depois divoltis porris, paradis. Paisis, filhis, espiritis
-                                santis.</p>
-                        </div>
-                    </div>
-                </li>
-                <li>
-                    <div class="timeline-end">
-                        <div class="timeline-badge"><i class="fas fa-heart" aria-hidden="true"></i>
-                        </div>
-                    </div>
-                </li>
-            </ul>
-            <div class="row">
-                <div class="col-lg-8 offset-md-2 col-12 text-center">
-                    <div class="final-frase">Now we are ready for the <span>next step...</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- END SECTION: our-story -->
-    <!-- START SECTION: counter -->
-    <section id="counter" class="img-bg-3" data-stellar-background-ratio="0.5">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-8 offset-md-2 col-12 text-center">
-                    <h2>Counting the minutes for the big day!</h2>
-                    <!-- Countdown -->
-                    <div class="countdown" data-date="2019-11-25 17:00:00"></div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- END SECTION: counter -->
-    <!-- START: footer -->
-    <section id="footer" class="img-bg-5" data-stellar-background-ratio="0.5">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-10 offset-md-1 col-12 text-center">
-                    <h1>Thank You!</h1>
-                    <ul class="names">
-                        <li>Isidro</li>
-                        <li class="circle">&amp;</li>
-                        <li>Jocelyn</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- END: footer -->
+        <!-- container -->
+    </div>
+    <!-- section-story -->
+    <!-- back to top --> <a href="#" id="back-to-top">
+        <img src="img/top-icon.png">
+    </a>
 
-    <!-- START: scripts -->
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
         crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery-migrate-3.0.1.min.js" crossorigin="anonymous"></script>
@@ -310,27 +174,15 @@
         crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k"
         crossorigin="anonymous"></script>
-
-    <!-- Sticky Navbar -->
-    <script type="text/javascript" src="js/jquery.sticky.js"></script>
-    <script type="text/javascript" src="js/jquery.nav.js"></script>
-    <!-- owl-carousel -->
-    <script src="libs/owl-carousel/owl.carousel.min.js"></script>
-    <!-- Stellar -->
-    <script src="libs/stellar/jquery.stellar.min.js"></script>
-    <!-- gallery-grid -->
-    <script src="libs/gallery-grid/gallery-grid.js"></script>
-    <!-- Magnific Popup core JS file -->
-    <script src="libs/magnific-popup/jquery.magnific-popup.min.js"></script>
-    <!-- Bootstrap Validator -->
-    <script src="libs/bootstrap-validator/validator.min.js"></script>
+    <script src="plugins/jquery.easing.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="libs/parallax/parallax.min.js"></script>
+    <script src="libs/wow/wow.min.js"></script>
+    <script src="libs/sscr.js"></script>
     <!-- TimeCircles-countdown -->
     <script src="libs/TimeCircles-countdown/TimeCircles.js"></script>
 
-    <!-- Theme Main Js file -->
-    <script src="js/theme-main.js"></script>
-    <!-- END: scripts -->
-
+    <script src="js/default.js"></script>
 </body>
 
 </html>

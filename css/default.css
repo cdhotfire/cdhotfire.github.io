@@ -1,0 +1,237 @@
+body {
+  font-family: 'Oswald', Verdana, Geneva, sans-serif;
+  font-size: 1.2rem;
+  letter-spacing: 0.75px;
+  -webkit-font-smoothing: antialiased;
+}
+h1,
+h2,
+h3,
+h4,
+h5 {
+  font-family: 'Great Vibes', cursive;
+  color: #96b8c4;
+}
+h1 {
+  font-size: 62px;
+}
+h3 {
+  font-size: 36px;
+}
+p {
+  line-height: 1.8;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 300;
+}
+a {
+  color: #96b8c4;
+}
+a,
+.btn {
+  -webkit-transition: all 200ms ease-out;
+  -moz-transition: all 200ms ease-out;
+  -o-transition: all 200ms ease-out;
+  transition: all 200ms ease-out;
+}
+.sub-title {
+  margin-bottom: 15px;
+  text-transform: uppercase;
+}
+.sub-title:before {
+  content: "";
+  display: inline-block;
+  height: 2px;
+  width: 60px;
+  background-color: #96b8c4;
+  margin-right: 10px;
+  position: relative;
+  top: -5px;
+}
+.sub-title:after {
+  content: "";
+  display: inline-block;
+  height: 2px;
+  width: 60px;
+  background-color: #96b8c4;
+  margin-left: 10px;
+  position: relative;
+  top: -5px;
+}
+.section {
+  padding-top: 60px;
+  padding-bottom: 60px;
+}
+.lead {
+  background-color: #96b8c4;
+  color: #ffffff;
+  text-transform: uppercase;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  margin-bottom: 0px;
+}
+.btn {
+  border-radius: 0px;
+  padding: 8px 30px;
+}
+.btn-primary {
+  background-color: #96b8c4;
+  border-color: #7ba1af;
+}
+.btn-primary:hover,
+.btn-primary:focus {
+  background-color: #7ba1af;
+  border-color: #6b8994;
+}
+.overlay {
+  position: absolute;
+  top: 0px;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.2);
+}
+.overlay-light {
+  background-color: rgba(255, 255, 255, 0.4) !important;
+}
+#back-to-top {
+  position: fixed;
+  bottom: 40px;
+  right: 40px;
+  z-index: 9999;
+  width: 50px;
+  height: 50px;
+  text-align: center;
+  line-height: 30px;
+  background: #96b8c4;
+  color: #444;
+  cursor: pointer;
+  border: 0;
+  border-radius: 50%;
+  text-decoration: none;
+  transition: opacity 0.2s ease-out;
+  opacity: 0;
+  -webkit-box-shadow: 3px 3px 5px 0px rgba(0, 0, 0, 0.15);
+  -moz-box-shadow: 3px 3px 5px 0px rgba(0, 0, 0, 0.15);
+  box-shadow: 3px 3px 5px 0px rgba(0, 0, 0, 0.15);
+}
+#back-to-top img {
+  width: 48px;
+}
+#back-to-top:hover {
+  background: #6b8994;
+}
+#back-to-top.show {
+  opacity: 1;
+}
+/* media queries */
+@media only screen and (max-width: 480px) {
+  h1 {
+    font-size: 50px;
+  }
+}
+header {
+  position: relative;
+  background-size: cover;
+  background-position: center;
+  padding-top: 130px;
+  padding-bottom: 130px;
+}
+header .title {
+  font-weight: 500;
+  font-size: 3.5rem;
+  margin-bottom: 20px;
+}
+header .brand h1 {
+  color: #ffffff;
+  display: inline-block;
+  border-top: 1px solid #ffffff;
+  border-bottom: 1px solid #ffffff;
+  padding: 10px 15px;
+  font-size: 6rem;
+  text-shadow: 2px 2px 0px #96b8c4;
+}
+.intro-content {
+  position: relative;
+  z-index: 99;
+  color: #ffffff;
+}
+.intro-content .location {
+  text-transform: uppercase;
+  font-weight: 500;
+  font-size: 30px;
+  margin-top: 15px;
+  margin-bottom: 5px;
+}
+.intro-content .heart {
+  color: #fb5c6c;
+  display: inline-block;
+  margin-left: 40px;
+  margin-right: 40px;
+  font-size: 36px;
+}
+.intro-content .heart .fa-heart {
+  animation: beat .25s infinite alternate;
+  transform-origin: center;
+}
+/* Heart beat animation */
+@keyframes beat {
+  to {
+    transform: scale(1.4);
+  }
+}
+/* media queries */
+@media only screen and (max-width: 480px) {
+  header {
+    padding-top: 90px;
+    padding-bottom: 90px;
+  }
+  header .title {
+    font-size: 16px;
+    margin-bottom: 10px;
+  }
+  header .brand h1 {
+    font-size: 56px;
+    margin-top: 10px;
+  }
+  .intro-content .heart {
+    font-size: 28px;
+  }
+  .intro-content .location {
+    font-size: 14px;
+  }
+}
+.section-about {
+  background-color: #ccc;
+}
+.media-about img {
+  max-width: 150px;
+  border: 3px solid #96b8c4;
+  margin-left: 20px;
+  margin-right: 20px;
+}
+.media-about .title {
+  color: #96b8c4;
+  margin-bottom: 5px;
+  font-weight: 700;
+}
+@media only screen and (max-width: 992px) {
+  .media-about {
+    margin-bottom: 30px;
+  }
+}
+@media only screen and (max-width: 480px) {
+  .media-about img {
+    max-width: 80px;
+    border: 3px solid #96b8c4;
+  }
+}
+.section-story p {
+  font-style: italic;
+  font-size: 18px;
+}
+.section-map {
+  width: 100%;
+  height: 400px;
+}
+.countdown h4 {
+  color:white;
+}
