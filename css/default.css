@@ -162,21 +162,9 @@ header .brand h1 {
   margin-bottom: 5px;
 }
 .intro-content .heart {
-  color: #fb5c6c;
   display: inline-block;
   margin-left: 40px;
   margin-right: 40px;
-  font-size: 36px;
-}
-.intro-content .heart .fa-heart {
-  animation: beat .25s infinite alternate;
-  transform-origin: center;
-}
-/* Heart beat animation */
-@keyframes beat {
-  to {
-    transform: scale(1.4);
-  }
 }
 /* media queries */
 @media only screen and (max-width: 480px) {
