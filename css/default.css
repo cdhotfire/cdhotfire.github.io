@@ -223,3 +223,7 @@ header .brand h1 {
 .countdown h4 {
   color:white;
 }
+.flipbook > div {
+  margin-top: 5px;
+  text-align: center;
+}

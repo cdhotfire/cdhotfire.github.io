@@ -53,3 +53,8 @@ $(".countdown").TimeCircles({
 $(window).on("resize", function () {
     $(".countdown").TimeCircles().rebuild();
 });
+
+$(".flipbook").turn({
+    gradients: true,
+    acceleration: true
+});
