@@ -1,0 +1,538 @@
+@dark-color: #2c3e50;
+@dark-color-border: darken(@dark-color, 10%);
+@dark-color-hover: darken(@dark-color, 10%);
+@dark-color-focus-border: darken(@dark-color, 20%);
+@dark-color-active: spin(@success-color, 50);
+@success-color: #18BC9C;
+@success-color-border: darken(@success-color, 10%);
+@success-color-back: darken(@success-color, 10%);
+@success-color-hover-border: darken(@success-color, 20%);
+@success-color-hover: darken(@success-color, 30%);
+@white-color: white;
+@black-color: black;
+@red-color: #dc3545;
+
+.redColor {
+color: @red-color !important;
+}
+
+.blackColor {
+color: @black-color !important;
+}
+
+.darkColor {
+color: @dark-color !important;
+}
+
+.successColor {
+color: @success-color !important;
+}
+
+.darkBackColor {
+background-color: @dark-color !important;
+}
+
+.successBackColor {
+background-color: @success-color !important;
+}
+
+// themecss
+.tooltip.editor > .tooltip-inner {
+background-color: @dark-color;
+}
+
+.quill-editor {
+background: @white-color;
+}
+
+button.swal2-styled {
+background-color: @dark-color !important;
+border-left-color: @dark-color !important;
+border-right-color: @dark-color !important;
+}
+
+button.swal2-styled.swal2-cancel {
+background-color: @success-color !important;
+border-left-color: @success-color !important;
+border-right-color: @success-color !important;
+}
+
+.thead-inverse th {
+color: @white-color;
+background-color: @dark-color;
+}
+
+table.table-bordered {
+border: 2px solid @dark-color-border !important;
+}
+
+table.table-bordered td,
+table.table.table-bordered th {
+border: 1px solid @dark-color-border;
+}
+
+.editorsavebutton:hover {
+color: @dark-color;
+}
+
+hr {
+color: @dark-color;
+}
+
+.footer,
+.body-content {
+background-color: @white-color;
+}
+
+body {
+color: @black-color;
+background-color: @dark-color;
+}
+
+#mainNav .navbar-nav > li.nav-item > a.nav-link.active {
+background: @success-color;
+}
+
+#mainNav {
+background: @dark-color;
+}
+
+.editorsavebutton {
+color: @dark-color;
+}
+
+a,
+a.active,
+a:active,
+a:focus,
+a:hover {
+color: @success-color;
+}
+
+hr.star-light {
+border-color: @white-color;
+}
+
+hr.star-light:after {
+color: @white-color;
+background-color: @success-color;
+}
+
+hr.star-primary {
+border-color: @dark-color;
+}
+
+hr.star-primary:after {
+color: @dark-color;
+background-color: @white-color;
+}
+
+section.success {
+color: @white-color;
+background: @success-color;
+}
+
+#mainNav {
+background: @dark-color;
+}
+
+#mainNav .navbar-brand {
+color: @white-color;
+}
+
+#mainNav .navbar-brand.active,
+#mainNav .navbar-brand:active,
+#mainNav .navbar-brand:focus,
+#mainNav .navbar-brand:hover {
+color: @white-color;
+}
+
+#mainNav .navbar-nav li.nav-item a.nav-link {
+color: @white-color;
+}
+
+#mainNav .navbar-nav li.nav-item a.nav-link:hover {
+color: @success-color;
+}
+
+#mainNav .navbar-nav li.nav-item a.nav-link:active,
+#mainNav .navbar-nav li.nav-item a.nav-link:focus {
+color: @white-color;
+}
+
+#mainNav .navbar-toggler {
+color: @white-color;
+border-color: @white-color;
+}
+
+#mainNav .navbar-toggler:focus,
+#mainNav .navbar-toggler:hover {
+color: @white-color;
+border-color: @success-color;
+background-color: @success-color;
+}
+
+#mainNav .navbar-nav > li.nav-item > a.nav-link.active {
+background: @success-color;
+}
+
+#mainNav .navbar-nav > li.nav-item > a.nav-link.active:active,
+#mainNav .navbar-nav > li.nav-item > a.nav-link.active:focus,
+#mainNav .navbar-nav > li.nav-item > a.nav-link.active:hover {
+color: @white-color;
+background: @success-color;
+}
+
+header.masthead {
+color: @white-color;
+background: @success-color;
+}
+
+.floating-label-form-group-with-focus label {
+color: @success-color;
+}
+
+form .row:first-child .floating-label-form-group {
+border-top: 1px solid @white-color;
+}
+
+footer {
+color: @white-color;
+}
+
+footer {
+color: @white-color;
+}
+
+footer .footer-above {
+background-color: @dark-color;
+}
+
+footer .footer-below {
+background-color: @dark-color;
+}
+
+.btn-outline {
+color: @white-color;
+border: solid 2px @white-color;
+}
+
+.btn-outline.active,
+.btn-outline:active,
+.btn-outline:focus,
+.btn-outline:hover {
+color: @success-color;
+border: solid 2px @white-color;
+background: @white-color;
+}
+
+.btn-primary {
+color: @white-color;
+border-color: @dark-color;
+background-color: @dark-color;
+}
+
+.btn-primary.focus,
+.btn-primary:focus {
+color: @white-color;
+border-color: @dark-color-focus-border;
+background-color: @dark-color-border;
+}
+
+.btn-primary:hover {
+color: @white-color;
+border-color: @dark-color-focus-border;
+background-color: @dark-color-border;
+}
+
+.btn-primary.active,
+.btn-primary:active,
+.open > .btn-primary.dropdown-toggle {
+color: @white-color;
+border-color: @dark-color-focus-border;
+background-color: @dark-color-active;
+}
+
+.btn-primary.active.focus,
+.btn-primary.active:focus,
+.btn-primary.active:hover,
+.btn-primary:active.focus,
+.btn-primary:active:focus,
+.btn-primary:active:hover,
+.open > .btn-primary.dropdown-toggle.focus,
+.open > .btn-primary.dropdown-toggle:focus,
+.open > .btn-primary.dropdown-toggle:hover {
+color: @white-color;
+border-color: @dark-color-focus-border;
+background-color: @dark-color-hover;
+}
+
+.btn-primary.disabled.focus,
+.btn-primary.disabled:focus,
+.btn-primary.disabled:hover,
+.btn-primary[disabled].focus,
+.btn-primary[disabled]:focus,
+.btn-primary[disabled]:hover,
+fieldset[disabled] .btn-primary.focus,
+fieldset[disabled] .btn-primary:focus,
+fieldset[disabled] .btn-primary:hover {
+border-color: @dark-color;
+background-color: @dark-color;
+}
+
+.btn-primary .badge {
+color: @dark-color;
+background-color: @white-color;
+}
+
+.btn-primary.disabled, .btn-primary:disabled {
+color: @white-color;
+background-color: @dark-color-border;
+border-color: @dark-color-focus-border;
+}
+
+.btn-primary:not(:disabled):not(.disabled).active, .btn-primary:not(:disabled):not(.disabled):active, .show > .btn-primary.dropdown-toggle {
+background-color: @success-color;
+border-color: @success-color;
+}
+
+.btn-primary:not(:disabled):not(.disabled).active:focus, .btn-primary:not(:disabled):not(.disabled):active:focus, .show > .btn-primary.dropdown-toggle:focus {
+box-shadow: 0 0 0 0.2rem fade(@success-color, 25%);
+}
+
+.btn-primary.focus, .btn-primary:focus {
+box-shadow: 0 0 0 0.2rem fade(@dark-color, 25%);
+}
+
+.btn-success {
+color: @white-color;
+border-color: @success-color;
+background-color: @success-color;
+}
+
+.btn-success.focus,
+.btn-success:focus {
+color: @white-color;
+border-color: @success-color-hover-border;
+background-color: @success-color-back;
+}
+
+.btn-success:hover {
+color: @white-color;
+border-color: @success-color-border;
+background-color: @success-color-back;
+}
+
+.btn-success.active,
+.btn-success:active,
+.open > .btn-success.dropdown-toggle {
+color: @white-color;
+border-color: @success-color-border;
+background-color: @success-color-back;
+}
+
+.btn-success.active.focus,
+.btn-success.active:focus,
+.btn-success.active:hover,
+.btn-success:active.focus,
+.btn-success:active:focus,
+.btn-success:active:hover,
+.open > .btn-success.dropdown-toggle.focus,
+.open > .btn-success.dropdown-toggle:focus,
+.open > .btn-success.dropdown-toggle:hover {
+color: @white-color;
+border-color: @success-color-hover-border;
+background-color: @success-color-hover;
+}
+
+.btn-success.disabled.focus,
+.btn-success.disabled:focus,
+.btn-success.disabled:hover,
+.btn-success[disabled].focus,
+.btn-success[disabled]:focus,
+.btn-success[disabled]:hover,
+fieldset[disabled] .btn-success.focus,
+fieldset[disabled] .btn-success:focus,
+fieldset[disabled] .btn-success:hover {
+border-color: @success-color;
+background-color: @success-color;
+}
+
+.btn-success .badge {
+color: @success-color;
+background-color: @white-color;
+}
+
+.themeSelector {
+color: @white-color;
+}
+
+.loader {
+border: 16px solid @dark-color;
+border-top: 16px solid @success-color;
+}
+
+.loader-text {
+color: @dark-color;
+}
+
+.pin {
+background: @success-color;
+}
+
+.pin-effect {
+background: fadeout(@dark-color, 60%);
+}
+
+.errorhr {
+border-top: 1px solid fade(@red-color, 30%);
+}
+
+.lightHr {
+border-top: 1px solid fade(@dark-color, 30%);
+}
+
+.form-control:focus {
+border-color: @dark-color;
+box-shadow: 0 0 0 0.2rem fade(@dark-color, 25%);
+}
+
+.custom-checkbox .custom-control-input:checked ~ .custom-control-label::before {
+background-color: @dark-color;
+}
+
+.custom-control-input:checked ~ .custom-control-label::before {
+background-color: @dark-color;
+}
+
+.custom-control-input:focus ~ .custom-control-label::before {
+box-shadow: 0 0 0 1px #fff, 0 0 0 0.2rem fade(@dark-color, 25%);
+}
+
+.custom-radio .custom-control-input:checked ~ .custom-control-label::before {
+background-color: @dark-color;
+}
+
+.custom-control-input:checked ~ .custom-control-label::before {
+background-color: @dark-color;
+}
+
+.form-control, .custom-file-label {
+border: 1px solid fade(@dark-color-border, 35%);
+border-radius: .25rem;
+}
+
+.custom-checkbox > .custom-control-label:before {
+border: 1px solid fade(@dark-color-border, 35%);
+border-radius: 3px;
+}
+
+.custom-radio > .custom-control-label:before {
+border: 1px solid fade(@dark-color-border, 35%);
+border-radius: 50%;
+}
+
+.card {
+border: 1px solid fade(@dark-color, 20%);
+}
+
+.card-header {
+border-color: fade(@dark-color, 20%);
+}
+
+.card-header > .btn {
+background-color: fade(@success-color, 10%);
+border-color: fade(@success-color, 20%);
+color: @black-color;
+}
+
+.card-header > .btn:hover {
+background-color: fade(@success-color, 15%);
+border-color: fade(@success-color, 25%);
+}
+
+.card-header > .btn:focus {
+box-shadow: 0 0 0 0.2rem fade(@dark-color, 20%);
+}
+
+.card-header > .btn:not(:disabled):not(.disabled).active, .card-header > .btn:not(:disabled):not(.disabled):active {
+background-color: fade(@dark-color, 10%);
+border-color: fade(@dark-color, 20%);
+}
+
+.fc td.fc-highlight {
+background: fade(@dark-color, 65%);
+}
+
+.fc .fc-today {
+background: fade(@dark-color, 35%);
+}
+
+.fc table.table-bordered th {
+color: @white-color;
+background-color: @dark-color;
+}
+
+.fc-head-container {
+background-color: @dark-color;
+}
+
+.fc-head-container .table-bordered td, .fc-head-container .table-bordered th {
+border: 1px solid @black-color;
+}
+
+.qtip-content {
+background-color: @dark-color;
+color: @white-color;
+}
+
+.qtip-bootstrap {
+border: 1px solid @dark-color-border !important;
+}
+
+div.flatpickr-months, div.flatpickr-weekdays {
+background: @dark-color;
+}
+
+div.flatpickr-current-month span.cur-month, div.flatpickr-months input.cur-year, div.flatpickr-weekdays span {
+color: @white-color;
+}
+
+div.flatpickr-months svg {
+fill: @white-color;
+}
+
+span.flatpickr-day:hover, span.flatpickr-day.today:hover {
+background: fade(@success-color, 30%);
+}
+
+span.flatpickr-day.selected {
+background-color: @dark-color;
+border-color: @dark-color-border;
+}
+
+span.flatpickr-day.selected:hover {
+background-color: @dark-color-hover;
+border-color: @dark-color-border;
+}
+
+span.flatpickr-day.today {
+border-color: @dark-color-border;
+}
+
+ul.dropdown-menu > li.highlight > a {
+background-color: @dark-color !important;
+}
+
+.fc-day {
+background-color: fade(@success-color, 5%);
+}
+
+div.starline {
+border-color: @dark-color;
+color: @dark-color;
+}
+
+div.starline > span {
+background-color: @white-color;
+}

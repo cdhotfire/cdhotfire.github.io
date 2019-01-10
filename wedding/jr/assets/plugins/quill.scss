@@ -1,0 +1,40 @@
+﻿@mixin qlfont($name, $family, $display) {
+.ql-font-#{$name} {
+font-family: $family;
+}
+
+.ql-picker.ql-font .ql-picker-label[data-value=#{$name}]::before, .ql-picker.ql-font .ql-picker-item[data-value=#{$name}]::before {
+content: $display;
+font-family: $family;
+}
+}
+
+@include qlfont("arial", Arial, "Arial");
+@include qlfont("timesnewroman", 'Times New Roman', "Times New Roman");
+@include qlfont("couriernew", 'Courier New', "Courier New");
+@include qlfont("verdana", Verdana, "Verdana");
+@include qlfont("georgia", Georgia, "Georgia");
+@include qlfont("palatino", 'Palatino Linotype', "Palatino");
+@include qlfont("garamond", Garamond, "Garamond");
+@include qlfont("bookman", 'Bookman Old Style', "Bookman");
+@include qlfont("comicsans", 'Comic Sans MS', "Comic Sans");
+@include qlfont("trebuchet", 'Trebuchet MS', "Trebuchet");
+@include qlfont("impact", Impact, "Impact");
+@include qlfont("lato", 'Lato', "Lato");
+@include qlfont("opensans", 'Open Sans', "Open Sans");
+@include qlfont("josefinslab", 'Josefin Slab', "Josefin Slab");
+@include qlfont("arvo", 'Arvo', "Arvo");
+@include qlfont("vollkorn", 'Vollkorn', "Vollkorn");
+@include qlfont("abrilfatface", 'Abril Fatface', "Abril Fatface");
+@include qlfont("ubuntu", 'Ubuntu', "Ubuntu");
+@include qlfont("ptsans", 'PT Sans', "PT Sans");
+@include qlfont("oldstandard", 'Old Standard', "Old Standard");
+@include qlfont("monospace", monospace, "Monospace");
+
+.ql-font {
+width: auto !important;
+}
+
+.ql-font > .ql-picker-label {
+margin-right: 15px;
+}

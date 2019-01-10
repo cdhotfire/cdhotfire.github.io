@@ -1,0 +1,16 @@
+﻿{
+"presets": [
+[
+"env",
+{
+"modules": false,
+"targets": {
+"browsers": [ ">0.25%", "ie>=10" ]
+}
+}
+]
+],
+"plugins": [ "transform-runtime" ],
+"ignore": [ "node_modules" ],
+"compact": "false"
+}
