@@ -1,3 +1,5 @@
 plugins:
   - jekyll-redirect-from
 redirect_from: "/wedding/"
+
+theme: jekyll-theme-modernist
