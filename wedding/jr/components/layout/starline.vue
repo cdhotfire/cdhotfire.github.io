@@ -1,4 +1,0 @@
-﻿<template>
-    <div>
-    </div>
-</template>
