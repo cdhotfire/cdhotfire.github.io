@@ -1,6 +1,13 @@
 // stylesheets
 import "./scss/default.scss";
 
+import jquery from "jquery";
+
+window.jQuery = jquery;
+window.$ = jquery;
+
+import "./library/sakura/jquery-sakura.min.css";
+
 // libraries
 import "core-js/stable";
 import "regenerator-runtime/runtime";
