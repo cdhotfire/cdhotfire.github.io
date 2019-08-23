@@ -1,9 +1,5 @@
 @import "./node_modules/bootstrap/scss/bootstrap";
-@import url('https://fonts.googleapis.com/css?family=Open+Sans|Parisienne&display=swap');
-
-body {
-  font-family: 'Open Sans', sans-serif;
-}
+@import url("https://fonts.googleapis.com/css?family=Parisienne&display=swap");
 
 .header {
   height: 100vh;
@@ -30,8 +26,6 @@ body {
   /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#feffff', endColorstr='#d2ebf9', GradientType=0);
   /* IE6-9 */
-
-
   position: absolute;
   pointer-events: none;
 }
@@ -47,22 +41,104 @@ body {
 
 .header-text {
   position: absolute;
-  height: 100%;
   width: 100%;
-  top: 40%;
+  top: 35%;
   left: 0;
   text-align: center;
-  font-family: 'Parisienne', cursive;
-  font-size: 3rem;
   color: white;
-  opacity: .9;
+}
+
+.header-names {
+  font-family: "Parisienne", cursive;
+  opacity: 0.9;
+}
+
+.cursive {
+  font-family: "Parisienne", cursive;
+}
+
+.cursive-header {
+  font-family: "Parisienne", cursive;
+  font-size: 5rem !important;
+}
+
+.header-names > div {
+  margin-top: -1.5rem;
 }
 
 .image-overlay {
-  background-color: rgba(130, 137, 76, 0.15);
+  background-color: rgba(65, 81, 82, 0.5);
   position: absolute;
   width: 100%;
   height: 100%;
   top: 0;
   left: 0;
+}
+
+.together {
+  height: 7rem;
+}
+
+.countdown {
+  background-color: #ecf2f0;
+}
+
+.countdown-date {
+  font-size: 3rem;
+  margin-top: 0;
+  text-align: center;
+  font-family: "Montserrat", -apple-system, BlinkMacSystemFont, "Segoe UI",
+    Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji",
+    "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+}
+
+.countdown-description {
+  font-size: 1rem;
+  line-height: 1.75;
+  color: #6c757d !important;
+  text-align: center;
+}
+
+.map {
+  height: 30rem;
+}
+
+hr {
+  border-color: #fed136;
+}
+
+.gallery {
+  -webkit-column-count: 3;
+  -moz-column-count: 3;
+  column-count: 3;
+  -webkit-column-width: 33%;
+  -moz-column-width: 33%;
+  column-width: 33%;
+}
+.gallery .pics {
+  -webkit-transition: all 350ms ease;
+  transition: all 350ms ease;
+}
+.gallery .animation {
+  -webkit-transform: scale(1);
+  -ms-transform: scale(1);
+  transform: scale(1);
+}
+
+@media (max-width: 450px) {
+  .gallery {
+    -webkit-column-count: 1;
+    -moz-column-count: 1;
+    column-count: 1;
+    -webkit-column-width: 100%;
+    -moz-column-width: 100%;
+    column-width: 100%;
+  }
+}
+
+@media (max-width: 400px) {
+  .btn.filter {
+    padding-left: 1.1rem;
+    padding-right: 1.1rem;
+  }
 }

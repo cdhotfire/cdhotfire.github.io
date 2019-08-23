@@ -1,5 +1,6 @@
 // stylesheets
 import "./scss/default.scss";
+import "./scss/theme/agency.scss";
 
 import jquery from "jquery";
 
@@ -15,6 +16,17 @@ import "regenerator-runtime/runtime";
 import Vue from "vue";
 import router from "./utilities/router";
 import app from "./components/app.vue";
+
+import { library } from '@fortawesome/fontawesome-svg-core'
+import { faMapMarkedAlt, faClipboardCheck, faImages } from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
+
+library.add(faMapMarkedAlt, faImages, faClipboardCheck);
+Vue.component('font-awesome-icon', FontAwesomeIcon)
+Vue.config.productionTip = false
+
+import vueSmoothScroll from 'vue2-smooth-scroll';
+Vue.use(vueSmoothScroll)
 
 new Vue({
   el: "#app",
