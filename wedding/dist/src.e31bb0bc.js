@@ -34329,7 +34329,7 @@ var _default = new _vueRouter.default({
 });
 
 exports.default = _default;
-},{"@babel/runtime/regenerator":"../node_modules/@babel/runtime/regenerator/index.js","@babel/runtime/helpers/asyncToGenerator":"../node_modules/@babel/runtime/helpers/asyncToGenerator.js","vue":"../node_modules/vue/dist/vue.runtime.esm.js","vue-router":"../node_modules/vue-router/dist/vue-router.esm.js","_bundle_loader":"../node_modules/parcel-bundler/src/builtins/bundle-loader.js","/components/index":[["components.7a20127c.js","components/index.vue"],"components.7a20127c.js.map","components.7a20127c.css",["engagement1.072fcc25.jpg","images/engagement/engagement1.jpg"],["engagement10.23272fea.jpg","images/engagement/engagement10.jpg"],["engagement11.435bc814.jpg","images/engagement/engagement11.jpg"],["engagement15.f86c2e22.jpg","images/engagement/engagement15.jpg"],["engagement16.72ff483d.jpg","images/engagement/engagement16.jpg"],["engagement18.4a1c8a9c.jpg","images/engagement/engagement18.jpg"],["engagement17.76cf3135.jpg","images/engagement/engagement17.jpg"],["engagement19.dbad5104.jpg","images/engagement/engagement19.jpg"],["engagement2.3e4cbbbf.jpg","images/engagement/engagement2.jpg"],["engagement20.c4fc4d72.jpg","images/engagement/engagement20.jpg"],["engagement21.788773b6.jpg","images/engagement/engagement21.jpg"],["engagement22.643c7511.jpg","images/engagement/engagement22.jpg"],["engagement24.98d60f55.jpg","images/engagement/engagement24.jpg"],["engagement23.3d135313.jpg","images/engagement/engagement23.jpg"],["engagement25.a2c6eb52.jpg","images/engagement/engagement25.jpg"],["engagement26.9796a33c.jpg","images/engagement/engagement26.jpg"],["engagement28.0c87f2db.jpg","images/engagement/engagement28.jpg"],["engagement27.70944ef7.jpg","images/engagement/engagement27.jpg"],["engagement29.a3b16b45.jpg","images/engagement/engagement29.jpg"],["engagement3.1f75fcb3.jpg","images/engagement/engagement3.jpg"],["engagement30.1822887b.jpg","images/engagement/engagement30.jpg"],["engagement31.2464133c.jpg","images/engagement/engagement31.jpg"],["engagement32.07523116.jpg","images/engagement/engagement32.jpg"],["engagement33.3c69db22.jpg","images/engagement/engagement33.jpg"],["engagement34.956889f4.jpg","images/engagement/engagement34.jpg"],["engagement36.61c05719.jpg","images/engagement/engagement36.jpg"],["engagement39.fe3a385c.jpg","images/engagement/engagement39.jpg"],["engagement35.b62542ad.jpg","images/engagement/engagement35.jpg"],["engagement38.ac72b811.jpg","images/engagement/engagement38.jpg"],["engagement37.adc6424e.jpg","images/engagement/engagement37.jpg"],["engagement4.6d216276.jpg","images/engagement/engagement4.jpg"],["engagement40.b767171b.jpg","images/engagement/engagement40.jpg"],["engagement42.018f3b95.jpg","images/engagement/engagement42.jpg"],["engagement41.0a452bb7.jpg","images/engagement/engagement41.jpg"],["engagement43.d134e909.jpg","images/engagement/engagement43.jpg"],["engagement44.4b338d11.jpg","images/engagement/engagement44.jpg"],["engagement45.746213ca.jpg","images/engagement/engagement45.jpg"],["engagement46.2e48e97f.jpg","images/engagement/engagement46.jpg"],["engagement47.56850a69.jpg","images/engagement/engagement47.jpg"],["engagement48.66639cf7.jpg","images/engagement/engagement48.jpg"],["engagement51.b7897d37.jpg","images/engagement/engagement51.jpg"],["engagement53.fffbfd66.jpg","images/engagement/engagement53.jpg"],["engagement52.6255b436.jpg","images/engagement/engagement52.jpg"],["engagement50.679796d4.jpg","images/engagement/engagement50.jpg"],["engagement54.18c50fea.jpg","images/engagement/engagement54.jpg"],["engagement5.aeb1789d.jpg","images/engagement/engagement5.jpg"],["engagement55.d7b2b246.jpg","images/engagement/engagement55.jpg"],["engagement58.30568eea.jpg","images/engagement/engagement58.jpg"],["engagement56.c2ace88e.jpg","images/engagement/engagement56.jpg"],["engagement57.aaa459d9.jpg","images/engagement/engagement57.jpg"],["engagement60.fde90a5d.jpg","images/engagement/engagement60.jpg"],["engagement59.2d977165.jpg","images/engagement/engagement59.jpg"],["engagement61.e0b0071e.jpg","images/engagement/engagement61.jpg"],["engagement62.45917d54.jpg","images/engagement/engagement62.jpg"],["engagement63.3b3fe51c.jpg","images/engagement/engagement63.jpg"],["engagement64.9877c868.jpg","images/engagement/engagement64.jpg"],["engagement65.99c625a2.jpg","images/engagement/engagement65.jpg"],["engagement66.afe955fa.jpg","images/engagement/engagement66.jpg"],["engagement67.5455f0a3.jpg","images/engagement/engagement67.jpg"],["engagement69.0919272c.jpg","images/engagement/engagement69.jpg"],["engagement68.9e4258e9.jpg","images/engagement/engagement68.jpg"],["engagement7.e0580e0c.jpg","images/engagement/engagement7.jpg"],["engagement70.fe3e84cc.jpg","images/engagement/engagement70.jpg"],["engagement71.294fb6af.jpg","images/engagement/engagement71.jpg"],["engagement72.c2205c2c.jpg","images/engagement/engagement72.jpg"],["engagement73.bfb18b04.jpg","images/engagement/engagement73.jpg"],["engagement74.b1514902.jpg","images/engagement/engagement74.jpg"],["engagement75.03b0f086.jpg","images/engagement/engagement75.jpg"],["engagement76.621e3623.jpg","images/engagement/engagement76.jpg"],["engagement77.370146b9.jpg","images/engagement/engagement77.jpg"],["engagement78.ece3128d.jpg","images/engagement/engagement78.jpg"],["engagement79.9df092ae.jpg","images/engagement/engagement79.jpg"],["engagement8.dba495f5.jpg","images/engagement/engagement8.jpg"],["engagement80.fa229b2a.jpg","images/engagement/engagement80.jpg"],["engagement81.df41636d.jpg","images/engagement/engagement81.jpg"],["engagement82.ee9e2c8c.jpg","images/engagement/engagement82.jpg"],["engagement83.d7ee8217.jpg","images/engagement/engagement83.jpg"],["engagement84.1d5c37b8.jpg","images/engagement/engagement84.jpg"],["engagement6.a31a6dec.jpg","images/engagement/engagement6.jpg"],["engagement85.aa30b96b.jpg","images/engagement/engagement85.jpg"],["engagement49.f4a7e69c.jpg","images/engagement/engagement49.jpg"],["engagement9.babc2db7.jpg","images/engagement/engagement9.jpg"],"components/index.vue"]}],"../node_modules/vue-hot-reload-api/dist/index.js":[function(require,module,exports) {
+},{"@babel/runtime/regenerator":"../node_modules/@babel/runtime/regenerator/index.js","@babel/runtime/helpers/asyncToGenerator":"../node_modules/@babel/runtime/helpers/asyncToGenerator.js","vue":"../node_modules/vue/dist/vue.runtime.esm.js","vue-router":"../node_modules/vue-router/dist/vue-router.esm.js","_bundle_loader":"../node_modules/parcel-bundler/src/builtins/bundle-loader.js","/components/index":[["components.7a20127c.js","components/index.vue"],"components.7a20127c.js.map","components.7a20127c.css",["engagement1.072fcc25.jpg","images/engagement/engagement1.jpg"],["engagement11.435bc814.jpg","images/engagement/engagement11.jpg"],["engagement15.f86c2e22.jpg","images/engagement/engagement15.jpg"],["engagement16.72ff483d.jpg","images/engagement/engagement16.jpg"],["engagement17.76cf3135.jpg","images/engagement/engagement17.jpg"],["engagement10.23272fea.jpg","images/engagement/engagement10.jpg"],["engagement18.4a1c8a9c.jpg","images/engagement/engagement18.jpg"],["engagement19.dbad5104.jpg","images/engagement/engagement19.jpg"],["engagement2.3e4cbbbf.jpg","images/engagement/engagement2.jpg"],["engagement20.c4fc4d72.jpg","images/engagement/engagement20.jpg"],["engagement21.788773b6.jpg","images/engagement/engagement21.jpg"],["engagement22.643c7511.jpg","images/engagement/engagement22.jpg"],["engagement23.3d135313.jpg","images/engagement/engagement23.jpg"],["engagement24.98d60f55.jpg","images/engagement/engagement24.jpg"],["engagement25.a2c6eb52.jpg","images/engagement/engagement25.jpg"],["engagement26.9796a33c.jpg","images/engagement/engagement26.jpg"],["engagement27.70944ef7.jpg","images/engagement/engagement27.jpg"],["engagement28.0c87f2db.jpg","images/engagement/engagement28.jpg"],["engagement29.a3b16b45.jpg","images/engagement/engagement29.jpg"],["engagement3.1f75fcb3.jpg","images/engagement/engagement3.jpg"],["engagement30.1822887b.jpg","images/engagement/engagement30.jpg"],["engagement31.2464133c.jpg","images/engagement/engagement31.jpg"],["engagement32.07523116.jpg","images/engagement/engagement32.jpg"],["engagement33.3c69db22.jpg","images/engagement/engagement33.jpg"],["engagement34.956889f4.jpg","images/engagement/engagement34.jpg"],["engagement35.b62542ad.jpg","images/engagement/engagement35.jpg"],["engagement36.61c05719.jpg","images/engagement/engagement36.jpg"],["engagement37.adc6424e.jpg","images/engagement/engagement37.jpg"],["engagement39.fe3a385c.jpg","images/engagement/engagement39.jpg"],["engagement38.ac72b811.jpg","images/engagement/engagement38.jpg"],["engagement4.6d216276.jpg","images/engagement/engagement4.jpg"],["engagement40.b767171b.jpg","images/engagement/engagement40.jpg"],["engagement41.0a452bb7.jpg","images/engagement/engagement41.jpg"],["engagement42.018f3b95.jpg","images/engagement/engagement42.jpg"],["engagement43.d134e909.jpg","images/engagement/engagement43.jpg"],["engagement44.4b338d11.jpg","images/engagement/engagement44.jpg"],["engagement45.746213ca.jpg","images/engagement/engagement45.jpg"],["engagement46.2e48e97f.jpg","images/engagement/engagement46.jpg"],["engagement47.56850a69.jpg","images/engagement/engagement47.jpg"],["engagement48.66639cf7.jpg","images/engagement/engagement48.jpg"],["engagement49.f4a7e69c.jpg","images/engagement/engagement49.jpg"],["engagement50.679796d4.jpg","images/engagement/engagement50.jpg"],["engagement5.aeb1789d.jpg","images/engagement/engagement5.jpg"],["engagement51.b7897d37.jpg","images/engagement/engagement51.jpg"],["engagement52.6255b436.jpg","images/engagement/engagement52.jpg"],["engagement54.18c50fea.jpg","images/engagement/engagement54.jpg"],["engagement55.d7b2b246.jpg","images/engagement/engagement55.jpg"],["engagement56.c2ace88e.jpg","images/engagement/engagement56.jpg"],["engagement57.aaa459d9.jpg","images/engagement/engagement57.jpg"],["engagement58.30568eea.jpg","images/engagement/engagement58.jpg"],["engagement59.2d977165.jpg","images/engagement/engagement59.jpg"],["engagement6.a31a6dec.jpg","images/engagement/engagement6.jpg"],["engagement60.fde90a5d.jpg","images/engagement/engagement60.jpg"],["engagement61.e0b0071e.jpg","images/engagement/engagement61.jpg"],["engagement62.45917d54.jpg","images/engagement/engagement62.jpg"],["engagement63.3b3fe51c.jpg","images/engagement/engagement63.jpg"],["engagement64.9877c868.jpg","images/engagement/engagement64.jpg"],["engagement65.99c625a2.jpg","images/engagement/engagement65.jpg"],["engagement66.afe955fa.jpg","images/engagement/engagement66.jpg"],["engagement67.5455f0a3.jpg","images/engagement/engagement67.jpg"],["engagement68.9e4258e9.jpg","images/engagement/engagement68.jpg"],["engagement69.0919272c.jpg","images/engagement/engagement69.jpg"],["engagement7.e0580e0c.jpg","images/engagement/engagement7.jpg"],["engagement70.fe3e84cc.jpg","images/engagement/engagement70.jpg"],["engagement71.294fb6af.jpg","images/engagement/engagement71.jpg"],["engagement72.c2205c2c.jpg","images/engagement/engagement72.jpg"],["engagement73.bfb18b04.jpg","images/engagement/engagement73.jpg"],["engagement74.b1514902.jpg","images/engagement/engagement74.jpg"],["engagement75.03b0f086.jpg","images/engagement/engagement75.jpg"],["engagement76.621e3623.jpg","images/engagement/engagement76.jpg"],["engagement77.370146b9.jpg","images/engagement/engagement77.jpg"],["engagement79.9df092ae.jpg","images/engagement/engagement79.jpg"],["engagement78.ece3128d.jpg","images/engagement/engagement78.jpg"],["engagement8.dba495f5.jpg","images/engagement/engagement8.jpg"],["engagement80.fa229b2a.jpg","images/engagement/engagement80.jpg"],["engagement81.df41636d.jpg","images/engagement/engagement81.jpg"],["engagement82.ee9e2c8c.jpg","images/engagement/engagement82.jpg"],["engagement83.d7ee8217.jpg","images/engagement/engagement83.jpg"],["engagement84.1d5c37b8.jpg","images/engagement/engagement84.jpg"],["engagement85.aa30b96b.jpg","images/engagement/engagement85.jpg"],["engagement9.babc2db7.jpg","images/engagement/engagement9.jpg"],["engagement53.fffbfd66.jpg","images/engagement/engagement53.jpg"],"components/index.vue"]}],"../node_modules/vue-hot-reload-api/dist/index.js":[function(require,module,exports) {
 var Vue // late bind
 var version
 var map = Object.create(null)
@@ -44328,6 +44328,1873 @@ exports.FontAwesomeLayersText = FontAwesomeLayersText;
 },{"@fortawesome/fontawesome-svg-core":"../node_modules/@fortawesome/fontawesome-svg-core/index.es.js"}],"../node_modules/vue2-smooth-scroll/dist/vue-smooth-scroll.min.js":[function(require,module,exports) {
 var define;
 !function(e,t){"object"==typeof exports&&"object"==typeof module?module.exports=t():"function"==typeof define&&define.amd?define([],t):"object"==typeof exports?exports.VueSmoothScroll=t():e.VueSmoothScroll=t()}(window,function(){return function(e){var t={};function o(n){if(t[n])return t[n].exports;var r=t[n]={i:n,l:!1,exports:{}};return e[n].call(r.exports,r,r.exports,o),r.l=!0,r.exports}return o.m=e,o.c=t,o.d=function(e,t,n){o.o(e,t)||Object.defineProperty(e,t,{enumerable:!0,get:n})},o.r=function(e){"undefined"!=typeof Symbol&&Symbol.toStringTag&&Object.defineProperty(e,Symbol.toStringTag,{value:"Module"}),Object.defineProperty(e,"__esModule",{value:!0})},o.t=function(e,t){if(1&t&&(e=o(e)),8&t)return e;if(4&t&&"object"==typeof e&&e&&e.__esModule)return e;var n=Object.create(null);if(o.r(n),Object.defineProperty(n,"default",{enumerable:!0,value:e}),2&t&&"string"!=typeof e)for(var r in e)o.d(n,r,function(t){return e[t]}.bind(null,r));return n},o.n=function(e){var t=e&&e.__esModule?function(){return e.default}:function(){return e};return o.d(t,"a",t),t},o.o=function(e,t){return Object.prototype.hasOwnProperty.call(e,t)},o.p="",o(o.s=0)}([function(e,t,o){"use strict";function n(e){return(n="function"==typeof Symbol&&"symbol"==typeof Symbol.iterator?function(e){return typeof e}:function(e){return e&&"function"==typeof Symbol&&e.constructor===Symbol&&e!==Symbol.prototype?"symbol":typeof e})(e)}o.r(t);var r={install:function(e,t){e.directive("smooth-scroll",{inserted:function(e,o){if("object"===("undefined"==typeof window?"undefined":n(window))&&void 0!==window.pageYOffset){var r={duration:500,offset:0,container:window,updateHistory:!0};t&&Object.assign(r,t);var i=window.requestAnimationFrame||window.mozRequestAnimationFrame||window.webkitRequestAnimationFrame||function(e){window.setTimeout(e,16)},u=o.value||{},f=u.duration,a=u.offset,d=u.container,c=u.updateHistory;f=f||r.duration,a=a||r.offset,c=void 0!==c?c:r.updateHistory,"string"==typeof(d=d||r.container)&&(d=document.querySelector(d)),e.addEventListener("click",function(e){e.preventDefault();var t=document.getElementById(this.hash.substring(1));if(t){c&&window.history.pushState&&location.hash!==this.hash&&window.history.pushState("","",this.hash);var o,n,r=d.scrollTop||window.pageYOffset,u=(n=r,"HTML"===(o=t).nodeName?-n:o.getBoundingClientRect().top+n);u+=a;var l=Date.now();!function e(){var o,n=Date.now()-l,a=u;n<f?(a=r+(u-r)*((o=n/f)<.5?4*o*o*o:(o-1)*(2*o-2)*(2*o-2)+1),i(e)):c&&location.replace("#"+t.id),d===window?d.scrollTo(0,a):d.scrollTop=a}()}})}}})}};t.default=r,"undefined"!=typeof window&&window.Vue&&window.Vue.use(r)}])});
+},{}],"../node_modules/vue-lazyload/vue-lazyload.esm.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+/*!
+ * Vue-Lazyload.js v1.3.1
+ * (c) 2019 Awe <hilongjw@gmail.com>
+ * Released under the MIT License.
+ */
+var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) {
+  return typeof obj;
+} : function (obj) {
+  return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj;
+};
+
+var classCallCheck = function (instance, Constructor) {
+  if (!(instance instanceof Constructor)) {
+    throw new TypeError("Cannot call a class as a function");
+  }
+};
+
+var createClass = function () {
+  function defineProperties(target, props) {
+    for (var i = 0; i < props.length; i++) {
+      var descriptor = props[i];
+      descriptor.enumerable = descriptor.enumerable || false;
+      descriptor.configurable = true;
+      if ("value" in descriptor) descriptor.writable = true;
+      Object.defineProperty(target, descriptor.key, descriptor);
+    }
+  }
+
+  return function (Constructor, protoProps, staticProps) {
+    if (protoProps) defineProperties(Constructor.prototype, protoProps);
+    if (staticProps) defineProperties(Constructor, staticProps);
+    return Constructor;
+  };
+}();
+/*!
+ * is-primitive <https://github.com/jonschlinkert/is-primitive>
+ *
+ * Copyright (c) 2014-2015, Jon Schlinkert.
+ * Licensed under the MIT License.
+ */
+// see http://jsperf.com/testing-value-is-primitive/7
+
+
+var isPrimitive = function isPrimitive(value) {
+  return value == null || typeof value !== 'function' && (typeof value === 'undefined' ? 'undefined' : _typeof(value)) !== 'object';
+};
+/*!
+ * assign-symbols <https://github.com/jonschlinkert/assign-symbols>
+ *
+ * Copyright (c) 2015, Jon Schlinkert.
+ * Licensed under the MIT License.
+ */
+
+
+var assignSymbols = function assignSymbols(receiver, objects) {
+  if (receiver === null || typeof receiver === 'undefined') {
+    throw new TypeError('expected first argument to be an object.');
+  }
+
+  if (typeof objects === 'undefined' || typeof Symbol === 'undefined') {
+    return receiver;
+  }
+
+  if (typeof Object.getOwnPropertySymbols !== 'function') {
+    return receiver;
+  }
+
+  var isEnumerable = Object.prototype.propertyIsEnumerable;
+  var target = Object(receiver);
+  var len = arguments.length,
+      i = 0;
+
+  while (++i < len) {
+    var provider = Object(arguments[i]);
+    var names = Object.getOwnPropertySymbols(provider);
+
+    for (var j = 0; j < names.length; j++) {
+      var key = names[j];
+
+      if (isEnumerable.call(provider, key)) {
+        target[key] = provider[key];
+      }
+    }
+  }
+
+  return target;
+};
+
+var toString = Object.prototype.toString;
+/**
+ * Get the native `typeof` a value.
+ *
+ * @param  {*} `val`
+ * @return {*} Native javascript type
+ */
+
+var kindOf = function kindOf(val) {
+  var type = typeof val === 'undefined' ? 'undefined' : _typeof(val); // primitivies
+
+  if (type === 'undefined') {
+    return 'undefined';
+  }
+
+  if (val === null) {
+    return 'null';
+  }
+
+  if (val === true || val === false || val instanceof Boolean) {
+    return 'boolean';
+  }
+
+  if (type === 'string' || val instanceof String) {
+    return 'string';
+  }
+
+  if (type === 'number' || val instanceof Number) {
+    return 'number';
+  } // functions
+
+
+  if (type === 'function' || val instanceof Function) {
+    if (typeof val.constructor.name !== 'undefined' && val.constructor.name.slice(0, 9) === 'Generator') {
+      return 'generatorfunction';
+    }
+
+    return 'function';
+  } // array
+
+
+  if (typeof Array.isArray !== 'undefined' && Array.isArray(val)) {
+    return 'array';
+  } // check for instances of RegExp and Date before calling `toString`
+
+
+  if (val instanceof RegExp) {
+    return 'regexp';
+  }
+
+  if (val instanceof Date) {
+    return 'date';
+  } // other objects
+
+
+  type = toString.call(val);
+
+  if (type === '[object RegExp]') {
+    return 'regexp';
+  }
+
+  if (type === '[object Date]') {
+    return 'date';
+  }
+
+  if (type === '[object Arguments]') {
+    return 'arguments';
+  }
+
+  if (type === '[object Error]') {
+    return 'error';
+  }
+
+  if (type === '[object Promise]') {
+    return 'promise';
+  } // buffer
+
+
+  if (isBuffer(val)) {
+    return 'buffer';
+  } // es6: Map, WeakMap, Set, WeakSet
+
+
+  if (type === '[object Set]') {
+    return 'set';
+  }
+
+  if (type === '[object WeakSet]') {
+    return 'weakset';
+  }
+
+  if (type === '[object Map]') {
+    return 'map';
+  }
+
+  if (type === '[object WeakMap]') {
+    return 'weakmap';
+  }
+
+  if (type === '[object Symbol]') {
+    return 'symbol';
+  }
+
+  if (type === '[object Map Iterator]') {
+    return 'mapiterator';
+  }
+
+  if (type === '[object Set Iterator]') {
+    return 'setiterator';
+  }
+
+  if (type === '[object String Iterator]') {
+    return 'stringiterator';
+  }
+
+  if (type === '[object Array Iterator]') {
+    return 'arrayiterator';
+  } // typed arrays
+
+
+  if (type === '[object Int8Array]') {
+    return 'int8array';
+  }
+
+  if (type === '[object Uint8Array]') {
+    return 'uint8array';
+  }
+
+  if (type === '[object Uint8ClampedArray]') {
+    return 'uint8clampedarray';
+  }
+
+  if (type === '[object Int16Array]') {
+    return 'int16array';
+  }
+
+  if (type === '[object Uint16Array]') {
+    return 'uint16array';
+  }
+
+  if (type === '[object Int32Array]') {
+    return 'int32array';
+  }
+
+  if (type === '[object Uint32Array]') {
+    return 'uint32array';
+  }
+
+  if (type === '[object Float32Array]') {
+    return 'float32array';
+  }
+
+  if (type === '[object Float64Array]') {
+    return 'float64array';
+  } // must be a plain object
+
+
+  return 'object';
+};
+/**
+ * If you need to support Safari 5-7 (8-10 yr-old browser),
+ * take a look at https://github.com/feross/is-buffer
+ */
+
+
+function isBuffer(val) {
+  return val.constructor && typeof val.constructor.isBuffer === 'function' && val.constructor.isBuffer(val);
+}
+
+function assign(target
+/*, objects*/
+) {
+  target = target || {};
+  var len = arguments.length,
+      i = 0;
+
+  if (len === 1) {
+    return target;
+  }
+
+  while (++i < len) {
+    var val = arguments[i];
+
+    if (isPrimitive(target)) {
+      target = val;
+    }
+
+    if (isObject$1(val)) {
+      extend(target, val);
+    }
+  }
+
+  return target;
+}
+/**
+ * Shallow extend
+ */
+
+
+function extend(target, obj) {
+  assignSymbols(target, obj);
+
+  for (var key in obj) {
+    if (isValidKey(key) && hasOwn(obj, key)) {
+      var val = obj[key];
+
+      if (isObject$1(val)) {
+        if (kindOf(target[key]) === 'undefined' && kindOf(val) === 'function') {
+          target[key] = val;
+        }
+
+        target[key] = assign(target[key] || {}, val);
+      } else {
+        target[key] = val;
+      }
+    }
+  }
+
+  return target;
+}
+/**
+ * Returns true if the object is a plain object or a function.
+ */
+
+
+function isObject$1(obj) {
+  return kindOf(obj) === 'object' || kindOf(obj) === 'function';
+}
+/**
+ * Returns true if the given `key` is an own property of `obj`.
+ */
+
+
+function hasOwn(obj, key) {
+  return Object.prototype.hasOwnProperty.call(obj, key);
+}
+/**
+ * Returns true if the given `key` is a valid key that can be used for assigning properties.
+ */
+
+
+function isValidKey(key) {
+  return key !== '__proto__' && key !== 'constructor' && key !== 'prototype';
+}
+/**
+ * Expose `assign`
+ */
+
+
+var assignDeep = assign;
+var inBrowser = typeof window !== 'undefined';
+var hasIntersectionObserver = checkIntersectionObserver();
+
+function checkIntersectionObserver() {
+  if (inBrowser && 'IntersectionObserver' in window && 'IntersectionObserverEntry' in window && 'intersectionRatio' in window.IntersectionObserverEntry.prototype) {
+    // Minimal polyfill for Edge 15's lack of `isIntersecting`
+    // See: https://github.com/w3c/IntersectionObserver/issues/211
+    if (!('isIntersecting' in window.IntersectionObserverEntry.prototype)) {
+      Object.defineProperty(window.IntersectionObserverEntry.prototype, 'isIntersecting', {
+        get: function get$$1() {
+          return this.intersectionRatio > 0;
+        }
+      });
+    }
+
+    return true;
+  }
+
+  return false;
+}
+
+var modeType = {
+  event: 'event',
+  observer: 'observer' // CustomEvent polyfill
+
+};
+
+var CustomEvent = function () {
+  if (!inBrowser) return;
+  if (typeof window.CustomEvent === 'function') return window.CustomEvent;
+
+  function CustomEvent(event, params) {
+    params = params || {
+      bubbles: false,
+      cancelable: false,
+      detail: undefined
+    };
+    var evt = document.createEvent('CustomEvent');
+    evt.initCustomEvent(event, params.bubbles, params.cancelable, params.detail);
+    return evt;
+  }
+
+  CustomEvent.prototype = window.Event.prototype;
+  return CustomEvent;
+}();
+
+function remove(arr, item) {
+  if (!arr.length) return;
+  var index = arr.indexOf(item);
+  if (index > -1) return arr.splice(index, 1);
+}
+
+function some(arr, fn) {
+  var has = false;
+
+  for (var i = 0, len = arr.length; i < len; i++) {
+    if (fn(arr[i])) {
+      has = true;
+      break;
+    }
+  }
+
+  return has;
+}
+
+function getBestSelectionFromSrcset(el, scale) {
+  if (el.tagName !== 'IMG' || !el.getAttribute('data-srcset')) return;
+  var options = el.getAttribute('data-srcset');
+  var result = [];
+  var container = el.parentNode;
+  var containerWidth = container.offsetWidth * scale;
+  var spaceIndex = void 0;
+  var tmpSrc = void 0;
+  var tmpWidth = void 0;
+  options = options.trim().split(',');
+  options.map(function (item) {
+    item = item.trim();
+    spaceIndex = item.lastIndexOf(' ');
+
+    if (spaceIndex === -1) {
+      tmpSrc = item;
+      tmpWidth = 999998;
+    } else {
+      tmpSrc = item.substr(0, spaceIndex);
+      tmpWidth = parseInt(item.substr(spaceIndex + 1, item.length - spaceIndex - 2), 10);
+    }
+
+    result.push([tmpWidth, tmpSrc]);
+  });
+  result.sort(function (a, b) {
+    if (a[0] < b[0]) {
+      return 1;
+    }
+
+    if (a[0] > b[0]) {
+      return -1;
+    }
+
+    if (a[0] === b[0]) {
+      if (b[1].indexOf('.webp', b[1].length - 5) !== -1) {
+        return 1;
+      }
+
+      if (a[1].indexOf('.webp', a[1].length - 5) !== -1) {
+        return -1;
+      }
+    }
+
+    return 0;
+  });
+  var bestSelectedSrc = '';
+  var tmpOption = void 0;
+
+  for (var i = 0; i < result.length; i++) {
+    tmpOption = result[i];
+    bestSelectedSrc = tmpOption[1];
+    var next = result[i + 1];
+
+    if (next && next[0] < containerWidth) {
+      bestSelectedSrc = tmpOption[1];
+      break;
+    } else if (!next) {
+      bestSelectedSrc = tmpOption[1];
+      break;
+    }
+  }
+
+  return bestSelectedSrc;
+}
+
+function find(arr, fn) {
+  var item = void 0;
+
+  for (var i = 0, len = arr.length; i < len; i++) {
+    if (fn(arr[i])) {
+      item = arr[i];
+      break;
+    }
+  }
+
+  return item;
+}
+
+var getDPR = function getDPR() {
+  var scale = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 1;
+  return inBrowser ? window.devicePixelRatio || scale : scale;
+};
+
+function supportWebp() {
+  if (!inBrowser) return false;
+  var support = true;
+  var d = document;
+
+  try {
+    var el = d.createElement('object');
+    el.type = 'image/webp';
+    el.style.visibility = 'hidden';
+    el.innerHTML = '!';
+    d.body.appendChild(el);
+    support = !el.offsetWidth;
+    d.body.removeChild(el);
+  } catch (err) {
+    support = false;
+  }
+
+  return support;
+}
+
+function throttle(action, delay) {
+  var timeout = null;
+  var lastRun = 0;
+  return function () {
+    if (timeout) {
+      return;
+    }
+
+    var elapsed = Date.now() - lastRun;
+    var context = this;
+    var args = arguments;
+
+    var runCallback = function runCallback() {
+      lastRun = Date.now();
+      timeout = false;
+      action.apply(context, args);
+    };
+
+    if (elapsed >= delay) {
+      runCallback();
+    } else {
+      timeout = setTimeout(runCallback, delay);
+    }
+  };
+}
+
+function testSupportsPassive() {
+  if (!inBrowser) return;
+  var support = false;
+
+  try {
+    var opts = Object.defineProperty({}, 'passive', {
+      get: function get$$1() {
+        support = true;
+      }
+    });
+    window.addEventListener('test', null, opts);
+  } catch (e) {}
+
+  return support;
+}
+
+var supportsPassive = testSupportsPassive();
+var _ = {
+  on: function on(el, type, func) {
+    var capture = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : false;
+
+    if (supportsPassive) {
+      el.addEventListener(type, func, {
+        capture: capture,
+        passive: true
+      });
+    } else {
+      el.addEventListener(type, func, capture);
+    }
+  },
+  off: function off(el, type, func) {
+    var capture = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : false;
+    el.removeEventListener(type, func, capture);
+  }
+};
+
+var loadImageAsync = function loadImageAsync(item, resolve, reject) {
+  var image = new Image();
+  image.src = item.src;
+
+  image.onload = function () {
+    resolve({
+      naturalHeight: image.naturalHeight,
+      naturalWidth: image.naturalWidth,
+      src: image.src
+    });
+  };
+
+  image.onerror = function (e) {
+    reject(e);
+  };
+};
+
+var style = function style(el, prop) {
+  return typeof getComputedStyle !== 'undefined' ? getComputedStyle(el, null).getPropertyValue(prop) : el.style[prop];
+};
+
+var overflow = function overflow(el) {
+  return style(el, 'overflow') + style(el, 'overflow-y') + style(el, 'overflow-x');
+};
+
+var scrollParent = function scrollParent(el) {
+  if (!inBrowser) return;
+
+  if (!(el instanceof HTMLElement)) {
+    return window;
+  }
+
+  var parent = el;
+
+  while (parent) {
+    if (parent === document.body || parent === document.documentElement) {
+      break;
+    }
+
+    if (!parent.parentNode) {
+      break;
+    }
+
+    if (/(scroll|auto)/.test(overflow(parent))) {
+      return parent;
+    }
+
+    parent = parent.parentNode;
+  }
+
+  return window;
+};
+
+function isObject(obj) {
+  return obj !== null && (typeof obj === 'undefined' ? 'undefined' : _typeof(obj)) === 'object';
+}
+
+function ObjectKeys(obj) {
+  if (!(obj instanceof Object)) return [];
+
+  if (Object.keys) {
+    return Object.keys(obj);
+  } else {
+    var keys = [];
+
+    for (var key in obj) {
+      if (obj.hasOwnProperty(key)) {
+        keys.push(key);
+      }
+    }
+
+    return keys;
+  }
+}
+
+function ArrayFrom(arrLike) {
+  var len = arrLike.length;
+  var list = [];
+
+  for (var i = 0; i < len; i++) {
+    list.push(arrLike[i]);
+  }
+
+  return list;
+}
+
+function noop() {}
+
+var ImageCache = function () {
+  function ImageCache(_ref) {
+    var max = _ref.max;
+    classCallCheck(this, ImageCache);
+    this.options = {
+      max: max || 100
+    };
+    this._caches = [];
+  }
+
+  createClass(ImageCache, [{
+    key: 'has',
+    value: function has(key) {
+      return this._caches.indexOf(key) > -1;
+    }
+  }, {
+    key: 'add',
+    value: function add(key) {
+      if (this.has(key)) return;
+
+      this._caches.push(key);
+
+      if (this._caches.length > this.options.max) {
+        this.free();
+      }
+    }
+  }, {
+    key: 'free',
+    value: function free() {
+      this._caches.shift();
+    }
+  }]);
+  return ImageCache;
+}(); // el: {
+//     state,
+//     src,
+//     error,
+//     loading
+// }
+
+
+var ReactiveListener = function () {
+  function ReactiveListener(_ref) {
+    var el = _ref.el,
+        src = _ref.src,
+        error = _ref.error,
+        loading = _ref.loading,
+        bindType = _ref.bindType,
+        $parent = _ref.$parent,
+        options = _ref.options,
+        elRenderer = _ref.elRenderer,
+        imageCache = _ref.imageCache;
+    classCallCheck(this, ReactiveListener);
+    this.el = el;
+    this.src = src;
+    this.error = error;
+    this.loading = loading;
+    this.bindType = bindType;
+    this.attempt = 0;
+    this.naturalHeight = 0;
+    this.naturalWidth = 0;
+    this.options = options;
+    this.rect = null;
+    this.$parent = $parent;
+    this.elRenderer = elRenderer;
+    this._imageCache = imageCache;
+    this.performanceData = {
+      init: Date.now(),
+      loadStart: 0,
+      loadEnd: 0
+    };
+    this.filter();
+    this.initState();
+    this.render('loading', false);
+  }
+  /*
+   * init listener state
+   * @return
+   */
+
+
+  createClass(ReactiveListener, [{
+    key: 'initState',
+    value: function initState() {
+      if ('dataset' in this.el) {
+        this.el.dataset.src = this.src;
+      } else {
+        this.el.setAttribute('data-src', this.src);
+      }
+
+      this.state = {
+        loading: false,
+        error: false,
+        loaded: false,
+        rendered: false
+      };
+    }
+    /*
+     * record performance
+     * @return
+     */
+
+  }, {
+    key: 'record',
+    value: function record(event) {
+      this.performanceData[event] = Date.now();
+    }
+    /*
+     * update image listener data
+     * @param  {String} image uri
+     * @param  {String} loading image uri
+     * @param  {String} error image uri
+     * @return
+     */
+
+  }, {
+    key: 'update',
+    value: function update(_ref2) {
+      var src = _ref2.src,
+          loading = _ref2.loading,
+          error = _ref2.error;
+      var oldSrc = this.src;
+      this.src = src;
+      this.loading = loading;
+      this.error = error;
+      this.filter();
+
+      if (oldSrc !== this.src) {
+        this.attempt = 0;
+        this.initState();
+      }
+    }
+    /*
+     * get el node rect
+     * @return
+     */
+
+  }, {
+    key: 'getRect',
+    value: function getRect() {
+      this.rect = this.el.getBoundingClientRect();
+    }
+    /*
+     *  check el is in view
+     * @return {Boolean} el is in view
+     */
+
+  }, {
+    key: 'checkInView',
+    value: function checkInView() {
+      this.getRect();
+      return this.rect.top < window.innerHeight * this.options.preLoad && this.rect.bottom > this.options.preLoadTop && this.rect.left < window.innerWidth * this.options.preLoad && this.rect.right > 0;
+    }
+    /*
+     * listener filter
+     */
+
+  }, {
+    key: 'filter',
+    value: function filter() {
+      var _this = this;
+
+      ObjectKeys(this.options.filter).map(function (key) {
+        _this.options.filter[key](_this, _this.options);
+      });
+    }
+    /*
+     * render loading first
+     * @params cb:Function
+     * @return
+     */
+
+  }, {
+    key: 'renderLoading',
+    value: function renderLoading(cb) {
+      var _this2 = this;
+
+      this.state.loading = true;
+      loadImageAsync({
+        src: this.loading
+      }, function (data) {
+        _this2.render('loading', false);
+
+        _this2.state.loading = false;
+        cb();
+      }, function () {
+        // handler `loading image` load failed
+        cb();
+        _this2.state.loading = false;
+        if (!_this2.options.silent) console.warn('VueLazyload log: load failed with loading image(' + _this2.loading + ')');
+      });
+    }
+    /*
+     * try load image and  render it
+     * @return
+     */
+
+  }, {
+    key: 'load',
+    value: function load() {
+      var _this3 = this;
+
+      var onFinish = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : noop;
+
+      if (this.attempt > this.options.attempt - 1 && this.state.error) {
+        if (!this.options.silent) console.log('VueLazyload log: ' + this.src + ' tried too more than ' + this.options.attempt + ' times');
+        onFinish();
+        return;
+      }
+
+      if (this.state.rendered && this.state.loaded) return;
+
+      if (this._imageCache.has(this.src)) {
+        this.state.loaded = true;
+        this.render('loaded', true);
+        this.state.rendered = true;
+        return onFinish();
+      }
+
+      this.renderLoading(function () {
+        _this3.attempt++;
+        _this3.options.adapter['beforeLoad'] && _this3.options.adapter['beforeLoad'](_this3, _this3.options);
+
+        _this3.record('loadStart');
+
+        loadImageAsync({
+          src: _this3.src
+        }, function (data) {
+          _this3.naturalHeight = data.naturalHeight;
+          _this3.naturalWidth = data.naturalWidth;
+          _this3.state.loaded = true;
+          _this3.state.error = false;
+
+          _this3.record('loadEnd');
+
+          _this3.render('loaded', false);
+
+          _this3.state.rendered = true;
+
+          _this3._imageCache.add(_this3.src);
+
+          onFinish();
+        }, function (err) {
+          !_this3.options.silent && console.error(err);
+          _this3.state.error = true;
+          _this3.state.loaded = false;
+
+          _this3.render('error', false);
+        });
+      });
+    }
+    /*
+     * render image
+     * @param  {String} state to render // ['loading', 'src', 'error']
+     * @param  {String} is form cache
+     * @return
+     */
+
+  }, {
+    key: 'render',
+    value: function render(state, cache) {
+      this.elRenderer(this, state, cache);
+    }
+    /*
+     * output performance data
+     * @return {Object} performance data
+     */
+
+  }, {
+    key: 'performance',
+    value: function performance() {
+      var state = 'loading';
+      var time = 0;
+
+      if (this.state.loaded) {
+        state = 'loaded';
+        time = (this.performanceData.loadEnd - this.performanceData.loadStart) / 1000;
+      }
+
+      if (this.state.error) state = 'error';
+      return {
+        src: this.src,
+        state: state,
+        time: time
+      };
+    }
+    /*
+     * destroy
+     * @return
+     */
+
+  }, {
+    key: 'destroy',
+    value: function destroy() {
+      this.el = null;
+      this.src = null;
+      this.error = null;
+      this.loading = null;
+      this.bindType = null;
+      this.attempt = 0;
+    }
+  }]);
+  return ReactiveListener;
+}();
+
+var DEFAULT_URL = 'data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7';
+var DEFAULT_EVENTS = ['scroll', 'wheel', 'mousewheel', 'resize', 'animationend', 'transitionend', 'touchmove'];
+var DEFAULT_OBSERVER_OPTIONS = {
+  rootMargin: '0px',
+  threshold: 0
+};
+
+var Lazy = function (Vue) {
+  return function () {
+    function Lazy(_ref) {
+      var preLoad = _ref.preLoad,
+          error = _ref.error,
+          throttleWait = _ref.throttleWait,
+          preLoadTop = _ref.preLoadTop,
+          dispatchEvent = _ref.dispatchEvent,
+          loading = _ref.loading,
+          attempt = _ref.attempt,
+          _ref$silent = _ref.silent,
+          silent = _ref$silent === undefined ? true : _ref$silent,
+          scale = _ref.scale,
+          listenEvents = _ref.listenEvents,
+          hasbind = _ref.hasbind,
+          filter = _ref.filter,
+          adapter = _ref.adapter,
+          observer = _ref.observer,
+          observerOptions = _ref.observerOptions;
+      classCallCheck(this, Lazy);
+      this.version = '1.3.1';
+      this.mode = modeType.event;
+      this.ListenerQueue = [];
+      this.TargetIndex = 0;
+      this.TargetQueue = [];
+      this.options = {
+        silent: silent,
+        dispatchEvent: !!dispatchEvent,
+        throttleWait: throttleWait || 200,
+        preLoad: preLoad || 1.3,
+        preLoadTop: preLoadTop || 0,
+        error: error || DEFAULT_URL,
+        loading: loading || DEFAULT_URL,
+        attempt: attempt || 3,
+        scale: scale || getDPR(scale),
+        ListenEvents: listenEvents || DEFAULT_EVENTS,
+        hasbind: false,
+        supportWebp: supportWebp(),
+        filter: filter || {},
+        adapter: adapter || {},
+        observer: !!observer,
+        observerOptions: observerOptions || DEFAULT_OBSERVER_OPTIONS
+      };
+
+      this._initEvent();
+
+      this._imageCache = new ImageCache({
+        max: 200
+      });
+      this.lazyLoadHandler = throttle(this._lazyLoadHandler.bind(this), this.options.throttleWait);
+      this.setMode(this.options.observer ? modeType.observer : modeType.event);
+    }
+    /**
+     * update config
+     * @param  {Object} config params
+     * @return
+     */
+
+
+    createClass(Lazy, [{
+      key: 'config',
+      value: function config() {
+        var options = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+        assignDeep(this.options, options);
+      }
+      /**
+       * output listener's load performance
+       * @return {Array}
+       */
+
+    }, {
+      key: 'performance',
+      value: function performance() {
+        var list = [];
+        this.ListenerQueue.map(function (item) {
+          list.push(item.performance());
+        });
+        return list;
+      }
+      /*
+       * add lazy component to queue
+       * @param  {Vue} vm lazy component instance
+       * @return
+       */
+
+    }, {
+      key: 'addLazyBox',
+      value: function addLazyBox(vm) {
+        this.ListenerQueue.push(vm);
+
+        if (inBrowser) {
+          this._addListenerTarget(window);
+
+          this._observer && this._observer.observe(vm.el);
+
+          if (vm.$el && vm.$el.parentNode) {
+            this._addListenerTarget(vm.$el.parentNode);
+          }
+        }
+      }
+      /*
+       * add image listener to queue
+       * @param  {DOM} el
+       * @param  {object} binding vue directive binding
+       * @param  {vnode} vnode vue directive vnode
+       * @return
+       */
+
+    }, {
+      key: 'add',
+      value: function add(el, binding, vnode) {
+        var _this = this;
+
+        if (some(this.ListenerQueue, function (item) {
+          return item.el === el;
+        })) {
+          this.update(el, binding);
+          return Vue.nextTick(this.lazyLoadHandler);
+        }
+
+        var _valueFormatter2 = this._valueFormatter(binding.value),
+            src = _valueFormatter2.src,
+            loading = _valueFormatter2.loading,
+            error = _valueFormatter2.error;
+
+        Vue.nextTick(function () {
+          src = getBestSelectionFromSrcset(el, _this.options.scale) || src;
+          _this._observer && _this._observer.observe(el);
+          var container = Object.keys(binding.modifiers)[0];
+          var $parent = void 0;
+
+          if (container) {
+            $parent = vnode.context.$refs[container]; // if there is container passed in, try ref first, then fallback to getElementById to support the original usage
+
+            $parent = $parent ? $parent.$el || $parent : document.getElementById(container);
+          }
+
+          if (!$parent) {
+            $parent = scrollParent(el);
+          }
+
+          var newListener = new ReactiveListener({
+            bindType: binding.arg,
+            $parent: $parent,
+            el: el,
+            loading: loading,
+            error: error,
+            src: src,
+            elRenderer: _this._elRenderer.bind(_this),
+            options: _this.options,
+            imageCache: _this._imageCache
+          });
+
+          _this.ListenerQueue.push(newListener);
+
+          if (inBrowser) {
+            _this._addListenerTarget(window);
+
+            _this._addListenerTarget($parent);
+          }
+
+          _this.lazyLoadHandler();
+
+          Vue.nextTick(function () {
+            return _this.lazyLoadHandler();
+          });
+        });
+      }
+      /**
+      * update image src
+      * @param  {DOM} el
+      * @param  {object} vue directive binding
+      * @return
+      */
+
+    }, {
+      key: 'update',
+      value: function update(el, binding, vnode) {
+        var _this2 = this;
+
+        var _valueFormatter3 = this._valueFormatter(binding.value),
+            src = _valueFormatter3.src,
+            loading = _valueFormatter3.loading,
+            error = _valueFormatter3.error;
+
+        src = getBestSelectionFromSrcset(el, this.options.scale) || src;
+        var exist = find(this.ListenerQueue, function (item) {
+          return item.el === el;
+        });
+
+        if (!exist) {
+          this.add(el, binding, vnode);
+        } else {
+          exist.update({
+            src: src,
+            loading: loading,
+            error: error
+          });
+        }
+
+        if (this._observer) {
+          this._observer.unobserve(el);
+
+          this._observer.observe(el);
+        }
+
+        this.lazyLoadHandler();
+        Vue.nextTick(function () {
+          return _this2.lazyLoadHandler();
+        });
+      }
+      /**
+      * remove listener form list
+      * @param  {DOM} el
+      * @return
+      */
+
+    }, {
+      key: 'remove',
+      value: function remove$$1(el) {
+        if (!el) return;
+        this._observer && this._observer.unobserve(el);
+        var existItem = find(this.ListenerQueue, function (item) {
+          return item.el === el;
+        });
+
+        if (existItem) {
+          this._removeListenerTarget(existItem.$parent);
+
+          this._removeListenerTarget(window);
+
+          remove(this.ListenerQueue, existItem);
+          existItem.destroy();
+        }
+      }
+      /*
+       * remove lazy components form list
+       * @param  {Vue} vm Vue instance
+       * @return
+       */
+
+    }, {
+      key: 'removeComponent',
+      value: function removeComponent(vm) {
+        if (!vm) return;
+        remove(this.ListenerQueue, vm);
+        this._observer && this._observer.unobserve(vm.el);
+
+        if (vm.$parent && vm.$el.parentNode) {
+          this._removeListenerTarget(vm.$el.parentNode);
+        }
+
+        this._removeListenerTarget(window);
+      }
+    }, {
+      key: 'setMode',
+      value: function setMode(mode) {
+        var _this3 = this;
+
+        if (!hasIntersectionObserver && mode === modeType.observer) {
+          mode = modeType.event;
+        }
+
+        this.mode = mode; // event or observer
+
+        if (mode === modeType.event) {
+          if (this._observer) {
+            this.ListenerQueue.forEach(function (listener) {
+              _this3._observer.unobserve(listener.el);
+            });
+            this._observer = null;
+          }
+
+          this.TargetQueue.forEach(function (target) {
+            _this3._initListen(target.el, true);
+          });
+        } else {
+          this.TargetQueue.forEach(function (target) {
+            _this3._initListen(target.el, false);
+          });
+
+          this._initIntersectionObserver();
+        }
+      }
+      /*
+      *** Private functions ***
+      */
+
+      /*
+       * add listener target
+       * @param  {DOM} el listener target
+       * @return
+       */
+
+    }, {
+      key: '_addListenerTarget',
+      value: function _addListenerTarget(el) {
+        if (!el) return;
+        var target = find(this.TargetQueue, function (target) {
+          return target.el === el;
+        });
+
+        if (!target) {
+          target = {
+            el: el,
+            id: ++this.TargetIndex,
+            childrenCount: 1,
+            listened: true
+          };
+          this.mode === modeType.event && this._initListen(target.el, true);
+          this.TargetQueue.push(target);
+        } else {
+          target.childrenCount++;
+        }
+
+        return this.TargetIndex;
+      }
+      /*
+       * remove listener target or reduce target childrenCount
+       * @param  {DOM} el or window
+       * @return
+       */
+
+    }, {
+      key: '_removeListenerTarget',
+      value: function _removeListenerTarget(el) {
+        var _this4 = this;
+
+        this.TargetQueue.forEach(function (target, index) {
+          if (target.el === el) {
+            target.childrenCount--;
+
+            if (!target.childrenCount) {
+              _this4._initListen(target.el, false);
+
+              _this4.TargetQueue.splice(index, 1);
+
+              target = null;
+            }
+          }
+        });
+      }
+      /*
+       * add or remove eventlistener
+       * @param  {DOM} el DOM or Window
+       * @param  {boolean} start flag
+       * @return
+       */
+
+    }, {
+      key: '_initListen',
+      value: function _initListen(el, start) {
+        var _this5 = this;
+
+        this.options.ListenEvents.forEach(function (evt) {
+          return _[start ? 'on' : 'off'](el, evt, _this5.lazyLoadHandler);
+        });
+      }
+    }, {
+      key: '_initEvent',
+      value: function _initEvent() {
+        var _this6 = this;
+
+        this.Event = {
+          listeners: {
+            loading: [],
+            loaded: [],
+            error: []
+          }
+        };
+
+        this.$on = function (event, func) {
+          if (!_this6.Event.listeners[event]) _this6.Event.listeners[event] = [];
+
+          _this6.Event.listeners[event].push(func);
+        };
+
+        this.$once = function (event, func) {
+          var vm = _this6;
+
+          function on() {
+            vm.$off(event, on);
+            func.apply(vm, arguments);
+          }
+
+          _this6.$on(event, on);
+        };
+
+        this.$off = function (event, func) {
+          if (!func) {
+            if (!_this6.Event.listeners[event]) return;
+            _this6.Event.listeners[event].length = 0;
+            return;
+          }
+
+          remove(_this6.Event.listeners[event], func);
+        };
+
+        this.$emit = function (event, context, inCache) {
+          if (!_this6.Event.listeners[event]) return;
+
+          _this6.Event.listeners[event].forEach(function (func) {
+            return func(context, inCache);
+          });
+        };
+      }
+      /**
+       * find nodes which in viewport and trigger load
+       * @return
+       */
+
+    }, {
+      key: '_lazyLoadHandler',
+      value: function _lazyLoadHandler() {
+        var _this7 = this;
+
+        var freeList = [];
+        this.ListenerQueue.forEach(function (listener, index) {
+          if (!listener.el || !listener.el.parentNode) {
+            freeList.push(listener);
+          }
+
+          var catIn = listener.checkInView();
+          if (!catIn) return;
+          listener.load();
+        });
+        freeList.forEach(function (item) {
+          remove(_this7.ListenerQueue, item);
+          item.destroy();
+        });
+      }
+      /**
+      * init IntersectionObserver
+      * set mode to observer
+      * @return
+      */
+
+    }, {
+      key: '_initIntersectionObserver',
+      value: function _initIntersectionObserver() {
+        var _this8 = this;
+
+        if (!hasIntersectionObserver) return;
+        this._observer = new IntersectionObserver(this._observerHandler.bind(this), this.options.observerOptions);
+
+        if (this.ListenerQueue.length) {
+          this.ListenerQueue.forEach(function (listener) {
+            _this8._observer.observe(listener.el);
+          });
+        }
+      }
+      /**
+      * init IntersectionObserver
+      * @return
+      */
+
+    }, {
+      key: '_observerHandler',
+      value: function _observerHandler(entries, observer) {
+        var _this9 = this;
+
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            _this9.ListenerQueue.forEach(function (listener) {
+              if (listener.el === entry.target) {
+                if (listener.state.loaded) return _this9._observer.unobserve(listener.el);
+                listener.load();
+              }
+            });
+          }
+        });
+      }
+      /**
+      * set element attribute with image'url and state
+      * @param  {object} lazyload listener object
+      * @param  {string} state will be rendered
+      * @param  {bool} inCache  is rendered from cache
+      * @return
+      */
+
+    }, {
+      key: '_elRenderer',
+      value: function _elRenderer(listener, state, cache) {
+        if (!listener.el) return;
+        var el = listener.el,
+            bindType = listener.bindType;
+        var src = void 0;
+
+        switch (state) {
+          case 'loading':
+            src = listener.loading;
+            break;
+
+          case 'error':
+            src = listener.error;
+            break;
+
+          default:
+            src = listener.src;
+            break;
+        }
+
+        if (bindType) {
+          el.style[bindType] = 'url("' + src + '")';
+        } else if (el.getAttribute('src') !== src) {
+          el.setAttribute('src', src);
+        }
+
+        el.setAttribute('lazy', state);
+        this.$emit(state, listener, cache);
+        this.options.adapter[state] && this.options.adapter[state](listener, this.options);
+
+        if (this.options.dispatchEvent) {
+          var event = new CustomEvent(state, {
+            detail: listener
+          });
+          el.dispatchEvent(event);
+        }
+      }
+      /**
+      * generate loading loaded error image url
+      * @param {string} image's src
+      * @return {object} image's loading, loaded, error url
+      */
+
+    }, {
+      key: '_valueFormatter',
+      value: function _valueFormatter(value) {
+        var src = value;
+        var loading = this.options.loading;
+        var error = this.options.error; // value is object
+
+        if (isObject(value)) {
+          if (!value.src && !this.options.silent) console.error('Vue Lazyload warning: miss src with ' + value);
+          src = value.src;
+          loading = value.loading || this.options.loading;
+          error = value.error || this.options.error;
+        }
+
+        return {
+          src: src,
+          loading: loading,
+          error: error
+        };
+      }
+    }]);
+    return Lazy;
+  }();
+};
+
+var LazyComponent = function (lazy) {
+  return {
+    props: {
+      tag: {
+        type: String,
+        default: 'div'
+      }
+    },
+    render: function render(h) {
+      if (this.show === false) {
+        return h(this.tag);
+      }
+
+      return h(this.tag, null, this.$slots.default);
+    },
+    data: function data() {
+      return {
+        el: null,
+        state: {
+          loaded: false
+        },
+        rect: {},
+        show: false
+      };
+    },
+    mounted: function mounted() {
+      this.el = this.$el;
+      lazy.addLazyBox(this);
+      lazy.lazyLoadHandler();
+    },
+    beforeDestroy: function beforeDestroy() {
+      lazy.removeComponent(this);
+    },
+    methods: {
+      getRect: function getRect() {
+        this.rect = this.$el.getBoundingClientRect();
+      },
+      checkInView: function checkInView() {
+        this.getRect();
+        return inBrowser && this.rect.top < window.innerHeight * lazy.options.preLoad && this.rect.bottom > 0 && this.rect.left < window.innerWidth * lazy.options.preLoad && this.rect.right > 0;
+      },
+      load: function load() {
+        this.show = true;
+        this.state.loaded = true;
+        this.$emit('show', this);
+      }
+    }
+  };
+};
+
+var LazyContainerMananger = function () {
+  function LazyContainerMananger(_ref) {
+    var lazy = _ref.lazy;
+    classCallCheck(this, LazyContainerMananger);
+    this.lazy = lazy;
+    lazy.lazyContainerMananger = this;
+    this._queue = [];
+  }
+
+  createClass(LazyContainerMananger, [{
+    key: 'bind',
+    value: function bind(el, binding, vnode) {
+      var container = new LazyContainer$1({
+        el: el,
+        binding: binding,
+        vnode: vnode,
+        lazy: this.lazy
+      });
+
+      this._queue.push(container);
+    }
+  }, {
+    key: 'update',
+    value: function update(el, binding, vnode) {
+      var container = find(this._queue, function (item) {
+        return item.el === el;
+      });
+      if (!container) return;
+      container.update({
+        el: el,
+        binding: binding,
+        vnode: vnode
+      });
+    }
+  }, {
+    key: 'unbind',
+    value: function unbind(el, binding, vnode) {
+      var container = find(this._queue, function (item) {
+        return item.el === el;
+      });
+      if (!container) return;
+      container.clear();
+      remove(this._queue, container);
+    }
+  }]);
+  return LazyContainerMananger;
+}();
+
+var defaultOptions = {
+  selector: 'img'
+};
+
+var LazyContainer$1 = function () {
+  function LazyContainer(_ref2) {
+    var el = _ref2.el,
+        binding = _ref2.binding,
+        vnode = _ref2.vnode,
+        lazy = _ref2.lazy;
+    classCallCheck(this, LazyContainer);
+    this.el = null;
+    this.vnode = vnode;
+    this.binding = binding;
+    this.options = {};
+    this.lazy = lazy;
+    this._queue = [];
+    this.update({
+      el: el,
+      binding: binding
+    });
+  }
+
+  createClass(LazyContainer, [{
+    key: 'update',
+    value: function update(_ref3) {
+      var _this = this;
+
+      var el = _ref3.el,
+          binding = _ref3.binding;
+      this.el = el;
+      this.options = assignDeep({}, defaultOptions, binding.value);
+      var imgs = this.getImgs();
+      imgs.forEach(function (el) {
+        _this.lazy.add(el, assignDeep({}, _this.binding, {
+          value: {
+            src: 'dataset' in el ? el.dataset.src : el.getAttribute('data-src'),
+            error: ('dataset' in el ? el.dataset.error : el.getAttribute('data-error')) || _this.options.error,
+            loading: ('dataset' in el ? el.dataset.loading : el.getAttribute('data-loading')) || _this.options.loading
+          }
+        }), _this.vnode);
+      });
+    }
+  }, {
+    key: 'getImgs',
+    value: function getImgs() {
+      return ArrayFrom(this.el.querySelectorAll(this.options.selector));
+    }
+  }, {
+    key: 'clear',
+    value: function clear() {
+      var _this2 = this;
+
+      var imgs = this.getImgs();
+      imgs.forEach(function (el) {
+        return _this2.lazy.remove(el);
+      });
+      this.vnode = null;
+      this.binding = null;
+      this.lazy = null;
+    }
+  }]);
+  return LazyContainer;
+}();
+
+var LazyImage = function (lazyManager) {
+  return {
+    props: {
+      src: [String, Object],
+      tag: {
+        type: String,
+        default: 'img'
+      }
+    },
+    render: function render(h) {
+      return h(this.tag, {
+        attrs: {
+          src: this.renderSrc
+        }
+      }, this.$slots.default);
+    },
+    data: function data() {
+      return {
+        el: null,
+        options: {
+          src: '',
+          error: '',
+          loading: '',
+          attempt: lazyManager.options.attempt
+        },
+        state: {
+          loaded: false,
+          error: false,
+          attempt: 0
+        },
+        rect: {},
+        renderSrc: ''
+      };
+    },
+    watch: {
+      src: function src() {
+        this.init();
+        lazyManager.addLazyBox(this);
+        lazyManager.lazyLoadHandler();
+      }
+    },
+    created: function created() {
+      this.init();
+      this.renderSrc = this.options.loading;
+    },
+    mounted: function mounted() {
+      this.el = this.$el;
+      lazyManager.addLazyBox(this);
+      lazyManager.lazyLoadHandler();
+    },
+    beforeDestroy: function beforeDestroy() {
+      lazyManager.removeComponent(this);
+    },
+    methods: {
+      init: function init() {
+        var _lazyManager$_valueFo = lazyManager._valueFormatter(this.src),
+            src = _lazyManager$_valueFo.src,
+            loading = _lazyManager$_valueFo.loading,
+            error = _lazyManager$_valueFo.error;
+
+        this.state.loaded = false;
+        this.options.src = src;
+        this.options.error = error;
+        this.options.loading = loading;
+        this.renderSrc = this.options.loading;
+      },
+      getRect: function getRect() {
+        this.rect = this.$el.getBoundingClientRect();
+      },
+      checkInView: function checkInView() {
+        this.getRect();
+        return inBrowser && this.rect.top < window.innerHeight * lazyManager.options.preLoad && this.rect.bottom > 0 && this.rect.left < window.innerWidth * lazyManager.options.preLoad && this.rect.right > 0;
+      },
+      load: function load() {
+        var _this = this;
+
+        var onFinish = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : noop;
+
+        if (this.state.attempt > this.options.attempt - 1 && this.state.error) {
+          if (!lazyManager.options.silent) console.log('VueLazyload log: ' + this.options.src + ' tried too more than ' + this.options.attempt + ' times');
+          onFinish();
+          return;
+        }
+
+        var src = this.options.src;
+        loadImageAsync({
+          src: src
+        }, function (_ref) {
+          var src = _ref.src;
+          _this.renderSrc = src;
+          _this.state.loaded = true;
+        }, function (e) {
+          _this.state.attempt++;
+          _this.renderSrc = _this.options.error;
+          _this.state.error = true;
+        });
+      }
+    }
+  };
+};
+
+var index = {
+  /*
+  * install function
+  * @param  {Vue} Vue
+  * @param  {object} options  lazyload options
+  */
+  install: function install(Vue) {
+    var options = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
+    var LazyClass = Lazy(Vue);
+    var lazy = new LazyClass(options);
+    var lazyContainer = new LazyContainerMananger({
+      lazy: lazy
+    });
+    var isVue2 = Vue.version.split('.')[0] === '2';
+    Vue.prototype.$Lazyload = lazy;
+
+    if (options.lazyComponent) {
+      Vue.component('lazy-component', LazyComponent(lazy));
+    }
+
+    if (options.lazyImage) {
+      Vue.component('lazy-image', LazyImage(lazy));
+    }
+
+    if (isVue2) {
+      Vue.directive('lazy', {
+        bind: lazy.add.bind(lazy),
+        update: lazy.update.bind(lazy),
+        componentUpdated: lazy.lazyLoadHandler.bind(lazy),
+        unbind: lazy.remove.bind(lazy)
+      });
+      Vue.directive('lazy-container', {
+        bind: lazyContainer.bind.bind(lazyContainer),
+        componentUpdated: lazyContainer.update.bind(lazyContainer),
+        unbind: lazyContainer.unbind.bind(lazyContainer)
+      });
+    } else {
+      Vue.directive('lazy', {
+        bind: lazy.lazyLoadHandler.bind(lazy),
+        update: function update(newValue, oldValue) {
+          assignDeep(this.vm.$refs, this.vm.$els);
+          lazy.add(this.el, {
+            modifiers: this.modifiers || {},
+            arg: this.arg,
+            value: newValue,
+            oldValue: oldValue
+          }, {
+            context: this.vm
+          });
+        },
+        unbind: function unbind() {
+          lazy.remove(this.el);
+        }
+      });
+      Vue.directive('lazy-container', {
+        update: function update(newValue, oldValue) {
+          lazyContainer.update(this.el, {
+            modifiers: this.modifiers || {},
+            arg: this.arg,
+            value: newValue,
+            oldValue: oldValue
+          }, {
+            context: this.vm
+          });
+        },
+        unbind: function unbind() {
+          lazyContainer.unbind(this.el);
+        }
+      });
+    }
+  }
+};
+var _default = index;
+exports.default = _default;
+},{}],"../node_modules/vue-confetti/dist/vue-confetti.js":[function(require,module,exports) {
+var define;
+!function(t,e){"object"==typeof exports&&"object"==typeof module?module.exports=e():"function"==typeof define&&define.amd?define([],e):"object"==typeof exports?exports["vue-confetti"]=e():t["vue-confetti"]=e()}(window,function(){return function(t){var e={};function n(i){if(e[i])return e[i].exports;var r=e[i]={i:i,l:!1,exports:{}};return t[i].call(r.exports,r,r.exports,n),r.l=!0,r.exports}return n.m=t,n.c=e,n.d=function(t,e,i){n.o(t,e)||Object.defineProperty(t,e,{enumerable:!0,get:i})},n.r=function(t){"undefined"!=typeof Symbol&&Symbol.toStringTag&&Object.defineProperty(t,Symbol.toStringTag,{value:"Module"}),Object.defineProperty(t,"__esModule",{value:!0})},n.t=function(t,e){if(1&e&&(t=n(t)),8&e)return t;if(4&e&&"object"==typeof t&&t&&t.__esModule)return t;var i=Object.create(null);if(n.r(i),Object.defineProperty(i,"default",{enumerable:!0,value:t}),2&e&&"string"!=typeof t)for(var r in t)n.d(i,r,function(e){return t[e]}.bind(null,r));return i},n.n=function(t){var e=t&&t.__esModule?function(){return t.default}:function(){return t};return n.d(e,"a",e),e},n.o=function(t,e){return Object.prototype.hasOwnProperty.call(t,e)},n.p="",n(n.s=3)}([function(t,e,n){"use strict";n.r(e);var i=function(){var t=arguments.length>0&&void 0!==arguments[0]?arguments[0]:1,e=arguments.length>1&&void 0!==arguments[1]?arguments[1]:t+1,n=arguments.length>2&&void 0!==arguments[2]&&arguments[2],i=parseFloat(t),r=parseFloat(e),o=Math.random()*(r-i)+i;return n?Math.round(o):o};function r(t,e){for(var n=0;n<e.length;n++){var i=e[n];i.enumerable=i.enumerable||!1,i.configurable=!0,"value"in i&&(i.writable=!0),Object.defineProperty(t,i.key,i)}}var o=function(){function t(){var e=arguments.length>0&&void 0!==arguments[0]?arguments[0]:{},n=e.color,i=void 0===n?"blue":n,r=e.size,o=void 0===r?10:r,a=e.dropRate,c=void 0===a?10:a;!function(t,e){if(!(t instanceof e))throw new TypeError("Cannot call a class as a function")}(this,t),this.color=i,this.size=o,this.dropRate=c}var e,n,o;return e=t,(n=[{key:"setup",value:function(t){var e=t.canvas,n=t.wind,r=t.windPosCoef,o=t.windSpeedMax,a=t.count;return this.canvas=e,this.wind=n,this.windPosCoef=r,this.windSpeedMax=o,this.x=i(-35,this.canvas.width+35),this.y=i(-30,-35),this.d=i(150)+10,this.particleSize=i(this.size,2*this.size),this.tilt=i(10),this.tiltAngleIncremental=(i(0,.08)+.04)*(i()<.5?-1:1),this.tiltAngle=0,this.angle=i(2*Math.PI),this.count=a+1,this.remove=!1,this}},{key:"update",value:function(){this.tiltAngle+=this.tiltAngleIncremental*(.2*Math.cos(this.wind+(this.d+this.x+this.y)*this.windPosCoef)+1),this.y+=(Math.cos(this.angle+this.d)+parseInt(this.dropRate,10))/2,this.x+=Math.sin(this.angle),this.x+=Math.cos(this.wind+(this.d+this.x+this.y)*this.windPosCoef)*this.windSpeedMax,this.y+=Math.sin(this.wind+(this.d+this.x+this.y)*this.windPosCoef)*this.windSpeedMax,this.tilt=15*Math.sin(this.tiltAngle-this.count/3)}},{key:"pastBottom",value:function(){return this.y>this.canvas.height}},{key:"draw",value:function(){this.canvas.ctx.fillStyle=this.color,this.canvas.ctx.beginPath(),this.canvas.ctx.setTransform(Math.cos(this.tiltAngle),Math.sin(this.tiltAngle),0,1,this.x,this.y)}},{key:"kill",value:function(){this.remove=!0}}])&&r(e.prototype,n),o&&r(e,o),t}();function a(t){return(a="function"==typeof Symbol&&"symbol"==typeof Symbol.iterator?function(t){return typeof t}:function(t){return t&&"function"==typeof Symbol&&t.constructor===Symbol&&t!==Symbol.prototype?"symbol":typeof t})(t)}function c(t,e){for(var n=0;n<e.length;n++){var i=e[n];i.enumerable=i.enumerable||!1,i.configurable=!0,"value"in i&&(i.writable=!0),Object.defineProperty(t,i.key,i)}}function s(t,e){return!e||"object"!==a(e)&&"function"!=typeof e?function(t){if(void 0===t)throw new ReferenceError("this hasn't been initialised - super() hasn't been called");return t}(t):e}function l(t,e,n){return(l="undefined"!=typeof Reflect&&Reflect.get?Reflect.get:function(t,e,n){var i=function(t,e){for(;!Object.prototype.hasOwnProperty.call(t,e)&&null!==(t=u(t)););return t}(t,e);if(i){var r=Object.getOwnPropertyDescriptor(i,e);return r.get?r.get.call(n):r.value}})(t,e,n||t)}function u(t){return(u=Object.setPrototypeOf?Object.getPrototypeOf:function(t){return t.__proto__||Object.getPrototypeOf(t)})(t)}function f(t,e){return(f=Object.setPrototypeOf||function(t,e){return t.__proto__=e,t})(t,e)}var h=function(t){function e(){return function(t,e){if(!(t instanceof e))throw new TypeError("Cannot call a class as a function")}(this,e),s(this,u(e).apply(this,arguments))}var n,i,r;return function(t,e){if("function"!=typeof e&&null!==e)throw new TypeError("Super expression must either be null or a function");t.prototype=Object.create(e&&e.prototype,{constructor:{value:t,writable:!0,configurable:!0}}),e&&f(t,e)}(e,o),n=e,(i=[{key:"draw",value:function(){l(u(e.prototype),"draw",this).call(this),this.canvas.ctx.arc(0,0,this.particleSize/2,0,2*Math.PI,!1),this.canvas.ctx.fill()}}])&&c(n.prototype,i),r&&c(n,r),e}();function p(t){return(p="function"==typeof Symbol&&"symbol"==typeof Symbol.iterator?function(t){return typeof t}:function(t){return t&&"function"==typeof Symbol&&t.constructor===Symbol&&t!==Symbol.prototype?"symbol":typeof t})(t)}function y(t,e){for(var n=0;n<e.length;n++){var i=e[n];i.enumerable=i.enumerable||!1,i.configurable=!0,"value"in i&&(i.writable=!0),Object.defineProperty(t,i.key,i)}}function d(t,e){return!e||"object"!==p(e)&&"function"!=typeof e?function(t){if(void 0===t)throw new ReferenceError("this hasn't been initialised - super() hasn't been called");return t}(t):e}function v(t,e,n){return(v="undefined"!=typeof Reflect&&Reflect.get?Reflect.get:function(t,e,n){var i=function(t,e){for(;!Object.prototype.hasOwnProperty.call(t,e)&&null!==(t=b(t)););return t}(t,e);if(i){var r=Object.getOwnPropertyDescriptor(i,e);return r.get?r.get.call(n):r.value}})(t,e,n||t)}function b(t){return(b=Object.setPrototypeOf?Object.getPrototypeOf:function(t){return t.__proto__||Object.getPrototypeOf(t)})(t)}function m(t,e){return(m=Object.setPrototypeOf||function(t,e){return t.__proto__=e,t})(t,e)}var w=function(t){function e(){return function(t,e){if(!(t instanceof e))throw new TypeError("Cannot call a class as a function")}(this,e),d(this,b(e).apply(this,arguments))}var n,i,r;return function(t,e){if("function"!=typeof e&&null!==e)throw new TypeError("Super expression must either be null or a function");t.prototype=Object.create(e&&e.prototype,{constructor:{value:t,writable:!0,configurable:!0}}),e&&m(t,e)}(e,o),n=e,(i=[{key:"draw",value:function(){v(b(e.prototype),"draw",this).call(this),this.canvas.ctx.fillRect(0,0,this.particleSize,this.particleSize/2)}}])&&y(n.prototype,i),r&&y(n,r),e}();function g(t){return(g="function"==typeof Symbol&&"symbol"==typeof Symbol.iterator?function(t){return typeof t}:function(t){return t&&"function"==typeof Symbol&&t.constructor===Symbol&&t!==Symbol.prototype?"symbol":typeof t})(t)}function O(t,e){for(var n=0;n<e.length;n++){var i=e[n];i.enumerable=i.enumerable||!1,i.configurable=!0,"value"in i&&(i.writable=!0),Object.defineProperty(t,i.key,i)}}function P(t,e){return!e||"object"!==g(e)&&"function"!=typeof e?function(t){if(void 0===t)throw new ReferenceError("this hasn't been initialised - super() hasn't been called");return t}(t):e}function S(t,e,n){return(S="undefined"!=typeof Reflect&&Reflect.get?Reflect.get:function(t,e,n){var i=function(t,e){for(;!Object.prototype.hasOwnProperty.call(t,e)&&null!==(t=j(t)););return t}(t,e);if(i){var r=Object.getOwnPropertyDescriptor(i,e);return r.get?r.get.call(n):r.value}})(t,e,n||t)}function j(t){return(j=Object.setPrototypeOf?Object.getPrototypeOf:function(t){return t.__proto__||Object.getPrototypeOf(t)})(t)}function k(t,e){return(k=Object.setPrototypeOf||function(t,e){return t.__proto__=e,t})(t,e)}var x=function(t){function e(){return function(t,e){if(!(t instanceof e))throw new TypeError("Cannot call a class as a function")}(this,e),P(this,j(e).apply(this,arguments))}var n,i,r;return function(t,e){if("function"!=typeof e&&null!==e)throw new TypeError("Super expression must either be null or a function");t.prototype=Object.create(e&&e.prototype,{constructor:{value:t,writable:!0,configurable:!0}}),e&&k(t,e)}(e,o),n=e,(i=[{key:"draw",value:function(){var t=this;S(j(e.prototype),"draw",this).call(this);var n=function(e,n,i,r,o,a){t.canvas.ctx.bezierCurveTo(e*(t.particleSize/200),n*(t.particleSize/200),i*(t.particleSize/200),r*(t.particleSize/200),o*(t.particleSize/200),a*(t.particleSize/200))};this.canvas.ctx.moveTo(37.5/this.particleSize,20/this.particleSize),n(75,37,70,25,50,25),n(20,25,20,62.5,20,62.5),n(20,80,40,102,75,120),n(110,102,130,80,130,62.5),n(130,62.5,130,25,100,25),n(85,25,75,37,75,40),this.canvas.ctx.fill()}}])&&O(n.prototype,i),r&&O(n,r),e}();function M(t){return(M="function"==typeof Symbol&&"symbol"==typeof Symbol.iterator?function(t){return typeof t}:function(t){return t&&"function"==typeof Symbol&&t.constructor===Symbol&&t!==Symbol.prototype?"symbol":typeof t})(t)}function _(t,e){for(var n=0;n<e.length;n++){var i=e[n];i.enumerable=i.enumerable||!1,i.configurable=!0,"value"in i&&(i.writable=!0),Object.defineProperty(t,i.key,i)}}function E(t,e){return!e||"object"!==M(e)&&"function"!=typeof e?function(t){if(void 0===t)throw new ReferenceError("this hasn't been initialised - super() hasn't been called");return t}(t):e}function I(t,e,n){return(I="undefined"!=typeof Reflect&&Reflect.get?Reflect.get:function(t,e,n){var i=function(t,e){for(;!Object.prototype.hasOwnProperty.call(t,e)&&null!==(t=C(t)););return t}(t,e);if(i){var r=Object.getOwnPropertyDescriptor(i,e);return r.get?r.get.call(n):r.value}})(t,e,n||t)}function C(t){return(C=Object.setPrototypeOf?Object.getPrototypeOf:function(t){return t.__proto__||Object.getPrototypeOf(t)})(t)}function D(t,e){return(D=Object.setPrototypeOf||function(t,e){return t.__proto__=e,t})(t,e)}var R=function(t){function e(t,n){var i;return function(t,e){if(!(t instanceof e))throw new TypeError("Cannot call a class as a function")}(this,e),(i=E(this,C(e).call(this,t))).imgEl=n,i}var n,i,r;return function(t,e){if("function"!=typeof e&&null!==e)throw new TypeError("Super expression must either be null or a function");t.prototype=Object.create(e&&e.prototype,{constructor:{value:t,writable:!0,configurable:!0}}),e&&D(t,e)}(e,o),n=e,(i=[{key:"draw",value:function(){I(C(e.prototype),"draw",this).call(this),this.canvas.ctx.drawImage(this.imgEl,0,0,this.particleSize,this.particleSize)}}])&&_(n.prototype,i),r&&_(n,r),e}();function T(t,e){for(var n=0;n<e.length;n++){var i=e[n];i.enumerable=i.enumerable||!1,i.configurable=!0,"value"in i&&(i.writable=!0),Object.defineProperty(t,i.key,i)}}var z=function(){function t(){!function(t,e){if(!(t instanceof e))throw new TypeError("Cannot call a class as a function")}(this,t),this.cachedImage=null}var e,n,r;return e=t,(n=[{key:"createImageElement",value:function(t){var e=document.createElement("img");return e.setAttribute("src",t),e}},{key:"getImageElement",value:function(t){return this.cachedImage&&t===this.cachedImage.getAttribute("src")||(this.cachedImage=this.createImageElement(t)),this.cachedImage}},{key:"getRandomParticle",value:function(){var t=(arguments.length>0&&void 0!==arguments[0]?arguments[0]:{}).particles||[];return t.length<1?{}:t[Math.floor(Math.random()*t.length)]}},{key:"getDefaults",value:function(){var t=arguments.length>0&&void 0!==arguments[0]?arguments[0]:{};return{type:t.defaultType||"circle",size:t.defaultSize||10,dropRate:t.defaultDropRate||10,colors:t.defaultColors||["DodgerBlue","OliveDrab","Gold","pink","SlateBlue","lightblue","Violet","PaleGreen","SteelBlue","SandyBrown","Chocolate","Crimson"],url:null}}},{key:"create",value:function(t){var e=this.getDefaults(t),n=this.getRandomParticle(t),r=Object.assign(e,n),o=i(0,r.colors.length,!0);if(r.color=r.colors[o],"circle"===r.type)return new h(r);if("rect"===r.type)return new w(r);if("heart"===r.type)return new x(r);if("image"===r.type)return new R(r,this.getImageElement(r.url));throw Error('Unknown particle type: "'.concat(r.type,'"'))}}])&&T(e.prototype,n),r&&T(e,r),t}();function F(t,e){for(var n=0;n<e.length;n++){var i=e[n];i.enumerable=i.enumerable||!1,i.configurable=!0,"value"in i&&(i.writable=!0),Object.defineProperty(t,i.key,i)}}var A=function(){function t(e){!function(t,e){if(!(t instanceof e))throw new TypeError("Cannot call a class as a function")}(this,t),this.items=[],this.pool=[],this.particleOptions=e,this.particleFactory=new z}var e,n,i;return e=t,(n=[{key:"update",value:function(){var t,e=this,n=[],i=[];this.items.forEach(function(t){t.update(),t.pastBottom()?t.remove||(t.setup(e.particleOptions),n.push(t)):i.push(t)}),(t=this.pool).push.apply(t,n),this.items=i}},{key:"draw",value:function(){this.items.forEach(function(t){return t.draw()})}},{key:"add",value:function(){this.pool.length>0?this.items.push(this.pool.pop().setup(this.particleOptions)):this.items.push(this.particleFactory.create(this.particleOptions).setup(this.particleOptions))}},{key:"refresh",value:function(){this.items.forEach(function(t){t.kill()}),this.pool=[]}}])&&F(e.prototype,n),i&&F(e,i),t}();function B(t,e){for(var n=0;n<e.length;n++){var i=e[n];i.enumerable=i.enumerable||!1,i.configurable=!0,"value"in i&&(i.writable=!0),Object.defineProperty(t,i.key,i)}}var H=function(){function t(e){!function(t,e){if(!(t instanceof e))throw new TypeError("Cannot call a class as a function")}(this,t);var n=document.getElementById(e);if(this.isDefault=null==e,!this.isDefault&&!n)throw new Error('No element found with ID "'.concat(e,'"'));if(this.canvas=n||t.createDefaultCanvas("confetti-canvas"),!(this.canvas instanceof HTMLCanvasElement))throw new Error('Element with ID "'.concat("confetti-canvas",'" is not a valid HTMLCanvasElement'));this.ctx=this.canvas.getContext("2d")}var e,n,i;return e=t,i=[{key:"createDefaultCanvas",value:function(t){var e=document.createElement("canvas");return e.style.display="block",e.style.position="fixed",e.style.pointerEvents="none",e.style.top=0,e.style.width="100vw",e.style.height="100vh",e.id=t,document.querySelector("body").appendChild(e),e}}],(n=[{key:"clear",value:function(){this.ctx.setTransform(1,0,0,1,0,0),this.ctx.clearRect(0,0,this.width,this.height)}},{key:"updateDimensions",value:function(){this.isDefault&&(this.width===window.innerWidth&&this.height===window.innerHeight||(this.canvas.width=window.innerWidth,this.canvas.height=window.innerHeight))}},{key:"width",get:function(){return this.canvas.width}},{key:"height",get:function(){return this.canvas.height}}])&&B(e.prototype,n),i&&B(e,i),t}();function L(t,e){for(var n=0;n<e.length;n++){var i=e[n];i.enumerable=i.enumerable||!1,i.configurable=!0,"value"in i&&(i.writable=!0),Object.defineProperty(t,i.key,i)}}var W=function(){function t(){!function(t,e){if(!(t instanceof e))throw new TypeError("Cannot call a class as a function")}(this,t),this.setDefaults()}var e,n,i;return e=t,(n=[{key:"setDefaults",value:function(){this.killed=!1,this.framesSinceDrop=0,this.canvas=null,this.canvasId=null,this.W=0,this.H=0,this.particleManager=null,this.particlesPerFrame=0,this.wind=0,this.windSpeed=1,this.windSpeedMax=1,this.windChange=.01,this.windPosCoef=.002,this.animationId=null}},{key:"getParticleOptions",value:function(t){var e={canvas:this.canvas,W:this.W,H:this.H,wind:this.wind,windPosCoef:this.windPosCoef,windSpeedMax:this.windSpeedMax,count:0};return Object.assign(e,t),e}},{key:"createParticles",value:function(){var t=arguments.length>0&&void 0!==arguments[0]?arguments[0]:{},e=this.getParticleOptions(t);this.particleManager=new A(e)}},{key:"start",value:function(t){this.canvas&&t.canvasId===this.canvasId||(this.canvas=new H(t.canvasId),this.canvasId=t.canvasId),this.animationId&&cancelAnimationFrame(this.animationId),this.createParticles(t),this.canvas.updateDimensions(),this.setParticlesPerFrame(t),this.animationId=requestAnimationFrame(this.mainLoop.bind(this))}},{key:"setParticlesPerFrame",value:function(t){this.particlesPerFrame=t.particlesPerFrame||2}},{key:"stop",value:function(){this.killed=!0,this.particlesPerFrame=0}},{key:"update",value:function(t){this.canvas&&t.canvasId!==this.canvasId&&(this.stop(),this.canvas.clear(),this.start(t)),this.setParticlesPerFrame(t),this.particleManager&&(this.particleManager.particleOptions=this.getParticleOptions(t),this.particleManager.refresh())}},{key:"remove",value:function(){this.stop(),this.animationId&&cancelAnimationFrame(this.animationId),this.canvas.clear(),this.setDefaults()}},{key:"mainLoop",value:function(t){this.canvas.updateDimensions(),this.canvas.clear(),this.windSpeed=Math.sin(t/8e3)*this.windSpeedMax,this.wind=this.particleManager.particleOptions.wind+=this.windChange;for(var e=this.framesSinceDrop*this.particlesPerFrame;e>=1;)this.particleManager.add(),e-=1,this.framesSinceDrop=0;this.particleManager.update(),this.particleManager.draw(),this.killed&&!this.particleManager.items.length||(this.animationId=requestAnimationFrame(this.mainLoop.bind(this))),this.framesSinceDrop+=1}}])&&L(e.prototype,n),i&&L(e,i),t}();n.d(e,"Confetti",function(){return W});e.default={install:function(t,e){this.installed||(this.installed=!0,t.prototype.$confetti=new W(e))}}},,,function(t,e,n){t.exports=n(0)}])});
 },{}],"index.js":[function(require,module,exports) {
 "use strict";
 
@@ -44357,6 +46224,10 @@ var _vueFontawesome = require("@fortawesome/vue-fontawesome");
 
 var _vue2SmoothScroll = _interopRequireDefault(require("vue2-smooth-scroll"));
 
+var _vueLazyload = _interopRequireDefault(require("vue-lazyload"));
+
+var _vueConfetti = _interopRequireDefault(require("vue-confetti"));
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 // stylesheets
@@ -44365,11 +46236,15 @@ window.$ = _jquery.default;
 
 _fontawesomeSvgCore.library.add(_freeSolidSvgIcons.faMapMarkedAlt, _freeSolidSvgIcons.faImages, _freeSolidSvgIcons.faClipboardCheck);
 
-_vue.default.component('font-awesome-icon', _vueFontawesome.FontAwesomeIcon);
+_vue.default.component("font-awesome-icon", _vueFontawesome.FontAwesomeIcon);
 
 _vue.default.config.productionTip = false;
 
 _vue.default.use(_vue2SmoothScroll.default);
+
+_vue.default.use(_vueLazyload.default);
+
+_vue.default.use(_vueConfetti.default);
 
 new _vue.default({
   el: "#app",
@@ -44389,7 +46264,7 @@ new _vue.default({
 //       });
 //   });
 // }
-},{"./scss/default.scss":"scss/default.scss","./scss/theme/agency.scss":"scss/theme/agency.scss","jquery":"../node_modules/jquery/dist/jquery.js","./library/sakura/jquery-sakura.min.css":"library/sakura/jquery-sakura.min.css","core-js/stable":"../node_modules/core-js/stable/index.js","regenerator-runtime/runtime":"../node_modules/regenerator-runtime/runtime.js","vue":"../node_modules/vue/dist/vue.runtime.esm.js","./utilities/router":"utilities/router.js","./components/app.vue":"components/app.vue","@fortawesome/fontawesome-svg-core":"../node_modules/@fortawesome/fontawesome-svg-core/index.es.js","@fortawesome/free-solid-svg-icons":"../node_modules/@fortawesome/free-solid-svg-icons/index.es.js","@fortawesome/vue-fontawesome":"../node_modules/@fortawesome/vue-fontawesome/index.es.js","vue2-smooth-scroll":"../node_modules/vue2-smooth-scroll/dist/vue-smooth-scroll.min.js"}],"../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+},{"./scss/default.scss":"scss/default.scss","./scss/theme/agency.scss":"scss/theme/agency.scss","jquery":"../node_modules/jquery/dist/jquery.js","./library/sakura/jquery-sakura.min.css":"library/sakura/jquery-sakura.min.css","core-js/stable":"../node_modules/core-js/stable/index.js","regenerator-runtime/runtime":"../node_modules/regenerator-runtime/runtime.js","vue":"../node_modules/vue/dist/vue.runtime.esm.js","./utilities/router":"utilities/router.js","./components/app.vue":"components/app.vue","@fortawesome/fontawesome-svg-core":"../node_modules/@fortawesome/fontawesome-svg-core/index.es.js","@fortawesome/free-solid-svg-icons":"../node_modules/@fortawesome/free-solid-svg-icons/index.es.js","@fortawesome/vue-fontawesome":"../node_modules/@fortawesome/vue-fontawesome/index.es.js","vue2-smooth-scroll":"../node_modules/vue2-smooth-scroll/dist/vue-smooth-scroll.min.js","vue-lazyload":"../node_modules/vue-lazyload/vue-lazyload.esm.js","vue-confetti":"../node_modules/vue-confetti/dist/vue-confetti.js"}],"../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -44417,7 +46292,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "50062" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "52537" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

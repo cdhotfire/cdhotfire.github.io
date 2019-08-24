@@ -17,16 +17,26 @@ import Vue from "vue";
 import router from "./utilities/router";
 import app from "./components/app.vue";
 
-import { library } from '@fortawesome/fontawesome-svg-core'
-import { faMapMarkedAlt, faClipboardCheck, faImages } from '@fortawesome/free-solid-svg-icons'
-import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
+import { library } from "@fortawesome/fontawesome-svg-core";
+import {
+  faMapMarkedAlt,
+  faClipboardCheck,
+  faImages
+} from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 
 library.add(faMapMarkedAlt, faImages, faClipboardCheck);
-Vue.component('font-awesome-icon', FontAwesomeIcon)
-Vue.config.productionTip = false
+Vue.component("font-awesome-icon", FontAwesomeIcon);
+Vue.config.productionTip = false;
 
-import vueSmoothScroll from 'vue2-smooth-scroll';
-Vue.use(vueSmoothScroll)
+import vueSmoothScroll from "vue2-smooth-scroll";
+Vue.use(vueSmoothScroll);
+
+import VueLazyload from "vue-lazyload";
+Vue.use(VueLazyload);
+
+import VueConfetti from 'vue-confetti'
+Vue.use(VueConfetti)
 
 new Vue({
   el: "#app",
