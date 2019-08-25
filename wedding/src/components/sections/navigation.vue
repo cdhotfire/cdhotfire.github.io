@@ -63,3 +63,8 @@ export default {
   }
 };
 </script>
+<style>
+.navbar-toggler {
+  color: rgb(33, 37, 41) !important;
+}
+</style>

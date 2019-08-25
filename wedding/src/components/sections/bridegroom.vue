@@ -21,10 +21,14 @@
     </div>
     <div class="row">
       <div class="col-lg-12 text-center">
-        <h2 class="section-heading cursive-header">
-          Join us for our Celebration
-        </h2>
+        <h2 class="section-heading cursive-header">Join us for our Celebration</h2>
       </div>
     </div>
   </div>
 </template>
+<style>
+.bride-groom-circle {
+  height: 300px;
+  width: 300px;
+}
+</style>

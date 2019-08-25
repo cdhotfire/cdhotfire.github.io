@@ -50,8 +50,86 @@ export default {
   },
   mounted() {
     setInterval(this.changeImage, 4000);
-
     $(".flowers").sakura("start", { className: "particles" });
   }
 };
 </script>
+<style sccs>
+.header {
+  height: 100vh;
+}
+
+.flowers {
+  width: 100%;
+  overflow: hidden;
+  left: 0;
+  top: 0;
+  position: absolute;
+  height: 100%;
+}
+
+.particles {
+  /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#feffff+0,d2ebf9+100;Blue+3D+%2312 */
+  background: #feffff;
+  /* Old browsers */
+  background: -moz-linear-gradient(top, #feffff 0%, #d2ebf9 100%);
+  /* FF3.6-15 */
+  background: -webkit-linear-gradient(top, #feffff 0%, #d2ebf9 100%);
+  /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(to bottom, #feffff 0%, #d2ebf9 100%);
+  /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#feffff', endColorstr='#d2ebf9', GradientType=0);
+  /* IE6-9 */
+  position: absolute;
+  pointer-events: none;
+}
+
+.header-image {
+  filter: blur(0.75px);
+  object-fit: cover;
+  font-family: "object-fit: cover;";
+}
+
+.header-text {
+  position: absolute;
+  width: 100%;
+  top: 60%;
+  left: 0;
+  text-align: center;
+  color: white;
+  text-shadow: -1px 0 rgba(0, 0, 0, 0.5), 0 1px rgba(0, 0, 0, 0.5),
+    1px 0 rgba(0, 0, 0, 0.5), 0 -1px rgba(0, 0, 0, 0.5);
+}
+
+.header-names {
+  font-family: "Parisienne", cursive;
+  opacity: 0.9;
+}
+
+.header-names > div {
+  margin-top: -1rem;
+}
+
+.together {
+  height: 6rem;
+}
+
+.header-image[loaded="true"] {
+  opacity: 0;
+  animation-name: fadein;
+  animation-duration: 0.5s;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+  animation-direction: normal;
+  animation-timing-function: ease-in-out;
+}
+
+@keyframes fadein {
+  0% {
+    opacity: 0.75;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+</style>

@@ -21,6 +21,7 @@
     "@fortawesome/vue-fontawesome": "^0.1.6",
     "bootstrap": "^4.3.1",
     "jquery": "^3.4.1",
+    "jquery-countdown": "^2.2.0",
     "lightgallery": "^1.6.12",
     "popper.js": "^1.15.0",
     "regenerator-runtime": "^0.13.3",
@@ -35,7 +36,6 @@
     "vue-router": "^3.1.2",
     "vue-scrollto": "^2.15.0",
     "vue2-animate": "^2.1.2",
-    "vue2-flip-countdown": "^0.9.1",
     "vue2-google-maps": "^0.10.7",
     "vuex": "^3.1.1"
   },
