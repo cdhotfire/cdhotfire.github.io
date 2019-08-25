@@ -46,7 +46,8 @@
   left: 0;
   text-align: center;
   color: white;
-  text-shadow: -1px 0 rgba(0, 0, 0, 0.15), 0 1px rgba(0, 0, 0, 0.15), 1px 0 rgba(0, 0, 0, 0.15), 0 -1px rgba(0, 0, 0, 0.15);
+  text-shadow: -1px 0 rgba(0, 0, 0, 0.5), 0 1px rgba(0, 0, 0, 0.5),
+    1px 0 rgba(0, 0, 0, 0.5), 0 -1px rgba(0, 0, 0, 0.5);
 }
 
 .header-names {
@@ -116,15 +117,6 @@ hr {
   -moz-column-width: 33%;
   column-width: 33%;
 }
-.gallery .pics {
-  -webkit-transition: all 350ms ease;
-  transition: all 350ms ease;
-}
-.gallery .animation {
-  -webkit-transform: scale(1);
-  -ms-transform: scale(1);
-  transform: scale(1);
-}
 
 @media (max-width: 450px) {
   .gallery {
@@ -137,9 +129,29 @@ hr {
   }
 }
 
-@media (max-width: 400px) {
-  .btn.filter {
-    padding-left: 1.1rem;
-    padding-right: 1.1rem;
+.jarallax-img[loaded="true"] {
+  opacity: 0;
+  animation-name: fadein;
+  animation-duration: 0.5s;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+  animation-direction: normal;
+  animation-timing-function: ease-in-out;
+  @keyframes fadein {
+    0% {
+      opacity: 0.75;
+    }
+    100% {
+      opacity: 1;
+    }
   }
+}
+
+.bride-groom-circle {
+  height: 300px;
+  width: 300px;
+}
+
+.navbar-toggler {
+  color: rgb(33, 37, 41) !important;
 }

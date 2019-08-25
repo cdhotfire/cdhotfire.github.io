@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "description": "wedding",
   "scripts": {
-    "dev": "parcel src/index.html"
+    "dev": "parcel src/index.html",
+    "build": "parcel build src/index.html"
   },
   "keywords": [
     "wedding"
@@ -25,29 +26,39 @@
     "object-fit-images": "^3.2.4",
     "popper.js": "^1.15.0",
     "regenerator-runtime": "^0.13.3",
+    "register-service-worker": "^1.6.2",
     "scss": "^0.2.4",
     "vue-confetti": "^2.0.1",
     "vue-fontawesome": "0.0.2",
-    "vue-gallery": "^2.0.0",
     "vue-hot-reload-api": "^2.3.3",
     "vue-lazyload": "^1.3.2",
     "vue-progress-path": "0.0.2",
     "vue-router": "^3.1.2",
-    "vue-wow": "^1.2.0",
+    "vue-scrollto": "^2.15.0",
+    "vue2-animate": "^2.1.2",
     "vue2-flip-countdown": "^0.9.1",
     "vue2-google-maps": "^0.10.7",
-    "vue2-smooth-scroll": "^1.1.0",
     "vuex": "^3.1.1"
   },
   "devDependencies": {
     "@babel/core": "^7.5.5",
-    "core-js": "^3.2.1",
     "@babel/plugin-transform-runtime": "^7.5.5",
     "@babel/preset-env": "^7.5.5",
     "@vue/component-compiler-utils": "^3.0.0",
+    "core-js": "^3.2.1",
     "parcel-bundler": "^1.12.3",
+    "parcel-plugin-bundle-visualiser": "^1.2.0",
+    "parcel-plugin-clean-dist": "0.0.6",
+    "parcel-plugin-imagemin": "^3.0.0",
+    "parcel-plugin-sw-precache": "^1.1.1",
     "sass": "^1.22.10",
     "vue": "^2.6.10",
     "vue-template-compiler": "^2.6.10"
+  },
+  "cache": {
+    "disablePlugin": false,
+    "inDev": true,
+    "strategy": "default",
+    "clearDist": true
   }
 }
