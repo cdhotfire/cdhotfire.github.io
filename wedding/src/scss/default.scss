@@ -36,7 +36,9 @@
 }
 
 .header-image {
-  filter: blur(1px);
+  filter: blur(.75px);
+  margin-top: -30vh;
+  height: 130vh !important;
 }
 
 .header-text {
@@ -129,7 +131,7 @@ hr {
   }
 }
 
-.jarallax-img[loaded="true"] {
+.header-image[loaded="true"] {
   opacity: 0;
   animation-name: fadein;
   animation-duration: 0.5s;
@@ -154,4 +156,8 @@ hr {
 
 .navbar-toggler {
   color: rgb(33, 37, 41) !important;
+}
+
+.page-section {
+    background-color: white;
 }

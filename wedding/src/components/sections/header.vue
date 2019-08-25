@@ -1,11 +1,11 @@
 <template>
   <div class="header">
-    <div class="jarallax">
+    <parallax :fixed="true">
       <transition name="fade">
-        <img :src="image" class="header-image jarallax-img" :loaded="imageLoaded" @load="loaded" />
+        <img :src="image" class="header-image" :loaded="imageLoaded" @load="loaded" />
       </transition>
       <div class="image-overlay"></div>
-    </div>
+    </parallax>
     <div class="header-text">
       <div class="header-names display-3">
         <div>Isidro</div>
@@ -21,8 +21,7 @@
 </template>
 <script>
 import "../../library/sakura/jquery-sakura.min.js";
-import "jarallax/dist/jarallax.js";
-import objectFitImages from "object-fit-images";
+import Parallax from "vue-parallaxy";
 import images from "../../images/header/*.jpg";
 
 export default {
@@ -32,6 +31,9 @@ export default {
     imageIndex: 1,
     imageLoaded: false
   }),
+  components: {
+    Parallax
+  },
   created() {
     this.images = Object.values(images);
     this.image = this.images[0];
@@ -47,9 +49,6 @@ export default {
     }
   },
   mounted() {
-    objectFitImages();
-    $(".jarallax").jarallax({ speed: 0 });
-
     setInterval(this.changeImage, 4000);
 
     $(".flowers").sakura("start", { className: "particles" });

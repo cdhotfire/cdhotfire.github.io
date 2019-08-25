@@ -22,8 +22,7 @@
     <div class="row">
       <div class="col-lg-12 text-center">
         <h2 class="section-heading cursive-header">
-          Join us for our
-          <br />Chinese Tea Ceremony & Reception
+          Join us for our Celebration
         </h2>
       </div>
     </div>
