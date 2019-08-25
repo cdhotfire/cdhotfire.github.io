@@ -12,7 +12,7 @@ export default {
       var days =
         "<div class='col-auto'><div class='countdown-date'>" +
         event.strftime("%D") +
-        "<div class='countdown-description'>day</div></div></div>";
+        "<div class='countdown-description'>days</div></div></div>";
       var hours =
         "<div class='col-auto'><div class='countdown-date'>" +
         event.strftime("%H") +

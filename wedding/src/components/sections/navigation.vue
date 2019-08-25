@@ -67,4 +67,8 @@ export default {
 .navbar-toggler {
   color: rgb(33, 37, 41) !important;
 }
+
+.sticky-top {
+  position: -webkit-sticky;
+}
 </style>

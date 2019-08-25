@@ -23,6 +23,7 @@
     "jquery": "^3.4.1",
     "jquery-countdown": "^2.2.0",
     "lightgallery": "^1.6.12",
+    "object-fit-images": "^3.2.4",
     "popper.js": "^1.15.0",
     "regenerator-runtime": "^0.13.3",
     "register-service-worker": "^1.6.2",
@@ -49,15 +50,8 @@
     "parcel-plugin-bundle-visualiser": "^1.2.0",
     "parcel-plugin-clean-dist": "0.0.6",
     "parcel-plugin-imagemin": "^3.0.0",
-    "parcel-plugin-sw-precache": "^1.1.1",
     "sass": "^1.22.10",
     "vue": "^2.6.10",
     "vue-template-compiler": "^2.6.10"
-  },
-  "cache": {
-    "disablePlugin": false,
-    "inDev": false,
-    "strategy": "default",
-    "clearDist": true
   }
 }

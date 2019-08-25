@@ -11,5 +11,8 @@ new Vue({
   render: h => h(app)
 });
 
-const swName = `/service-worker.js`;
-navigator.serviceWorker.register(swName);
+navigator.serviceWorker.getRegistrations().then(function(registrations) {
+  for (let registration of registrations) {
+    registration.unregister();
+  }
+});

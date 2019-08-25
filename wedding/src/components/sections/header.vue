@@ -23,6 +23,7 @@
 import "../../library/sakura/jquery-sakura.min.js";
 import Parallax from "vue-parallaxy";
 import images from "../../images/header/*.jpg";
+import objectFitImages from "object-fit-images";
 
 export default {
   data: () => ({
@@ -49,6 +50,7 @@ export default {
     }
   },
   mounted() {
+    objectFitImages();
     setInterval(this.changeImage, 4000);
     $(".flowers").sakura("start", { className: "particles" });
   }
