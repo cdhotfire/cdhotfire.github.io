@@ -95,7 +95,7 @@ export default {
 .header-text {
   position: absolute;
   width: 100%;
-  top: 60%;
+  top: 40%;
   left: 0;
   text-align: center;
   color: white;
