@@ -17,3 +17,9 @@ Vue.use(VueConfetti);
 
 var VueScrollTo = require("vue-scrollto");
 Vue.use(VueScrollTo);
+
+import VueProgress from "vue-progress-path";
+
+Vue.use(VueProgress, {
+  // defaultShape: 'circle',
+});

@@ -1,3 +1,5 @@
+import 'pace-progressbar';
+
 import Vue from "vue";
 import router from "./utilities/router";
 import "./utilities/styles";
@@ -10,7 +12,6 @@ new Vue({
   router,
   render: h => h(app)
 });
-
 
 // delete old service worked information
 navigator.serviceWorker.getRegistrations().then(function(registrations) {

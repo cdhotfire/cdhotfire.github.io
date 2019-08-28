@@ -1,29 +1,20 @@
 <template>
   <div class="header">
-    <parallax :fixed="true">
+    <div class="header-fixed">
       <transition name="fade">
         <img :src="image" class="header-image" :loaded="imageLoaded" @load="loaded" />
       </transition>
       <div class="image-overlay"></div>
-    </parallax>
-    <div class="header-text">
-      <div class="header-names display-3">
-        <div>Isidro</div>
-        <div>
-          <img src="../../images/together.png" class="img-fluid together" />
-        </div>
-        <div>Jocelyn</div>
-      </div>
-      <div class="h6 mt-2">November 16, 2019</div>
     </div>
     <div class="flowers"></div>
+    <header-text class="wow rubberBand"></header-text>
   </div>
 </template>
 <script>
 import "../../library/sakura/jquery-sakura.min.js";
-import Parallax from "vue-parallaxy";
 import images from "../../images/header/*.jpg";
 import objectFitImages from "object-fit-images";
+import headerText from "./headerText";
 
 export default {
   data: () => ({
@@ -33,7 +24,7 @@ export default {
     imageLoaded: false
   }),
   components: {
-    Parallax
+      headerText
   },
   created() {
     this.images = Object.values(images);
@@ -50,7 +41,7 @@ export default {
     }
   },
   mounted() {
-    objectFitImages();
+    objectFitImages("img.header-image");
     setInterval(this.changeImage, 4000);
     $(".flowers").sakura("start", { className: "particles" });
   }
@@ -58,6 +49,20 @@ export default {
 </script>
 <style sccs>
 .header {
+  height: 100vh;
+}
+
+.header-fixed {
+  position: fixed;
+  z-index: -1;
+}
+
+.header-image {
+  filter: blur(1px);
+  object-fit: cover;
+  object-position: 50% 80%;
+  font-family: "object-fit: cover; object-position: 50% 80%;";
+  width: 100vw;
   height: 100vh;
 }
 
@@ -71,49 +76,10 @@ export default {
 }
 
 .particles {
-  /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#feffff+0,d2ebf9+100;Blue+3D+%2312 */
-  background: #feffff;
-  /* Old browsers */
-  background: -moz-linear-gradient(top, #feffff 0%, #d2ebf9 100%);
-  /* FF3.6-15 */
-  background: -webkit-linear-gradient(top, #feffff 0%, #d2ebf9 100%);
-  /* Chrome10-25,Safari5.1-6 */
-  background: linear-gradient(to bottom, #feffff 0%, #d2ebf9 100%);
-  /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#feffff', endColorstr='#d2ebf9', GradientType=0);
-  /* IE6-9 */
   position: absolute;
   pointer-events: none;
-}
-
-.header-image {
-  filter: blur(0.75px);
-  object-fit: cover;
-  font-family: "object-fit: cover;";
-}
-
-.header-text {
-  position: absolute;
-  width: 100%;
-  top: 40%;
-  left: 0;
-  text-align: center;
-  color: white;
-  text-shadow: -1px 0 rgba(0, 0, 0, 0.5), 0 1px rgba(0, 0, 0, 0.5),
-    1px 0 rgba(0, 0, 0, 0.5), 0 -1px rgba(0, 0, 0, 0.5);
-}
-
-.header-names {
-  font-family: "Parisienne", cursive;
-  opacity: 0.9;
-}
-
-.header-names > div {
-  margin-top: -1rem;
-}
-
-.together {
-  height: 6rem;
+  background: white;
+  background: linear-gradient(to bottom, #feffff 0%, #d2ebf9 100%);
 }
 
 .header-image[loaded="true"] {

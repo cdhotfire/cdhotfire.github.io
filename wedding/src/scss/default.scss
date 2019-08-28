@@ -1,6 +1,10 @@
 @import "./node_modules/bootstrap/scss/bootstrap";
 @import url("https://fonts.googleapis.com/css?family=Parisienne&display=swap");
 
+.header {
+  height: 100vh;
+}
+
 .cursive {
   font-family: "Parisienne", cursive;
 }
@@ -11,7 +15,7 @@
 }
 
 .image-overlay {
-  background-color: rgba(147, 160, 130, 0.2);
+  background-color: rgba(147, 160, 130, 0.3);
   position: absolute;
   width: 100%;
   height: 100%;
