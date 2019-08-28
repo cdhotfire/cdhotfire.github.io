@@ -19,6 +19,6 @@
 </template>
 <style>
 .google-form {
-    height: 700px;
+    height: 1000px;
 }
 </style>

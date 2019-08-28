@@ -58,7 +58,7 @@ export default {
 }
 
 .header-image {
-  filter: blur(1px);
+  filter: blur(.75px);
   object-fit: cover;
   object-position: 50% 80%;
   font-family: "object-fit: cover; object-position: 50% 80%;";
