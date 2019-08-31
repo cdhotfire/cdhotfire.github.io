@@ -12,14 +12,23 @@
           <bridegroom></bridegroom>
           <countdown class="mt-5 wow fadeIn"></countdown>
         </div>
-        <div class="page-section text-center bg-light" id="events">
+        <divider class="alternate" icon="map-marked-alt"></divider>
+        <div class="page-section alternate" id="events">
           <whenwhere class="wow fadeIn"></whenwhere>
         </div>
-        <div class="page-section" id="rsvpsection">
+        <divider icon="hotel"></divider>
+        <div class="page-section" id="accommodations">
+          <accommodations class="wow fadeIn"></accommodations>
+        </div>
+        <divider class="alternate" icon="clipboard-check"></divider>
+        <div class="page-section alternate" id="rsvpsection">
           <rsvp class="wow fadeIn"></rsvp>
         </div>
-        <div class="page-section bg-light" id="gallerysection">
+        <divider icon="images"></divider>
+        <div class="page-section" id="gallerysection">
           <gallery class="wow fadeIn"></gallery>
+        </div>
+        <div id="theend">
         </div>
       </div>
     </div>
@@ -34,6 +43,8 @@ import whenwhere from "./sections/whenwhere";
 import header from "./sections/header";
 import navigation from "./sections/navigation";
 import loading from "./sections/loading";
+import accommodations from "./sections/accommodations";
+import divider from "./sections/divider";
 
 import WOW from "wowjs/dist/wow.js";
 
@@ -46,7 +57,9 @@ export default {
     whenwhere,
     headertop: header,
     navigation,
-    loading
+    loading,
+    accommodations,
+    divider
   },
   data() {
     return {
@@ -60,7 +73,7 @@ export default {
   mounted() {
     this.loaded = true;
     Pace.stop();
-    new WOW.WOW().init();    
+    new WOW.WOW().init();
   }
 };
 </script>

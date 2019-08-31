@@ -1,11 +1,10 @@
 <template>
   <div class="container">
-    <div class="row justify-content-center">
-      <div class="col-auto">
+    <div class="row text-center">      
+      <div class="col">
         <h2 class="section-heading cursive-header">Rsvp</h2>
       </div>
     </div>
-    <hr />
     <div class="embed-responsive google-form">
       <iframe
         class="embed-responsive-item"
@@ -19,6 +18,6 @@
 </template>
 <style>
 .google-form {
-    height: 1000px;
+    height: 50rem;
 }
 </style>

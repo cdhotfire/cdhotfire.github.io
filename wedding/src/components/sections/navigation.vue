@@ -1,11 +1,8 @@
 <template>
-  <nav
-    class="navbar navbar-expand-lg navbar-dark navbar-shrink nav-fill sticky-top justify-content-center"
-    id="mainNav"
-  >
-  <balloon></balloon>
+  <nav class="navbar navbar-expand-lg sticky-top justify-content-center navbar-light">
+    <balloon></balloon>
     <button
-      class="navbar-toggler"
+      class="navbar-toggler btn btn-secondary text-uppercase"
       type="button"
       data-toggle="collapse"
       data-target="#navbarSupportedContent"
@@ -16,7 +13,7 @@
       <font-awesome-icon icon="compass" class="mr-2"></font-awesome-icon>Navigation
     </button>
     <div class="collapse navbar-collapse justify-content-center" id="navbarSupportedContent">
-      <ul class="navbar-nav text-uppercase">
+      <ul class="navbar-nav text-uppercase text-center">
         <li class="nav-item">
           <a class="nav-link" v-scroll-to="'#home'" @click="closeNav('home')">
             <font-awesome-icon icon="home" class="mr-2"></font-awesome-icon>Home
@@ -25,6 +22,11 @@
         <li class="nav-item">
           <a class="nav-link" v-scroll-to="'#events'" @click="closeNav('events')">
             <font-awesome-icon icon="map-marked-alt" class="mr-2"></font-awesome-icon>Events
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" v-scroll-to="'#accommodations'" @click="closeNav('accommodations')">
+            <font-awesome-icon icon="hotel" class="mr-2"></font-awesome-icon>Accommodations
           </a>
         </li>
         <li class="nav-item">
@@ -40,7 +42,7 @@
         <li class="nav-item">
           <a class="nav-link" @click="partyTime">
             <font-awesome-icon icon="gift" class="mr-2"></font-awesome-icon>
-            {{party ? "Stop The Party" : "Party Time"}}
+            {{party ? "Stop!" : "Surprise!"}}
           </a>
         </li>
       </ul>
@@ -49,11 +51,16 @@
 </template>
 <script>
 import balloon from "./balloon";
+import particles from "../../images/particles/*.png";
 
 export default {
   methods: {
     partyTime() {
-      if (!this.party) this.$confetti.start({});
+      if (!this.party)
+        this.$confetti.start({
+          particles: this.particles,
+          particlePerFrame: 1
+        });
       else this.$confetti.stop();
 
       this.party = !this.party;
@@ -68,14 +75,24 @@ export default {
     }
   },
   components: {
-      balloon
+    balloon
   },
   data() {
     return {
-      party: false
+      party: false,
+      particles: []
     };
   },
-  mounted() {}
+  mounted() {
+    for (var i in particles) {
+      this.particles.push({
+        type: "image",
+        size: 10,
+        dropRate: 7,
+        url: particles[i]
+      });
+    }
+  }
 };
 </script>
 <style>
@@ -84,6 +101,6 @@ export default {
 }
 
 .nav-link {
-    cursor: pointer;
+  cursor: pointer;
 }
 </style>

@@ -1,45 +1,45 @@
 <template>
-  <img class="balloon wow fadeInLeft" src="../../images/balloon.png" />
+  <div class="balloon">
+    <img class="balloon-image wow fadeInLeft" src="../../images/balloon.png" />
+    <theend></theend>
+  </div>
 </template>
 <script>
+import theend from "./../sections/theend";
 import ScrollMagic from "scrollmagic";
 import "scrollmagic/scrollmagic/uncompressed/plugins/animation.gsap";
-import { TweenMax, Power1, TimelineLite } from "gsap/TweenMax";
+import { TweenMax } from "gsap/TweenMax";
 
 export default {
+  components: {
+    theend
+  },
   mounted() {
-    var flightpath = {
-      curviness: 1.25,
-      autoRotate: false,
-      values: [
-        { x: 5, y: 0 },
-        { x: 10, y: $(window).height() / 10 },
-        { x: 15, y: $(window).height() / 9 },
-        { x: 10, y: $(window).height() / 8 },
-        { x: 5, y: $(window).height() / 7 },
-        { x: 15, y: $(window).height() / 6 },
-        { x: 10, y: $(window).height() / 5 },
-        { x: 5, y: $(window).height() / 4 },
-        { x: 10, y: $(window).height() / 3 },
-        { x: 15, y: $(window).height() / 2 },
-        { x: 10, y: $(window).height() }
-      ]
-    };
-    // init controller
     var controller = new ScrollMagic.Controller();
 
-    // create tween
-    var tween = new TimelineMax().add(
-      TweenMax.to($(".balloon"), 0.5, {
-        css: { bezier: flightpath },
-        ease: Power1.easeInOut
-      })
-    );
+    var height = $("body").height() - $("body").width() * 0.16;
+    var width = $(window).width();
+    var ydif = height / 10;
 
-    // build scene
+    var values = [];
+    for (var i = 0; i < 10; i++) {
+      values.push({
+        x: (i * (width / 150)) % (width / 100),
+        y: height - i * ydif
+      });
+    }
+
+    var tween = TweenMax.to(".balloon", 1, {
+      css: {
+        bezier: {
+          values: values.reverse()
+        }
+      }
+    });
+
     var scene = new ScrollMagic.Scene({
       triggerElement: ".balloon-trigger",
-      duration: "1200%",
+      duration: () => $("body").height() - $("body").width() * 0.16,
       offset: 0
     })
       .setTween(tween)
@@ -52,9 +52,14 @@ export default {
   position: absolute;
   top: 0;
   left: 0;
+  z-index: 0;
   width: 10%;
   max-width: 150px;
-  z-index: 0;
   pointer-events: none;
+  opacity: 0.8;
+}
+
+.balloon-image {
+  width: 100%;
 }
 </style>

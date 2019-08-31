@@ -1,0 +1,159 @@
+@import url("https://fonts.googleapis.com/css?family=Lato|Satisfy&display=swap");
+
+$cursive-font: "Satisfy", cursive;
+$alternate-font: "Lato", cursive;
+$secondary-color: $secondary;
+
+.navbar {
+  background-color: transparentize($primary, 0.1);
+}
+
+.navbar > .navbar-toggler {
+  color: $dark !important;
+}
+
+.navbar .navbar-nav .nav-link:hover,
+.navbar .navbar-nav .nav-link:focus {
+  color: darken($secondary, 50) !important;
+}
+
+.navbar .navbar-nav .nav-link,
+.navbar .navbar-nav .nav-link {
+  color: $dark !important;
+}
+
+.list-group {
+  font-size: $font-size-sm;
+}
+
+.page-section {
+  background-color: $light;
+  color: $dark !important;
+  padding-top: 3.5rem;
+  padding-bottom: 7rem;
+}
+
+.page-section.alternate {
+  background-color: $dark;
+  color: $light !important;
+}
+
+.header-text {
+  position: absolute;
+  bottom: 1rem;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+}
+
+.cursive {
+  font-family: $cursive-font;
+}
+
+.cursive-header {
+  font-family: $cursive-font;
+  @include font-size(7rem, true);
+  color: $primary;
+  text-align: center;
+}
+
+.page-section.alternate .cursive-header {
+  color: $secondary-color;
+}
+
+.header {
+  height: 100vh;
+}
+
+.image-overlay {
+  background-color: transparentize(darken($primary, 50), 0.6);
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+}
+
+.circle-overlay {
+  background-color: transparentize(darken($primary, 50), 0.9);
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+}
+
+.map {
+  height: 30rem;
+}
+
+.divider {
+  background-color: $light;
+  text-align: center;
+  position: relative;
+}
+
+.divider-section {
+  margin-left: auto;
+  margin-right: auto;
+  width: 6.5rem;
+  height: 6.5rem;
+  position: absolute;
+  top: -3.25rem;
+  left: calc(50% - 3.25rem);
+  background: $light;
+  color: $primary;
+  border-radius: 100%;
+  line-height: 6rem;
+  @include font-size(3rem, true);
+}
+
+.alternate .divider-section {
+  background: $dark;
+  color: $secondary-color;
+}
+
+.alternate .text-muted {
+  color: $gray-400 !important;
+}
+
+.alternate h4 {
+  color: $light;
+}
+
+.header-names {
+  color: $light;
+  font-family: $cursive-font;
+}
+
+.header-date {
+  color: lighten($primary, 10);
+  font-weight: bold;
+  font-style: italic;
+  font-size: 1.3rem;
+  font-family: $alternate-font;
+}
+
+.bride-groom-heart {
+  @include font-size(5rem, true);
+  color: $secondary;
+}
+
+// .chat-bubble {
+//   position: relative;
+//   border-radius: 0.4em;
+//   padding: 1rem 1rem 1rem 2rem;
+//   background:$primary;  
+// }
+
+
+
+.chat-bubble > .h1
+{
+  @include font-size(2rem, true);
+}
+
+.chat-bubble > .h4
+{
+  @include font-size(1rem, true);
+}

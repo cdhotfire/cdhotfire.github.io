@@ -1,11 +1,10 @@
 <template>
   <div class="container">
     <div class="row justify-content-center">
-      <div class="col-auto">
+      <div class="col">
         <h2 class="section-heading cursive-header">Gallery</h2>
       </div>
     </div>
-    <hr />
     <div class="lightgallery gallery">
       <a v-for="image in images" :key="image" :data-src="image" class="gallery-item">
         <img v-lazy="image" class="img-fluid" @load="loaded" />
@@ -55,7 +54,7 @@ export default {
   padding: 7px;
 }
 
-@media (min-width: 576px) and (max-width: 768px) {
+@media (max-width: 768px) {
   .gallery-item {
     width: 100%;
     padding: 7px;

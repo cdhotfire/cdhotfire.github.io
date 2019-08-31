@@ -7,7 +7,7 @@
       <div class="image-overlay"></div>
     </div>
     <div class="flowers"></div>
-    <header-text class="wow rubberBand"></header-text>
+    <header-text></header-text>
   </div>
 </template>
 <script>
@@ -58,7 +58,7 @@ export default {
 }
 
 .header-image {
-  filter: blur(.75px);
+  filter: blur(.5px);
   object-fit: cover;
   object-position: 50% 80%;
   font-family: "object-fit: cover; object-position: 50% 80%;";

@@ -1,11 +1,10 @@
 <template>
-  <div class="container">
+  <div class="container text-center">
     <div class="row">
-      <div class="col-12">
+      <div class="col">
         <h2 class="section-heading cursive-header">Events</h2>
       </div>
     </div>
-    <hr />
     <div class="row">
       <div class="col-sm-12 col-lg-6">
         <div class="portfolio-item">
@@ -18,7 +17,7 @@
             <img class="img-fluid" src alt />
           </a>
           <div class="portfolio-caption">
-            <h4>Chinese Tea Ceremony & Reception</h4>
+            <h4>Chinese Tea Ceremony</h4>
             <p class="text-muted">
               Saturday, November 16, 2019 — 5:00 PM
               <br />Orlando Marriott Lake Mary

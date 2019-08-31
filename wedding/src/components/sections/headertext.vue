@@ -1,33 +1,16 @@
 <template>
   <div class="header-text">
-    <div class="header-names display-3">
-      <div>Jocelyn</div>
-      <div>
-        <img src="../../images/together.png" class="img-fluid together" />
+    <div class="header-names display-1 wow rubberBand">
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-12 col-md-6 col-lg-5">Isidro</div>
+          <div class="col-12 col-md-2 col-lg-2">
+            <font-awesome-icon icon="heart" class="bride-groom-heart"></font-awesome-icon>
+          </div>
+          <div class="col-12 col-md-4 col-lg-5">Jocelyn</div>
+        </div>
       </div>
-      <div>Isidro</div>
     </div>
-    <div class="h6 mt-2">November 16, 2019</div>
+    <div class="mt-1 header-date">November 16, 2019</div>
   </div>
 </template>
-<style>
-.together {
-  height: 6rem;
-}
-
-.header-names {
-  font-family: "Parisienne", cursive;
-  opacity: 0.9;
-}
-
-.header-text {
-  position: absolute;
-  width: 100%;
-  bottom: 1rem;
-  left: 0;
-  text-align: center;
-  color: white;
-  text-shadow: -1px 0 rgba(0, 0, 0, 0.5), 0 1px rgba(0, 0, 0, 0.5),
-    1px 0 rgba(0, 0, 0, 0.5), 0 -1px rgba(0, 0, 0, 0.5);
-}
-</style>

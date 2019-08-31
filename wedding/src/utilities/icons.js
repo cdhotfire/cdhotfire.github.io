@@ -6,6 +6,8 @@ import { faClipboardCheck } from "@fortawesome/free-solid-svg-icons/faClipboardC
 import { faHome } from "@fortawesome/free-solid-svg-icons/faHome";
 import { faGift } from "@fortawesome/free-solid-svg-icons/faGift";
 import { faCompass } from "@fortawesome/free-solid-svg-icons/faCompass";
+import { faHotel } from "@fortawesome/free-solid-svg-icons/faHotel";
+import { faHeart } from "@fortawesome/free-solid-svg-icons/faHeart";
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 
 library.add(
@@ -14,6 +16,8 @@ library.add(
   faClipboardCheck,
   faHome,
   faGift,
-  faCompass
+  faCompass,
+  faHotel,
+  faHeart
 );
 Vue.component("font-awesome-icon", FontAwesomeIcon);
