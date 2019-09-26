@@ -19,7 +19,7 @@
           <div class="portfolio-caption">
             <h4>Chinese Tea Ceremony</h4>
             <p class="text-muted">
-              Saturday, November 16, 2019 — 5:00 PM
+              Saturday, November 16, 2019 — 6:00 PM
               <br />Orlando Marriott Lake Mary
               <br />1501 International Pkwy, Lake Mary, FL 32746
             </p>

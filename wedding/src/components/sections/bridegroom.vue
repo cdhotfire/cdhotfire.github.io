@@ -1,5 +1,15 @@
 <template>
   <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-auto">
+        <div class="alert alert-danger text-center">
+          <h5>
+            <p>There has been a change of time for the Chinese Banquet to <b>6:00 PM.</b></p>
+            Sorry for the inconvenience.
+          </h5>
+        </div>
+      </div>
+    </div>
     <div class="row justify-content-center mt-5">
       <div class="col-auto wow slideInLeft">
         <div class="text-center">
