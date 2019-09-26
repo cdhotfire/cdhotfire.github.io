@@ -19,7 +19,7 @@
           <div class="portfolio-caption">
             <h4>Chinese Tea Ceremony</h4>
             <p class="text-muted">
-              Saturday, November 16, 2019 — 6:00 PM
+              Saturday, November 16, 2019 — 5:00 PM
               <br />Orlando Marriott Lake Mary
               <br />1501 International Pkwy, Lake Mary, FL 32746
             </p>
@@ -51,7 +51,7 @@
           <div class="portfolio-caption">
             <h4>Chinese Banquet</h4>
             <p class="text-muted">
-              Sunday, November 17, 2019 — 5:00 PM
+              Sunday, November 17, 2019 — 6:00 PM
               <br />Golden Lotus Chinese Restaurant
               <br />8365 S John Young Pkwy, Orlando, FL 32819
             </p>
