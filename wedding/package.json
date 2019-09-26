@@ -4,7 +4,7 @@
   "description": "wedding",
   "scripts": {
     "dev": "parcel src/index.html",
-    "build": "parcel build src/index.html -d ../dist --public-url ./dist/"
+    "build": "parcel build src/index.html -d ../"
   },
   "keywords": [
     "wedding"
