@@ -4,7 +4,8 @@
       <div class="col-auto">
         <div class="alert alert-danger text-center">
           <h5>
-            <p>There has been a change of time for the Chinese Banquet to <b>6:00 PM.</b></p>
+            <p>There has been a change of time for our Chinese Banquet to </p>
+            <p><b>November 17, 2019 — 6:00 PM </b></p>
             Sorry for the inconvenience.
           </h5>
         </div>

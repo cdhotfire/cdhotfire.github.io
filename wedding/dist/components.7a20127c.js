@@ -476,10 +476,11 @@ var staticRenderFns = [
             _c("h5", [
               _c("p", [
                 _vm._v(
-                  "There has been a change of time for the Chinese Banquet to "
-                ),
-                _c("b", [_vm._v("6:00 PM.")])
+                  "There has been a change of time for our Chinese Banquet to "
+                )
               ]),
+              _vm._v(" "),
+              _c("p", [_c("b", [_vm._v("November 17, 2019 — 6:00 PM ")])]),
               _vm._v("\n          Sorry for the inconvenience.\n        ")
             ])
           ])
@@ -2031,18 +2032,20 @@ var define;
       
 },{"./..\\fonts\\lg.eot":[["lg.16ad3efb.eot","../node_modules/lightgallery/dist/fonts/lg.eot"],"../node_modules/lightgallery/dist/fonts/lg.eot"],"./..\\fonts\\lg.woff":[["lg.6a6448cb.woff","../node_modules/lightgallery/dist/fonts/lg.woff"],"../node_modules/lightgallery/dist/fonts/lg.woff"],"./..\\fonts\\lg.ttf":[["lg.568d628f.ttf","../node_modules/lightgallery/dist/fonts/lg.ttf"],"../node_modules/lightgallery/dist/fonts/lg.ttf"],"./..\\fonts\\lg.svg":[["lg.b1ec4c60.svg","../node_modules/lightgallery/dist/fonts/lg.svg"],"lg.b1ec4c60.js","../node_modules/lightgallery/dist/fonts/lg.svg"],"./..\\img\\vimeo-play.png":[["vimeo-play.24f8aa3e.png","../node_modules/lightgallery/dist/img/vimeo-play.png"],"vimeo-play.24f8aa3e.js","../node_modules/lightgallery/dist/img/vimeo-play.png"],"./..\\img\\video-play.png":[["video-play.e09d5799.png","../node_modules/lightgallery/dist/img/video-play.png"],"video-play.e09d5799.js","../node_modules/lightgallery/dist/img/video-play.png"],"./..\\img\\youtube-play.png":[["youtube-play.1103b9b4.png","../node_modules/lightgallery/dist/img/youtube-play.png"],"youtube-play.1103b9b4.js","../node_modules/lightgallery/dist/img/youtube-play.png"],"./..\\img\\loading.gif":[["loading.f60300f5.gif","../node_modules/lightgallery/dist/img/loading.gif"],"loading.f60300f5.js","../node_modules/lightgallery/dist/img/loading.gif"],"_css_loader":"../node_modules/parcel-bundler/src/builtins/css-loader.js"}],"images/engagement/engagement10.jpg":[function(require,module,exports) {
 module.exports = "/engagement10.23272fea.jpg";
-},{}],"images/engagement/engagement15.jpg":[function(require,module,exports) {
-module.exports = "/engagement15.f86c2e22.jpg";
 },{}],"images/engagement/engagement18.jpg":[function(require,module,exports) {
 module.exports = "/engagement18.4a1c8a9c.jpg";
+},{}],"images/engagement/engagement15.jpg":[function(require,module,exports) {
+module.exports = "/engagement15.f86c2e22.jpg";
+},{}],"images/engagement/engagement19.jpg":[function(require,module,exports) {
+module.exports = "/engagement19.dbad5104.jpg";
 },{}],"images/engagement/engagement21.jpg":[function(require,module,exports) {
 module.exports = "/engagement21.788773b6.jpg";
 },{}],"images/engagement/engagement23.jpg":[function(require,module,exports) {
 module.exports = "/engagement23.3d135313.jpg";
-},{}],"images/engagement/engagement19.jpg":[function(require,module,exports) {
-module.exports = "/engagement19.dbad5104.jpg";
 },{}],"images/engagement/engagement26.jpg":[function(require,module,exports) {
 module.exports = "/engagement26.9796a33c.jpg";
+},{}],"images/engagement/engagement28.jpg":[function(require,module,exports) {
+module.exports = "/engagement28.0c87f2db.jpg";
 },{}],"images/engagement/engagement27.jpg":[function(require,module,exports) {
 module.exports = "/engagement27.70944ef7.jpg";
 },{}],"images/engagement/engagement30.jpg":[function(require,module,exports) {
@@ -2059,26 +2062,24 @@ module.exports = "/engagement35.b62542ad.jpg";
 module.exports = "/engagement36.61c05719.jpg";
 },{}],"images/engagement/engagement4.jpg":[function(require,module,exports) {
 module.exports = "/engagement4.6d216276.jpg";
-},{}],"images/engagement/engagement41.jpg":[function(require,module,exports) {
-module.exports = "/engagement41.0a452bb7.jpg";
 },{}],"images/engagement/engagement40.jpg":[function(require,module,exports) {
 module.exports = "/engagement40.b767171b.jpg";
+},{}],"images/engagement/engagement41.jpg":[function(require,module,exports) {
+module.exports = "/engagement41.0a452bb7.jpg";
 },{}],"images/engagement/engagement45.jpg":[function(require,module,exports) {
 module.exports = "/engagement45.746213ca.jpg";
 },{}],"images/engagement/engagement46.jpg":[function(require,module,exports) {
 module.exports = "/engagement46.2e48e97f.jpg";
 },{}],"images/engagement/engagement47.jpg":[function(require,module,exports) {
 module.exports = "/engagement47.56850a69.jpg";
-},{}],"images/engagement/engagement28.jpg":[function(require,module,exports) {
-module.exports = "/engagement28.0c87f2db.jpg";
 },{}],"images/engagement/engagement48.jpg":[function(require,module,exports) {
 module.exports = "/engagement48.66639cf7.jpg";
+},{}],"images/engagement/engagement49.jpg":[function(require,module,exports) {
+module.exports = "/engagement49.f4a7e69c.jpg";
 },{}],"images/engagement/engagement5.jpg":[function(require,module,exports) {
 module.exports = "/engagement5.aeb1789d.jpg";
 },{}],"images/engagement/engagement50.jpg":[function(require,module,exports) {
 module.exports = "/engagement50.679796d4.jpg";
-},{}],"images/engagement/engagement49.jpg":[function(require,module,exports) {
-module.exports = "/engagement49.f4a7e69c.jpg";
 },{}],"images/engagement/engagement51.jpg":[function(require,module,exports) {
 module.exports = "/engagement51.b7897d37.jpg";
 },{}],"images/engagement/engagement52.jpg":[function(require,module,exports) {
@@ -2089,6 +2090,8 @@ module.exports = "/engagement54.18c50fea.jpg";
 module.exports = "/engagement55.d7b2b246.jpg";
 },{}],"images/engagement/engagement57.jpg":[function(require,module,exports) {
 module.exports = "/engagement57.aaa459d9.jpg";
+},{}],"images/engagement/engagement59.jpg":[function(require,module,exports) {
+module.exports = "/engagement59.2d977165.jpg";
 },{}],"images/engagement/engagement60.jpg":[function(require,module,exports) {
 module.exports = "/engagement60.fde90a5d.jpg";
 },{}],"images/engagement/engagement61.jpg":[function(require,module,exports) {
@@ -2111,21 +2114,20 @@ module.exports = "/engagement8.dba495f5.jpg";
 module.exports = "/engagement82.ee9e2c8c.jpg";
 },{}],"images/engagement/engagement84.jpg":[function(require,module,exports) {
 module.exports = "/engagement84.1d5c37b8.jpg";
-},{}],"images/engagement/engagement9.jpg":[function(require,module,exports) {
-module.exports = "/engagement9.babc2db7.jpg";
 },{}],"images/engagement/engagement85.jpg":[function(require,module,exports) {
 module.exports = "/engagement85.aa30b96b.jpg";
-},{}],"images/engagement/engagement59.jpg":[function(require,module,exports) {
-module.exports = "/engagement59.2d977165.jpg";
+},{}],"images/engagement/engagement9.jpg":[function(require,module,exports) {
+module.exports = "/engagement9.babc2db7.jpg";
 },{}],"images/engagement/*.jpg":[function(require,module,exports) {
 module.exports = {
   "engagement10": require("./engagement10.jpg"),
-  "engagement15": require("./engagement15.jpg"),
   "engagement18": require("./engagement18.jpg"),
+  "engagement15": require("./engagement15.jpg"),
+  "engagement19": require("./engagement19.jpg"),
   "engagement21": require("./engagement21.jpg"),
   "engagement23": require("./engagement23.jpg"),
-  "engagement19": require("./engagement19.jpg"),
   "engagement26": require("./engagement26.jpg"),
+  "engagement28": require("./engagement28.jpg"),
   "engagement27": require("./engagement27.jpg"),
   "engagement30": require("./engagement30.jpg"),
   "engagement31": require("./engagement31.jpg"),
@@ -2134,21 +2136,21 @@ module.exports = {
   "engagement35": require("./engagement35.jpg"),
   "engagement36": require("./engagement36.jpg"),
   "engagement4": require("./engagement4.jpg"),
-  "engagement41": require("./engagement41.jpg"),
   "engagement40": require("./engagement40.jpg"),
+  "engagement41": require("./engagement41.jpg"),
   "engagement45": require("./engagement45.jpg"),
   "engagement46": require("./engagement46.jpg"),
   "engagement47": require("./engagement47.jpg"),
-  "engagement28": require("./engagement28.jpg"),
   "engagement48": require("./engagement48.jpg"),
+  "engagement49": require("./engagement49.jpg"),
   "engagement5": require("./engagement5.jpg"),
   "engagement50": require("./engagement50.jpg"),
-  "engagement49": require("./engagement49.jpg"),
   "engagement51": require("./engagement51.jpg"),
   "engagement52": require("./engagement52.jpg"),
   "engagement54": require("./engagement54.jpg"),
   "engagement55": require("./engagement55.jpg"),
   "engagement57": require("./engagement57.jpg"),
+  "engagement59": require("./engagement59.jpg"),
   "engagement60": require("./engagement60.jpg"),
   "engagement61": require("./engagement61.jpg"),
   "engagement62": require("./engagement62.jpg"),
@@ -2160,11 +2162,10 @@ module.exports = {
   "engagement8": require("./engagement8.jpg"),
   "engagement82": require("./engagement82.jpg"),
   "engagement84": require("./engagement84.jpg"),
-  "engagement9": require("./engagement9.jpg"),
   "engagement85": require("./engagement85.jpg"),
-  "engagement59": require("./engagement59.jpg")
+  "engagement9": require("./engagement9.jpg")
 };
-},{"./engagement10.jpg":"images/engagement/engagement10.jpg","./engagement15.jpg":"images/engagement/engagement15.jpg","./engagement18.jpg":"images/engagement/engagement18.jpg","./engagement21.jpg":"images/engagement/engagement21.jpg","./engagement23.jpg":"images/engagement/engagement23.jpg","./engagement19.jpg":"images/engagement/engagement19.jpg","./engagement26.jpg":"images/engagement/engagement26.jpg","./engagement27.jpg":"images/engagement/engagement27.jpg","./engagement30.jpg":"images/engagement/engagement30.jpg","./engagement31.jpg":"images/engagement/engagement31.jpg","./engagement33.jpg":"images/engagement/engagement33.jpg","./engagement34.jpg":"images/engagement/engagement34.jpg","./engagement35.jpg":"images/engagement/engagement35.jpg","./engagement36.jpg":"images/engagement/engagement36.jpg","./engagement4.jpg":"images/engagement/engagement4.jpg","./engagement41.jpg":"images/engagement/engagement41.jpg","./engagement40.jpg":"images/engagement/engagement40.jpg","./engagement45.jpg":"images/engagement/engagement45.jpg","./engagement46.jpg":"images/engagement/engagement46.jpg","./engagement47.jpg":"images/engagement/engagement47.jpg","./engagement28.jpg":"images/engagement/engagement28.jpg","./engagement48.jpg":"images/engagement/engagement48.jpg","./engagement5.jpg":"images/engagement/engagement5.jpg","./engagement50.jpg":"images/engagement/engagement50.jpg","./engagement49.jpg":"images/engagement/engagement49.jpg","./engagement51.jpg":"images/engagement/engagement51.jpg","./engagement52.jpg":"images/engagement/engagement52.jpg","./engagement54.jpg":"images/engagement/engagement54.jpg","./engagement55.jpg":"images/engagement/engagement55.jpg","./engagement57.jpg":"images/engagement/engagement57.jpg","./engagement60.jpg":"images/engagement/engagement60.jpg","./engagement61.jpg":"images/engagement/engagement61.jpg","./engagement62.jpg":"images/engagement/engagement62.jpg","./engagement63.jpg":"images/engagement/engagement63.jpg","./engagement7.jpg":"images/engagement/engagement7.jpg","./engagement71.jpg":"images/engagement/engagement71.jpg","./engagement72.jpg":"images/engagement/engagement72.jpg","./engagement77.jpg":"images/engagement/engagement77.jpg","./engagement8.jpg":"images/engagement/engagement8.jpg","./engagement82.jpg":"images/engagement/engagement82.jpg","./engagement84.jpg":"images/engagement/engagement84.jpg","./engagement9.jpg":"images/engagement/engagement9.jpg","./engagement85.jpg":"images/engagement/engagement85.jpg","./engagement59.jpg":"images/engagement/engagement59.jpg"}],"../node_modules/ev-emitter/ev-emitter.js":[function(require,module,exports) {
+},{"./engagement10.jpg":"images/engagement/engagement10.jpg","./engagement18.jpg":"images/engagement/engagement18.jpg","./engagement15.jpg":"images/engagement/engagement15.jpg","./engagement19.jpg":"images/engagement/engagement19.jpg","./engagement21.jpg":"images/engagement/engagement21.jpg","./engagement23.jpg":"images/engagement/engagement23.jpg","./engagement26.jpg":"images/engagement/engagement26.jpg","./engagement28.jpg":"images/engagement/engagement28.jpg","./engagement27.jpg":"images/engagement/engagement27.jpg","./engagement30.jpg":"images/engagement/engagement30.jpg","./engagement31.jpg":"images/engagement/engagement31.jpg","./engagement33.jpg":"images/engagement/engagement33.jpg","./engagement34.jpg":"images/engagement/engagement34.jpg","./engagement35.jpg":"images/engagement/engagement35.jpg","./engagement36.jpg":"images/engagement/engagement36.jpg","./engagement4.jpg":"images/engagement/engagement4.jpg","./engagement40.jpg":"images/engagement/engagement40.jpg","./engagement41.jpg":"images/engagement/engagement41.jpg","./engagement45.jpg":"images/engagement/engagement45.jpg","./engagement46.jpg":"images/engagement/engagement46.jpg","./engagement47.jpg":"images/engagement/engagement47.jpg","./engagement48.jpg":"images/engagement/engagement48.jpg","./engagement49.jpg":"images/engagement/engagement49.jpg","./engagement5.jpg":"images/engagement/engagement5.jpg","./engagement50.jpg":"images/engagement/engagement50.jpg","./engagement51.jpg":"images/engagement/engagement51.jpg","./engagement52.jpg":"images/engagement/engagement52.jpg","./engagement54.jpg":"images/engagement/engagement54.jpg","./engagement55.jpg":"images/engagement/engagement55.jpg","./engagement57.jpg":"images/engagement/engagement57.jpg","./engagement59.jpg":"images/engagement/engagement59.jpg","./engagement60.jpg":"images/engagement/engagement60.jpg","./engagement61.jpg":"images/engagement/engagement61.jpg","./engagement62.jpg":"images/engagement/engagement62.jpg","./engagement63.jpg":"images/engagement/engagement63.jpg","./engagement7.jpg":"images/engagement/engagement7.jpg","./engagement71.jpg":"images/engagement/engagement71.jpg","./engagement72.jpg":"images/engagement/engagement72.jpg","./engagement77.jpg":"images/engagement/engagement77.jpg","./engagement8.jpg":"images/engagement/engagement8.jpg","./engagement82.jpg":"images/engagement/engagement82.jpg","./engagement84.jpg":"images/engagement/engagement84.jpg","./engagement85.jpg":"images/engagement/engagement85.jpg","./engagement9.jpg":"images/engagement/engagement9.jpg"}],"../node_modules/ev-emitter/ev-emitter.js":[function(require,module,exports) {
 var define;
 var global = arguments[3];
 /**
@@ -5811,7 +5812,7 @@ var staticRenderFns = [
               _vm._v(" "),
               _c("p", { staticClass: "text-muted" }, [
                 _vm._v(
-                  "\n            Saturday, November 16, 2019 — 6:00 PM\n            "
+                  "\n            Saturday, November 16, 2019 — 5:00 PM\n            "
                 ),
                 _c("br"),
                 _vm._v("Orlando Marriott Lake Mary\n            "),
@@ -5867,7 +5868,7 @@ var staticRenderFns = [
               _vm._v(" "),
               _c("p", { staticClass: "text-muted" }, [
                 _vm._v(
-                  "\n            Sunday, November 17, 2019 — 5:00 PM\n            "
+                  "\n            Sunday, November 17, 2019 — 6:00 PM\n            "
                 ),
                 _c("br"),
                 _vm._v("Golden Lotus Chinese Restaurant\n            "),
@@ -6053,14 +6054,14 @@ render._withStripped = true
 })(jQuery);
 },{}],"images/header/1.jpg":[function(require,module,exports) {
 module.exports = "/1.3d95a1d3.jpg";
-},{}],"images/header/4.jpg":[function(require,module,exports) {
-module.exports = "/4.9d634764.jpg";
 },{}],"images/header/5.jpg":[function(require,module,exports) {
 module.exports = "/5.bc34014a.jpg";
-},{}],"images/header/6.jpg":[function(require,module,exports) {
-module.exports = "/6.37e3a99c.jpg";
+},{}],"images/header/4.jpg":[function(require,module,exports) {
+module.exports = "/4.9d634764.jpg";
 },{}],"images/header/7.jpg":[function(require,module,exports) {
 module.exports = "/7.f08d27bd.jpg";
+},{}],"images/header/6.jpg":[function(require,module,exports) {
+module.exports = "/6.37e3a99c.jpg";
 },{}],"images/header/8.jpg":[function(require,module,exports) {
 module.exports = "/8.81054002.jpg";
 },{}],"images/header/*.jpg":[function(require,module,exports) {
@@ -6072,7 +6073,7 @@ module.exports = {
   "7": require("./7.jpg"),
   "8": require("./8.jpg")
 };
-},{"./1.jpg":"images/header/1.jpg","./4.jpg":"images/header/4.jpg","./5.jpg":"images/header/5.jpg","./6.jpg":"images/header/6.jpg","./7.jpg":"images/header/7.jpg","./8.jpg":"images/header/8.jpg"}],"../node_modules/object-fit-images/dist/ofi.common-js.js":[function(require,module,exports) {
+},{"./1.jpg":"images/header/1.jpg","./5.jpg":"images/header/5.jpg","./4.jpg":"images/header/4.jpg","./7.jpg":"images/header/7.jpg","./6.jpg":"images/header/6.jpg","./8.jpg":"images/header/8.jpg"}],"../node_modules/object-fit-images/dist/ofi.common-js.js":[function(require,module,exports) {
 /*! npm.im/object-fit-images 3.2.4 */
 'use strict';
 
@@ -22487,7 +22488,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "61681" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "55033" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
