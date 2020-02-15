@@ -138,22 +138,3 @@ $secondary-color: $secondary;
   @include font-size(5rem, true);
   color: $secondary;
 }
-
-// .chat-bubble {
-//   position: relative;
-//   border-radius: 0.4em;
-//   padding: 1rem 1rem 1rem 2rem;
-//   background:$primary;  
-// }
-
-
-
-.chat-bubble > .h1
-{
-  @include font-size(2rem, true);
-}
-
-.chat-bubble > .h4
-{
-  @include font-size(1rem, true);
-}

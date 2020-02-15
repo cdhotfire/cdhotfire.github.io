@@ -18,22 +18,7 @@
           <a class="nav-link" v-scroll-to="'#home'" @click="closeNav('home')">
             <font-awesome-icon icon="home" class="mr-2"></font-awesome-icon>Home
           </a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" v-scroll-to="'#events'" @click="closeNav('events')">
-            <font-awesome-icon icon="map-marked-alt" class="mr-2"></font-awesome-icon>Events
-          </a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" v-scroll-to="'#accommodations'" @click="closeNav('accommodations')">
-            <font-awesome-icon icon="hotel" class="mr-2"></font-awesome-icon>Accommodations
-          </a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" v-scroll-to="'#rsvpsection'" @click="closeNav('rsvpsection')">
-            <font-awesome-icon icon="clipboard-check" class="mr-2"></font-awesome-icon>RSVP
-          </a>
-        </li>
+        </li>      
         <li class="nav-item">
           <a class="nav-link" v-scroll-to="'#gallerysection'" @click="closeNav('gallerysection')">
             <font-awesome-icon icon="images" class="mr-2"></font-awesome-icon>Gallery

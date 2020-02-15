@@ -1,23 +1,12 @@
 <template>
   <div class="container">
-    <div class="row justify-content-center">
-      <div class="col-auto">
-        <div class="alert alert-danger text-center">
-          <h5>
-            <p>There has been a change of time for our Chinese Banquet to </p>
-            <p><b>November 17, 2019 — 6:00 PM </b></p>
-            Sorry for the inconvenience.
-          </h5>
-        </div>
-      </div>
-    </div>
     <div class="row justify-content-center mt-5">
       <div class="col-auto wow slideInLeft">
         <div class="text-center">
           <img class="mx-auto rounded-circle mb-3 bride-groom-circle" src="../../images/groom.jpg" />
           <div class="ml-3 circle-overlay rounded-circle bride-groom-circle"></div>
           <h4>Isidro Arribas Jr</h4>
-          <p class="text-muted">Groom</p>
+          <p class="text-muted">Husband</p>
         </div>
       </div>
       <div class="col-sm-6 col-md-auto text-center align-self-center">
@@ -31,13 +20,13 @@
           />
           <div class="ml-3 circle-overlay rounded-circle bride-groom-circle"></div>
           <h4>Jocelyn Pui-Yin Wong</h4>
-          <p class="text-muted">Bride</p>
+          <p class="text-muted">Wife</p>
         </div>
       </div>
     </div>
     <div class="row">
       <div class="col-lg-12 text-center">
-        <h1 class="cursive section-heading">Join us for our Chinese Tea Ceremony</h1>
+        <h1 class="cursive section-heading">Thank you for joining us!</h1>
       </div>
     </div>
   </div>
