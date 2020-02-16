@@ -220,7 +220,7 @@ exports.default = void 0;
     },
     ajax: {
       trackMethods: ['GET'],
-      trackWebSockets: true,
+      trackWebSockets: false,
       ignoreURLs: []
     }
   };
@@ -1252,7 +1252,7 @@ Object.defineProperty(exports, "__esModule", {
 exports.default = void 0;
 
 /*!
- * Vue.js v2.6.10
+ * Vue.js v2.6.11
  * (c) 2014-2019 Evan You
  * Released under the MIT License.
  */
@@ -3250,7 +3250,7 @@ MutationObserver.toString() === '[object MutationObserverConstructor]')) {
   isUsingMicroTask = true;
 } else if (typeof setImmediate !== 'undefined' && isNative(setImmediate)) {
   // Fallback to setImmediate.
-  // Techinically it leverages the (macro) task queue,
+  // Technically it leverages the (macro) task queue,
   // but it is still a better choice than setTimeout.
   timerFunc = function () {
     setImmediate(flushCallbacks);
@@ -3305,7 +3305,7 @@ if ("development" !== 'production') {
   };
 
   var warnReservedPrefix = function (target, key) {
-    warn("Property \"" + key + "\" must be accessed with \"$data." + key + "\" because " + 'properties starting with "$" or "_" are not proxied in the Vue instance to ' + 'prevent conflicts with Vue internals' + 'See: https://vuejs.org/v2/api/#data', target);
+    warn("Property \"" + key + "\" must be accessed with \"$data." + key + "\" because " + 'properties starting with "$" or "_" are not proxied in the Vue instance to ' + 'prevent conflicts with Vue internals. ' + 'See: https://vuejs.org/v2/api/#data', target);
   };
 
   var hasProxy = typeof Proxy !== 'undefined' && isNative(Proxy);
@@ -4170,7 +4170,7 @@ function bindDynamicKeys(baseObj, values) {
     if (typeof key === 'string' && key) {
       baseObj[values[i]] = values[i + 1];
     } else if ("development" !== 'production' && key !== '' && key !== null) {
-      // null is a speical value for explicitly removing a binding
+      // null is a special value for explicitly removing a binding
       warn("Invalid value for dynamic directive argument (expected string or null): " + key, this);
     }
   }
@@ -4626,6 +4626,10 @@ function _createElement(context, tag, data, children, normalizationType) {
 
     if (config.isReservedTag(tag)) {
       // platform built-in elements
+      if ("development" !== 'production' && isDef(data) && isDef(data.nativeOn)) {
+        warn("The .native modifier for v-on is only valid on components but it was used on <" + tag + ">.", context);
+      }
+
       vnode = new VNode(config.parsePlatformTagName(tag), data, children, undefined, undefined, context);
     } else if ((!data || !data.pre) && isDef(Ctor = resolveAsset(context.$options, 'components', tag))) {
       // component
@@ -4763,7 +4767,7 @@ function renderMixin(Vue) {
     var vnode;
 
     try {
-      // There's no need to maintain a stack becaues all render fns are called
+      // There's no need to maintain a stack because all render fns are called
       // separately from one another. Nested component's render fns are called
       // when parent component is patched.
       currentRenderingInstance = vm;
@@ -6691,7 +6695,7 @@ Object.defineProperty(Vue.prototype, '$ssrContext', {
 Object.defineProperty(Vue, 'FunctionalRenderContext', {
   value: FunctionalRenderContext
 });
-Vue.version = '2.6.10';
+Vue.version = '2.6.11';
 /*  */
 // these are reserved for web because they are directly compiled away
 // during template compilation
@@ -7355,7 +7359,7 @@ function createPatchFunction(backend) {
     }
   }
 
-  function removeVnodes(parentElm, vnodes, startIdx, endIdx) {
+  function removeVnodes(vnodes, startIdx, endIdx) {
     for (; startIdx <= endIdx; ++startIdx) {
       var ch = vnodes[startIdx];
 
@@ -7479,7 +7483,7 @@ function createPatchFunction(backend) {
       refElm = isUndef(newCh[newEndIdx + 1]) ? null : newCh[newEndIdx + 1].elm;
       addVnodes(parentElm, refElm, newCh, newStartIdx, newEndIdx, insertedVnodeQueue);
     } else if (newStartIdx > newEndIdx) {
-      removeVnodes(parentElm, oldCh, oldStartIdx, oldEndIdx);
+      removeVnodes(oldCh, oldStartIdx, oldEndIdx);
     }
   }
 
@@ -7577,7 +7581,7 @@ function createPatchFunction(backend) {
 
         addVnodes(elm, null, ch, 0, ch.length - 1, insertedVnodeQueue);
       } else if (isDef(oldCh)) {
-        removeVnodes(elm, oldCh, 0, oldCh.length - 1);
+        removeVnodes(oldCh, 0, oldCh.length - 1);
       } else if (isDef(oldVnode.text)) {
         nodeOps.setTextContent(elm, '');
       }
@@ -7817,7 +7821,7 @@ function createPatchFunction(backend) {
 
 
         if (isDef(parentElm)) {
-          removeVnodes(parentElm, [oldVnode], 0, 0);
+          removeVnodes([oldVnode], 0, 0);
         } else if (isDef(oldVnode.tag)) {
           invokeDestroyHook(oldVnode);
         }
@@ -9667,8 +9671,7 @@ if (inBrowser) {
 
 var _default = Vue;
 exports.default = _default;
-},{}],"../node_modules/@babel/runtime/node_modules/regenerator-runtime/runtime.js":[function(require,module,exports) {
-var global = arguments[3];
+},{}],"../node_modules/regenerator-runtime/runtime.js":[function(require,module,exports) {
 /**
  * Copyright (c) 2014-present, Facebook, Inc.
  *
@@ -9676,7 +9679,7 @@ var global = arguments[3];
  * LICENSE file in the root directory of this source tree.
  */
 
-!(function(global) {
+var runtime = (function (exports) {
   "use strict";
 
   var Op = Object.prototype;
@@ -9686,23 +9689,6 @@ var global = arguments[3];
   var iteratorSymbol = $Symbol.iterator || "@@iterator";
   var asyncIteratorSymbol = $Symbol.asyncIterator || "@@asyncIterator";
   var toStringTagSymbol = $Symbol.toStringTag || "@@toStringTag";
-
-  var inModule = typeof module === "object";
-  var runtime = global.regeneratorRuntime;
-  if (runtime) {
-    if (inModule) {
-      // If regeneratorRuntime is defined globally and we're in a module,
-      // make the exports object identical to regeneratorRuntime.
-      module.exports = runtime;
-    }
-    // Don't bother evaluating the rest of this file if the runtime was
-    // already defined globally.
-    return;
-  }
-
-  // Define the runtime globally (as expected by generated code) as either
-  // module.exports (if we're in a module) or a new, empty object.
-  runtime = global.regeneratorRuntime = inModule ? module.exports : {};
 
   function wrap(innerFn, outerFn, self, tryLocsList) {
     // If outerFn provided and outerFn.prototype is a Generator, then outerFn.prototype instanceof Generator.
@@ -9716,7 +9702,7 @@ var global = arguments[3];
 
     return generator;
   }
-  runtime.wrap = wrap;
+  exports.wrap = wrap;
 
   // Try/catch helper to minimize deoptimizations. Returns a completion
   // record like context.tryEntries[i].completion. This interface could
@@ -9787,7 +9773,7 @@ var global = arguments[3];
     });
   }
 
-  runtime.isGeneratorFunction = function(genFun) {
+  exports.isGeneratorFunction = function(genFun) {
     var ctor = typeof genFun === "function" && genFun.constructor;
     return ctor
       ? ctor === GeneratorFunction ||
@@ -9797,7 +9783,7 @@ var global = arguments[3];
       : false;
   };
 
-  runtime.mark = function(genFun) {
+  exports.mark = function(genFun) {
     if (Object.setPrototypeOf) {
       Object.setPrototypeOf(genFun, GeneratorFunctionPrototype);
     } else {
@@ -9814,7 +9800,7 @@ var global = arguments[3];
   // `yield regeneratorRuntime.awrap(x)`, so that the runtime can test
   // `hasOwn.call(value, "__await")` to determine if the yielded value is
   // meant to be awaited.
-  runtime.awrap = function(arg) {
+  exports.awrap = function(arg) {
     return { __await: arg };
   };
 
@@ -9889,17 +9875,17 @@ var global = arguments[3];
   AsyncIterator.prototype[asyncIteratorSymbol] = function () {
     return this;
   };
-  runtime.AsyncIterator = AsyncIterator;
+  exports.AsyncIterator = AsyncIterator;
 
   // Note that simple async functions are implemented on top of
   // AsyncIterator objects; they just return a Promise for the value of
   // the final result produced by the iterator.
-  runtime.async = function(innerFn, outerFn, self, tryLocsList) {
+  exports.async = function(innerFn, outerFn, self, tryLocsList) {
     var iter = new AsyncIterator(
       wrap(innerFn, outerFn, self, tryLocsList)
     );
 
-    return runtime.isGeneratorFunction(outerFn)
+    return exports.isGeneratorFunction(outerFn)
       ? iter // If outerFn is a generator, return the full iterator.
       : iter.next().then(function(result) {
           return result.done ? result.value : iter.next();
@@ -9996,7 +9982,8 @@ var global = arguments[3];
       context.delegate = null;
 
       if (context.method === "throw") {
-        if (delegate.iterator.return) {
+        // Note: ["return"] must be used for ES3 parsing compatibility.
+        if (delegate.iterator["return"]) {
           // If the delegate iterator has a return method, give it a
           // chance to clean up.
           context.method = "return";
@@ -10116,7 +10103,7 @@ var global = arguments[3];
     this.reset(true);
   }
 
-  runtime.keys = function(object) {
+  exports.keys = function(object) {
     var keys = [];
     for (var key in object) {
       keys.push(key);
@@ -10177,7 +10164,7 @@ var global = arguments[3];
     // Return an iterator with no values.
     return { next: doneResult };
   }
-  runtime.values = values;
+  exports.values = values;
 
   function doneResult() {
     return { value: undefined, done: true };
@@ -10382,58 +10369,40 @@ var global = arguments[3];
       return ContinueSentinel;
     }
   };
-})(
-  // In sloppy mode, unbound `this` refers to the global object, fallback to
-  // Function constructor if we're in global strict mode. That is sadly a form
-  // of indirect eval which violates Content Security Policy.
-  (function() {
-    return this || (typeof self === "object" && self);
-  })() || Function("return this")()
-);
 
-},{}],"../node_modules/@babel/runtime/node_modules/regenerator-runtime/runtime-module.js":[function(require,module,exports) {
-/**
- * Copyright (c) 2014-present, Facebook, Inc.
- *
- * This source code is licensed under the MIT license found in the
- * LICENSE file in the root directory of this source tree.
- */
+  // Regardless of whether this script is executing as a CommonJS module
+  // or not, return the runtime object so that we can declare the variable
+  // regeneratorRuntime in the outer scope, which allows this module to be
+  // injected easily by `bin/regenerator --include-runtime script.js`.
+  return exports;
 
-// This method of obtaining a reference to the global object needs to be
-// kept identical to the way it is obtained in runtime.js
-var g = (function() {
-  return this || (typeof self === "object" && self);
-})() || Function("return this")();
+}(
+  // If this script is executing as a CommonJS module, use module.exports
+  // as the regeneratorRuntime namespace. Otherwise create a new empty
+  // object. Either way, the resulting object will be used to initialize
+  // the regeneratorRuntime variable at the top of this file.
+  typeof module === "object" ? module.exports : {}
+));
 
-// Use `getOwnPropertyNames` because not all browsers support calling
-// `hasOwnProperty` on the global `self` object in a worker. See #183.
-var hadRuntime = g.regeneratorRuntime &&
-  Object.getOwnPropertyNames(g).indexOf("regeneratorRuntime") >= 0;
-
-// Save the old regeneratorRuntime in case it needs to be restored later.
-var oldRuntime = hadRuntime && g.regeneratorRuntime;
-
-// Force reevalutation of runtime.js.
-g.regeneratorRuntime = undefined;
-
-module.exports = require("./runtime");
-
-if (hadRuntime) {
-  // Restore the original runtime.
-  g.regeneratorRuntime = oldRuntime;
-} else {
-  // Remove the global property added by runtime.js.
-  try {
-    delete g.regeneratorRuntime;
-  } catch(e) {
-    g.regeneratorRuntime = undefined;
-  }
+try {
+  regeneratorRuntime = runtime;
+} catch (accidentalStrictMode) {
+  // This module should not be running in strict mode, so the above
+  // assignment should always work unless something is misconfigured. Just
+  // in case runtime.js accidentally runs in strict mode, we can escape
+  // strict mode using a global Function call. This could conceivably fail
+  // if a Content Security Policy forbids using Function, but in that case
+  // the proper solution is to fix the accidental strict mode problem. If
+  // you've misconfigured your bundler to force strict mode and applied a
+  // CSP to forbid Function, and you're not willing to fix either of those
+  // problems, please detail your unique predicament in a GitHub issue.
+  Function("r", "regeneratorRuntime = r")(runtime);
 }
 
-},{"./runtime":"../node_modules/@babel/runtime/node_modules/regenerator-runtime/runtime.js"}],"../node_modules/@babel/runtime/regenerator/index.js":[function(require,module,exports) {
+},{}],"../node_modules/@babel/runtime/regenerator/index.js":[function(require,module,exports) {
 module.exports = require("regenerator-runtime");
 
-},{"regenerator-runtime":"../node_modules/@babel/runtime/node_modules/regenerator-runtime/runtime-module.js"}],"../node_modules/@babel/runtime/helpers/asyncToGenerator.js":[function(require,module,exports) {
+},{"regenerator-runtime":"../node_modules/regenerator-runtime/runtime.js"}],"../node_modules/@babel/runtime/helpers/asyncToGenerator.js":[function(require,module,exports) {
 function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) {
   try {
     var info = gen[key](arg);
@@ -10480,8 +10449,8 @@ Object.defineProperty(exports, "__esModule", {
 exports.default = void 0;
 
 /*!
-  * vue-router v3.1.2
-  * (c) 2019 Evan You
+  * vue-router v3.1.5
+  * (c) 2020 Evan You
   * @license MIT
   */
 
@@ -10543,16 +10512,14 @@ var View = {
     var inactive = false;
 
     while (parent && parent._routerRoot !== parent) {
-      var vnodeData = parent.$vnode && parent.$vnode.data;
+      var vnodeData = parent.$vnode ? parent.$vnode.data : {};
 
-      if (vnodeData) {
-        if (vnodeData.routerView) {
-          depth++;
-        }
+      if (vnodeData.routerView) {
+        depth++;
+      }
 
-        if (vnodeData.keepAlive && parent._inactive) {
-          inactive = true;
-        }
+      if (vnodeData.keepAlive && parent._directInactive && parent._inactive) {
+        inactive = true;
       }
 
       parent = parent.$parent;
@@ -10561,17 +10528,35 @@ var View = {
     data.routerViewDepth = depth; // render previous view if the tree is inactive and kept-alive
 
     if (inactive) {
-      return h(cache[name], data, children);
+      var cachedData = cache[name];
+      var cachedComponent = cachedData && cachedData.component;
+
+      if (cachedComponent) {
+        // #2301
+        // pass props
+        if (cachedData.configProps) {
+          fillPropsinData(cachedComponent, data, cachedData.route, cachedData.configProps);
+        }
+
+        return h(cachedComponent, data, children);
+      } else {
+        // render previous empty view
+        return h();
+      }
     }
 
-    var matched = route.matched[depth]; // render empty node if no matched route
+    var matched = route.matched[depth];
+    var component = matched && matched.components[name]; // render empty node if no matched route or no config component
 
-    if (!matched) {
+    if (!matched || !component) {
       cache[name] = null;
       return h();
-    }
+    } // cache component
 
-    var component = cache[name] = matched.components[name]; // attach instance registration hook
+
+    cache[name] = {
+      component: component
+    }; // attach instance registration hook
     // this will be called in the instance's injected lifecycle hooks
 
     data.registerRouteInstance = function (vm, val) {
@@ -10595,28 +10580,40 @@ var View = {
       if (vnode.data.keepAlive && vnode.componentInstance && vnode.componentInstance !== matched.instances[name]) {
         matched.instances[name] = vnode.componentInstance;
       }
-    }; // resolve props
+    };
 
+    var configProps = matched.props && matched.props[name]; // save route and configProps in cachce
 
-    var propsToPass = data.props = resolveProps(route, matched.props && matched.props[name]);
-
-    if (propsToPass) {
-      // clone to prevent mutation
-      propsToPass = data.props = extend({}, propsToPass); // pass non-declared props as attrs
-
-      var attrs = data.attrs = data.attrs || {};
-
-      for (var key in propsToPass) {
-        if (!component.props || !(key in component.props)) {
-          attrs[key] = propsToPass[key];
-          delete propsToPass[key];
-        }
-      }
+    if (configProps) {
+      extend(cache[name], {
+        route: route,
+        configProps: configProps
+      });
+      fillPropsinData(component, data, route, configProps);
     }
 
     return h(component, data, children);
   }
 };
+
+function fillPropsinData(component, data, route, configProps) {
+  // resolve props
+  var propsToPass = data.props = resolveProps(route, configProps);
+
+  if (propsToPass) {
+    // clone to prevent mutation
+    propsToPass = data.props = extend({}, propsToPass); // pass non-declared props as attrs
+
+    var attrs = data.attrs = data.attrs || {};
+
+    for (var key in propsToPass) {
+      if (!component.props || !(key in component.props)) {
+        attrs[key] = propsToPass[key];
+        delete propsToPass[key];
+      }
+    }
+  }
+}
 
 function resolveProps(route, config) {
   switch (typeof config) {
@@ -10741,7 +10738,7 @@ function stringifyQuery(obj) {
 var trailingSlashRE = /\/?$/;
 
 function createRoute(record, location, redirectedFrom, router) {
-  var stringifyQuery$$1 = router && router.options.stringifyQuery;
+  var stringifyQuery = router && router.options.stringifyQuery;
   var query = location.query || {};
 
   try {
@@ -10755,12 +10752,12 @@ function createRoute(record, location, redirectedFrom, router) {
     hash: location.hash || '',
     query: query,
     params: location.params || {},
-    fullPath: getFullPath(location, stringifyQuery$$1),
+    fullPath: getFullPath(location, stringifyQuery),
     matched: record ? formatMatch(record) : []
   };
 
   if (redirectedFrom) {
-    route.redirectedFrom = getFullPath(redirectedFrom, stringifyQuery$$1);
+    route.redirectedFrom = getFullPath(redirectedFrom, stringifyQuery);
   }
 
   return Object.freeze(route);
@@ -11401,7 +11398,8 @@ function fillParams(path, params, routeMsg) {
     });
   } catch (e) {
     if ("development" !== 'production') {
-      warn(false, "missing param for " + routeMsg + ": " + e.message);
+      // Fix #3072 no warn if `pathMatch` is string
+      warn(typeof params.pathMatch === 'string', "missing param for " + routeMsg + ": " + e.message);
     }
 
     return '';
@@ -11421,21 +11419,28 @@ function normalizeLocation(raw, current, append, router) {
   if (next._normalized) {
     return next;
   } else if (next.name) {
-    return extend({}, raw);
+    next = extend({}, raw);
+    var params = next.params;
+
+    if (params && typeof params === 'object') {
+      next.params = extend({}, params);
+    }
+
+    return next;
   } // relative params
 
 
   if (!next.path && next.params && current) {
     next = extend({}, next);
     next._normalized = true;
-    var params = extend(extend({}, current.params), next.params);
+    var params$1 = extend(extend({}, current.params), next.params);
 
     if (current.name) {
       next.name = current.name;
-      next.params = params;
+      next.params = params$1;
     } else if (current.matched.length) {
       var rawPath = current.matched[current.matched.length - 1].path;
-      next.path = fillParams(rawPath, params, "path " + current.path);
+      next.path = fillParams(rawPath, params$1, "path " + current.path);
     } else if ("development" !== 'production') {
       warn(false, "relative params navigation requires a current route.");
     }
@@ -11548,7 +11553,7 @@ var Link = {
         return scopedSlot[0];
       } else if (scopedSlot.length > 1 || !scopedSlot.length) {
         if ("development" !== 'production') {
-          warn(false, "RouterLink with to=\"" + this.props.to + "\" is trying to use a scoped slot but it didn't provide exactly one child.");
+          warn(false, "RouterLink with to=\"" + this.to + "\" is trying to use a scoped slot but it didn't provide exactly one child. Wrapping the content with a span element.");
         }
 
         return scopedSlot.length === 0 ? h() : h('span', {}, scopedSlot);
@@ -11568,7 +11573,26 @@ var Link = {
         // in case the <a> is a static node
         a.isStatic = false;
         var aData = a.data = extend({}, a.data);
-        aData.on = on;
+        aData.on = aData.on || {}; // transform existing events in both objects into arrays so we can push later
+
+        for (var event in aData.on) {
+          var handler$1 = aData.on[event];
+
+          if (event in on) {
+            aData.on[event] = Array.isArray(handler$1) ? handler$1 : [handler$1];
+          }
+        } // append new listeners for router-link
+
+
+        for (var event$1 in on) {
+          if (event$1 in aData.on) {
+            // on[event] is always a function
+            aData.on[event$1].push(on[event$1]);
+          } else {
+            aData.on[event$1] = handler;
+          }
+        }
+
         var aAttrs = a.data.attrs = extend({}, a.data.attrs);
         aAttrs.href = href;
       } else {
@@ -11711,6 +11735,21 @@ function createRouteMap(routes, oldPathList, oldPathMap, oldNameMap) {
       pathList.push(pathList.splice(i, 1)[0]);
       l--;
       i--;
+    }
+  }
+
+  if ("development" === 'development') {
+    // warn if routes do not include leading slashes
+    var found = pathList // check for missing leading slash
+    .filter(function (path) {
+      return path && path.charAt(0) !== '*' && path.charAt(0) !== '/';
+    });
+
+    if (found.length > 0) {
+      var pathNames = found.map(function (path) {
+        return "- " + path;
+      }).join('\n');
+      warn(false, "Non-nested routes must include a leading slash character. Fix the following routes: \n" + pathNames);
     }
   }
 
@@ -12027,6 +12066,25 @@ function resolveRecordPath(path, record) {
   return resolvePath(path, record.parent ? record.parent.path : '/', true);
 }
 /*  */
+// use User Timing api (if present) for more accurate key precision
+
+
+var Time = inBrowser && window.performance && window.performance.now ? window.performance : Date;
+
+function genStateKey() {
+  return Time.now().toFixed(3);
+}
+
+var _key = genStateKey();
+
+function getStateKey() {
+  return _key;
+}
+
+function setStateKey(key) {
+  return _key = key;
+}
+/*  */
 
 
 var positionStore = Object.create(null);
@@ -12178,24 +12236,7 @@ var supportsPushState = inBrowser && function () {
   }
 
   return window.history && 'pushState' in window.history;
-}(); // use User Timing api (if present) for more accurate key precision
-
-
-var Time = inBrowser && window.performance && window.performance.now ? window.performance : Date;
-
-var _key = genKey();
-
-function genKey() {
-  return Time.now().toFixed(3);
-}
-
-function getStateKey() {
-  return _key;
-}
-
-function setStateKey(key) {
-  _key = key;
-}
+}();
 
 function pushState(url, replace) {
   saveScrollPosition(); // try...catch the pushState call to get around Safari
@@ -12205,13 +12246,13 @@ function pushState(url, replace) {
 
   try {
     if (replace) {
-      history.replaceState({
-        key: _key
-      }, '', url);
+      // preserve existing history state as it could be overriden by the user
+      var stateCopy = extend({}, history.state);
+      stateCopy.key = getStateKey();
+      history.replaceState(stateCopy, '', url);
     } else {
-      _key = genKey();
       history.pushState({
-        key: _key
+        key: setStateKey(genStateKey())
       }, '', url);
     }
   } catch (e) {
@@ -12353,9 +12394,19 @@ function once(fn) {
 var NavigationDuplicated =
 /*@__PURE__*/
 function (Error) {
-  function NavigationDuplicated() {
-    Error.call(this, 'Navigating to current location is not allowed');
-    this.name = this._name = 'NavigationDuplicated';
+  function NavigationDuplicated(normalizedLocation) {
+    Error.call(this);
+    this.name = this._name = 'NavigationDuplicated'; // passing the message to super() doesn't seem to work in the transpiled version
+
+    this.message = "Navigating to current location (\"" + normalizedLocation.fullPath + "\") is not allowed"; // add a stack property so services like Sentry can correctly display it
+
+    Object.defineProperty(this, 'stack', {
+      value: new Error().stack,
+      writable: true,
+      configurable: true
+    }); // we could also have used
+    // Error.captureStackTrace(this, this.constructor)
+    // but it only exists on node and chrome
   }
 
   if (Error) NavigationDuplicated.__proto__ = Error;
@@ -12658,10 +12709,10 @@ instances, key, isValid) {
 
 var HTML5History =
 /*@__PURE__*/
-function (History$$1) {
+function (History) {
   function HTML5History(router, base) {
     var this$1 = this;
-    History$$1.call(this, router, base);
+    History.call(this, router, base);
     var expectScroll = router.options.scrollBehavior;
     var supportsScroll = supportsPushState && expectScroll;
 
@@ -12688,8 +12739,8 @@ function (History$$1) {
     });
   }
 
-  if (History$$1) HTML5History.__proto__ = History$$1;
-  HTML5History.prototype = Object.create(History$$1 && History$$1.prototype);
+  if (History) HTML5History.__proto__ = History;
+  HTML5History.prototype = Object.create(History && History.prototype);
   HTML5History.prototype.constructor = HTML5History;
 
   HTML5History.prototype.go = function go(n) {
@@ -12746,9 +12797,9 @@ function getLocation(base) {
 
 var HashHistory =
 /*@__PURE__*/
-function (History$$1) {
+function (History) {
   function HashHistory(router, base, fallback) {
-    History$$1.call(this, router, base); // check history fallback deeplinking
+    History.call(this, router, base); // check history fallback deeplinking
 
     if (fallback && checkFallback(this.base)) {
       return;
@@ -12757,8 +12808,8 @@ function (History$$1) {
     ensureSlash();
   }
 
-  if (History$$1) HashHistory.__proto__ = History$$1;
-  HashHistory.prototype = Object.create(History$$1 && History$$1.prototype);
+  if (History) HashHistory.__proto__ = History;
+  HashHistory.prototype = Object.create(History && History.prototype);
   HashHistory.prototype.constructor = HashHistory; // this is delayed until the app mounts
   // to avoid the hashchange listener being fired too early
 
@@ -12877,9 +12928,7 @@ function getHash() {
       href = decodeURI(href);
     }
   } else {
-    if (searchIndex > -1) {
-      href = decodeURI(href.slice(0, searchIndex)) + href.slice(searchIndex);
-    }
+    href = decodeURI(href.slice(0, searchIndex)) + href.slice(searchIndex);
   }
 
   return href;
@@ -12912,15 +12961,15 @@ function replaceHash(path) {
 
 var AbstractHistory =
 /*@__PURE__*/
-function (History$$1) {
+function (History) {
   function AbstractHistory(router, base) {
-    History$$1.call(this, router, base);
+    History.call(this, router, base);
     this.stack = [];
     this.index = -1;
   }
 
-  if (History$$1) AbstractHistory.__proto__ = History$$1;
-  AbstractHistory.prototype = Object.create(History$$1 && History$$1.prototype);
+  if (History) AbstractHistory.__proto__ = History;
+  AbstractHistory.prototype = Object.create(History && History.prototype);
   AbstractHistory.prototype.constructor = AbstractHistory;
 
   AbstractHistory.prototype.push = function push(location, onComplete, onAbort) {
@@ -13191,7 +13240,7 @@ function createHref(base, fullPath, mode) {
 }
 
 VueRouter.install = install;
-VueRouter.version = '3.1.2';
+VueRouter.version = '3.1.5';
 
 if (inBrowser && window.Vue) {
   window.Vue.use(VueRouter);
@@ -13374,7 +13423,7 @@ router.beforeEach(function (to, from, next) {
 });
 var _default = router;
 exports.default = _default;
-},{"@babel/runtime/regenerator":"../node_modules/@babel/runtime/regenerator/index.js","@babel/runtime/helpers/asyncToGenerator":"../node_modules/@babel/runtime/helpers/asyncToGenerator.js","vue":"../node_modules/vue/dist/vue.runtime.esm.js","vue-router":"../node_modules/vue-router/dist/vue-router.esm.js","_bundle_loader":"../node_modules/parcel-bundler/src/builtins/bundle-loader.js","/components/index":[["components.7a20127c.js","components/index.vue"],"components.7a20127c.js.map","components.7a20127c.css",["engagement10.220932cd.jpg","images/gallery/engagement/engagement10.jpg"],["engagement15.e6d02c2d.jpg","images/gallery/engagement/engagement15.jpg"],["engagement18.90d89f2f.jpg","images/gallery/engagement/engagement18.jpg"],["engagement19.2ddee7e3.jpg","images/gallery/engagement/engagement19.jpg"],["engagement23.f8fa7106.jpg","images/gallery/engagement/engagement23.jpg"],["engagement26.5000d7a7.jpg","images/gallery/engagement/engagement26.jpg"],["engagement21.411beeb4.jpg","images/gallery/engagement/engagement21.jpg"],["engagement27.a76c35e3.jpg","images/gallery/engagement/engagement27.jpg"],["engagement28.00832895.jpg","images/gallery/engagement/engagement28.jpg"],["engagement30.cc9e543f.jpg","images/gallery/engagement/engagement30.jpg"],["engagement31.0801d792.jpg","images/gallery/engagement/engagement31.jpg"],["engagement33.aaea18c1.jpg","images/gallery/engagement/engagement33.jpg"],["engagement34.2843a280.jpg","images/gallery/engagement/engagement34.jpg"],["engagement35.39ccc375.jpg","images/gallery/engagement/engagement35.jpg"],["engagement36.1ec02b32.jpg","images/gallery/engagement/engagement36.jpg"],["engagement4.dafdfd2f.jpg","images/gallery/engagement/engagement4.jpg"],["engagement40.11d81d75.jpg","images/gallery/engagement/engagement40.jpg"],["engagement41.95555173.jpg","images/gallery/engagement/engagement41.jpg"],["engagement45.85cb7593.jpg","images/gallery/engagement/engagement45.jpg"],["engagement47.f7740ec1.jpg","images/gallery/engagement/engagement47.jpg"],["engagement46.e619a465.jpg","images/gallery/engagement/engagement46.jpg"],["engagement48.c76876f5.jpg","images/gallery/engagement/engagement48.jpg"],["engagement49.77f8083b.jpg","images/gallery/engagement/engagement49.jpg"],["engagement5.6dda9ec8.jpg","images/gallery/engagement/engagement5.jpg"],["engagement50.7b05af96.jpg","images/gallery/engagement/engagement50.jpg"],["engagement51.c95f2bd5.jpg","images/gallery/engagement/engagement51.jpg"],["engagement52.d9cdf65a.jpg","images/gallery/engagement/engagement52.jpg"],["engagement54.945d2edb.jpg","images/gallery/engagement/engagement54.jpg"],["engagement57.c5a18111.jpg","images/gallery/engagement/engagement57.jpg"],["engagement55.75fc19d8.jpg","images/gallery/engagement/engagement55.jpg"],["engagement59.ae48cc48.jpg","images/gallery/engagement/engagement59.jpg"],["engagement60.a551d006.jpg","images/gallery/engagement/engagement60.jpg"],["engagement61.d3651cf8.jpg","images/gallery/engagement/engagement61.jpg"],["engagement62.700b79b0.jpg","images/gallery/engagement/engagement62.jpg"],["engagement63.44ca5ebc.jpg","images/gallery/engagement/engagement63.jpg"],["engagement7.bf1a9c55.jpg","images/gallery/engagement/engagement7.jpg"],["engagement72.6dbb4b1f.jpg","images/gallery/engagement/engagement72.jpg"],["engagement71.17a8770f.jpg","images/gallery/engagement/engagement71.jpg"],["engagement77.05e47304.jpg","images/gallery/engagement/engagement77.jpg"],["engagement8.7f54fbe0.jpg","images/gallery/engagement/engagement8.jpg"],["engagement82.374d13f9.jpg","images/gallery/engagement/engagement82.jpg"],["engagement84.adae0e3c.jpg","images/gallery/engagement/engagement84.jpg"],["engagement9.805dfe72.jpg","images/gallery/engagement/engagement9.jpg"],["engagement85.8415f44d.jpg","images/gallery/engagement/engagement85.jpg"],["001.b3f327ae.jpg","images/gallery/bridegroom/001.jpg"],["002.fd885e00.jpg","images/gallery/bridegroom/002.jpg"],["005.f45f120b.jpg","images/gallery/bridegroom/005.jpg"],["003.31ecb43d.jpg","images/gallery/bridegroom/003.jpg"],["004.c4083006.jpg","images/gallery/bridegroom/004.jpg"],["006.5363a9ef.jpg","images/gallery/bridegroom/006.jpg"],["007.5bbd11a0.jpg","images/gallery/bridegroom/007.jpg"],["008.f0b6a653.jpg","images/gallery/bridegroom/008.jpg"],["009.a6d92a48.jpg","images/gallery/bridegroom/009.jpg"],["010.bb7af7b5.jpg","images/gallery/bridegroom/010.jpg"],["011.77725bce.jpg","images/gallery/bridegroom/011.jpg"],["012.700216f7.jpg","images/gallery/bridegroom/012.jpg"],["013.a70533d0.jpg","images/gallery/bridegroom/013.jpg"],["014.a1a0ced2.jpg","images/gallery/bridegroom/014.jpg"],["015.8bc50f66.jpg","images/gallery/bridegroom/015.jpg"],["016.c9b0bcee.jpg","images/gallery/bridegroom/016.jpg"],["017.735920b4.jpg","images/gallery/bridegroom/017.jpg"],["018.5ca48181.jpg","images/gallery/bridegroom/018.jpg"],["019.8c02baff.jpg","images/gallery/bridegroom/019.jpg"],["020.4b51ef60.jpg","images/gallery/bridegroom/020.jpg"],["021.690f59e9.jpg","images/gallery/bridegroom/021.jpg"],["022.f7a04564.jpg","images/gallery/bridegroom/022.jpg"],["023.c6867787.jpg","images/gallery/bridegroom/023.jpg"],["024.88f1b2cc.jpg","images/gallery/bridegroom/024.jpg"],["025.7358327b.jpg","images/gallery/bridegroom/025.jpg"],["026.c5162d96.jpg","images/gallery/bridegroom/026.jpg"],["027.1d1346fb.jpg","images/gallery/bridegroom/027.jpg"],["028.248f06ca.jpg","images/gallery/bridegroom/028.jpg"],["029.ca3c6d3b.jpg","images/gallery/bridegroom/029.jpg"],["030.7f474300.jpg","images/gallery/bridegroom/030.jpg"],["031.3ea210d6.jpg","images/gallery/bridegroom/031.jpg"],["032.7ec0c6c1.jpg","images/gallery/bridegroom/032.jpg"],["033.60eaf8dd.jpg","images/gallery/bridegroom/033.jpg"],["034.c69e2174.jpg","images/gallery/bridegroom/034.jpg"],["035.7df10980.jpg","images/gallery/bridegroom/035.jpg"],["036.10179ee4.jpg","images/gallery/bridegroom/036.jpg"],["037.d7d93e0d.jpg","images/gallery/bridegroom/037.jpg"],["038.ed02e556.jpg","images/gallery/bridegroom/038.jpg"],["039.b399f897.jpg","images/gallery/bridegroom/039.jpg"],["040.82d46023.jpg","images/gallery/bridegroom/040.jpg"],["041.662ccb41.jpg","images/gallery/bridegroom/041.jpg"],["042.65e25497.jpg","images/gallery/bridegroom/042.jpg"],["043.0a55d305.jpg","images/gallery/bridegroom/043.jpg"],["045.b8c4a2f4.jpg","images/gallery/bridegroom/045.jpg"],["044.ddbbfb68.jpg","images/gallery/bridegroom/044.jpg"],["046.c8d28a09.jpg","images/gallery/bridegroom/046.jpg"],["047.374ec867.jpg","images/gallery/bridegroom/047.jpg"],["048.c5ee8daa.jpg","images/gallery/bridegroom/048.jpg"],["049.35c6c747.jpg","images/gallery/bridegroom/049.jpg"],["050.9922ec69.jpg","images/gallery/bridegroom/050.jpg"],["051.79979b71.jpg","images/gallery/bridegroom/051.jpg"],["052.7f992f6b.jpg","images/gallery/bridegroom/052.jpg"],["054.bd3282ae.jpg","images/gallery/bridegroom/054.jpg"],["053.9896b520.jpg","images/gallery/bridegroom/053.jpg"],["055.3cf95b5e.jpg","images/gallery/bridegroom/055.jpg"],["056.6d65a948.jpg","images/gallery/bridegroom/056.jpg"],["057.a2c9e5ec.jpg","images/gallery/bridegroom/057.jpg"],["058.a009cb5f.jpg","images/gallery/bridegroom/058.jpg"],["059.c0468f97.jpg","images/gallery/bridegroom/059.jpg"],["060.849c9dc8.jpg","images/gallery/bridegroom/060.jpg"],["061.81f35b6b.jpg","images/gallery/bridegroom/061.jpg"],["062.56aa6a9d.jpg","images/gallery/bridegroom/062.jpg"],["063.bf758b29.jpg","images/gallery/bridegroom/063.jpg"],["064.358d5bd9.jpg","images/gallery/bridegroom/064.jpg"],["066.8af54236.jpg","images/gallery/bridegroom/066.jpg"],["065.a0037b39.jpg","images/gallery/bridegroom/065.jpg"],["067.4be6cb77.jpg","images/gallery/bridegroom/067.jpg"],["068.ee081014.jpg","images/gallery/bridegroom/068.jpg"],["070.ebb2f706.jpg","images/gallery/bridegroom/070.jpg"],["069.89f4724f.jpg","images/gallery/bridegroom/069.jpg"],["071.e78f832f.jpg","images/gallery/bridegroom/071.jpg"],["072.2c5e6061.jpg","images/gallery/bridegroom/072.jpg"],["073.f40b0327.jpg","images/gallery/bridegroom/073.jpg"],["074.bc2c3747.jpg","images/gallery/bridegroom/074.jpg"],["075.f237477f.jpg","images/gallery/bridegroom/075.jpg"],["076.fbfdbb75.jpg","images/gallery/bridegroom/076.jpg"],["077.10c50187.jpg","images/gallery/bridegroom/077.jpg"],["079.012379b2.jpg","images/gallery/bridegroom/079.jpg"],["078.46dec62f.jpg","images/gallery/bridegroom/078.jpg"],["080.d0f72533.jpg","images/gallery/bridegroom/080.jpg"],["081.cac043ab.jpg","images/gallery/bridegroom/081.jpg"],["082.058ddd09.jpg","images/gallery/bridegroom/082.jpg"],["083.9c522dfd.jpg","images/gallery/bridegroom/083.jpg"],["084.95417de8.jpg","images/gallery/bridegroom/084.jpg"],["085.fdbf1052.jpg","images/gallery/bridegroom/085.jpg"],["086.63f976d0.jpg","images/gallery/bridegroom/086.jpg"],["087.f6e2afd0.jpg","images/gallery/bridegroom/087.jpg"],["088.8203f36f.jpg","images/gallery/bridegroom/088.jpg"],["089.1812dd9e.jpg","images/gallery/bridegroom/089.jpg"],["090.0492ca17.jpg","images/gallery/bridegroom/090.jpg"],["091.a3b0b122.jpg","images/gallery/bridegroom/091.jpg"],["092.5f2f1fbc.jpg","images/gallery/bridegroom/092.jpg"],["093.e2d1a59d.jpg","images/gallery/bridegroom/093.jpg"],["094.308234ea.jpg","images/gallery/bridegroom/094.jpg"],["095.d5804f0c.jpg","images/gallery/bridegroom/095.jpg"],["096.4534c6eb.jpg","images/gallery/bridegroom/096.jpg"],["097.87c7e6e9.jpg","images/gallery/bridegroom/097.jpg"],["099.a69e32e9.jpg","images/gallery/bridegroom/099.jpg"],["098.643fda66.jpg","images/gallery/bridegroom/098.jpg"],["100.8f95a172.jpg","images/gallery/bridegroom/100.jpg"],["101.db8942b6.jpg","images/gallery/bridegroom/101.jpg"],["102.523c64f9.jpg","images/gallery/bridegroom/102.jpg"],["103.c3040c2e.jpg","images/gallery/bridegroom/103.jpg"],["104.643fc4bf.jpg","images/gallery/bridegroom/104.jpg"],["105.3e0bf6ec.jpg","images/gallery/bridegroom/105.jpg"],["106.94097fc6.jpg","images/gallery/bridegroom/106.jpg"],["108.b6de675a.jpg","images/gallery/bridegroom/108.jpg"],["107.0e2d42d9.jpg","images/gallery/bridegroom/107.jpg"],["109.48707cc1.jpg","images/gallery/bridegroom/109.jpg"],["110.162585be.jpg","images/gallery/bridegroom/110.jpg"],["111.869d5281.jpg","images/gallery/bridegroom/111.jpg"],["112.e5a4df71.jpg","images/gallery/bridegroom/112.jpg"],["113.e232c17b.jpg","images/gallery/bridegroom/113.jpg"],["114.12d637c5.jpg","images/gallery/bridegroom/114.jpg"],["115.a5574de8.jpg","images/gallery/bridegroom/115.jpg"],["116.6bb6ba0f.jpg","images/gallery/bridegroom/116.jpg"],["117.9ab4592f.jpg","images/gallery/bridegroom/117.jpg"],["119.661c7b1d.jpg","images/gallery/bridegroom/119.jpg"],["118.88689498.jpg","images/gallery/bridegroom/118.jpg"],["120.0dd144fc.jpg","images/gallery/bridegroom/120.jpg"],["121.31bacda1.jpg","images/gallery/bridegroom/121.jpg"],["122.ea8d19d6.jpg","images/gallery/bridegroom/122.jpg"],["124.0cd766b7.jpg","images/gallery/bridegroom/124.jpg"],["123.1be2c241.jpg","images/gallery/bridegroom/123.jpg"],["125.8cfbdcbe.jpg","images/gallery/bridegroom/125.jpg"],["126.8111b035.jpg","images/gallery/bridegroom/126.jpg"],["127.5094c416.jpg","images/gallery/bridegroom/127.jpg"],["128.e0d58c73.jpg","images/gallery/bridegroom/128.jpg"],["130.9261cb6e.jpg","images/gallery/bridegroom/130.jpg"],["129.25f3f417.jpg","images/gallery/bridegroom/129.jpg"],["131.157ce9ee.jpg","images/gallery/bridegroom/131.jpg"],["132.1a1a0d7b.jpg","images/gallery/bridegroom/132.jpg"],["133.adfdbd0e.jpg","images/gallery/bridegroom/133.jpg"],["134.a4470d76.jpg","images/gallery/bridegroom/134.jpg"],["135.d71c3288.jpg","images/gallery/bridegroom/135.jpg"],["136.77590b86.jpg","images/gallery/bridegroom/136.jpg"],["137.b30eaf5d.jpg","images/gallery/bridegroom/137.jpg"],["138.a09a5063.jpg","images/gallery/bridegroom/138.jpg"],["139.edaa9bce.jpg","images/gallery/bridegroom/139.jpg"],["140.e140b179.jpg","images/gallery/bridegroom/140.jpg"],["141.0da78d6d.jpg","images/gallery/bridegroom/141.jpg"],["142.0e58e91f.jpg","images/gallery/bridegroom/142.jpg"],["144.ae13b818.jpg","images/gallery/bridegroom/144.jpg"],["143.d9c30933.jpg","images/gallery/bridegroom/143.jpg"],["145.8fe3f47a.jpg","images/gallery/bridegroom/145.jpg"],["146.42c1b1a6.jpg","images/gallery/bridegroom/146.jpg"],["147.8fa679a7.jpg","images/gallery/bridegroom/147.jpg"],["148.0452a3f6.jpg","images/gallery/bridegroom/148.jpg"],["149.b404bb93.jpg","images/gallery/bridegroom/149.jpg"],["150.d1addff5.jpg","images/gallery/bridegroom/150.jpg"],["151.de926d28.jpg","images/gallery/bridegroom/151.jpg"],["152.efb0eee4.jpg","images/gallery/bridegroom/152.jpg"],["153.7fe80f68.jpg","images/gallery/bridegroom/153.jpg"],["154.8ff32953.jpg","images/gallery/bridegroom/154.jpg"],["155.15046445.jpg","images/gallery/bridegroom/155.jpg"],["156.f3eca49f.jpg","images/gallery/bridegroom/156.jpg"],["157.06cdd913.jpg","images/gallery/bridegroom/157.jpg"],["158.0b61fefb.jpg","images/gallery/bridegroom/158.jpg"],["159.18413163.jpg","images/gallery/bridegroom/159.jpg"],["160.67aed09e.jpg","images/gallery/bridegroom/160.jpg"],["161.18cb69ce.jpg","images/gallery/bridegroom/161.jpg"],["162.9cac3b37.jpg","images/gallery/bridegroom/162.jpg"],["163.4b4ff22c.jpg","images/gallery/bridegroom/163.jpg"],["164.b37fbd1b.jpg","images/gallery/bridegroom/164.jpg"],["166.48a6b249.jpg","images/gallery/bridegroom/166.jpg"],["167.123e4caa.jpg","images/gallery/bridegroom/167.jpg"],["165.18add0fc.jpg","images/gallery/bridegroom/165.jpg"],["001.3dd58a0b.jpg","images/gallery/ceremony/001.jpg"],["002.a5c9bb7d.jpg","images/gallery/ceremony/002.jpg"],["003.4d68de48.jpg","images/gallery/ceremony/003.jpg"],["004.7c70e50e.jpg","images/gallery/ceremony/004.jpg"],["006.7cac79e3.jpg","images/gallery/ceremony/006.jpg"],["005.d0de393c.jpg","images/gallery/ceremony/005.jpg"],["007.f75d616d.jpg","images/gallery/ceremony/007.jpg"],["008.f19b8499.jpg","images/gallery/ceremony/008.jpg"],["009.e32bac22.jpg","images/gallery/ceremony/009.jpg"],["010.d54affd1.jpg","images/gallery/ceremony/010.jpg"],["011.ea2d6b7f.jpg","images/gallery/ceremony/011.jpg"],["012.eed9c639.jpg","images/gallery/ceremony/012.jpg"],["013.ad116c9a.jpg","images/gallery/ceremony/013.jpg"],["014.4cf03177.jpg","images/gallery/ceremony/014.jpg"],["015.997122bc.jpg","images/gallery/ceremony/015.jpg"],["016.96ec1246.jpg","images/gallery/ceremony/016.jpg"],["017.d7ed5bcf.jpg","images/gallery/ceremony/017.jpg"],["018.1636d7ec.jpg","images/gallery/ceremony/018.jpg"],["019.ad92dc95.jpg","images/gallery/ceremony/019.jpg"],["020.9286e02c.jpg","images/gallery/ceremony/020.jpg"],["021.37f8d89a.jpg","images/gallery/ceremony/021.jpg"],["022.261d0715.jpg","images/gallery/ceremony/022.jpg"],["023.db11e767.jpg","images/gallery/ceremony/023.jpg"],["024.9b1bbc3a.jpg","images/gallery/ceremony/024.jpg"],["025.ff912a3d.jpg","images/gallery/ceremony/025.jpg"],["026.0c5b52a9.jpg","images/gallery/ceremony/026.jpg"],["027.5f350639.jpg","images/gallery/ceremony/027.jpg"],["028.dea30a2c.jpg","images/gallery/ceremony/028.jpg"],["029.988fe403.jpg","images/gallery/ceremony/029.jpg"],["031.a12a3824.jpg","images/gallery/ceremony/031.jpg"],["030.0fd9fc22.jpg","images/gallery/ceremony/030.jpg"],["033.10f8a086.jpg","images/gallery/ceremony/033.jpg"],["032.d17c7dc3.jpg","images/gallery/ceremony/032.jpg"],["034.9d64bcf8.jpg","images/gallery/ceremony/034.jpg"],["035.877a1937.jpg","images/gallery/ceremony/035.jpg"],["036.fe228c32.jpg","images/gallery/ceremony/036.jpg"],["037.b3b7210e.jpg","images/gallery/ceremony/037.jpg"],["038.01743d04.jpg","images/gallery/ceremony/038.jpg"],["039.57332eb9.jpg","images/gallery/ceremony/039.jpg"],["040.df1e93ee.jpg","images/gallery/ceremony/040.jpg"],["041.095b147f.jpg","images/gallery/ceremony/041.jpg"],["042.9e42c154.jpg","images/gallery/ceremony/042.jpg"],["043.e74d0f25.jpg","images/gallery/ceremony/043.jpg"],["044.4a2997c0.jpg","images/gallery/ceremony/044.jpg"],["045.119a49c3.jpg","images/gallery/ceremony/045.jpg"],["046.fdd801bc.jpg","images/gallery/ceremony/046.jpg"],["047.5ceec451.jpg","images/gallery/ceremony/047.jpg"],["048.c6c12b0a.jpg","images/gallery/ceremony/048.jpg"],["049.5f3ec29d.jpg","images/gallery/ceremony/049.jpg"],["050.e23e3ffd.jpg","images/gallery/ceremony/050.jpg"],["052.84582bfe.jpg","images/gallery/ceremony/052.jpg"],["051.3de16dd6.jpg","images/gallery/ceremony/051.jpg"],["053.9df33b5c.jpg","images/gallery/ceremony/053.jpg"],["054.a38c1790.jpg","images/gallery/ceremony/054.jpg"],["055.2b943ed4.jpg","images/gallery/ceremony/055.jpg"],["057.c150125e.jpg","images/gallery/ceremony/057.jpg"],["056.34dd4166.jpg","images/gallery/ceremony/056.jpg"],["058.a50682d7.jpg","images/gallery/ceremony/058.jpg"],["059.c8cd4ef5.jpg","images/gallery/ceremony/059.jpg"],["060.296eba8b.jpg","images/gallery/ceremony/060.jpg"],["061.fc9753b7.jpg","images/gallery/ceremony/061.jpg"],["062.272b665c.jpg","images/gallery/ceremony/062.jpg"],["063.44baff8b.jpg","images/gallery/ceremony/063.jpg"],["064.c48ba5d6.jpg","images/gallery/ceremony/064.jpg"],["065.fdf24b95.jpg","images/gallery/ceremony/065.jpg"],["067.a897acb0.jpg","images/gallery/ceremony/067.jpg"],["066.4cad2bee.jpg","images/gallery/ceremony/066.jpg"],["068.46faf00d.jpg","images/gallery/ceremony/068.jpg"],["069.7b026388.jpg","images/gallery/ceremony/069.jpg"],["070.fc054c8a.jpg","images/gallery/ceremony/070.jpg"],["071.ddff2dcd.jpg","images/gallery/ceremony/071.jpg"],["072.b2d03517.jpg","images/gallery/ceremony/072.jpg"],["073.da6d5805.jpg","images/gallery/ceremony/073.jpg"],["074.1ea82da9.jpg","images/gallery/ceremony/074.jpg"],["075.9b363100.jpg","images/gallery/ceremony/075.jpg"],["076.b1478852.jpg","images/gallery/ceremony/076.jpg"],["077.8fafc3c4.jpg","images/gallery/ceremony/077.jpg"],["078.2d475219.jpg","images/gallery/ceremony/078.jpg"],["080.1760abe3.jpg","images/gallery/ceremony/080.jpg"],["079.449989f6.jpg","images/gallery/ceremony/079.jpg"],["081.dabd7c40.jpg","images/gallery/ceremony/081.jpg"],["082.cfdc5dd1.jpg","images/gallery/ceremony/082.jpg"],["083.97faff5f.jpg","images/gallery/ceremony/083.jpg"],["084.49a36bb7.jpg","images/gallery/ceremony/084.jpg"],["085.ebffbec8.jpg","images/gallery/ceremony/085.jpg"],["086.7f291f54.jpg","images/gallery/ceremony/086.jpg"],["087.beebecef.jpg","images/gallery/ceremony/087.jpg"],["088.65a4d4f7.jpg","images/gallery/ceremony/088.jpg"],["089.5fa228c3.jpg","images/gallery/ceremony/089.jpg"],["090.4f3b8e24.jpg","images/gallery/ceremony/090.jpg"],["091.dd2437e2.jpg","images/gallery/ceremony/091.jpg"],["092.2709e74e.jpg","images/gallery/ceremony/092.jpg"],["093.f1b776e6.jpg","images/gallery/ceremony/093.jpg"],["094.dcf1eebc.jpg","images/gallery/ceremony/094.jpg"],["095.0b7be2bf.jpg","images/gallery/ceremony/095.jpg"],["096.7390d66e.jpg","images/gallery/ceremony/096.jpg"],["002.214ec649.jpg","images/gallery/family/002.jpg"],["001.17e282be.jpg","images/gallery/family/001.jpg"],["003.bb2e3822.jpg","images/gallery/family/003.jpg"],["004.1b808133.jpg","images/gallery/family/004.jpg"],["005.4f1d09b3.jpg","images/gallery/family/005.jpg"],["006.4d0c4701.jpg","images/gallery/family/006.jpg"],["008.726ae977.jpg","images/gallery/family/008.jpg"],["007.2f5c8101.jpg","images/gallery/family/007.jpg"],["009.4f0688f0.jpg","images/gallery/family/009.jpg"],["010.ed4b1b9d.jpg","images/gallery/family/010.jpg"],["011.ed3c505b.jpg","images/gallery/family/011.jpg"],["012.768ccd2f.jpg","images/gallery/family/012.jpg"],["013.4e36cff2.jpg","images/gallery/family/013.jpg"],["014.a497df29.jpg","images/gallery/family/014.jpg"],["015.2895e065.jpg","images/gallery/family/015.jpg"],["017.337e2e54.jpg","images/gallery/family/017.jpg"],["016.a9ef057d.jpg","images/gallery/family/016.jpg"],["019.1d4fe5c1.jpg","images/gallery/family/019.jpg"],["018.74bfc8eb.jpg","images/gallery/family/018.jpg"],["020.83a3f3e1.jpg","images/gallery/family/020.jpg"],["022.2329dba0.jpg","images/gallery/family/022.jpg"],["021.16dc5315.jpg","images/gallery/family/021.jpg"],["023.3c73ed40.jpg","images/gallery/family/023.jpg"],["025.5facbafe.jpg","images/gallery/family/025.jpg"],["024.9c3fd32f.jpg","images/gallery/family/024.jpg"],["026.5acee5e7.jpg","images/gallery/family/026.jpg"],["027.f4f5e979.jpg","images/gallery/family/027.jpg"],["028.33360f96.jpg","images/gallery/family/028.jpg"],["030.8fc71779.jpg","images/gallery/family/030.jpg"],["029.067c2337.jpg","images/gallery/family/029.jpg"],["031.7376d1c3.jpg","images/gallery/family/031.jpg"],["032.356b1bc9.jpg","images/gallery/family/032.jpg"],["033.4117d1f1.jpg","images/gallery/family/033.jpg"],["034.cf11f38b.jpg","images/gallery/family/034.jpg"],["035.0d658480.jpg","images/gallery/family/035.jpg"],["036.629e8385.jpg","images/gallery/family/036.jpg"],["037.215ad599.jpg","images/gallery/family/037.jpg"],["001.0515f6b2.jpg","images/gallery/reception/001.jpg"],["002.405074a1.jpg","images/gallery/reception/002.jpg"],["003.71a137c9.jpg","images/gallery/reception/003.jpg"],["004.91e61afa.jpg","images/gallery/reception/004.jpg"],["005.3d2c7057.jpg","images/gallery/reception/005.jpg"],["006.570019ea.jpg","images/gallery/reception/006.jpg"],["007.f96399eb.jpg","images/gallery/reception/007.jpg"],["008.7ed6a583.jpg","images/gallery/reception/008.jpg"],["009.b57a223f.jpg","images/gallery/reception/009.jpg"],["010.1fa3d7e0.jpg","images/gallery/reception/010.jpg"],["011.e57958eb.jpg","images/gallery/reception/011.jpg"],["012.a3dd2471.jpg","images/gallery/reception/012.jpg"],["013.fa2f5e7d.jpg","images/gallery/reception/013.jpg"],["014.86a78ca4.jpg","images/gallery/reception/014.jpg"],["016.8983459e.jpg","images/gallery/reception/016.jpg"],["017.75580a9f.jpg","images/gallery/reception/017.jpg"],["015.8744d1de.jpg","images/gallery/reception/015.jpg"],["018.e84618e7.jpg","images/gallery/reception/018.jpg"],["019.a7f5fb4d.jpg","images/gallery/reception/019.jpg"],["020.2e089e81.jpg","images/gallery/reception/020.jpg"],["021.7f86cb7a.jpg","images/gallery/reception/021.jpg"],["022.d8b8bf89.jpg","images/gallery/reception/022.jpg"],["023.81673434.jpg","images/gallery/reception/023.jpg"],["025.7bda0a75.jpg","images/gallery/reception/025.jpg"],["026.ec17bbc3.jpg","images/gallery/reception/026.jpg"],["024.a3ce04fa.jpg","images/gallery/reception/024.jpg"],["027.ab636584.jpg","images/gallery/reception/027.jpg"],["029.5dd7ecfb.jpg","images/gallery/reception/029.jpg"],["028.41c4b6cf.jpg","images/gallery/reception/028.jpg"],["030.1ddc4fc6.jpg","images/gallery/reception/030.jpg"],["031.fa4d8af8.jpg","images/gallery/reception/031.jpg"],["032.8fde20dc.jpg","images/gallery/reception/032.jpg"],["034.d5626f5f.jpg","images/gallery/reception/034.jpg"],["033.47413465.jpg","images/gallery/reception/033.jpg"],["035.ea5dccc8.jpg","images/gallery/reception/035.jpg"],["036.5e6f77e2.jpg","images/gallery/reception/036.jpg"],["037.ad814aae.jpg","images/gallery/reception/037.jpg"],["038.42790249.jpg","images/gallery/reception/038.jpg"],["039.43b75a26.jpg","images/gallery/reception/039.jpg"],["040.c880afb8.jpg","images/gallery/reception/040.jpg"],["041.5198ebb6.jpg","images/gallery/reception/041.jpg"],["042.8436c79a.jpg","images/gallery/reception/042.jpg"],["043.e59911a7.jpg","images/gallery/reception/043.jpg"],["044.9c00d87b.jpg","images/gallery/reception/044.jpg"],["046.92309a73.jpg","images/gallery/reception/046.jpg"],["045.c96fa617.jpg","images/gallery/reception/045.jpg"],["047.311881dc.jpg","images/gallery/reception/047.jpg"],["048.694543df.jpg","images/gallery/reception/048.jpg"],["049.38f3d65a.jpg","images/gallery/reception/049.jpg"],["051.1c3ade67.jpg","images/gallery/reception/051.jpg"],["050.2516e058.jpg","images/gallery/reception/050.jpg"],["052.a5226087.jpg","images/gallery/reception/052.jpg"],["053.42958ddb.jpg","images/gallery/reception/053.jpg"],["054.2c974af0.jpg","images/gallery/reception/054.jpg"],["055.6013763a.jpg","images/gallery/reception/055.jpg"],["056.856ba987.jpg","images/gallery/reception/056.jpg"],["057.88d3d4ca.jpg","images/gallery/reception/057.jpg"],["058.2c5a6424.jpg","images/gallery/reception/058.jpg"],["059.81f15390.jpg","images/gallery/reception/059.jpg"],["060.52bb7141.jpg","images/gallery/reception/060.jpg"],["061.49f2e734.jpg","images/gallery/reception/061.jpg"],["062.8f60ff5a.jpg","images/gallery/reception/062.jpg"],["064.102ace3a.jpg","images/gallery/reception/064.jpg"],["063.0facc122.jpg","images/gallery/reception/063.jpg"],["065.86ba5645.jpg","images/gallery/reception/065.jpg"],["066.38a0bec6.jpg","images/gallery/reception/066.jpg"],["067.0d3aaf6b.jpg","images/gallery/reception/067.jpg"],["068.db529cad.jpg","images/gallery/reception/068.jpg"],["070.82c240b6.jpg","images/gallery/reception/070.jpg"],["069.2a33b166.jpg","images/gallery/reception/069.jpg"],["071.b6d593a4.jpg","images/gallery/reception/071.jpg"],["072.31bc8557.jpg","images/gallery/reception/072.jpg"],["074.b7cc4dc9.jpg","images/gallery/reception/074.jpg"],["073.16c21829.jpg","images/gallery/reception/073.jpg"],["076.dac48973.jpg","images/gallery/reception/076.jpg"],["075.a6ebbb04.jpg","images/gallery/reception/075.jpg"],["077.56b63557.jpg","images/gallery/reception/077.jpg"],["078.d9ce64f2.jpg","images/gallery/reception/078.jpg"],["079.ebbe7a63.jpg","images/gallery/reception/079.jpg"],["080.e87d2aa4.jpg","images/gallery/reception/080.jpg"],["081.e4a9f860.jpg","images/gallery/reception/081.jpg"],["083.48ca2e88.jpg","images/gallery/reception/083.jpg"],["082.f7102adf.jpg","images/gallery/reception/082.jpg"],["085.77213825.jpg","images/gallery/reception/085.jpg"],["086.59b6a272.jpg","images/gallery/reception/086.jpg"],["087.e826fde8.jpg","images/gallery/reception/087.jpg"],["088.5b921a2c.jpg","images/gallery/reception/088.jpg"],["089.bbdcbc81.jpg","images/gallery/reception/089.jpg"],["084.b0f4d09e.jpg","images/gallery/reception/084.jpg"],["090.b8d31e7a.jpg","images/gallery/reception/090.jpg"],["091.5cd38498.jpg","images/gallery/reception/091.jpg"],["092.34ad4a3b.jpg","images/gallery/reception/092.jpg"],["093.af7682f2.jpg","images/gallery/reception/093.jpg"],["094.23681ad0.jpg","images/gallery/reception/094.jpg"],["095.d341997b.jpg","images/gallery/reception/095.jpg"],["097.05aa283f.jpg","images/gallery/reception/097.jpg"],["096.cf03e049.jpg","images/gallery/reception/096.jpg"],["098.89b96011.jpg","images/gallery/reception/098.jpg"],["099.d9aba8d5.jpg","images/gallery/reception/099.jpg"],["101.bc130b4a.jpg","images/gallery/reception/101.jpg"],["100.7c3a2759.jpg","images/gallery/reception/100.jpg"],["103.5cad902d.jpg","images/gallery/reception/103.jpg"],["102.f92f891f.jpg","images/gallery/reception/102.jpg"],["104.0e86ab8e.jpg","images/gallery/reception/104.jpg"],["105.1c356a80.jpg","images/gallery/reception/105.jpg"],["106.b9bf983d.jpg","images/gallery/reception/106.jpg"],["107.c996c57b.jpg","images/gallery/reception/107.jpg"],["109.0da88f91.jpg","images/gallery/reception/109.jpg"],["108.4ba7e386.jpg","images/gallery/reception/108.jpg"],["110.56da4ded.jpg","images/gallery/reception/110.jpg"],["111.e12b272a.jpg","images/gallery/reception/111.jpg"],["112.4b37f9b2.jpg","images/gallery/reception/112.jpg"],["113.7036f91d.jpg","images/gallery/reception/113.jpg"],["114.c21103de.jpg","images/gallery/reception/114.jpg"],["115.04888398.jpg","images/gallery/reception/115.jpg"],["116.4c8f4ec3.jpg","images/gallery/reception/116.jpg"],["117.fb021ccf.jpg","images/gallery/reception/117.jpg"],["118.81c18279.jpg","images/gallery/reception/118.jpg"],["119.5f6981a5.jpg","images/gallery/reception/119.jpg"],["121.93229dc1.jpg","images/gallery/reception/121.jpg"],["120.382b2364.jpg","images/gallery/reception/120.jpg"],["122.60397f6d.jpg","images/gallery/reception/122.jpg"],["123.c9904f98.jpg","images/gallery/reception/123.jpg"],["124.e85ece6f.jpg","images/gallery/reception/124.jpg"],["126.70f344ed.jpg","images/gallery/reception/126.jpg"],["125.095c48c7.jpg","images/gallery/reception/125.jpg"],["128.585e8a7a.jpg","images/gallery/reception/128.jpg"],["127.48a7d58c.jpg","images/gallery/reception/127.jpg"],["129.094eaac2.jpg","images/gallery/reception/129.jpg"],["130.4a3f9c0d.jpg","images/gallery/reception/130.jpg"],["131.d53975a8.jpg","images/gallery/reception/131.jpg"],["132.8dfad5ac.jpg","images/gallery/reception/132.jpg"],["133.7364cd63.jpg","images/gallery/reception/133.jpg"],["134.f33d215e.jpg","images/gallery/reception/134.jpg"],["135.d7ee5ce3.jpg","images/gallery/reception/135.jpg"],["136.0a78ac9d.jpg","images/gallery/reception/136.jpg"],["138.f04fa731.jpg","images/gallery/reception/138.jpg"],["137.a522b307.jpg","images/gallery/reception/137.jpg"],["139.31482e36.jpg","images/gallery/reception/139.jpg"],["140.f1cbe606.jpg","images/gallery/reception/140.jpg"],["141.688977c2.jpg","images/gallery/reception/141.jpg"],["142.97492c43.jpg","images/gallery/reception/142.jpg"],["144.db0e3851.jpg","images/gallery/reception/144.jpg"],["143.98b999d6.jpg","images/gallery/reception/143.jpg"],["145.6ff9ec0b.jpg","images/gallery/reception/145.jpg"],["146.6b931066.jpg","images/gallery/reception/146.jpg"],["147.2841981c.jpg","images/gallery/reception/147.jpg"],["149.7b7057e6.jpg","images/gallery/reception/149.jpg"],["150.a06ad67b.jpg","images/gallery/reception/150.jpg"],["148.6023713c.jpg","images/gallery/reception/148.jpg"],["151.2b7fa818.jpg","images/gallery/reception/151.jpg"],["152.9ee18aa7.jpg","images/gallery/reception/152.jpg"],["153.d1ca7aa3.jpg","images/gallery/reception/153.jpg"],["155.ffc4e2a9.jpg","images/gallery/reception/155.jpg"],["154.772c0c90.jpg","images/gallery/reception/154.jpg"],["156.e2c17c9a.jpg","images/gallery/reception/156.jpg"],["157.7fde344d.jpg","images/gallery/reception/157.jpg"],["158.d7c55abf.jpg","images/gallery/reception/158.jpg"],["159.f9f03923.jpg","images/gallery/reception/159.jpg"],["161.38bee15d.jpg","images/gallery/reception/161.jpg"],["160.519d43de.jpg","images/gallery/reception/160.jpg"],["162.95066c64.jpg","images/gallery/reception/162.jpg"],["163.864f2d3a.jpg","images/gallery/reception/163.jpg"],["164.f3c2d64c.jpg","images/gallery/reception/164.jpg"],["166.5a78ea22.jpg","images/gallery/reception/166.jpg"],["165.a21ca8f8.jpg","images/gallery/reception/165.jpg"],["167.84da8588.jpg","images/gallery/reception/167.jpg"],["168.a5fd64ff.jpg","images/gallery/reception/168.jpg"],["169.aa62cd36.jpg","images/gallery/reception/169.jpg"],["170.8f90c928.jpg","images/gallery/reception/170.jpg"],["171.32eece07.jpg","images/gallery/reception/171.jpg"],["174.ca9eea08.jpg","images/gallery/reception/174.jpg"],["173.6b117ea5.jpg","images/gallery/reception/173.jpg"],["172.81fddb62.jpg","images/gallery/reception/172.jpg"],["175.32d60837.jpg","images/gallery/reception/175.jpg"],["176.7a5821bc.jpg","images/gallery/reception/176.jpg"],["178.63e5c48c.jpg","images/gallery/reception/178.jpg"],["177.d3cdb316.jpg","images/gallery/reception/177.jpg"],["179.818372b5.jpg","images/gallery/reception/179.jpg"],["180.8c7f2989.jpg","images/gallery/reception/180.jpg"],["181.b1f811d7.jpg","images/gallery/reception/181.jpg"],["182.43fa30d5.jpg","images/gallery/reception/182.jpg"],["183.5bf738fc.jpg","images/gallery/reception/183.jpg"],["184.27ac20fc.jpg","images/gallery/reception/184.jpg"],["185.4ad27a28.jpg","images/gallery/reception/185.jpg"],["186.b611283f.jpg","images/gallery/reception/186.jpg"],["187.170c0466.jpg","images/gallery/reception/187.jpg"],["188.af9173d0.jpg","images/gallery/reception/188.jpg"],["189.25956a24.jpg","images/gallery/reception/189.jpg"],["190.0b3db9bb.jpg","images/gallery/reception/190.jpg"],["191.1bd87b39.jpg","images/gallery/reception/191.jpg"],["192.fecc8d65.jpg","images/gallery/reception/192.jpg"],["193.c3bb0926.jpg","images/gallery/reception/193.jpg"],["194.22a013af.jpg","images/gallery/reception/194.jpg"],["195.5500c1b9.jpg","images/gallery/reception/195.jpg"],["196.ce29c241.jpg","images/gallery/reception/196.jpg"],["198.f387beee.jpg","images/gallery/reception/198.jpg"],["197.fb57ada6.jpg","images/gallery/reception/197.jpg"],["199.460dac86.jpg","images/gallery/reception/199.jpg"],["200.6ef6ff2d.jpg","images/gallery/reception/200.jpg"],["201.42659237.jpg","images/gallery/reception/201.jpg"],["202.13dafefe.jpg","images/gallery/reception/202.jpg"],["203.8632247a.jpg","images/gallery/reception/203.jpg"],["204.b887d5fe.jpg","images/gallery/reception/204.jpg"],["205.bcf5b10f.jpg","images/gallery/reception/205.jpg"],["206.ca803406.jpg","images/gallery/reception/206.jpg"],["208.cefb165c.jpg","images/gallery/reception/208.jpg"],["207.74d25fa8.jpg","images/gallery/reception/207.jpg"],["209.530f2d2d.jpg","images/gallery/reception/209.jpg"],["210.63b2957e.jpg","images/gallery/reception/210.jpg"],["211.0d068526.jpg","images/gallery/reception/211.jpg"],["213.509e27d5.jpg","images/gallery/reception/213.jpg"],["212.12f29137.jpg","images/gallery/reception/212.jpg"],["214.991e5943.jpg","images/gallery/reception/214.jpg"],["216.b609b40d.jpg","images/gallery/reception/216.jpg"],["215.7d1a70ee.jpg","images/gallery/reception/215.jpg"],["217.23da9854.jpg","images/gallery/reception/217.jpg"],["218.8ebcd505.jpg","images/gallery/reception/218.jpg"],["219.744c7f4b.jpg","images/gallery/reception/219.jpg"],["220.2d7a681e.jpg","images/gallery/reception/220.jpg"],["1.3d95a1d3.jpg","images/header/1.jpg"],["4.9d634764.jpg","images/header/4.jpg"],["5.bc34014a.jpg","images/header/5.jpg"],["7.f08d27bd.jpg","images/header/7.jpg"],["6.37e3a99c.jpg","images/header/6.jpg"],["8.81054002.jpg","images/header/8.jpg"],["happy-red.915bd22a.png","images/particles/happy-red.png"],["happy-yellow.f4ce1b43.png","images/particles/happy-yellow.png"],"components/index.vue"]}],"../node_modules/parcel-bundler/src/builtins/css-loader.js":[function(require,module,exports) {
+},{"@babel/runtime/regenerator":"../node_modules/@babel/runtime/regenerator/index.js","@babel/runtime/helpers/asyncToGenerator":"../node_modules/@babel/runtime/helpers/asyncToGenerator.js","vue":"../node_modules/vue/dist/vue.runtime.esm.js","vue-router":"../node_modules/vue-router/dist/vue-router.esm.js","_bundle_loader":"../node_modules/parcel-bundler/src/builtins/bundle-loader.js","/components/index":[["components.7a20127c.js","components/index.vue"],"components.7a20127c.js.map","components.7a20127c.css",["engagement10.220932cd.jpg","images/gallery/engagement/engagement10.jpg"],["engagement15.e6d02c2d.jpg","images/gallery/engagement/engagement15.jpg"],["engagement18.90d89f2f.jpg","images/gallery/engagement/engagement18.jpg"],["engagement19.2ddee7e3.jpg","images/gallery/engagement/engagement19.jpg"],["engagement21.411beeb4.jpg","images/gallery/engagement/engagement21.jpg"],["engagement23.f8fa7106.jpg","images/gallery/engagement/engagement23.jpg"],["engagement26.5000d7a7.jpg","images/gallery/engagement/engagement26.jpg"],["engagement27.a76c35e3.jpg","images/gallery/engagement/engagement27.jpg"],["engagement28.00832895.jpg","images/gallery/engagement/engagement28.jpg"],["engagement30.cc9e543f.jpg","images/gallery/engagement/engagement30.jpg"],["engagement31.0801d792.jpg","images/gallery/engagement/engagement31.jpg"],["engagement33.aaea18c1.jpg","images/gallery/engagement/engagement33.jpg"],["engagement34.2843a280.jpg","images/gallery/engagement/engagement34.jpg"],["engagement35.39ccc375.jpg","images/gallery/engagement/engagement35.jpg"],["engagement36.1ec02b32.jpg","images/gallery/engagement/engagement36.jpg"],["engagement4.dafdfd2f.jpg","images/gallery/engagement/engagement4.jpg"],["engagement40.11d81d75.jpg","images/gallery/engagement/engagement40.jpg"],["engagement41.95555173.jpg","images/gallery/engagement/engagement41.jpg"],["engagement45.85cb7593.jpg","images/gallery/engagement/engagement45.jpg"],["engagement46.e619a465.jpg","images/gallery/engagement/engagement46.jpg"],["engagement47.f7740ec1.jpg","images/gallery/engagement/engagement47.jpg"],["engagement48.c76876f5.jpg","images/gallery/engagement/engagement48.jpg"],["engagement49.77f8083b.jpg","images/gallery/engagement/engagement49.jpg"],["engagement5.6dda9ec8.jpg","images/gallery/engagement/engagement5.jpg"],["engagement50.7b05af96.jpg","images/gallery/engagement/engagement50.jpg"],["engagement51.c95f2bd5.jpg","images/gallery/engagement/engagement51.jpg"],["engagement52.d9cdf65a.jpg","images/gallery/engagement/engagement52.jpg"],["engagement54.945d2edb.jpg","images/gallery/engagement/engagement54.jpg"],["engagement55.75fc19d8.jpg","images/gallery/engagement/engagement55.jpg"],["engagement57.c5a18111.jpg","images/gallery/engagement/engagement57.jpg"],["engagement59.ae48cc48.jpg","images/gallery/engagement/engagement59.jpg"],["engagement60.a551d006.jpg","images/gallery/engagement/engagement60.jpg"],["engagement61.d3651cf8.jpg","images/gallery/engagement/engagement61.jpg"],["engagement62.700b79b0.jpg","images/gallery/engagement/engagement62.jpg"],["engagement63.44ca5ebc.jpg","images/gallery/engagement/engagement63.jpg"],["engagement7.bf1a9c55.jpg","images/gallery/engagement/engagement7.jpg"],["engagement71.17a8770f.jpg","images/gallery/engagement/engagement71.jpg"],["engagement72.6dbb4b1f.jpg","images/gallery/engagement/engagement72.jpg"],["engagement77.05e47304.jpg","images/gallery/engagement/engagement77.jpg"],["engagement82.374d13f9.jpg","images/gallery/engagement/engagement82.jpg"],["engagement84.adae0e3c.jpg","images/gallery/engagement/engagement84.jpg"],["engagement85.8415f44d.jpg","images/gallery/engagement/engagement85.jpg"],["engagement8.7f54fbe0.jpg","images/gallery/engagement/engagement8.jpg"],["engagement9.805dfe72.jpg","images/gallery/engagement/engagement9.jpg"],["001.b3f327ae.jpg","images/gallery/bridegroom/001.jpg"],["002.fd885e00.jpg","images/gallery/bridegroom/002.jpg"],["003.31ecb43d.jpg","images/gallery/bridegroom/003.jpg"],["004.c4083006.jpg","images/gallery/bridegroom/004.jpg"],["005.f45f120b.jpg","images/gallery/bridegroom/005.jpg"],["006.5363a9ef.jpg","images/gallery/bridegroom/006.jpg"],["007.5bbd11a0.jpg","images/gallery/bridegroom/007.jpg"],["008.f0b6a653.jpg","images/gallery/bridegroom/008.jpg"],["009.a6d92a48.jpg","images/gallery/bridegroom/009.jpg"],["010.bb7af7b5.jpg","images/gallery/bridegroom/010.jpg"],["011.77725bce.jpg","images/gallery/bridegroom/011.jpg"],["012.700216f7.jpg","images/gallery/bridegroom/012.jpg"],["013.a70533d0.jpg","images/gallery/bridegroom/013.jpg"],["014.a1a0ced2.jpg","images/gallery/bridegroom/014.jpg"],["015.8bc50f66.jpg","images/gallery/bridegroom/015.jpg"],["016.c9b0bcee.jpg","images/gallery/bridegroom/016.jpg"],["017.735920b4.jpg","images/gallery/bridegroom/017.jpg"],["018.5ca48181.jpg","images/gallery/bridegroom/018.jpg"],["020.4b51ef60.jpg","images/gallery/bridegroom/020.jpg"],["019.8c02baff.jpg","images/gallery/bridegroom/019.jpg"],["021.690f59e9.jpg","images/gallery/bridegroom/021.jpg"],["022.f7a04564.jpg","images/gallery/bridegroom/022.jpg"],["023.c6867787.jpg","images/gallery/bridegroom/023.jpg"],["024.88f1b2cc.jpg","images/gallery/bridegroom/024.jpg"],["025.7358327b.jpg","images/gallery/bridegroom/025.jpg"],["026.c5162d96.jpg","images/gallery/bridegroom/026.jpg"],["027.1d1346fb.jpg","images/gallery/bridegroom/027.jpg"],["028.248f06ca.jpg","images/gallery/bridegroom/028.jpg"],["029.ca3c6d3b.jpg","images/gallery/bridegroom/029.jpg"],["030.7f474300.jpg","images/gallery/bridegroom/030.jpg"],["031.3ea210d6.jpg","images/gallery/bridegroom/031.jpg"],["032.7ec0c6c1.jpg","images/gallery/bridegroom/032.jpg"],["001.3dd58a0b.jpg","images/gallery/ceremony/001.jpg"],["002.a5c9bb7d.jpg","images/gallery/ceremony/002.jpg"],["003.4d68de48.jpg","images/gallery/ceremony/003.jpg"],["004.7c70e50e.jpg","images/gallery/ceremony/004.jpg"],["005.d0de393c.jpg","images/gallery/ceremony/005.jpg"],["006.7cac79e3.jpg","images/gallery/ceremony/006.jpg"],["007.f75d616d.jpg","images/gallery/ceremony/007.jpg"],["008.f19b8499.jpg","images/gallery/ceremony/008.jpg"],["009.e32bac22.jpg","images/gallery/ceremony/009.jpg"],["010.d54affd1.jpg","images/gallery/ceremony/010.jpg"],["011.ea2d6b7f.jpg","images/gallery/ceremony/011.jpg"],["012.eed9c639.jpg","images/gallery/ceremony/012.jpg"],["013.ad116c9a.jpg","images/gallery/ceremony/013.jpg"],["014.4cf03177.jpg","images/gallery/ceremony/014.jpg"],["015.997122bc.jpg","images/gallery/ceremony/015.jpg"],["016.96ec1246.jpg","images/gallery/ceremony/016.jpg"],["017.d7ed5bcf.jpg","images/gallery/ceremony/017.jpg"],["018.1636d7ec.jpg","images/gallery/ceremony/018.jpg"],["019.ad92dc95.jpg","images/gallery/ceremony/019.jpg"],["020.9286e02c.jpg","images/gallery/ceremony/020.jpg"],["021.37f8d89a.jpg","images/gallery/ceremony/021.jpg"],["022.261d0715.jpg","images/gallery/ceremony/022.jpg"],["023.db11e767.jpg","images/gallery/ceremony/023.jpg"],["024.9b1bbc3a.jpg","images/gallery/ceremony/024.jpg"],["025.ff912a3d.jpg","images/gallery/ceremony/025.jpg"],["026.0c5b52a9.jpg","images/gallery/ceremony/026.jpg"],["027.5f350639.jpg","images/gallery/ceremony/027.jpg"],["028.dea30a2c.jpg","images/gallery/ceremony/028.jpg"],["029.988fe403.jpg","images/gallery/ceremony/029.jpg"],["030.0fd9fc22.jpg","images/gallery/ceremony/030.jpg"],["031.a12a3824.jpg","images/gallery/ceremony/031.jpg"],["032.d17c7dc3.jpg","images/gallery/ceremony/032.jpg"],["033.10f8a086.jpg","images/gallery/ceremony/033.jpg"],["034.9d64bcf8.jpg","images/gallery/ceremony/034.jpg"],["035.877a1937.jpg","images/gallery/ceremony/035.jpg"],["036.fe228c32.jpg","images/gallery/ceremony/036.jpg"],["037.b3b7210e.jpg","images/gallery/ceremony/037.jpg"],["038.01743d04.jpg","images/gallery/ceremony/038.jpg"],["039.57332eb9.jpg","images/gallery/ceremony/039.jpg"],["040.df1e93ee.jpg","images/gallery/ceremony/040.jpg"],["041.095b147f.jpg","images/gallery/ceremony/041.jpg"],["042.9e42c154.jpg","images/gallery/ceremony/042.jpg"],["043.e74d0f25.jpg","images/gallery/ceremony/043.jpg"],["044.4a2997c0.jpg","images/gallery/ceremony/044.jpg"],["045.119a49c3.jpg","images/gallery/ceremony/045.jpg"],["046.fdd801bc.jpg","images/gallery/ceremony/046.jpg"],["047.5ceec451.jpg","images/gallery/ceremony/047.jpg"],["048.c6c12b0a.jpg","images/gallery/ceremony/048.jpg"],["049.5f3ec29d.jpg","images/gallery/ceremony/049.jpg"],["050.e23e3ffd.jpg","images/gallery/ceremony/050.jpg"],["051.3de16dd6.jpg","images/gallery/ceremony/051.jpg"],["052.84582bfe.jpg","images/gallery/ceremony/052.jpg"],["054.a38c1790.jpg","images/gallery/ceremony/054.jpg"],["055.2b943ed4.jpg","images/gallery/ceremony/055.jpg"],["053.9df33b5c.jpg","images/gallery/ceremony/053.jpg"],["056.34dd4166.jpg","images/gallery/ceremony/056.jpg"],["058.a50682d7.jpg","images/gallery/ceremony/058.jpg"],["057.c150125e.jpg","images/gallery/ceremony/057.jpg"],["060.296eba8b.jpg","images/gallery/ceremony/060.jpg"],["061.fc9753b7.jpg","images/gallery/ceremony/061.jpg"],["062.272b665c.jpg","images/gallery/ceremony/062.jpg"],["059.c8cd4ef5.jpg","images/gallery/ceremony/059.jpg"],["063.44baff8b.jpg","images/gallery/ceremony/063.jpg"],["064.c48ba5d6.jpg","images/gallery/ceremony/064.jpg"],["065.fdf24b95.jpg","images/gallery/ceremony/065.jpg"],["066.4cad2bee.jpg","images/gallery/ceremony/066.jpg"],["067.a897acb0.jpg","images/gallery/ceremony/067.jpg"],["068.46faf00d.jpg","images/gallery/ceremony/068.jpg"],["069.7b026388.jpg","images/gallery/ceremony/069.jpg"],["070.fc054c8a.jpg","images/gallery/ceremony/070.jpg"],["071.ddff2dcd.jpg","images/gallery/ceremony/071.jpg"],["072.b2d03517.jpg","images/gallery/ceremony/072.jpg"],["073.da6d5805.jpg","images/gallery/ceremony/073.jpg"],["074.1ea82da9.jpg","images/gallery/ceremony/074.jpg"],["076.b1478852.jpg","images/gallery/ceremony/076.jpg"],["077.8fafc3c4.jpg","images/gallery/ceremony/077.jpg"],["078.2d475219.jpg","images/gallery/ceremony/078.jpg"],["079.449989f6.jpg","images/gallery/ceremony/079.jpg"],["080.1760abe3.jpg","images/gallery/ceremony/080.jpg"],["081.dabd7c40.jpg","images/gallery/ceremony/081.jpg"],["082.cfdc5dd1.jpg","images/gallery/ceremony/082.jpg"],["083.97faff5f.jpg","images/gallery/ceremony/083.jpg"],["075.9b363100.jpg","images/gallery/ceremony/075.jpg"],["084.49a36bb7.jpg","images/gallery/ceremony/084.jpg"],["085.ebffbec8.jpg","images/gallery/ceremony/085.jpg"],["086.7f291f54.jpg","images/gallery/ceremony/086.jpg"],["087.beebecef.jpg","images/gallery/ceremony/087.jpg"],["088.65a4d4f7.jpg","images/gallery/ceremony/088.jpg"],["089.5fa228c3.jpg","images/gallery/ceremony/089.jpg"],["090.4f3b8e24.jpg","images/gallery/ceremony/090.jpg"],["091.dd2437e2.jpg","images/gallery/ceremony/091.jpg"],["092.2709e74e.jpg","images/gallery/ceremony/092.jpg"],["093.f1b776e6.jpg","images/gallery/ceremony/093.jpg"],["094.dcf1eebc.jpg","images/gallery/ceremony/094.jpg"],["095.0b7be2bf.jpg","images/gallery/ceremony/095.jpg"],["096.7390d66e.jpg","images/gallery/ceremony/096.jpg"],["001.17e282be.jpg","images/gallery/family/001.jpg"],["002.214ec649.jpg","images/gallery/family/002.jpg"],["003.bb2e3822.jpg","images/gallery/family/003.jpg"],["004.1b808133.jpg","images/gallery/family/004.jpg"],["005.4f1d09b3.jpg","images/gallery/family/005.jpg"],["006.4d0c4701.jpg","images/gallery/family/006.jpg"],["007.2f5c8101.jpg","images/gallery/family/007.jpg"],["008.726ae977.jpg","images/gallery/family/008.jpg"],["009.4f0688f0.jpg","images/gallery/family/009.jpg"],["010.ed4b1b9d.jpg","images/gallery/family/010.jpg"],["012.768ccd2f.jpg","images/gallery/family/012.jpg"],["013.4e36cff2.jpg","images/gallery/family/013.jpg"],["011.ed3c505b.jpg","images/gallery/family/011.jpg"],["014.a497df29.jpg","images/gallery/family/014.jpg"],["015.2895e065.jpg","images/gallery/family/015.jpg"],["016.a9ef057d.jpg","images/gallery/family/016.jpg"],["017.337e2e54.jpg","images/gallery/family/017.jpg"],["018.74bfc8eb.jpg","images/gallery/family/018.jpg"],["020.83a3f3e1.jpg","images/gallery/family/020.jpg"],["019.1d4fe5c1.jpg","images/gallery/family/019.jpg"],["021.16dc5315.jpg","images/gallery/family/021.jpg"],["022.2329dba0.jpg","images/gallery/family/022.jpg"],["023.3c73ed40.jpg","images/gallery/family/023.jpg"],["024.9c3fd32f.jpg","images/gallery/family/024.jpg"],["025.5facbafe.jpg","images/gallery/family/025.jpg"],["026.5acee5e7.jpg","images/gallery/family/026.jpg"],["027.f4f5e979.jpg","images/gallery/family/027.jpg"],["028.33360f96.jpg","images/gallery/family/028.jpg"],["029.067c2337.jpg","images/gallery/family/029.jpg"],["030.8fc71779.jpg","images/gallery/family/030.jpg"],["031.7376d1c3.jpg","images/gallery/family/031.jpg"],["032.356b1bc9.jpg","images/gallery/family/032.jpg"],["033.4117d1f1.jpg","images/gallery/family/033.jpg"],["034.cf11f38b.jpg","images/gallery/family/034.jpg"],["035.0d658480.jpg","images/gallery/family/035.jpg"],["036.629e8385.jpg","images/gallery/family/036.jpg"],["037.215ad599.jpg","images/gallery/family/037.jpg"],["001.0515f6b2.jpg","images/gallery/reception/001.jpg"],["002.405074a1.jpg","images/gallery/reception/002.jpg"],["003.71a137c9.jpg","images/gallery/reception/003.jpg"],["004.91e61afa.jpg","images/gallery/reception/004.jpg"],["005.3d2c7057.jpg","images/gallery/reception/005.jpg"],["006.570019ea.jpg","images/gallery/reception/006.jpg"],["007.f96399eb.jpg","images/gallery/reception/007.jpg"],["008.7ed6a583.jpg","images/gallery/reception/008.jpg"],["009.b57a223f.jpg","images/gallery/reception/009.jpg"],["010.1fa3d7e0.jpg","images/gallery/reception/010.jpg"],["011.e57958eb.jpg","images/gallery/reception/011.jpg"],["012.a3dd2471.jpg","images/gallery/reception/012.jpg"],["013.fa2f5e7d.jpg","images/gallery/reception/013.jpg"],["014.86a78ca4.jpg","images/gallery/reception/014.jpg"],["015.8744d1de.jpg","images/gallery/reception/015.jpg"],["016.8983459e.jpg","images/gallery/reception/016.jpg"],["017.75580a9f.jpg","images/gallery/reception/017.jpg"],["018.e84618e7.jpg","images/gallery/reception/018.jpg"],["019.a7f5fb4d.jpg","images/gallery/reception/019.jpg"],["020.2e089e81.jpg","images/gallery/reception/020.jpg"],["021.7f86cb7a.jpg","images/gallery/reception/021.jpg"],["022.d8b8bf89.jpg","images/gallery/reception/022.jpg"],["023.81673434.jpg","images/gallery/reception/023.jpg"],["024.a3ce04fa.jpg","images/gallery/reception/024.jpg"],["025.7bda0a75.jpg","images/gallery/reception/025.jpg"],["026.ec17bbc3.jpg","images/gallery/reception/026.jpg"],["027.ab636584.jpg","images/gallery/reception/027.jpg"],["028.41c4b6cf.jpg","images/gallery/reception/028.jpg"],["029.5dd7ecfb.jpg","images/gallery/reception/029.jpg"],["030.1ddc4fc6.jpg","images/gallery/reception/030.jpg"],["031.fa4d8af8.jpg","images/gallery/reception/031.jpg"],["032.8fde20dc.jpg","images/gallery/reception/032.jpg"],["033.47413465.jpg","images/gallery/reception/033.jpg"],["034.d5626f5f.jpg","images/gallery/reception/034.jpg"],["035.ea5dccc8.jpg","images/gallery/reception/035.jpg"],["036.5e6f77e2.jpg","images/gallery/reception/036.jpg"],["037.ad814aae.jpg","images/gallery/reception/037.jpg"],["038.42790249.jpg","images/gallery/reception/038.jpg"],["039.43b75a26.jpg","images/gallery/reception/039.jpg"],["040.c880afb8.jpg","images/gallery/reception/040.jpg"],["041.5198ebb6.jpg","images/gallery/reception/041.jpg"],["042.8436c79a.jpg","images/gallery/reception/042.jpg"],["043.e59911a7.jpg","images/gallery/reception/043.jpg"],["044.9c00d87b.jpg","images/gallery/reception/044.jpg"],["045.c96fa617.jpg","images/gallery/reception/045.jpg"],["046.92309a73.jpg","images/gallery/reception/046.jpg"],["047.311881dc.jpg","images/gallery/reception/047.jpg"],["048.694543df.jpg","images/gallery/reception/048.jpg"],["049.38f3d65a.jpg","images/gallery/reception/049.jpg"],["050.2516e058.jpg","images/gallery/reception/050.jpg"],["051.1c3ade67.jpg","images/gallery/reception/051.jpg"],["052.a5226087.jpg","images/gallery/reception/052.jpg"],["053.42958ddb.jpg","images/gallery/reception/053.jpg"],["054.2c974af0.jpg","images/gallery/reception/054.jpg"],["055.6013763a.jpg","images/gallery/reception/055.jpg"],["056.856ba987.jpg","images/gallery/reception/056.jpg"],["057.88d3d4ca.jpg","images/gallery/reception/057.jpg"],["058.2c5a6424.jpg","images/gallery/reception/058.jpg"],["059.81f15390.jpg","images/gallery/reception/059.jpg"],["060.52bb7141.jpg","images/gallery/reception/060.jpg"],["061.49f2e734.jpg","images/gallery/reception/061.jpg"],["062.8f60ff5a.jpg","images/gallery/reception/062.jpg"],["063.0facc122.jpg","images/gallery/reception/063.jpg"],["064.102ace3a.jpg","images/gallery/reception/064.jpg"],["065.86ba5645.jpg","images/gallery/reception/065.jpg"],["066.38a0bec6.jpg","images/gallery/reception/066.jpg"],["067.0d3aaf6b.jpg","images/gallery/reception/067.jpg"],["068.db529cad.jpg","images/gallery/reception/068.jpg"],["069.2a33b166.jpg","images/gallery/reception/069.jpg"],["070.82c240b6.jpg","images/gallery/reception/070.jpg"],["071.b6d593a4.jpg","images/gallery/reception/071.jpg"],["072.31bc8557.jpg","images/gallery/reception/072.jpg"],["073.16c21829.jpg","images/gallery/reception/073.jpg"],["074.b7cc4dc9.jpg","images/gallery/reception/074.jpg"],["075.a6ebbb04.jpg","images/gallery/reception/075.jpg"],["076.dac48973.jpg","images/gallery/reception/076.jpg"],["077.56b63557.jpg","images/gallery/reception/077.jpg"],["078.d9ce64f2.jpg","images/gallery/reception/078.jpg"],["079.ebbe7a63.jpg","images/gallery/reception/079.jpg"],["080.e87d2aa4.jpg","images/gallery/reception/080.jpg"],["081.e4a9f860.jpg","images/gallery/reception/081.jpg"],["082.f7102adf.jpg","images/gallery/reception/082.jpg"],["083.48ca2e88.jpg","images/gallery/reception/083.jpg"],["084.b0f4d09e.jpg","images/gallery/reception/084.jpg"],["085.77213825.jpg","images/gallery/reception/085.jpg"],["086.59b6a272.jpg","images/gallery/reception/086.jpg"],["087.e826fde8.jpg","images/gallery/reception/087.jpg"],["088.5b921a2c.jpg","images/gallery/reception/088.jpg"],["089.bbdcbc81.jpg","images/gallery/reception/089.jpg"],["090.b8d31e7a.jpg","images/gallery/reception/090.jpg"],["091.5cd38498.jpg","images/gallery/reception/091.jpg"],["092.34ad4a3b.jpg","images/gallery/reception/092.jpg"],["093.af7682f2.jpg","images/gallery/reception/093.jpg"],["094.23681ad0.jpg","images/gallery/reception/094.jpg"],["095.d341997b.jpg","images/gallery/reception/095.jpg"],["096.cf03e049.jpg","images/gallery/reception/096.jpg"],["097.05aa283f.jpg","images/gallery/reception/097.jpg"],["098.89b96011.jpg","images/gallery/reception/098.jpg"],["099.d9aba8d5.jpg","images/gallery/reception/099.jpg"],["100.7c3a2759.jpg","images/gallery/reception/100.jpg"],["101.bc130b4a.jpg","images/gallery/reception/101.jpg"],["102.f92f891f.jpg","images/gallery/reception/102.jpg"],["103.5cad902d.jpg","images/gallery/reception/103.jpg"],["104.0e86ab8e.jpg","images/gallery/reception/104.jpg"],["105.1c356a80.jpg","images/gallery/reception/105.jpg"],["106.b9bf983d.jpg","images/gallery/reception/106.jpg"],["107.c996c57b.jpg","images/gallery/reception/107.jpg"],["108.4ba7e386.jpg","images/gallery/reception/108.jpg"],["109.0da88f91.jpg","images/gallery/reception/109.jpg"],["110.56da4ded.jpg","images/gallery/reception/110.jpg"],["111.e12b272a.jpg","images/gallery/reception/111.jpg"],["112.4b37f9b2.jpg","images/gallery/reception/112.jpg"],["113.7036f91d.jpg","images/gallery/reception/113.jpg"],["114.c21103de.jpg","images/gallery/reception/114.jpg"],["115.04888398.jpg","images/gallery/reception/115.jpg"],["116.4c8f4ec3.jpg","images/gallery/reception/116.jpg"],["117.fb021ccf.jpg","images/gallery/reception/117.jpg"],["118.81c18279.jpg","images/gallery/reception/118.jpg"],["119.5f6981a5.jpg","images/gallery/reception/119.jpg"],["120.382b2364.jpg","images/gallery/reception/120.jpg"],["121.93229dc1.jpg","images/gallery/reception/121.jpg"],["122.60397f6d.jpg","images/gallery/reception/122.jpg"],["123.c9904f98.jpg","images/gallery/reception/123.jpg"],["124.e85ece6f.jpg","images/gallery/reception/124.jpg"],["125.095c48c7.jpg","images/gallery/reception/125.jpg"],["126.70f344ed.jpg","images/gallery/reception/126.jpg"],["127.48a7d58c.jpg","images/gallery/reception/127.jpg"],["128.585e8a7a.jpg","images/gallery/reception/128.jpg"],["129.094eaac2.jpg","images/gallery/reception/129.jpg"],["130.4a3f9c0d.jpg","images/gallery/reception/130.jpg"],["131.d53975a8.jpg","images/gallery/reception/131.jpg"],["132.8dfad5ac.jpg","images/gallery/reception/132.jpg"],["133.7364cd63.jpg","images/gallery/reception/133.jpg"],["134.f33d215e.jpg","images/gallery/reception/134.jpg"],["135.d7ee5ce3.jpg","images/gallery/reception/135.jpg"],["136.0a78ac9d.jpg","images/gallery/reception/136.jpg"],["137.a522b307.jpg","images/gallery/reception/137.jpg"],["138.f04fa731.jpg","images/gallery/reception/138.jpg"],["139.31482e36.jpg","images/gallery/reception/139.jpg"],["140.f1cbe606.jpg","images/gallery/reception/140.jpg"],["141.688977c2.jpg","images/gallery/reception/141.jpg"],["142.97492c43.jpg","images/gallery/reception/142.jpg"],["143.98b999d6.jpg","images/gallery/reception/143.jpg"],["144.db0e3851.jpg","images/gallery/reception/144.jpg"],["145.6ff9ec0b.jpg","images/gallery/reception/145.jpg"],["146.6b931066.jpg","images/gallery/reception/146.jpg"],["147.2841981c.jpg","images/gallery/reception/147.jpg"],["148.6023713c.jpg","images/gallery/reception/148.jpg"],["149.7b7057e6.jpg","images/gallery/reception/149.jpg"],["150.a06ad67b.jpg","images/gallery/reception/150.jpg"],["151.2b7fa818.jpg","images/gallery/reception/151.jpg"],["152.9ee18aa7.jpg","images/gallery/reception/152.jpg"],["153.d1ca7aa3.jpg","images/gallery/reception/153.jpg"],["154.772c0c90.jpg","images/gallery/reception/154.jpg"],["155.ffc4e2a9.jpg","images/gallery/reception/155.jpg"],["156.e2c17c9a.jpg","images/gallery/reception/156.jpg"],["157.7fde344d.jpg","images/gallery/reception/157.jpg"],["158.d7c55abf.jpg","images/gallery/reception/158.jpg"],["159.f9f03923.jpg","images/gallery/reception/159.jpg"],["160.519d43de.jpg","images/gallery/reception/160.jpg"],["161.38bee15d.jpg","images/gallery/reception/161.jpg"],["162.95066c64.jpg","images/gallery/reception/162.jpg"],["163.864f2d3a.jpg","images/gallery/reception/163.jpg"],["164.f3c2d64c.jpg","images/gallery/reception/164.jpg"],["165.a21ca8f8.jpg","images/gallery/reception/165.jpg"],["166.5a78ea22.jpg","images/gallery/reception/166.jpg"],["167.84da8588.jpg","images/gallery/reception/167.jpg"],["168.a5fd64ff.jpg","images/gallery/reception/168.jpg"],["169.aa62cd36.jpg","images/gallery/reception/169.jpg"],["170.8f90c928.jpg","images/gallery/reception/170.jpg"],["171.32eece07.jpg","images/gallery/reception/171.jpg"],["172.81fddb62.jpg","images/gallery/reception/172.jpg"],["173.6b117ea5.jpg","images/gallery/reception/173.jpg"],["174.ca9eea08.jpg","images/gallery/reception/174.jpg"],["175.32d60837.jpg","images/gallery/reception/175.jpg"],["176.7a5821bc.jpg","images/gallery/reception/176.jpg"],["177.d3cdb316.jpg","images/gallery/reception/177.jpg"],["178.63e5c48c.jpg","images/gallery/reception/178.jpg"],["179.818372b5.jpg","images/gallery/reception/179.jpg"],["180.8c7f2989.jpg","images/gallery/reception/180.jpg"],["181.b1f811d7.jpg","images/gallery/reception/181.jpg"],["182.43fa30d5.jpg","images/gallery/reception/182.jpg"],["183.5bf738fc.jpg","images/gallery/reception/183.jpg"],["184.27ac20fc.jpg","images/gallery/reception/184.jpg"],["185.4ad27a28.jpg","images/gallery/reception/185.jpg"],["186.b611283f.jpg","images/gallery/reception/186.jpg"],["187.170c0466.jpg","images/gallery/reception/187.jpg"],["188.af9173d0.jpg","images/gallery/reception/188.jpg"],["189.25956a24.jpg","images/gallery/reception/189.jpg"],["190.0b3db9bb.jpg","images/gallery/reception/190.jpg"],["191.1bd87b39.jpg","images/gallery/reception/191.jpg"],["192.fecc8d65.jpg","images/gallery/reception/192.jpg"],["193.c3bb0926.jpg","images/gallery/reception/193.jpg"],["194.22a013af.jpg","images/gallery/reception/194.jpg"],["195.5500c1b9.jpg","images/gallery/reception/195.jpg"],["196.ce29c241.jpg","images/gallery/reception/196.jpg"],["197.fb57ada6.jpg","images/gallery/reception/197.jpg"],["198.f387beee.jpg","images/gallery/reception/198.jpg"],["199.460dac86.jpg","images/gallery/reception/199.jpg"],["200.6ef6ff2d.jpg","images/gallery/reception/200.jpg"],["201.42659237.jpg","images/gallery/reception/201.jpg"],["202.13dafefe.jpg","images/gallery/reception/202.jpg"],["203.8632247a.jpg","images/gallery/reception/203.jpg"],["204.b887d5fe.jpg","images/gallery/reception/204.jpg"],["205.bcf5b10f.jpg","images/gallery/reception/205.jpg"],["206.ca803406.jpg","images/gallery/reception/206.jpg"],["207.74d25fa8.jpg","images/gallery/reception/207.jpg"],["208.cefb165c.jpg","images/gallery/reception/208.jpg"],["209.530f2d2d.jpg","images/gallery/reception/209.jpg"],["210.63b2957e.jpg","images/gallery/reception/210.jpg"],["211.0d068526.jpg","images/gallery/reception/211.jpg"],["212.12f29137.jpg","images/gallery/reception/212.jpg"],["213.509e27d5.jpg","images/gallery/reception/213.jpg"],["215.7d1a70ee.jpg","images/gallery/reception/215.jpg"],["216.b609b40d.jpg","images/gallery/reception/216.jpg"],["217.23da9854.jpg","images/gallery/reception/217.jpg"],["218.8ebcd505.jpg","images/gallery/reception/218.jpg"],["219.744c7f4b.jpg","images/gallery/reception/219.jpg"],["220.2d7a681e.jpg","images/gallery/reception/220.jpg"],["214.991e5943.jpg","images/gallery/reception/214.jpg"],["1.3d95a1d3.jpg","images/header/1.jpg"],["11.a6fb14d4.jpg","images/header/11.jpg"],["10.42258a8e.jpg","images/header/10.jpg"],["13.596eacce.jpg","images/header/13.jpg"],["2.761b8314.jpg","images/header/2.jpg"],["14.c299b9cf.jpg","images/header/14.jpg"],["4.9d634764.jpg","images/header/4.jpg"],["5.bc34014a.jpg","images/header/5.jpg"],["6.37e3a99c.jpg","images/header/6.jpg"],["3.894c3ab1.jpg","images/header/3.jpg"],["8.81054002.jpg","images/header/8.jpg"],["9.bf9fa034.jpg","images/header/9.jpg"],["happy-red.915bd22a.png","images/particles/happy-red.png"],["happy-yellow.f4ce1b43.png","images/particles/happy-yellow.png"],"components/index.vue"]}],"../node_modules/parcel-bundler/src/builtins/css-loader.js":[function(require,module,exports) {
 var bundle = require('./bundle-url');
 
 function updateLink(link) {
@@ -13451,7 +13500,7 @@ exports.toHtml = toHtml;
 exports.findIconDefinition = findIconDefinition;
 exports.parse = exports.dom = exports.library = exports.counter = exports.text = exports.layer = exports.config = exports.noAuto = exports.icon = void 0;
 
-function _typeof2(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof2 = function (obj) { return typeof obj; }; } else { _typeof2 = function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof2(obj); }
+function _typeof2(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof2 = function (obj) { return typeof obj; }; } else { _typeof2 = function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof2(obj); }
 
 function _typeof(obj) {
   if (typeof Symbol === "function" && _typeof2(Symbol.iterator) === "symbol") {
@@ -14548,7 +14597,7 @@ var p = config.measurePerformance && PERFORMANCE && PERFORMANCE.mark && PERFORMA
   mark: noop$1,
   measure: noop$1
 };
-var preamble = "FA \"5.10.2\"";
+var preamble = "FA \"5.12.1\"";
 
 var begin = function begin(name) {
   p.mark("".concat(preamble, " ").concat(name, " begins"));
@@ -14820,6 +14869,7 @@ var mutators = {
 
     var forSvg = new RegExp("".concat(config.familyPrefix, "-.*"));
     delete abstract[0].attributes.style;
+    delete abstract[0].attributes.id;
     var splitClasses = abstract[0].attributes.class.split(' ').reduce(function (acc, cls) {
       if (cls === config.replacementClass || cls.match(forSvg)) {
         acc.toSvg.push(cls);
@@ -15275,6 +15325,12 @@ function findIcon(iconName, prefix) {
       return resolve(asFoundIcon(icon));
     }
 
+    var headers = {};
+
+    if (_typeof(WINDOW.FontAwesomeKitConfig) === 'object' && typeof window.FontAwesomeKitConfig.token === 'string') {
+      headers['fa-kit-token'] = WINDOW.FontAwesomeKitConfig.token;
+    }
+
     if (iconName && prefix && !config.showMissingIcons) {
       reject(new MissingIcon("Icon is missing for prefix ".concat(prefix, " with icon name ").concat(iconName)));
     } else {
@@ -15451,6 +15507,7 @@ function replaceForPosition(node, position) {
     var styles = WINDOW.getComputedStyle(node, position);
     var fontFamily = styles.getPropertyValue('font-family').match(FONT_FAMILY_PATTERN);
     var fontWeight = styles.getPropertyValue('font-weight');
+    var content = styles.getPropertyValue('content');
 
     if (alreadyProcessedPseudoElement && !fontFamily) {
       // If we've already processed it but the current computed style does not result in a font-family,
@@ -15458,8 +15515,7 @@ function replaceForPosition(node, position) {
       // removed. So we now should delete the icon.
       node.removeChild(alreadyProcessedPseudoElement);
       return resolve();
-    } else if (fontFamily) {
-      var content = styles.getPropertyValue('content');
+    } else if (fontFamily && content !== 'none' && content !== '') {
       var prefix = ~['Solid', 'Regular', 'Light', 'Duotone', 'Brands'].indexOf(fontFamily[1]) ? STYLE_TO_PREFIX[fontFamily[1].toLowerCase()] : FONT_WEIGHT_TO_PREFIX[fontWeight];
       var hexValue = toHex(content.length === 3 ? content.substr(1, 1) : content);
       var iconName = byUnicode(prefix, hexValue);
@@ -16427,9 +16483,10 @@ function classList(props) {
     'fa-fw': props.fixedWidth,
     'fa-border': props.border,
     'fa-li': props.listItem,
+    'fa-inverse': props.inverse,
     'fa-flip-horizontal': props.flip === 'horizontal' || props.flip === 'both',
     'fa-flip-vertical': props.flip === 'vertical' || props.flip === 'both'
-  }, defineProperty(_classes, 'fa-' + props.size, props.size !== null), defineProperty(_classes, 'fa-rotate-' + props.rotation, props.rotation !== null), defineProperty(_classes, 'fa-pull-' + props.pull, props.pull !== null), _classes);
+  }, defineProperty(_classes, 'fa-' + props.size, props.size !== null), defineProperty(_classes, 'fa-rotate-' + props.rotation, props.rotation !== null), defineProperty(_classes, 'fa-pull-' + props.pull, props.pull !== null), defineProperty(_classes, 'fa-swap-opacity', props.swapOpacity), _classes);
   return Object.keys(classes).map(function (key) {
     return classes[key] ? key : null;
   }).filter(function (key) {
@@ -16515,6 +16572,10 @@ var FontAwesomeIcon = {
         return [90, 180, 270].indexOf(parseInt(value, 10)) > -1;
       }
     },
+    swapOpacity: {
+      type: Boolean,
+      default: false
+    },
     size: {
       type: String,
       default: null,
@@ -16537,6 +16598,10 @@ var FontAwesomeIcon = {
     title: {
       type: String,
       default: null
+    },
+    inverse: {
+      type: Boolean,
+      default: false
     }
   },
   render: function render(createElement, context) {
@@ -16594,13 +16659,31 @@ var FontAwesomeLayersText = {
     transform: {
       type: [String, Object],
       default: null
+    },
+    counter: {
+      type: Boolean,
+      default: false
+    },
+    position: {
+      type: String,
+      default: null,
+      validator: function validator(value) {
+        return ['bottom-left', 'bottom-right', 'top-left', 'top-right'].indexOf(value) > -1;
+      }
     }
   },
   render: function render(createElement, context) {
+    var familyPrefix = _fontawesomeSvgCore.config.familyPrefix;
     var props = context.props;
+    var classes = objectWithKey('classes', [].concat(toConsumableArray(props.counter ? [familyPrefix + '-layers-counter'] : []), toConsumableArray(props.position ? [familyPrefix + '-layers-' + props.position] : [])));
     var transform = objectWithKey('transform', typeof props.transform === 'string' ? _fontawesomeSvgCore.parse.transform(props.transform) : props.transform);
-    var renderedText = (0, _fontawesomeSvgCore.text)(props.value.toString(), _extends({}, transform));
+    var renderedText = (0, _fontawesomeSvgCore.text)(props.value.toString(), _extends({}, transform, classes));
     var abstract = renderedText.abstract;
+
+    if (props.counter) {
+      abstract[0].attributes.class = abstract[0].attributes.class.replace('fa-layers-text', '');
+    }
+
     var convertCurry = convert.bind(null, createElement);
     return convertCurry(abstract[0], {}, context.data);
   }
@@ -27459,7 +27542,7 @@ exports.default = void 0;
 
 /**!
  * @fileOverview Kickass library to create and place poppers near their reference elements.
- * @version 1.15.0
+ * @version 1.16.1
  * @license
  * Copyright (c) 2016 Federico Zivolo and contributors
  *
@@ -27481,16 +27564,19 @@ exports.default = void 0;
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-var isBrowser = typeof window !== 'undefined' && typeof document !== 'undefined';
-var longerTimeoutBrowsers = ['Edge', 'Trident', 'Firefox'];
-var timeoutDuration = 0;
+var isBrowser = typeof window !== 'undefined' && typeof document !== 'undefined' && typeof navigator !== 'undefined';
 
-for (var i = 0; i < longerTimeoutBrowsers.length; i += 1) {
-  if (isBrowser && navigator.userAgent.indexOf(longerTimeoutBrowsers[i]) >= 0) {
-    timeoutDuration = 1;
-    break;
+var timeoutDuration = function () {
+  var longerTimeoutBrowsers = ['Edge', 'Trident', 'Firefox'];
+
+  for (var i = 0; i < longerTimeoutBrowsers.length; i += 1) {
+    if (isBrowser && navigator.userAgent.indexOf(longerTimeoutBrowsers[i]) >= 0) {
+      return 1;
+    }
   }
-}
+
+  return 0;
+}();
 
 function microtaskDebounce(fn) {
   var called = false;
@@ -27614,6 +27700,18 @@ function getScrollParent(element) {
   }
 
   return getScrollParent(getParentNode(element));
+}
+/**
+ * Returns the reference node of the reference object, or the reference object itself.
+ * @method
+ * @memberof Popper.Utils
+ * @param {Element|Object} reference - the reference element (the popper will be relative to this)
+ * @returns {Element} parent
+ */
+
+
+function getReferenceNode(reference) {
+  return reference && reference.referenceNode ? reference.referenceNode : reference;
 }
 
 var isIE11 = isBrowser && !!(window.MSInputMethodContext && document.documentMode);
@@ -27801,7 +27899,7 @@ function includeScroll(rect, element) {
 function getBordersSize(styles, axis) {
   var sideA = axis === 'x' ? 'Left' : 'Top';
   var sideB = sideA === 'Left' ? 'Right' : 'Bottom';
-  return parseFloat(styles['border' + sideA + 'Width'], 10) + parseFloat(styles['border' + sideB + 'Width'], 10);
+  return parseFloat(styles['border' + sideA + 'Width']) + parseFloat(styles['border' + sideB + 'Width']);
 }
 
 function getSize(axis, body, html, computedStyle) {
@@ -27921,8 +28019,8 @@ function getBoundingClientRect(element) {
   }; // subtract scrollbar size from sizes
 
   var sizes = element.nodeName === 'HTML' ? getWindowSizes(element.ownerDocument) : {};
-  var width = sizes.width || element.clientWidth || result.right - result.left;
-  var height = sizes.height || element.clientHeight || result.bottom - result.top;
+  var width = sizes.width || element.clientWidth || result.width;
+  var height = sizes.height || element.clientHeight || result.height;
   var horizScrollbar = element.offsetWidth - width;
   var vertScrollbar = element.offsetHeight - height; // if an hypothetical scrollbar is detected, we must be sure it's not a `border`
   // we make this check conditional for performance reasons
@@ -27946,8 +28044,8 @@ function getOffsetRectRelativeToArbitraryNode(children, parent) {
   var parentRect = getBoundingClientRect(parent);
   var scrollParent = getScrollParent(children);
   var styles = getStyleComputedProperty(parent);
-  var borderTopWidth = parseFloat(styles.borderTopWidth, 10);
-  var borderLeftWidth = parseFloat(styles.borderLeftWidth, 10); // In cases where the parent is fixed, we must ignore negative scroll in offset calc
+  var borderTopWidth = parseFloat(styles.borderTopWidth);
+  var borderLeftWidth = parseFloat(styles.borderLeftWidth); // In cases where the parent is fixed, we must ignore negative scroll in offset calc
 
   if (fixedPosition && isHTML) {
     parentRect.top = Math.max(parentRect.top, 0);
@@ -27967,8 +28065,8 @@ function getOffsetRectRelativeToArbitraryNode(children, parent) {
   // the box of the documentElement, in the other cases not.
 
   if (!isIE10 && isHTML) {
-    var marginTop = parseFloat(styles.marginTop, 10);
-    var marginLeft = parseFloat(styles.marginLeft, 10);
+    var marginTop = parseFloat(styles.marginTop);
+    var marginLeft = parseFloat(styles.marginLeft);
     offsets.top -= borderTopWidth - marginTop;
     offsets.bottom -= borderTopWidth - marginTop;
     offsets.left -= borderLeftWidth - marginLeft;
@@ -28073,7 +28171,7 @@ function getBoundaries(popper, reference, padding, boundariesElement) {
     top: 0,
     left: 0
   };
-  var offsetParent = fixedPosition ? getFixedPositionOffsetParent(popper) : findCommonOffsetParent(popper, reference); // Handle viewport case
+  var offsetParent = fixedPosition ? getFixedPositionOffsetParent(popper) : findCommonOffsetParent(popper, getReferenceNode(reference)); // Handle viewport case
 
   if (boundariesElement === 'viewport') {
     boundaries = getViewportOffsetRectRelativeToArtbitraryNode(offsetParent, fixedPosition);
@@ -28194,7 +28292,7 @@ function computeAutoPlacement(placement, refRect, popper, reference, boundariesE
 
 function getReferenceOffsets(state, popper, reference) {
   var fixedPosition = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : null;
-  var commonOffsetParent = fixedPosition ? getFixedPositionOffsetParent(popper) : findCommonOffsetParent(popper, reference);
+  var commonOffsetParent = fixedPosition ? getFixedPositionOffsetParent(popper) : findCommonOffsetParent(popper, getReferenceNode(reference));
   return getOffsetRectRelativeToArbitraryNode(reference, commonOffsetParent, fixedPosition);
 }
 /**
@@ -28458,7 +28556,7 @@ function destroy() {
     this.popper.style[getSupportedPropertyName('transform')] = '';
   }
 
-  this.disableEventListeners(); // remove the popper if user explicity asked for the deletion on destroy
+  this.disableEventListeners(); // remove the popper if user explicitly asked for the deletion on destroy
   // do not use `remove` because IE11 doesn't support it
 
   if (this.options.removeOnDestroy) {
@@ -28908,8 +29006,8 @@ function arrow(data, options) {
   // take popper margin in account because we don't have this info available
 
   var css = getStyleComputedProperty(data.instance.popper);
-  var popperMarginSide = parseFloat(css['margin' + sideCapitalized], 10);
-  var popperBorderSide = parseFloat(css['border' + sideCapitalized + 'Width'], 10);
+  var popperMarginSide = parseFloat(css['margin' + sideCapitalized]);
+  var popperBorderSide = parseFloat(css['border' + sideCapitalized + 'Width']);
   var sideValue = center - data.offsets.popper[side] - popperMarginSide - popperBorderSide; // prevent arrowElement from being placed not contiguously to its popper
 
   sideValue = Math.max(Math.min(popper[len] - arrowElementSize, sideValue), 0);
@@ -30061,10 +30159,10 @@ exports.default = _default;
 },{}],"../node_modules/bootstrap/dist/js/bootstrap.js":[function(require,module,exports) {
 var define;
 var global = arguments[3];
-function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function (obj) { return typeof obj; }; } else { _typeof = function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function (obj) { return typeof obj; }; } else { _typeof = function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 /*!
-  * Bootstrap v4.3.1 (https://getbootstrap.com/)
+  * Bootstrap v4.4.1 (https://getbootstrap.com/)
   * Copyright 2011-2019 The Bootstrap Authors (https://github.com/twbs/bootstrap/graphs/contributors)
   * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
   */
@@ -30107,20 +30205,35 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
     return obj;
   }
 
-  function _objectSpread(target) {
+  function ownKeys(object, enumerableOnly) {
+    var keys = Object.keys(object);
+
+    if (Object.getOwnPropertySymbols) {
+      var symbols = Object.getOwnPropertySymbols(object);
+      if (enumerableOnly) symbols = symbols.filter(function (sym) {
+        return Object.getOwnPropertyDescriptor(object, sym).enumerable;
+      });
+      keys.push.apply(keys, symbols);
+    }
+
+    return keys;
+  }
+
+  function _objectSpread2(target) {
     for (var i = 1; i < arguments.length; i++) {
       var source = arguments[i] != null ? arguments[i] : {};
-      var ownKeys = Object.keys(source);
 
-      if (typeof Object.getOwnPropertySymbols === 'function') {
-        ownKeys = ownKeys.concat(Object.getOwnPropertySymbols(source).filter(function (sym) {
-          return Object.getOwnPropertyDescriptor(source, sym).enumerable;
-        }));
+      if (i % 2) {
+        ownKeys(Object(source), true).forEach(function (key) {
+          _defineProperty(target, key, source[key]);
+        });
+      } else if (Object.getOwnPropertyDescriptors) {
+        Object.defineProperties(target, Object.getOwnPropertyDescriptors(source));
+      } else {
+        ownKeys(Object(source)).forEach(function (key) {
+          Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key));
+        });
       }
-
-      ownKeys.forEach(function (key) {
-        _defineProperty(target, key, source[key]);
-      });
     }
 
     return target;
@@ -30133,7 +30246,7 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
   }
   /**
    * --------------------------------------------------------------------------
-   * Bootstrap (v4.3.1): util.js
+   * Bootstrap (v4.4.1): util.js
    * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
    * --------------------------------------------------------------------------
    */
@@ -30284,8 +30397,25 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
       }
 
       return Util.findShadowRoot(element.parentNode);
+    },
+    jQueryDetection: function jQueryDetection() {
+      if (typeof $ === 'undefined') {
+        throw new TypeError('Bootstrap\'s JavaScript requires jQuery. jQuery must be included before Bootstrap\'s JavaScript.');
+      }
+
+      var version = $.fn.jquery.split(' ')[0].split('.');
+      var minMajor = 1;
+      var ltMajor = 2;
+      var minMinor = 9;
+      var minPatch = 1;
+      var maxMajor = 4;
+
+      if (version[0] < ltMajor && version[1] < minMinor || version[0] === minMajor && version[1] === minMinor && version[2] < minPatch || version[0] >= maxMajor) {
+        throw new Error('Bootstrap\'s JavaScript requires at least jQuery v1.9.1 but less than v4.0.0');
+      }
     }
   };
+  Util.jQueryDetection();
   setTransitionEndSupport();
   /**
    * ------------------------------------------------------------------------
@@ -30294,7 +30424,7 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
    */
 
   var NAME = 'alert';
-  var VERSION = '4.3.1';
+  var VERSION = '4.4.1';
   var DATA_KEY = 'bs.alert';
   var EVENT_KEY = "." + DATA_KEY;
   var DATA_API_KEY = '.data-api';
@@ -30311,13 +30441,12 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
     ALERT: 'alert',
     FADE: 'fade',
     SHOW: 'show'
-    /**
-     * ------------------------------------------------------------------------
-     * Class Definition
-     * ------------------------------------------------------------------------
-     */
-
   };
+  /**
+   * ------------------------------------------------------------------------
+   * Class Definition
+   * ------------------------------------------------------------------------
+   */
 
   var Alert =
   /*#__PURE__*/
@@ -30458,7 +30587,7 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
 
 
   var NAME$1 = 'button';
-  var VERSION$1 = '4.3.1';
+  var VERSION$1 = '4.4.1';
   var DATA_KEY$1 = 'bs.button';
   var EVENT_KEY$1 = "." + DATA_KEY$1;
   var DATA_API_KEY$1 = '.data-api';
@@ -30470,21 +30599,23 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
   };
   var Selector$1 = {
     DATA_TOGGLE_CARROT: '[data-toggle^="button"]',
-    DATA_TOGGLE: '[data-toggle="buttons"]',
+    DATA_TOGGLES: '[data-toggle="buttons"]',
+    DATA_TOGGLE: '[data-toggle="button"]',
+    DATA_TOGGLES_BUTTONS: '[data-toggle="buttons"] .btn',
     INPUT: 'input:not([type="hidden"])',
     ACTIVE: '.active',
     BUTTON: '.btn'
   };
   var Event$1 = {
     CLICK_DATA_API: "click" + EVENT_KEY$1 + DATA_API_KEY$1,
-    FOCUS_BLUR_DATA_API: "focus" + EVENT_KEY$1 + DATA_API_KEY$1 + " " + ("blur" + EVENT_KEY$1 + DATA_API_KEY$1)
-    /**
-     * ------------------------------------------------------------------------
-     * Class Definition
-     * ------------------------------------------------------------------------
-     */
-
+    FOCUS_BLUR_DATA_API: "focus" + EVENT_KEY$1 + DATA_API_KEY$1 + " " + ("blur" + EVENT_KEY$1 + DATA_API_KEY$1),
+    LOAD_DATA_API: "load" + EVENT_KEY$1 + DATA_API_KEY$1
   };
+  /**
+   * ------------------------------------------------------------------------
+   * Class Definition
+   * ------------------------------------------------------------------------
+   */
 
   var Button =
   /*#__PURE__*/
@@ -30499,7 +30630,7 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
     _proto.toggle = function toggle() {
       var triggerChangeEvent = true;
       var addAriaPressed = true;
-      var rootElement = $(this._element).closest(Selector$1.DATA_TOGGLE)[0];
+      var rootElement = $(this._element).closest(Selector$1.DATA_TOGGLES)[0];
 
       if (rootElement) {
         var input = this._element.querySelector(Selector$1.INPUT);
@@ -30515,13 +30646,16 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
                 $(activeElement).removeClass(ClassName$1.ACTIVE);
               }
             }
+          } else if (input.type === 'checkbox') {
+            if (this._element.tagName === 'LABEL' && input.checked === this._element.classList.contains(ClassName$1.ACTIVE)) {
+              triggerChangeEvent = false;
+            }
+          } else {
+            // if it's not a radio button or checkbox don't add a pointless/invalid checked property to the input
+            triggerChangeEvent = false;
           }
 
           if (triggerChangeEvent) {
-            if (input.hasAttribute('disabled') || rootElement.hasAttribute('disabled') || input.classList.contains('disabled') || rootElement.classList.contains('disabled')) {
-              return;
-            }
-
             input.checked = !this._element.classList.contains(ClassName$1.ACTIVE);
             $(input).trigger('change');
           }
@@ -30531,12 +30665,14 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
         }
       }
 
-      if (addAriaPressed) {
-        this._element.setAttribute('aria-pressed', !this._element.classList.contains(ClassName$1.ACTIVE));
-      }
+      if (!(this._element.hasAttribute('disabled') || this._element.classList.contains('disabled'))) {
+        if (addAriaPressed) {
+          this._element.setAttribute('aria-pressed', !this._element.classList.contains(ClassName$1.ACTIVE));
+        }
 
-      if (triggerChangeEvent) {
-        $(this._element).toggleClass(ClassName$1.ACTIVE);
+        if (triggerChangeEvent) {
+          $(this._element).toggleClass(ClassName$1.ACTIVE);
+        }
       }
     };
 
@@ -30578,17 +30714,57 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
 
 
   $(document).on(Event$1.CLICK_DATA_API, Selector$1.DATA_TOGGLE_CARROT, function (event) {
-    event.preventDefault();
     var button = event.target;
 
     if (!$(button).hasClass(ClassName$1.BUTTON)) {
-      button = $(button).closest(Selector$1.BUTTON);
+      button = $(button).closest(Selector$1.BUTTON)[0];
     }
 
-    Button._jQueryInterface.call($(button), 'toggle');
+    if (!button || button.hasAttribute('disabled') || button.classList.contains('disabled')) {
+      event.preventDefault(); // work around Firefox bug #1540995
+    } else {
+      var inputBtn = button.querySelector(Selector$1.INPUT);
+
+      if (inputBtn && (inputBtn.hasAttribute('disabled') || inputBtn.classList.contains('disabled'))) {
+        event.preventDefault(); // work around Firefox bug #1540995
+
+        return;
+      }
+
+      Button._jQueryInterface.call($(button), 'toggle');
+    }
   }).on(Event$1.FOCUS_BLUR_DATA_API, Selector$1.DATA_TOGGLE_CARROT, function (event) {
     var button = $(event.target).closest(Selector$1.BUTTON)[0];
     $(button).toggleClass(ClassName$1.FOCUS, /^focus(in)?$/.test(event.type));
+  });
+  $(window).on(Event$1.LOAD_DATA_API, function () {
+    // ensure correct active class is set to match the controls' actual values/states
+    // find all checkboxes/readio buttons inside data-toggle groups
+    var buttons = [].slice.call(document.querySelectorAll(Selector$1.DATA_TOGGLES_BUTTONS));
+
+    for (var i = 0, len = buttons.length; i < len; i++) {
+      var button = buttons[i];
+      var input = button.querySelector(Selector$1.INPUT);
+
+      if (input.checked || input.hasAttribute('checked')) {
+        button.classList.add(ClassName$1.ACTIVE);
+      } else {
+        button.classList.remove(ClassName$1.ACTIVE);
+      }
+    } // find all button toggles
+
+
+    buttons = [].slice.call(document.querySelectorAll(Selector$1.DATA_TOGGLE));
+
+    for (var _i = 0, _len = buttons.length; _i < _len; _i++) {
+      var _button = buttons[_i];
+
+      if (_button.getAttribute('aria-pressed') === 'true') {
+        _button.classList.add(ClassName$1.ACTIVE);
+      } else {
+        _button.classList.remove(ClassName$1.ACTIVE);
+      }
+    }
   });
   /**
    * ------------------------------------------------------------------------
@@ -30611,7 +30787,7 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
 
 
   var NAME$2 = 'carousel';
-  var VERSION$2 = '4.3.1';
+  var VERSION$2 = '4.4.1';
   var DATA_KEY$2 = 'bs.carousel';
   var EVENT_KEY$2 = "." + DATA_KEY$2;
   var DATA_API_KEY$2 = '.data-api';
@@ -30684,13 +30860,12 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
   var PointerType = {
     TOUCH: 'touch',
     PEN: 'pen'
-    /**
-     * ------------------------------------------------------------------------
-     * Class Definition
-     * ------------------------------------------------------------------------
-     */
-
   };
+  /**
+   * ------------------------------------------------------------------------
+   * Class Definition
+   * ------------------------------------------------------------------------
+   */
 
   var Carousel =
   /*#__PURE__*/
@@ -30809,7 +30984,7 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
     ;
 
     _proto._getConfig = function _getConfig(config) {
-      config = _objectSpread({}, Default, config);
+      config = _objectSpread2({}, Default, {}, config);
       Util.typeCheckConfig(NAME$2, config, DefaultType);
       return config;
     };
@@ -30821,7 +30996,8 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
         return;
       }
 
-      var direction = absDeltax / this.touchDeltaX; // swipe left
+      var direction = absDeltax / this.touchDeltaX;
+      this.touchDeltaX = 0; // swipe left
 
       if (direction > 0) {
         this.prev();
@@ -30947,8 +31123,6 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
           event.preventDefault();
           this.next();
           break;
-
-        default:
       }
     };
 
@@ -31100,10 +31274,10 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
       return this.each(function () {
         var data = $(this).data(DATA_KEY$2);
 
-        var _config = _objectSpread({}, Default, $(this).data());
+        var _config = _objectSpread2({}, Default, {}, $(this).data());
 
         if (_typeof(config) === 'object') {
-          _config = _objectSpread({}, _config, config);
+          _config = _objectSpread2({}, _config, {}, config);
         }
 
         var action = typeof config === 'string' ? config : _config.slide;
@@ -31141,7 +31315,7 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
         return;
       }
 
-      var config = _objectSpread({}, $(target).data(), $(this).data());
+      var config = _objectSpread2({}, $(target).data(), {}, $(this).data());
 
       var slideIndex = this.getAttribute('data-slide-to');
 
@@ -31210,7 +31384,7 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
 
 
   var NAME$3 = 'collapse';
-  var VERSION$3 = '4.3.1';
+  var VERSION$3 = '4.4.1';
   var DATA_KEY$3 = 'bs.collapse';
   var EVENT_KEY$3 = "." + DATA_KEY$3;
   var DATA_API_KEY$3 = '.data-api';
@@ -31243,13 +31417,12 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
   var Selector$3 = {
     ACTIVES: '.show, .collapsing',
     DATA_TOGGLE: '[data-toggle="collapse"]'
-    /**
-     * ------------------------------------------------------------------------
-     * Class Definition
-     * ------------------------------------------------------------------------
-     */
-
   };
+  /**
+   * ------------------------------------------------------------------------
+   * Class Definition
+   * ------------------------------------------------------------------------
+   */
 
   var Collapse =
   /*#__PURE__*/
@@ -31435,7 +31608,7 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
     ;
 
     _proto._getConfig = function _getConfig(config) {
-      config = _objectSpread({}, Default$1, config);
+      config = _objectSpread2({}, Default$1, {}, config);
       config.toggle = Boolean(config.toggle); // Coerce string values
 
       Util.typeCheckConfig(NAME$3, config, DefaultType$1);
@@ -31489,7 +31662,7 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
         var $this = $(this);
         var data = $this.data(DATA_KEY$3);
 
-        var _config = _objectSpread({}, Default$1, $this.data(), _typeof(config) === 'object' && config ? config : {});
+        var _config = _objectSpread2({}, Default$1, {}, $this.data(), {}, _typeof(config) === 'object' && config ? config : {});
 
         if (!data && _config.toggle && /show|hide/.test(config)) {
           _config.toggle = false;
@@ -31569,7 +31742,7 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
 
 
   var NAME$4 = 'dropdown';
-  var VERSION$4 = '4.3.1';
+  var VERSION$4 = '4.4.1';
   var DATA_KEY$4 = 'bs.dropdown';
   var EVENT_KEY$4 = "." + DATA_KEY$4;
   var DATA_API_KEY$4 = '.data-api';
@@ -31629,21 +31802,22 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
     flip: true,
     boundary: 'scrollParent',
     reference: 'toggle',
-    display: 'dynamic'
+    display: 'dynamic',
+    popperConfig: null
   };
   var DefaultType$2 = {
     offset: '(number|string|function)',
     flip: 'boolean',
     boundary: '(string|element)',
     reference: '(string|element)',
-    display: 'string'
-    /**
-     * ------------------------------------------------------------------------
-     * Class Definition
-     * ------------------------------------------------------------------------
-     */
-
+    display: 'string',
+    popperConfig: '(null|object)'
   };
+  /**
+   * ------------------------------------------------------------------------
+   * Class Definition
+   * ------------------------------------------------------------------------
+   */
 
   var Dropdown =
   /*#__PURE__*/
@@ -31666,8 +31840,6 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
         return;
       }
 
-      var parent = Dropdown._getParentFromElement(this._element);
-
       var isActive = $(this._menu).hasClass(ClassName$4.SHOW);
 
       Dropdown._clearMenus();
@@ -31676,10 +31848,25 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
         return;
       }
 
+      this.show(true);
+    };
+
+    _proto.show = function show(usePopper) {
+      if (usePopper === void 0) {
+        usePopper = false;
+      }
+
+      if (this._element.disabled || $(this._element).hasClass(ClassName$4.DISABLED) || $(this._menu).hasClass(ClassName$4.SHOW)) {
+        return;
+      }
+
       var relatedTarget = {
         relatedTarget: this._element
       };
       var showEvent = $.Event(Event$4.SHOW, relatedTarget);
+
+      var parent = Dropdown._getParentFromElement(this._element);
+
       $(parent).trigger(showEvent);
 
       if (showEvent.isDefaultPrevented()) {
@@ -31687,7 +31874,7 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
       } // Disable totally Popper.js for Dropdown in Navbar
 
 
-      if (!this._inNavbar) {
+      if (!this._inNavbar && usePopper) {
         /**
          * Check for Popper dependency
          * Popper - https://popper.js.org
@@ -31734,28 +31921,6 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
       $(parent).toggleClass(ClassName$4.SHOW).trigger($.Event(Event$4.SHOWN, relatedTarget));
     };
 
-    _proto.show = function show() {
-      if (this._element.disabled || $(this._element).hasClass(ClassName$4.DISABLED) || $(this._menu).hasClass(ClassName$4.SHOW)) {
-        return;
-      }
-
-      var relatedTarget = {
-        relatedTarget: this._element
-      };
-      var showEvent = $.Event(Event$4.SHOW, relatedTarget);
-
-      var parent = Dropdown._getParentFromElement(this._element);
-
-      $(parent).trigger(showEvent);
-
-      if (showEvent.isDefaultPrevented()) {
-        return;
-      }
-
-      $(this._menu).toggleClass(ClassName$4.SHOW);
-      $(parent).toggleClass(ClassName$4.SHOW).trigger($.Event(Event$4.SHOWN, relatedTarget));
-    };
-
     _proto.hide = function hide() {
       if (this._element.disabled || $(this._element).hasClass(ClassName$4.DISABLED) || !$(this._menu).hasClass(ClassName$4.SHOW)) {
         return;
@@ -31772,6 +31937,10 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
 
       if (hideEvent.isDefaultPrevented()) {
         return;
+      }
+
+      if (this._popper) {
+        this._popper.destroy();
       }
 
       $(this._menu).toggleClass(ClassName$4.SHOW);
@@ -31812,7 +31981,7 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
     };
 
     _proto._getConfig = function _getConfig(config) {
-      config = _objectSpread({}, this.constructor.Default, $(this._element).data(), config);
+      config = _objectSpread2({}, this.constructor.Default, {}, $(this._element).data(), {}, config);
       Util.typeCheckConfig(NAME$4, config, this.constructor.DefaultType);
       return config;
     };
@@ -31861,7 +32030,7 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
 
       if (typeof this._config.offset === 'function') {
         offset.fn = function (data) {
-          data.offsets = _objectSpread({}, data.offsets, _this2._config.offset(data.offsets, _this2._element) || {});
+          data.offsets = _objectSpread2({}, data.offsets, {}, _this2._config.offset(data.offsets, _this2._element) || {});
           return data;
         };
       } else {
@@ -31881,10 +32050,9 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
           },
           preventOverflow: {
             boundariesElement: this._config.boundary
-          } // Disable Popper.js if we have a static display
-
+          }
         }
-      };
+      }; // Disable Popper.js if we have a static display
 
       if (this._config.display === 'static') {
         popperConfig.modifiers.applyStyle = {
@@ -31892,7 +32060,7 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
         };
       }
 
-      return popperConfig;
+      return _objectSpread2({}, popperConfig, {}, this._config.popperConfig);
     } // Static
     ;
 
@@ -31964,6 +32132,11 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
         }
 
         toggles[i].setAttribute('aria-expanded', 'false');
+
+        if (context._popper) {
+          context._popper.destroy();
+        }
+
         $(dropdownMenu).removeClass(ClassName$4.SHOW);
         $(parent).removeClass(ClassName$4.SHOW).trigger($.Event(Event$4.HIDDEN, relatedTarget));
       }
@@ -32004,6 +32177,10 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
 
       var isActive = $(parent).hasClass(ClassName$4.SHOW);
 
+      if (!isActive && event.which === ESCAPE_KEYCODE) {
+        return;
+      }
+
       if (!isActive || isActive && (event.which === ESCAPE_KEYCODE || event.which === SPACE_KEYCODE)) {
         if (event.which === ESCAPE_KEYCODE) {
           var toggle = parent.querySelector(Selector$4.DATA_TOGGLE);
@@ -32014,7 +32191,9 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
         return;
       }
 
-      var items = [].slice.call(parent.querySelectorAll(Selector$4.VISIBLE_ITEMS));
+      var items = [].slice.call(parent.querySelectorAll(Selector$4.VISIBLE_ITEMS)).filter(function (item) {
+        return $(item).is(':visible');
+      });
 
       if (items.length === 0) {
         return;
@@ -32094,7 +32273,7 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
 
 
   var NAME$5 = 'modal';
-  var VERSION$5 = '4.3.1';
+  var VERSION$5 = '4.4.1';
   var DATA_KEY$5 = 'bs.modal';
   var EVENT_KEY$5 = "." + DATA_KEY$5;
   var DATA_API_KEY$5 = '.data-api';
@@ -32115,6 +32294,7 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
   };
   var Event$5 = {
     HIDE: "hide" + EVENT_KEY$5,
+    HIDE_PREVENTED: "hidePrevented" + EVENT_KEY$5,
     HIDDEN: "hidden" + EVENT_KEY$5,
     SHOW: "show" + EVENT_KEY$5,
     SHOWN: "shown" + EVENT_KEY$5,
@@ -32132,7 +32312,8 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
     BACKDROP: 'modal-backdrop',
     OPEN: 'modal-open',
     FADE: 'fade',
-    SHOW: 'show'
+    SHOW: 'show',
+    STATIC: 'modal-static'
   };
   var Selector$5 = {
     DIALOG: '.modal-dialog',
@@ -32141,13 +32322,12 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
     DATA_DISMISS: '[data-dismiss="modal"]',
     FIXED_CONTENT: '.fixed-top, .fixed-bottom, .is-fixed, .sticky-top',
     STICKY_CONTENT: '.sticky-top'
-    /**
-     * ------------------------------------------------------------------------
-     * Class Definition
-     * ------------------------------------------------------------------------
-     */
-
   };
+  /**
+   * ------------------------------------------------------------------------
+   * Class Definition
+   * ------------------------------------------------------------------------
+   */
 
   var Modal =
   /*#__PURE__*/
@@ -32292,15 +32472,40 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
     ;
 
     _proto._getConfig = function _getConfig(config) {
-      config = _objectSpread({}, Default$3, config);
+      config = _objectSpread2({}, Default$3, {}, config);
       Util.typeCheckConfig(NAME$5, config, DefaultType$3);
       return config;
     };
 
-    _proto._showElement = function _showElement(relatedTarget) {
+    _proto._triggerBackdropTransition = function _triggerBackdropTransition() {
       var _this3 = this;
 
+      if (this._config.backdrop === 'static') {
+        var hideEventPrevented = $.Event(Event$5.HIDE_PREVENTED);
+        $(this._element).trigger(hideEventPrevented);
+
+        if (hideEventPrevented.defaultPrevented) {
+          return;
+        }
+
+        this._element.classList.add(ClassName$5.STATIC);
+
+        var modalTransitionDuration = Util.getTransitionDurationFromElement(this._element);
+        $(this._element).one(Util.TRANSITION_END, function () {
+          _this3._element.classList.remove(ClassName$5.STATIC);
+        }).emulateTransitionEnd(modalTransitionDuration);
+
+        this._element.focus();
+      } else {
+        this.hide();
+      }
+    };
+
+    _proto._showElement = function _showElement(relatedTarget) {
+      var _this4 = this;
+
       var transition = $(this._element).hasClass(ClassName$5.FADE);
+      var modalBody = this._dialog ? this._dialog.querySelector(Selector$5.MODAL_BODY) : null;
 
       if (!this._element.parentNode || this._element.parentNode.nodeType !== Node.ELEMENT_NODE) {
         // Don't move modal's DOM position
@@ -32313,8 +32518,8 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
 
       this._element.setAttribute('aria-modal', true);
 
-      if ($(this._dialog).hasClass(ClassName$5.SCROLLABLE)) {
-        this._dialog.querySelector(Selector$5.MODAL_BODY).scrollTop = 0;
+      if ($(this._dialog).hasClass(ClassName$5.SCROLLABLE) && modalBody) {
+        modalBody.scrollTop = 0;
       } else {
         this._element.scrollTop = 0;
       }
@@ -32334,12 +32539,12 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
       });
 
       var transitionComplete = function transitionComplete() {
-        if (_this3._config.focus) {
-          _this3._element.focus();
+        if (_this4._config.focus) {
+          _this4._element.focus();
         }
 
-        _this3._isTransitioning = false;
-        $(_this3._element).trigger(shownEvent);
+        _this4._isTransitioning = false;
+        $(_this4._element).trigger(shownEvent);
       };
 
       if (transition) {
@@ -32351,25 +32556,23 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
     };
 
     _proto._enforceFocus = function _enforceFocus() {
-      var _this4 = this;
+      var _this5 = this;
 
       $(document).off(Event$5.FOCUSIN) // Guard against infinite focus loop
       .on(Event$5.FOCUSIN, function (event) {
-        if (document !== event.target && _this4._element !== event.target && $(_this4._element).has(event.target).length === 0) {
-          _this4._element.focus();
+        if (document !== event.target && _this5._element !== event.target && $(_this5._element).has(event.target).length === 0) {
+          _this5._element.focus();
         }
       });
     };
 
     _proto._setEscapeEvent = function _setEscapeEvent() {
-      var _this5 = this;
+      var _this6 = this;
 
       if (this._isShown && this._config.keyboard) {
         $(this._element).on(Event$5.KEYDOWN_DISMISS, function (event) {
           if (event.which === ESCAPE_KEYCODE$1) {
-            event.preventDefault();
-
-            _this5.hide();
+            _this6._triggerBackdropTransition();
           }
         });
       } else if (!this._isShown) {
@@ -32378,11 +32581,11 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
     };
 
     _proto._setResizeEvent = function _setResizeEvent() {
-      var _this6 = this;
+      var _this7 = this;
 
       if (this._isShown) {
         $(window).on(Event$5.RESIZE, function (event) {
-          return _this6.handleUpdate(event);
+          return _this7.handleUpdate(event);
         });
       } else {
         $(window).off(Event$5.RESIZE);
@@ -32390,7 +32593,7 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
     };
 
     _proto._hideModal = function _hideModal() {
-      var _this7 = this;
+      var _this8 = this;
 
       this._element.style.display = 'none';
 
@@ -32403,11 +32606,11 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
       this._showBackdrop(function () {
         $(document.body).removeClass(ClassName$5.OPEN);
 
-        _this7._resetAdjustments();
+        _this8._resetAdjustments();
 
-        _this7._resetScrollbar();
+        _this8._resetScrollbar();
 
-        $(_this7._element).trigger(Event$5.HIDDEN);
+        $(_this8._element).trigger(Event$5.HIDDEN);
       });
     };
 
@@ -32419,7 +32622,7 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
     };
 
     _proto._showBackdrop = function _showBackdrop(callback) {
-      var _this8 = this;
+      var _this9 = this;
 
       var animate = $(this._element).hasClass(ClassName$5.FADE) ? ClassName$5.FADE : '';
 
@@ -32433,8 +32636,8 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
 
         $(this._backdrop).appendTo(document.body);
         $(this._element).on(Event$5.CLICK_DISMISS, function (event) {
-          if (_this8._ignoreBackdropClick) {
-            _this8._ignoreBackdropClick = false;
+          if (_this9._ignoreBackdropClick) {
+            _this9._ignoreBackdropClick = false;
             return;
           }
 
@@ -32442,11 +32645,7 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
             return;
           }
 
-          if (_this8._config.backdrop === 'static') {
-            _this8._element.focus();
-          } else {
-            _this8.hide();
-          }
+          _this9._triggerBackdropTransition();
         });
 
         if (animate) {
@@ -32470,7 +32669,7 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
         $(this._backdrop).removeClass(ClassName$5.SHOW);
 
         var callbackRemove = function callbackRemove() {
-          _this8._removeBackdrop();
+          _this9._removeBackdrop();
 
           if (callback) {
             callback();
@@ -32517,7 +32716,7 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
     };
 
     _proto._setScrollbar = function _setScrollbar() {
-      var _this9 = this;
+      var _this10 = this;
 
       if (this._isBodyOverflowing) {
         // Note: DOMNode.style.paddingRight returns the actual value or '' if not set
@@ -32528,13 +32727,13 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
         $(fixedContent).each(function (index, element) {
           var actualPadding = element.style.paddingRight;
           var calculatedPadding = $(element).css('padding-right');
-          $(element).data('padding-right', actualPadding).css('padding-right', parseFloat(calculatedPadding) + _this9._scrollbarWidth + "px");
+          $(element).data('padding-right', actualPadding).css('padding-right', parseFloat(calculatedPadding) + _this10._scrollbarWidth + "px");
         }); // Adjust sticky content margin
 
         $(stickyContent).each(function (index, element) {
           var actualMargin = element.style.marginRight;
           var calculatedMargin = $(element).css('margin-right');
-          $(element).data('margin-right', actualMargin).css('margin-right', parseFloat(calculatedMargin) - _this9._scrollbarWidth + "px");
+          $(element).data('margin-right', actualMargin).css('margin-right', parseFloat(calculatedMargin) - _this10._scrollbarWidth + "px");
         }); // Adjust body padding
 
         var actualPadding = document.body.style.paddingRight;
@@ -32583,7 +32782,7 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
       return this.each(function () {
         var data = $(this).data(DATA_KEY$5);
 
-        var _config = _objectSpread({}, Default$3, $(this).data(), _typeof(config) === 'object' && config ? config : {});
+        var _config = _objectSpread2({}, Default$3, {}, $(this).data(), {}, _typeof(config) === 'object' && config ? config : {});
 
         if (!data) {
           data = new Modal(this, _config);
@@ -32624,7 +32823,7 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
 
 
   $(document).on(Event$5.CLICK_DATA_API, Selector$5.DATA_TOGGLE, function (event) {
-    var _this10 = this;
+    var _this11 = this;
 
     var target;
     var selector = Util.getSelectorFromElement(this);
@@ -32633,7 +32832,7 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
       target = document.querySelector(selector);
     }
 
-    var config = $(target).data(DATA_KEY$5) ? 'toggle' : _objectSpread({}, $(target).data(), $(this).data());
+    var config = $(target).data(DATA_KEY$5) ? 'toggle' : _objectSpread2({}, $(target).data(), {}, $(this).data());
 
     if (this.tagName === 'A' || this.tagName === 'AREA') {
       event.preventDefault();
@@ -32646,8 +32845,8 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
       }
 
       $target.one(Event$5.HIDDEN, function () {
-        if ($(_this10).is(':visible')) {
-          _this10.focus();
+        if ($(_this11).is(':visible')) {
+          _this11.focus();
         }
       });
     });
@@ -32669,7 +32868,7 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
   };
   /**
    * --------------------------------------------------------------------------
-   * Bootstrap (v4.3.1): tools/sanitizer.js
+   * Bootstrap (v4.4.1): tools/sanitizer.js
    * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
    * --------------------------------------------------------------------------
    */
@@ -32709,13 +32908,13 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
     strong: [],
     u: [],
     ul: []
-    /**
-     * A pattern that recognizes a commonly useful subset of URLs that are safe.
-     *
-     * Shoutout to Angular 7 https://github.com/angular/angular/blob/7.2.4/packages/core/src/sanitization/url_sanitizer.ts
-     */
-
   };
+  /**
+   * A pattern that recognizes a commonly useful subset of URLs that are safe.
+   *
+   * Shoutout to Angular 7 https://github.com/angular/angular/blob/7.2.4/packages/core/src/sanitization/url_sanitizer.ts
+   */
+
   var SAFE_URL_PATTERN = /^(?:(?:https?|mailto|ftp|tel|file):|[^&:/?#]*(?:[/?#]|$))/gi;
   /**
    * A pattern that matches safe data URLs. Only matches image, video and audio types.
@@ -32782,7 +32981,7 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
     };
 
     for (var i = 0, len = elements.length; i < len; i++) {
-      var _ret = _loop(i, len);
+      var _ret = _loop(i);
 
       if (_ret === "continue") continue;
     }
@@ -32797,7 +32996,7 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
 
 
   var NAME$6 = 'tooltip';
-  var VERSION$6 = '4.3.1';
+  var VERSION$6 = '4.4.1';
   var DATA_KEY$6 = 'bs.tooltip';
   var EVENT_KEY$6 = "." + DATA_KEY$6;
   var JQUERY_NO_CONFLICT$6 = $.fn[NAME$6];
@@ -32819,7 +33018,8 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
     boundary: '(string|element)',
     sanitize: 'boolean',
     sanitizeFn: '(null|function)',
-    whiteList: 'object'
+    whiteList: 'object',
+    popperConfig: '(null|object)'
   };
   var AttachmentMap$1 = {
     AUTO: 'auto',
@@ -32843,7 +33043,8 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
     boundary: 'scrollParent',
     sanitize: true,
     sanitizeFn: null,
-    whiteList: DefaultWhitelist
+    whiteList: DefaultWhitelist,
+    popperConfig: null
   };
   var HoverState = {
     SHOW: 'show',
@@ -32875,22 +33076,17 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
     FOCUS: 'focus',
     CLICK: 'click',
     MANUAL: 'manual'
-    /**
-     * ------------------------------------------------------------------------
-     * Class Definition
-     * ------------------------------------------------------------------------
-     */
-
   };
+  /**
+   * ------------------------------------------------------------------------
+   * Class Definition
+   * ------------------------------------------------------------------------
+   */
 
   var Tooltip =
   /*#__PURE__*/
   function () {
     function Tooltip(element, config) {
-      /**
-       * Check for Popper dependency
-       * Popper - https://popper.js.org
-       */
       if (typeof Popper === 'undefined') {
         throw new TypeError('Bootstrap\'s tooltips require Popper.js (https://popper.js.org/)');
       } // private
@@ -32960,7 +33156,7 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
       clearTimeout(this._timeout);
       $.removeData(this.element, this.constructor.DATA_KEY);
       $(this.element).off(this.constructor.EVENT_KEY);
-      $(this.element).closest('.modal').off('hide.bs.modal');
+      $(this.element).closest('.modal').off('hide.bs.modal', this._hideModalHandler);
 
       if (this.tip) {
         $(this.tip).remove();
@@ -32971,7 +33167,7 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
       this._hoverState = null;
       this._activeTrigger = null;
 
-      if (this._popper !== null) {
+      if (this._popper) {
         this._popper.destroy();
       }
 
@@ -33024,29 +33220,7 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
         }
 
         $(this.element).trigger(this.constructor.Event.INSERTED);
-        this._popper = new Popper(this.element, tip, {
-          placement: attachment,
-          modifiers: {
-            offset: this._getOffset(),
-            flip: {
-              behavior: this.config.fallbackPlacement
-            },
-            arrow: {
-              element: Selector$6.ARROW
-            },
-            preventOverflow: {
-              boundariesElement: this.config.boundary
-            }
-          },
-          onCreate: function onCreate(data) {
-            if (data.originalPlacement !== data.placement) {
-              _this._handlePopperPlacementChange(data);
-            }
-          },
-          onUpdate: function onUpdate(data) {
-            return _this._handlePopperPlacementChange(data);
-          }
-        });
+        this._popper = new Popper(this.element, tip, this._getPopperConfig(attachment));
         $(tip).addClass(ClassName$6.SHOW); // If this is a touch-enabled device we add extra
         // empty mouseover listeners to the body's immediate children;
         // only needed because of broken event delegation on iOS
@@ -33194,14 +33368,43 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
     } // Private
     ;
 
-    _proto._getOffset = function _getOffset() {
+    _proto._getPopperConfig = function _getPopperConfig(attachment) {
       var _this3 = this;
+
+      var defaultBsConfig = {
+        placement: attachment,
+        modifiers: {
+          offset: this._getOffset(),
+          flip: {
+            behavior: this.config.fallbackPlacement
+          },
+          arrow: {
+            element: Selector$6.ARROW
+          },
+          preventOverflow: {
+            boundariesElement: this.config.boundary
+          }
+        },
+        onCreate: function onCreate(data) {
+          if (data.originalPlacement !== data.placement) {
+            _this3._handlePopperPlacementChange(data);
+          }
+        },
+        onUpdate: function onUpdate(data) {
+          return _this3._handlePopperPlacementChange(data);
+        }
+      };
+      return _objectSpread2({}, defaultBsConfig, {}, this.config.popperConfig);
+    };
+
+    _proto._getOffset = function _getOffset() {
+      var _this4 = this;
 
       var offset = {};
 
       if (typeof this.config.offset === 'function') {
         offset.fn = function (data) {
-          data.offsets = _objectSpread({}, data.offsets, _this3.config.offset(data.offsets, _this3.element) || {});
+          data.offsets = _objectSpread2({}, data.offsets, {}, _this4.config.offset(data.offsets, _this4.element) || {});
           return data;
         };
       } else {
@@ -33228,32 +33431,35 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
     };
 
     _proto._setListeners = function _setListeners() {
-      var _this4 = this;
+      var _this5 = this;
 
       var triggers = this.config.trigger.split(' ');
       triggers.forEach(function (trigger) {
         if (trigger === 'click') {
-          $(_this4.element).on(_this4.constructor.Event.CLICK, _this4.config.selector, function (event) {
-            return _this4.toggle(event);
+          $(_this5.element).on(_this5.constructor.Event.CLICK, _this5.config.selector, function (event) {
+            return _this5.toggle(event);
           });
         } else if (trigger !== Trigger.MANUAL) {
-          var eventIn = trigger === Trigger.HOVER ? _this4.constructor.Event.MOUSEENTER : _this4.constructor.Event.FOCUSIN;
-          var eventOut = trigger === Trigger.HOVER ? _this4.constructor.Event.MOUSELEAVE : _this4.constructor.Event.FOCUSOUT;
-          $(_this4.element).on(eventIn, _this4.config.selector, function (event) {
-            return _this4._enter(event);
-          }).on(eventOut, _this4.config.selector, function (event) {
-            return _this4._leave(event);
+          var eventIn = trigger === Trigger.HOVER ? _this5.constructor.Event.MOUSEENTER : _this5.constructor.Event.FOCUSIN;
+          var eventOut = trigger === Trigger.HOVER ? _this5.constructor.Event.MOUSELEAVE : _this5.constructor.Event.FOCUSOUT;
+          $(_this5.element).on(eventIn, _this5.config.selector, function (event) {
+            return _this5._enter(event);
+          }).on(eventOut, _this5.config.selector, function (event) {
+            return _this5._leave(event);
           });
-        }
-      });
-      $(this.element).closest('.modal').on('hide.bs.modal', function () {
-        if (_this4.element) {
-          _this4.hide();
         }
       });
 
+      this._hideModalHandler = function () {
+        if (_this5.element) {
+          _this5.hide();
+        }
+      };
+
+      $(this.element).closest('.modal').on('hide.bs.modal', this._hideModalHandler);
+
       if (this.config.selector) {
-        this.config = _objectSpread({}, this.config, {
+        this.config = _objectSpread2({}, this.config, {
           trigger: 'manual',
           selector: ''
         });
@@ -33353,7 +33559,7 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
           delete dataAttributes[dataAttr];
         }
       });
-      config = _objectSpread({}, this.constructor.Default, dataAttributes, _typeof(config) === 'object' && config ? config : {});
+      config = _objectSpread2({}, this.constructor.Default, {}, dataAttributes, {}, _typeof(config) === 'object' && config ? config : {});
 
       if (typeof config.delay === 'number') {
         config.delay = {
@@ -33513,21 +33719,21 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
 
 
   var NAME$7 = 'popover';
-  var VERSION$7 = '4.3.1';
+  var VERSION$7 = '4.4.1';
   var DATA_KEY$7 = 'bs.popover';
   var EVENT_KEY$7 = "." + DATA_KEY$7;
   var JQUERY_NO_CONFLICT$7 = $.fn[NAME$7];
   var CLASS_PREFIX$1 = 'bs-popover';
   var BSCLS_PREFIX_REGEX$1 = new RegExp("(^|\\s)" + CLASS_PREFIX$1 + "\\S+", 'g');
 
-  var Default$5 = _objectSpread({}, Tooltip.Default, {
+  var Default$5 = _objectSpread2({}, Tooltip.Default, {
     placement: 'right',
     trigger: 'click',
     content: '',
     template: '<div class="popover" role="tooltip">' + '<div class="arrow"></div>' + '<h3 class="popover-header"></h3>' + '<div class="popover-body"></div></div>'
   });
 
-  var DefaultType$5 = _objectSpread({}, Tooltip.DefaultType, {
+  var DefaultType$5 = _objectSpread2({}, Tooltip.DefaultType, {
     content: '(string|element|function)'
   });
 
@@ -33550,13 +33756,12 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
     FOCUSOUT: "focusout" + EVENT_KEY$7,
     MOUSEENTER: "mouseenter" + EVENT_KEY$7,
     MOUSELEAVE: "mouseleave" + EVENT_KEY$7
-    /**
-     * ------------------------------------------------------------------------
-     * Class Definition
-     * ------------------------------------------------------------------------
-     */
-
   };
+  /**
+   * ------------------------------------------------------------------------
+   * Class Definition
+   * ------------------------------------------------------------------------
+   */
 
   var Popover =
   /*#__PURE__*/
@@ -33699,7 +33904,7 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
 
 
   var NAME$8 = 'scrollspy';
-  var VERSION$8 = '4.3.1';
+  var VERSION$8 = '4.4.1';
   var DATA_KEY$8 = 'bs.scrollspy';
   var EVENT_KEY$8 = "." + DATA_KEY$8;
   var DATA_API_KEY$6 = '.data-api';
@@ -33738,13 +33943,12 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
   var OffsetMethod = {
     OFFSET: 'offset',
     POSITION: 'position'
-    /**
-     * ------------------------------------------------------------------------
-     * Class Definition
-     * ------------------------------------------------------------------------
-     */
-
   };
+  /**
+   * ------------------------------------------------------------------------
+   * Class Definition
+   * ------------------------------------------------------------------------
+   */
 
   var ScrollSpy =
   /*#__PURE__*/
@@ -33825,7 +34029,7 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
     ;
 
     _proto._getConfig = function _getConfig(config) {
-      config = _objectSpread({}, Default$6, _typeof(config) === 'object' && config ? config : {});
+      config = _objectSpread2({}, Default$6, {}, _typeof(config) === 'object' && config ? config : {});
 
       if (typeof config.target !== 'string') {
         var id = $(config.target).attr('id');
@@ -34005,7 +34209,7 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
 
 
   var NAME$9 = 'tab';
-  var VERSION$9 = '4.3.1';
+  var VERSION$9 = '4.4.1';
   var DATA_KEY$9 = 'bs.tab';
   var EVENT_KEY$9 = "." + DATA_KEY$9;
   var DATA_API_KEY$7 = '.data-api';
@@ -34032,13 +34236,12 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
     DATA_TOGGLE: '[data-toggle="tab"], [data-toggle="pill"], [data-toggle="list"]',
     DROPDOWN_TOGGLE: '.dropdown-toggle',
     DROPDOWN_ACTIVE_CHILD: '> .dropdown-menu .active'
-    /**
-     * ------------------------------------------------------------------------
-     * Class Definition
-     * ------------------------------------------------------------------------
-     */
-
   };
+  /**
+   * ------------------------------------------------------------------------
+   * Class Definition
+   * ------------------------------------------------------------------------
+   */
 
   var Tab =
   /*#__PURE__*/
@@ -34239,7 +34442,7 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
 
 
   var NAME$a = 'toast';
-  var VERSION$a = '4.3.1';
+  var VERSION$a = '4.4.1';
   var DATA_KEY$a = 'bs.toast';
   var EVENT_KEY$a = "." + DATA_KEY$a;
   var JQUERY_NO_CONFLICT$a = $.fn[NAME$a];
@@ -34268,13 +34471,12 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
   };
   var Selector$a = {
     DATA_DISMISS: '[data-dismiss="toast"]'
-    /**
-     * ------------------------------------------------------------------------
-     * Class Definition
-     * ------------------------------------------------------------------------
-     */
-
   };
+  /**
+   * ------------------------------------------------------------------------
+   * Class Definition
+   * ------------------------------------------------------------------------
+   */
 
   var Toast =
   /*#__PURE__*/
@@ -34293,7 +34495,12 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
     _proto.show = function show() {
       var _this = this;
 
-      $(this._element).trigger(Event$a.SHOW);
+      var showEvent = $.Event(Event$a.SHOW);
+      $(this._element).trigger(showEvent);
+
+      if (showEvent.isDefaultPrevented()) {
+        return;
+      }
 
       if (this._config.animation) {
         this._element.classList.add(ClassName$a.FADE);
@@ -34307,11 +34514,15 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
         $(_this._element).trigger(Event$a.SHOWN);
 
         if (_this._config.autohide) {
-          _this.hide();
+          _this._timeout = setTimeout(function () {
+            _this.hide();
+          }, _this._config.delay);
         }
       };
 
       this._element.classList.remove(ClassName$a.HIDE);
+
+      Util.reflow(this._element);
 
       this._element.classList.add(ClassName$a.SHOWING);
 
@@ -34323,22 +34534,19 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
       }
     };
 
-    _proto.hide = function hide(withoutTimeout) {
-      var _this2 = this;
-
+    _proto.hide = function hide() {
       if (!this._element.classList.contains(ClassName$a.SHOW)) {
         return;
       }
 
-      $(this._element).trigger(Event$a.HIDE);
+      var hideEvent = $.Event(Event$a.HIDE);
+      $(this._element).trigger(hideEvent);
 
-      if (withoutTimeout) {
-        this._close();
-      } else {
-        this._timeout = setTimeout(function () {
-          _this2._close();
-        }, this._config.delay);
+      if (hideEvent.isDefaultPrevented()) {
+        return;
       }
+
+      this._close();
     };
 
     _proto.dispose = function dispose() {
@@ -34357,26 +34565,26 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
     ;
 
     _proto._getConfig = function _getConfig(config) {
-      config = _objectSpread({}, Default$7, $(this._element).data(), _typeof(config) === 'object' && config ? config : {});
+      config = _objectSpread2({}, Default$7, {}, $(this._element).data(), {}, _typeof(config) === 'object' && config ? config : {});
       Util.typeCheckConfig(NAME$a, config, this.constructor.DefaultType);
       return config;
     };
 
     _proto._setListeners = function _setListeners() {
-      var _this3 = this;
+      var _this2 = this;
 
       $(this._element).on(Event$a.CLICK_DISMISS, Selector$a.DATA_DISMISS, function () {
-        return _this3.hide(true);
+        return _this2.hide();
       });
     };
 
     _proto._close = function _close() {
-      var _this4 = this;
+      var _this3 = this;
 
       var complete = function complete() {
-        _this4._element.classList.add(ClassName$a.HIDE);
+        _this3._element.classList.add(ClassName$a.HIDE);
 
-        $(_this4._element).trigger(Event$a.HIDDEN);
+        $(_this3._element).trigger(Event$a.HIDDEN);
       };
 
       this._element.classList.remove(ClassName$a.SHOW);
@@ -34445,32 +34653,7 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
     $.fn[NAME$a] = JQUERY_NO_CONFLICT$a;
     return Toast._jQueryInterface;
   };
-  /**
-   * --------------------------------------------------------------------------
-   * Bootstrap (v4.3.1): index.js
-   * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
-   * --------------------------------------------------------------------------
-   */
 
-
-  (function () {
-    if (typeof $ === 'undefined') {
-      throw new TypeError('Bootstrap\'s JavaScript requires jQuery. jQuery must be included before Bootstrap\'s JavaScript.');
-    }
-
-    var version = $.fn.jquery.split(' ')[0].split('.');
-    var minMajor = 1;
-    var ltMajor = 2;
-    var minMinor = 9;
-    var minPatch = 1;
-    var maxMajor = 4;
-
-    if (version[0] < ltMajor && version[1] < minMinor || version[0] === minMajor && version[1] === minMinor && version[2] < minPatch || version[0] >= maxMajor) {
-      throw new Error('Bootstrap\'s JavaScript requires at least jQuery v1.9.1 but less than v4.0.0');
-    }
-  })();
-
-  exports.Util = Util;
   exports.Alert = Alert;
   exports.Button = Button;
   exports.Carousel = Carousel;
@@ -34482,739 +34665,12 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
   exports.Tab = Tab;
   exports.Toast = Toast;
   exports.Tooltip = Tooltip;
+  exports.Util = Util;
   Object.defineProperty(exports, '__esModule', {
     value: true
   });
 });
-},{"jquery":"../node_modules/jquery/dist/jquery.js","popper.js":"../node_modules/popper.js/dist/esm/popper.js"}],"../node_modules/regenerator-runtime/runtime.js":[function(require,module,exports) {
-/**
- * Copyright (c) 2014-present, Facebook, Inc.
- *
- * This source code is licensed under the MIT license found in the
- * LICENSE file in the root directory of this source tree.
- */
-
-var runtime = (function (exports) {
-  "use strict";
-
-  var Op = Object.prototype;
-  var hasOwn = Op.hasOwnProperty;
-  var undefined; // More compressible than void 0.
-  var $Symbol = typeof Symbol === "function" ? Symbol : {};
-  var iteratorSymbol = $Symbol.iterator || "@@iterator";
-  var asyncIteratorSymbol = $Symbol.asyncIterator || "@@asyncIterator";
-  var toStringTagSymbol = $Symbol.toStringTag || "@@toStringTag";
-
-  function wrap(innerFn, outerFn, self, tryLocsList) {
-    // If outerFn provided and outerFn.prototype is a Generator, then outerFn.prototype instanceof Generator.
-    var protoGenerator = outerFn && outerFn.prototype instanceof Generator ? outerFn : Generator;
-    var generator = Object.create(protoGenerator.prototype);
-    var context = new Context(tryLocsList || []);
-
-    // The ._invoke method unifies the implementations of the .next,
-    // .throw, and .return methods.
-    generator._invoke = makeInvokeMethod(innerFn, self, context);
-
-    return generator;
-  }
-  exports.wrap = wrap;
-
-  // Try/catch helper to minimize deoptimizations. Returns a completion
-  // record like context.tryEntries[i].completion. This interface could
-  // have been (and was previously) designed to take a closure to be
-  // invoked without arguments, but in all the cases we care about we
-  // already have an existing method we want to call, so there's no need
-  // to create a new function object. We can even get away with assuming
-  // the method takes exactly one argument, since that happens to be true
-  // in every case, so we don't have to touch the arguments object. The
-  // only additional allocation required is the completion record, which
-  // has a stable shape and so hopefully should be cheap to allocate.
-  function tryCatch(fn, obj, arg) {
-    try {
-      return { type: "normal", arg: fn.call(obj, arg) };
-    } catch (err) {
-      return { type: "throw", arg: err };
-    }
-  }
-
-  var GenStateSuspendedStart = "suspendedStart";
-  var GenStateSuspendedYield = "suspendedYield";
-  var GenStateExecuting = "executing";
-  var GenStateCompleted = "completed";
-
-  // Returning this object from the innerFn has the same effect as
-  // breaking out of the dispatch switch statement.
-  var ContinueSentinel = {};
-
-  // Dummy constructor functions that we use as the .constructor and
-  // .constructor.prototype properties for functions that return Generator
-  // objects. For full spec compliance, you may wish to configure your
-  // minifier not to mangle the names of these two functions.
-  function Generator() {}
-  function GeneratorFunction() {}
-  function GeneratorFunctionPrototype() {}
-
-  // This is a polyfill for %IteratorPrototype% for environments that
-  // don't natively support it.
-  var IteratorPrototype = {};
-  IteratorPrototype[iteratorSymbol] = function () {
-    return this;
-  };
-
-  var getProto = Object.getPrototypeOf;
-  var NativeIteratorPrototype = getProto && getProto(getProto(values([])));
-  if (NativeIteratorPrototype &&
-      NativeIteratorPrototype !== Op &&
-      hasOwn.call(NativeIteratorPrototype, iteratorSymbol)) {
-    // This environment has a native %IteratorPrototype%; use it instead
-    // of the polyfill.
-    IteratorPrototype = NativeIteratorPrototype;
-  }
-
-  var Gp = GeneratorFunctionPrototype.prototype =
-    Generator.prototype = Object.create(IteratorPrototype);
-  GeneratorFunction.prototype = Gp.constructor = GeneratorFunctionPrototype;
-  GeneratorFunctionPrototype.constructor = GeneratorFunction;
-  GeneratorFunctionPrototype[toStringTagSymbol] =
-    GeneratorFunction.displayName = "GeneratorFunction";
-
-  // Helper for defining the .next, .throw, and .return methods of the
-  // Iterator interface in terms of a single ._invoke method.
-  function defineIteratorMethods(prototype) {
-    ["next", "throw", "return"].forEach(function(method) {
-      prototype[method] = function(arg) {
-        return this._invoke(method, arg);
-      };
-    });
-  }
-
-  exports.isGeneratorFunction = function(genFun) {
-    var ctor = typeof genFun === "function" && genFun.constructor;
-    return ctor
-      ? ctor === GeneratorFunction ||
-        // For the native GeneratorFunction constructor, the best we can
-        // do is to check its .name property.
-        (ctor.displayName || ctor.name) === "GeneratorFunction"
-      : false;
-  };
-
-  exports.mark = function(genFun) {
-    if (Object.setPrototypeOf) {
-      Object.setPrototypeOf(genFun, GeneratorFunctionPrototype);
-    } else {
-      genFun.__proto__ = GeneratorFunctionPrototype;
-      if (!(toStringTagSymbol in genFun)) {
-        genFun[toStringTagSymbol] = "GeneratorFunction";
-      }
-    }
-    genFun.prototype = Object.create(Gp);
-    return genFun;
-  };
-
-  // Within the body of any async function, `await x` is transformed to
-  // `yield regeneratorRuntime.awrap(x)`, so that the runtime can test
-  // `hasOwn.call(value, "__await")` to determine if the yielded value is
-  // meant to be awaited.
-  exports.awrap = function(arg) {
-    return { __await: arg };
-  };
-
-  function AsyncIterator(generator) {
-    function invoke(method, arg, resolve, reject) {
-      var record = tryCatch(generator[method], generator, arg);
-      if (record.type === "throw") {
-        reject(record.arg);
-      } else {
-        var result = record.arg;
-        var value = result.value;
-        if (value &&
-            typeof value === "object" &&
-            hasOwn.call(value, "__await")) {
-          return Promise.resolve(value.__await).then(function(value) {
-            invoke("next", value, resolve, reject);
-          }, function(err) {
-            invoke("throw", err, resolve, reject);
-          });
-        }
-
-        return Promise.resolve(value).then(function(unwrapped) {
-          // When a yielded Promise is resolved, its final value becomes
-          // the .value of the Promise<{value,done}> result for the
-          // current iteration.
-          result.value = unwrapped;
-          resolve(result);
-        }, function(error) {
-          // If a rejected Promise was yielded, throw the rejection back
-          // into the async generator function so it can be handled there.
-          return invoke("throw", error, resolve, reject);
-        });
-      }
-    }
-
-    var previousPromise;
-
-    function enqueue(method, arg) {
-      function callInvokeWithMethodAndArg() {
-        return new Promise(function(resolve, reject) {
-          invoke(method, arg, resolve, reject);
-        });
-      }
-
-      return previousPromise =
-        // If enqueue has been called before, then we want to wait until
-        // all previous Promises have been resolved before calling invoke,
-        // so that results are always delivered in the correct order. If
-        // enqueue has not been called before, then it is important to
-        // call invoke immediately, without waiting on a callback to fire,
-        // so that the async generator function has the opportunity to do
-        // any necessary setup in a predictable way. This predictability
-        // is why the Promise constructor synchronously invokes its
-        // executor callback, and why async functions synchronously
-        // execute code before the first await. Since we implement simple
-        // async functions in terms of async generators, it is especially
-        // important to get this right, even though it requires care.
-        previousPromise ? previousPromise.then(
-          callInvokeWithMethodAndArg,
-          // Avoid propagating failures to Promises returned by later
-          // invocations of the iterator.
-          callInvokeWithMethodAndArg
-        ) : callInvokeWithMethodAndArg();
-    }
-
-    // Define the unified helper method that is used to implement .next,
-    // .throw, and .return (see defineIteratorMethods).
-    this._invoke = enqueue;
-  }
-
-  defineIteratorMethods(AsyncIterator.prototype);
-  AsyncIterator.prototype[asyncIteratorSymbol] = function () {
-    return this;
-  };
-  exports.AsyncIterator = AsyncIterator;
-
-  // Note that simple async functions are implemented on top of
-  // AsyncIterator objects; they just return a Promise for the value of
-  // the final result produced by the iterator.
-  exports.async = function(innerFn, outerFn, self, tryLocsList) {
-    var iter = new AsyncIterator(
-      wrap(innerFn, outerFn, self, tryLocsList)
-    );
-
-    return exports.isGeneratorFunction(outerFn)
-      ? iter // If outerFn is a generator, return the full iterator.
-      : iter.next().then(function(result) {
-          return result.done ? result.value : iter.next();
-        });
-  };
-
-  function makeInvokeMethod(innerFn, self, context) {
-    var state = GenStateSuspendedStart;
-
-    return function invoke(method, arg) {
-      if (state === GenStateExecuting) {
-        throw new Error("Generator is already running");
-      }
-
-      if (state === GenStateCompleted) {
-        if (method === "throw") {
-          throw arg;
-        }
-
-        // Be forgiving, per 25.3.3.3.3 of the spec:
-        // https://people.mozilla.org/~jorendorff/es6-draft.html#sec-generatorresume
-        return doneResult();
-      }
-
-      context.method = method;
-      context.arg = arg;
-
-      while (true) {
-        var delegate = context.delegate;
-        if (delegate) {
-          var delegateResult = maybeInvokeDelegate(delegate, context);
-          if (delegateResult) {
-            if (delegateResult === ContinueSentinel) continue;
-            return delegateResult;
-          }
-        }
-
-        if (context.method === "next") {
-          // Setting context._sent for legacy support of Babel's
-          // function.sent implementation.
-          context.sent = context._sent = context.arg;
-
-        } else if (context.method === "throw") {
-          if (state === GenStateSuspendedStart) {
-            state = GenStateCompleted;
-            throw context.arg;
-          }
-
-          context.dispatchException(context.arg);
-
-        } else if (context.method === "return") {
-          context.abrupt("return", context.arg);
-        }
-
-        state = GenStateExecuting;
-
-        var record = tryCatch(innerFn, self, context);
-        if (record.type === "normal") {
-          // If an exception is thrown from innerFn, we leave state ===
-          // GenStateExecuting and loop back for another invocation.
-          state = context.done
-            ? GenStateCompleted
-            : GenStateSuspendedYield;
-
-          if (record.arg === ContinueSentinel) {
-            continue;
-          }
-
-          return {
-            value: record.arg,
-            done: context.done
-          };
-
-        } else if (record.type === "throw") {
-          state = GenStateCompleted;
-          // Dispatch the exception by looping back around to the
-          // context.dispatchException(context.arg) call above.
-          context.method = "throw";
-          context.arg = record.arg;
-        }
-      }
-    };
-  }
-
-  // Call delegate.iterator[context.method](context.arg) and handle the
-  // result, either by returning a { value, done } result from the
-  // delegate iterator, or by modifying context.method and context.arg,
-  // setting context.delegate to null, and returning the ContinueSentinel.
-  function maybeInvokeDelegate(delegate, context) {
-    var method = delegate.iterator[context.method];
-    if (method === undefined) {
-      // A .throw or .return when the delegate iterator has no .throw
-      // method always terminates the yield* loop.
-      context.delegate = null;
-
-      if (context.method === "throw") {
-        // Note: ["return"] must be used for ES3 parsing compatibility.
-        if (delegate.iterator["return"]) {
-          // If the delegate iterator has a return method, give it a
-          // chance to clean up.
-          context.method = "return";
-          context.arg = undefined;
-          maybeInvokeDelegate(delegate, context);
-
-          if (context.method === "throw") {
-            // If maybeInvokeDelegate(context) changed context.method from
-            // "return" to "throw", let that override the TypeError below.
-            return ContinueSentinel;
-          }
-        }
-
-        context.method = "throw";
-        context.arg = new TypeError(
-          "The iterator does not provide a 'throw' method");
-      }
-
-      return ContinueSentinel;
-    }
-
-    var record = tryCatch(method, delegate.iterator, context.arg);
-
-    if (record.type === "throw") {
-      context.method = "throw";
-      context.arg = record.arg;
-      context.delegate = null;
-      return ContinueSentinel;
-    }
-
-    var info = record.arg;
-
-    if (! info) {
-      context.method = "throw";
-      context.arg = new TypeError("iterator result is not an object");
-      context.delegate = null;
-      return ContinueSentinel;
-    }
-
-    if (info.done) {
-      // Assign the result of the finished delegate to the temporary
-      // variable specified by delegate.resultName (see delegateYield).
-      context[delegate.resultName] = info.value;
-
-      // Resume execution at the desired location (see delegateYield).
-      context.next = delegate.nextLoc;
-
-      // If context.method was "throw" but the delegate handled the
-      // exception, let the outer generator proceed normally. If
-      // context.method was "next", forget context.arg since it has been
-      // "consumed" by the delegate iterator. If context.method was
-      // "return", allow the original .return call to continue in the
-      // outer generator.
-      if (context.method !== "return") {
-        context.method = "next";
-        context.arg = undefined;
-      }
-
-    } else {
-      // Re-yield the result returned by the delegate method.
-      return info;
-    }
-
-    // The delegate iterator is finished, so forget it and continue with
-    // the outer generator.
-    context.delegate = null;
-    return ContinueSentinel;
-  }
-
-  // Define Generator.prototype.{next,throw,return} in terms of the
-  // unified ._invoke helper method.
-  defineIteratorMethods(Gp);
-
-  Gp[toStringTagSymbol] = "Generator";
-
-  // A Generator should always return itself as the iterator object when the
-  // @@iterator function is called on it. Some browsers' implementations of the
-  // iterator prototype chain incorrectly implement this, causing the Generator
-  // object to not be returned from this call. This ensures that doesn't happen.
-  // See https://github.com/facebook/regenerator/issues/274 for more details.
-  Gp[iteratorSymbol] = function() {
-    return this;
-  };
-
-  Gp.toString = function() {
-    return "[object Generator]";
-  };
-
-  function pushTryEntry(locs) {
-    var entry = { tryLoc: locs[0] };
-
-    if (1 in locs) {
-      entry.catchLoc = locs[1];
-    }
-
-    if (2 in locs) {
-      entry.finallyLoc = locs[2];
-      entry.afterLoc = locs[3];
-    }
-
-    this.tryEntries.push(entry);
-  }
-
-  function resetTryEntry(entry) {
-    var record = entry.completion || {};
-    record.type = "normal";
-    delete record.arg;
-    entry.completion = record;
-  }
-
-  function Context(tryLocsList) {
-    // The root entry object (effectively a try statement without a catch
-    // or a finally block) gives us a place to store values thrown from
-    // locations where there is no enclosing try statement.
-    this.tryEntries = [{ tryLoc: "root" }];
-    tryLocsList.forEach(pushTryEntry, this);
-    this.reset(true);
-  }
-
-  exports.keys = function(object) {
-    var keys = [];
-    for (var key in object) {
-      keys.push(key);
-    }
-    keys.reverse();
-
-    // Rather than returning an object with a next method, we keep
-    // things simple and return the next function itself.
-    return function next() {
-      while (keys.length) {
-        var key = keys.pop();
-        if (key in object) {
-          next.value = key;
-          next.done = false;
-          return next;
-        }
-      }
-
-      // To avoid creating an additional object, we just hang the .value
-      // and .done properties off the next function object itself. This
-      // also ensures that the minifier will not anonymize the function.
-      next.done = true;
-      return next;
-    };
-  };
-
-  function values(iterable) {
-    if (iterable) {
-      var iteratorMethod = iterable[iteratorSymbol];
-      if (iteratorMethod) {
-        return iteratorMethod.call(iterable);
-      }
-
-      if (typeof iterable.next === "function") {
-        return iterable;
-      }
-
-      if (!isNaN(iterable.length)) {
-        var i = -1, next = function next() {
-          while (++i < iterable.length) {
-            if (hasOwn.call(iterable, i)) {
-              next.value = iterable[i];
-              next.done = false;
-              return next;
-            }
-          }
-
-          next.value = undefined;
-          next.done = true;
-
-          return next;
-        };
-
-        return next.next = next;
-      }
-    }
-
-    // Return an iterator with no values.
-    return { next: doneResult };
-  }
-  exports.values = values;
-
-  function doneResult() {
-    return { value: undefined, done: true };
-  }
-
-  Context.prototype = {
-    constructor: Context,
-
-    reset: function(skipTempReset) {
-      this.prev = 0;
-      this.next = 0;
-      // Resetting context._sent for legacy support of Babel's
-      // function.sent implementation.
-      this.sent = this._sent = undefined;
-      this.done = false;
-      this.delegate = null;
-
-      this.method = "next";
-      this.arg = undefined;
-
-      this.tryEntries.forEach(resetTryEntry);
-
-      if (!skipTempReset) {
-        for (var name in this) {
-          // Not sure about the optimal order of these conditions:
-          if (name.charAt(0) === "t" &&
-              hasOwn.call(this, name) &&
-              !isNaN(+name.slice(1))) {
-            this[name] = undefined;
-          }
-        }
-      }
-    },
-
-    stop: function() {
-      this.done = true;
-
-      var rootEntry = this.tryEntries[0];
-      var rootRecord = rootEntry.completion;
-      if (rootRecord.type === "throw") {
-        throw rootRecord.arg;
-      }
-
-      return this.rval;
-    },
-
-    dispatchException: function(exception) {
-      if (this.done) {
-        throw exception;
-      }
-
-      var context = this;
-      function handle(loc, caught) {
-        record.type = "throw";
-        record.arg = exception;
-        context.next = loc;
-
-        if (caught) {
-          // If the dispatched exception was caught by a catch block,
-          // then let that catch block handle the exception normally.
-          context.method = "next";
-          context.arg = undefined;
-        }
-
-        return !! caught;
-      }
-
-      for (var i = this.tryEntries.length - 1; i >= 0; --i) {
-        var entry = this.tryEntries[i];
-        var record = entry.completion;
-
-        if (entry.tryLoc === "root") {
-          // Exception thrown outside of any try block that could handle
-          // it, so set the completion value of the entire function to
-          // throw the exception.
-          return handle("end");
-        }
-
-        if (entry.tryLoc <= this.prev) {
-          var hasCatch = hasOwn.call(entry, "catchLoc");
-          var hasFinally = hasOwn.call(entry, "finallyLoc");
-
-          if (hasCatch && hasFinally) {
-            if (this.prev < entry.catchLoc) {
-              return handle(entry.catchLoc, true);
-            } else if (this.prev < entry.finallyLoc) {
-              return handle(entry.finallyLoc);
-            }
-
-          } else if (hasCatch) {
-            if (this.prev < entry.catchLoc) {
-              return handle(entry.catchLoc, true);
-            }
-
-          } else if (hasFinally) {
-            if (this.prev < entry.finallyLoc) {
-              return handle(entry.finallyLoc);
-            }
-
-          } else {
-            throw new Error("try statement without catch or finally");
-          }
-        }
-      }
-    },
-
-    abrupt: function(type, arg) {
-      for (var i = this.tryEntries.length - 1; i >= 0; --i) {
-        var entry = this.tryEntries[i];
-        if (entry.tryLoc <= this.prev &&
-            hasOwn.call(entry, "finallyLoc") &&
-            this.prev < entry.finallyLoc) {
-          var finallyEntry = entry;
-          break;
-        }
-      }
-
-      if (finallyEntry &&
-          (type === "break" ||
-           type === "continue") &&
-          finallyEntry.tryLoc <= arg &&
-          arg <= finallyEntry.finallyLoc) {
-        // Ignore the finally entry if control is not jumping to a
-        // location outside the try/catch block.
-        finallyEntry = null;
-      }
-
-      var record = finallyEntry ? finallyEntry.completion : {};
-      record.type = type;
-      record.arg = arg;
-
-      if (finallyEntry) {
-        this.method = "next";
-        this.next = finallyEntry.finallyLoc;
-        return ContinueSentinel;
-      }
-
-      return this.complete(record);
-    },
-
-    complete: function(record, afterLoc) {
-      if (record.type === "throw") {
-        throw record.arg;
-      }
-
-      if (record.type === "break" ||
-          record.type === "continue") {
-        this.next = record.arg;
-      } else if (record.type === "return") {
-        this.rval = this.arg = record.arg;
-        this.method = "return";
-        this.next = "end";
-      } else if (record.type === "normal" && afterLoc) {
-        this.next = afterLoc;
-      }
-
-      return ContinueSentinel;
-    },
-
-    finish: function(finallyLoc) {
-      for (var i = this.tryEntries.length - 1; i >= 0; --i) {
-        var entry = this.tryEntries[i];
-        if (entry.finallyLoc === finallyLoc) {
-          this.complete(entry.completion, entry.afterLoc);
-          resetTryEntry(entry);
-          return ContinueSentinel;
-        }
-      }
-    },
-
-    "catch": function(tryLoc) {
-      for (var i = this.tryEntries.length - 1; i >= 0; --i) {
-        var entry = this.tryEntries[i];
-        if (entry.tryLoc === tryLoc) {
-          var record = entry.completion;
-          if (record.type === "throw") {
-            var thrown = record.arg;
-            resetTryEntry(entry);
-          }
-          return thrown;
-        }
-      }
-
-      // The context.catch method must only be called with a location
-      // argument that corresponds to a known catch block.
-      throw new Error("illegal catch attempt");
-    },
-
-    delegateYield: function(iterable, resultName, nextLoc) {
-      this.delegate = {
-        iterator: values(iterable),
-        resultName: resultName,
-        nextLoc: nextLoc
-      };
-
-      if (this.method === "next") {
-        // Deliberately forget the last sent value so that we don't
-        // accidentally pass it on to the delegate.
-        this.arg = undefined;
-      }
-
-      return ContinueSentinel;
-    }
-  };
-
-  // Regardless of whether this script is executing as a CommonJS module
-  // or not, return the runtime object so that we can declare the variable
-  // regeneratorRuntime in the outer scope, which allows this module to be
-  // injected easily by `bin/regenerator --include-runtime script.js`.
-  return exports;
-
-}(
-  // If this script is executing as a CommonJS module, use module.exports
-  // as the regeneratorRuntime namespace. Otherwise create a new empty
-  // object. Either way, the resulting object will be used to initialize
-  // the regeneratorRuntime variable at the top of this file.
-  typeof module === "object" ? module.exports : {}
-));
-
-try {
-  regeneratorRuntime = runtime;
-} catch (accidentalStrictMode) {
-  // This module should not be running in strict mode, so the above
-  // assignment should always work unless something is misconfigured. Just
-  // in case runtime.js accidentally runs in strict mode, we can escape
-  // strict mode using a global Function call. This could conceivably fail
-  // if a Content Security Policy forbids using Function, but in that case
-  // the proper solution is to fix the accidental strict mode problem. If
-  // you've misconfigured your bundler to force strict mode and applied a
-  // CSP to forbid Function, and you're not willing to fix either of those
-  // problems, please detail your unique predicament in a GitHub issue.
-  Function("r", "regeneratorRuntime = r")(runtime);
-}
-
-},{}],"../node_modules/vue-lazyload/vue-lazyload.esm.js":[function(require,module,exports) {
+},{"jquery":"../node_modules/jquery/dist/jquery.js","popper.js":"../node_modules/popper.js/dist/esm/popper.js"}],"../node_modules/vue-lazyload/vue-lazyload.esm.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -35223,7 +34679,7 @@ Object.defineProperty(exports, "__esModule", {
 exports.default = void 0;
 
 /*!
- * Vue-Lazyload.js v1.3.1
+ * Vue-Lazyload.js v1.3.3
  * (c) 2019 Awe <hilongjw@gmail.com>
  * Released under the MIT License.
  */
@@ -35513,7 +34969,7 @@ function extend(target, obj) {
   assignSymbols(target, obj);
 
   for (var key in obj) {
-    if (isValidKey(key) && hasOwn(obj, key)) {
+    if (key !== '__proto__' && hasOwn(obj, key)) {
       var val = obj[key];
 
       if (isObject$1(val)) {
@@ -35545,14 +35001,6 @@ function isObject$1(obj) {
 
 function hasOwn(obj, key) {
   return Object.prototype.hasOwnProperty.call(obj, key);
-}
-/**
- * Returns true if the given `key` is a valid key that can be used for assigning properties.
- */
-
-
-function isValidKey(key) {
-  return key !== '__proto__' && key !== 'constructor' && key !== 'prototype';
 }
 /**
  * Expose `assign`
@@ -35792,6 +35240,12 @@ var _ = {
 
 var loadImageAsync = function loadImageAsync(item, resolve, reject) {
   var image = new Image();
+
+  if (!item || !item.src) {
+    var err = new Error('image src is required');
+    return reject(err);
+  }
+
   image.src = item.src;
 
   image.onload = function () {
@@ -36165,13 +35619,13 @@ var ReactiveListener = function () {
       };
     }
     /*
-     * destroy
+     * $destroy
      * @return
      */
 
   }, {
-    key: 'destroy',
-    value: function destroy() {
+    key: '$destroy',
+    value: function $destroy() {
       this.el = null;
       this.src = null;
       this.error = null;
@@ -36210,7 +35664,7 @@ var Lazy = function (Vue) {
           observer = _ref.observer,
           observerOptions = _ref.observerOptions;
       classCallCheck(this, Lazy);
-      this.version = '1.3.1';
+      this.version = '1.3.3';
       this.mode = modeType.event;
       this.ListenerQueue = [];
       this.TargetIndex = 0;
@@ -36422,7 +35876,7 @@ var Lazy = function (Vue) {
           this._removeListenerTarget(window);
 
           remove(this.ListenerQueue, existItem);
-          existItem.destroy();
+          existItem.$destroy();
         }
       }
       /*
@@ -36618,7 +36072,7 @@ var Lazy = function (Vue) {
         });
         freeList.forEach(function (item) {
           remove(_this7.ListenerQueue, item);
-          item.destroy();
+          item.$destroy();
         });
       }
       /**
@@ -36785,6 +36239,9 @@ var LazyComponent = function (lazy) {
         this.show = true;
         this.state.loaded = true;
         this.$emit('show', this);
+      },
+      destroy: function destroy() {
+        return this.$destroy;
       }
     }
   };
@@ -37080,12 +36537,12 @@ var _default = index;
 exports.default = _default;
 },{}],"../node_modules/vue-confetti/dist/vue-confetti.js":[function(require,module,exports) {
 var define;
-!function(t,e){"object"==typeof exports&&"object"==typeof module?module.exports=e():"function"==typeof define&&define.amd?define([],e):"object"==typeof exports?exports["vue-confetti"]=e():t["vue-confetti"]=e()}(window,function(){return function(t){var e={};function n(i){if(e[i])return e[i].exports;var r=e[i]={i:i,l:!1,exports:{}};return t[i].call(r.exports,r,r.exports,n),r.l=!0,r.exports}return n.m=t,n.c=e,n.d=function(t,e,i){n.o(t,e)||Object.defineProperty(t,e,{enumerable:!0,get:i})},n.r=function(t){"undefined"!=typeof Symbol&&Symbol.toStringTag&&Object.defineProperty(t,Symbol.toStringTag,{value:"Module"}),Object.defineProperty(t,"__esModule",{value:!0})},n.t=function(t,e){if(1&e&&(t=n(t)),8&e)return t;if(4&e&&"object"==typeof t&&t&&t.__esModule)return t;var i=Object.create(null);if(n.r(i),Object.defineProperty(i,"default",{enumerable:!0,value:t}),2&e&&"string"!=typeof t)for(var r in t)n.d(i,r,function(e){return t[e]}.bind(null,r));return i},n.n=function(t){var e=t&&t.__esModule?function(){return t.default}:function(){return t};return n.d(e,"a",e),e},n.o=function(t,e){return Object.prototype.hasOwnProperty.call(t,e)},n.p="",n(n.s=3)}([function(t,e,n){"use strict";n.r(e);var i=function(){var t=arguments.length>0&&void 0!==arguments[0]?arguments[0]:1,e=arguments.length>1&&void 0!==arguments[1]?arguments[1]:t+1,n=arguments.length>2&&void 0!==arguments[2]&&arguments[2],i=parseFloat(t),r=parseFloat(e),o=Math.random()*(r-i)+i;return n?Math.round(o):o};function r(t,e){for(var n=0;n<e.length;n++){var i=e[n];i.enumerable=i.enumerable||!1,i.configurable=!0,"value"in i&&(i.writable=!0),Object.defineProperty(t,i.key,i)}}var o=function(){function t(){var e=arguments.length>0&&void 0!==arguments[0]?arguments[0]:{},n=e.color,i=void 0===n?"blue":n,r=e.size,o=void 0===r?10:r,a=e.dropRate,c=void 0===a?10:a;!function(t,e){if(!(t instanceof e))throw new TypeError("Cannot call a class as a function")}(this,t),this.color=i,this.size=o,this.dropRate=c}var e,n,o;return e=t,(n=[{key:"setup",value:function(t){var e=t.canvas,n=t.wind,r=t.windPosCoef,o=t.windSpeedMax,a=t.count;return this.canvas=e,this.wind=n,this.windPosCoef=r,this.windSpeedMax=o,this.x=i(-35,this.canvas.width+35),this.y=i(-30,-35),this.d=i(150)+10,this.particleSize=i(this.size,2*this.size),this.tilt=i(10),this.tiltAngleIncremental=(i(0,.08)+.04)*(i()<.5?-1:1),this.tiltAngle=0,this.angle=i(2*Math.PI),this.count=a+1,this.remove=!1,this}},{key:"update",value:function(){this.tiltAngle+=this.tiltAngleIncremental*(.2*Math.cos(this.wind+(this.d+this.x+this.y)*this.windPosCoef)+1),this.y+=(Math.cos(this.angle+this.d)+parseInt(this.dropRate,10))/2,this.x+=Math.sin(this.angle),this.x+=Math.cos(this.wind+(this.d+this.x+this.y)*this.windPosCoef)*this.windSpeedMax,this.y+=Math.sin(this.wind+(this.d+this.x+this.y)*this.windPosCoef)*this.windSpeedMax,this.tilt=15*Math.sin(this.tiltAngle-this.count/3)}},{key:"pastBottom",value:function(){return this.y>this.canvas.height}},{key:"draw",value:function(){this.canvas.ctx.fillStyle=this.color,this.canvas.ctx.beginPath(),this.canvas.ctx.setTransform(Math.cos(this.tiltAngle),Math.sin(this.tiltAngle),0,1,this.x,this.y)}},{key:"kill",value:function(){this.remove=!0}}])&&r(e.prototype,n),o&&r(e,o),t}();function a(t){return(a="function"==typeof Symbol&&"symbol"==typeof Symbol.iterator?function(t){return typeof t}:function(t){return t&&"function"==typeof Symbol&&t.constructor===Symbol&&t!==Symbol.prototype?"symbol":typeof t})(t)}function c(t,e){for(var n=0;n<e.length;n++){var i=e[n];i.enumerable=i.enumerable||!1,i.configurable=!0,"value"in i&&(i.writable=!0),Object.defineProperty(t,i.key,i)}}function s(t,e){return!e||"object"!==a(e)&&"function"!=typeof e?function(t){if(void 0===t)throw new ReferenceError("this hasn't been initialised - super() hasn't been called");return t}(t):e}function l(t,e,n){return(l="undefined"!=typeof Reflect&&Reflect.get?Reflect.get:function(t,e,n){var i=function(t,e){for(;!Object.prototype.hasOwnProperty.call(t,e)&&null!==(t=u(t)););return t}(t,e);if(i){var r=Object.getOwnPropertyDescriptor(i,e);return r.get?r.get.call(n):r.value}})(t,e,n||t)}function u(t){return(u=Object.setPrototypeOf?Object.getPrototypeOf:function(t){return t.__proto__||Object.getPrototypeOf(t)})(t)}function f(t,e){return(f=Object.setPrototypeOf||function(t,e){return t.__proto__=e,t})(t,e)}var h=function(t){function e(){return function(t,e){if(!(t instanceof e))throw new TypeError("Cannot call a class as a function")}(this,e),s(this,u(e).apply(this,arguments))}var n,i,r;return function(t,e){if("function"!=typeof e&&null!==e)throw new TypeError("Super expression must either be null or a function");t.prototype=Object.create(e&&e.prototype,{constructor:{value:t,writable:!0,configurable:!0}}),e&&f(t,e)}(e,o),n=e,(i=[{key:"draw",value:function(){l(u(e.prototype),"draw",this).call(this),this.canvas.ctx.arc(0,0,this.particleSize/2,0,2*Math.PI,!1),this.canvas.ctx.fill()}}])&&c(n.prototype,i),r&&c(n,r),e}();function p(t){return(p="function"==typeof Symbol&&"symbol"==typeof Symbol.iterator?function(t){return typeof t}:function(t){return t&&"function"==typeof Symbol&&t.constructor===Symbol&&t!==Symbol.prototype?"symbol":typeof t})(t)}function y(t,e){for(var n=0;n<e.length;n++){var i=e[n];i.enumerable=i.enumerable||!1,i.configurable=!0,"value"in i&&(i.writable=!0),Object.defineProperty(t,i.key,i)}}function d(t,e){return!e||"object"!==p(e)&&"function"!=typeof e?function(t){if(void 0===t)throw new ReferenceError("this hasn't been initialised - super() hasn't been called");return t}(t):e}function v(t,e,n){return(v="undefined"!=typeof Reflect&&Reflect.get?Reflect.get:function(t,e,n){var i=function(t,e){for(;!Object.prototype.hasOwnProperty.call(t,e)&&null!==(t=b(t)););return t}(t,e);if(i){var r=Object.getOwnPropertyDescriptor(i,e);return r.get?r.get.call(n):r.value}})(t,e,n||t)}function b(t){return(b=Object.setPrototypeOf?Object.getPrototypeOf:function(t){return t.__proto__||Object.getPrototypeOf(t)})(t)}function m(t,e){return(m=Object.setPrototypeOf||function(t,e){return t.__proto__=e,t})(t,e)}var w=function(t){function e(){return function(t,e){if(!(t instanceof e))throw new TypeError("Cannot call a class as a function")}(this,e),d(this,b(e).apply(this,arguments))}var n,i,r;return function(t,e){if("function"!=typeof e&&null!==e)throw new TypeError("Super expression must either be null or a function");t.prototype=Object.create(e&&e.prototype,{constructor:{value:t,writable:!0,configurable:!0}}),e&&m(t,e)}(e,o),n=e,(i=[{key:"draw",value:function(){v(b(e.prototype),"draw",this).call(this),this.canvas.ctx.fillRect(0,0,this.particleSize,this.particleSize/2)}}])&&y(n.prototype,i),r&&y(n,r),e}();function g(t){return(g="function"==typeof Symbol&&"symbol"==typeof Symbol.iterator?function(t){return typeof t}:function(t){return t&&"function"==typeof Symbol&&t.constructor===Symbol&&t!==Symbol.prototype?"symbol":typeof t})(t)}function O(t,e){for(var n=0;n<e.length;n++){var i=e[n];i.enumerable=i.enumerable||!1,i.configurable=!0,"value"in i&&(i.writable=!0),Object.defineProperty(t,i.key,i)}}function P(t,e){return!e||"object"!==g(e)&&"function"!=typeof e?function(t){if(void 0===t)throw new ReferenceError("this hasn't been initialised - super() hasn't been called");return t}(t):e}function S(t,e,n){return(S="undefined"!=typeof Reflect&&Reflect.get?Reflect.get:function(t,e,n){var i=function(t,e){for(;!Object.prototype.hasOwnProperty.call(t,e)&&null!==(t=j(t)););return t}(t,e);if(i){var r=Object.getOwnPropertyDescriptor(i,e);return r.get?r.get.call(n):r.value}})(t,e,n||t)}function j(t){return(j=Object.setPrototypeOf?Object.getPrototypeOf:function(t){return t.__proto__||Object.getPrototypeOf(t)})(t)}function k(t,e){return(k=Object.setPrototypeOf||function(t,e){return t.__proto__=e,t})(t,e)}var x=function(t){function e(){return function(t,e){if(!(t instanceof e))throw new TypeError("Cannot call a class as a function")}(this,e),P(this,j(e).apply(this,arguments))}var n,i,r;return function(t,e){if("function"!=typeof e&&null!==e)throw new TypeError("Super expression must either be null or a function");t.prototype=Object.create(e&&e.prototype,{constructor:{value:t,writable:!0,configurable:!0}}),e&&k(t,e)}(e,o),n=e,(i=[{key:"draw",value:function(){var t=this;S(j(e.prototype),"draw",this).call(this);var n=function(e,n,i,r,o,a){t.canvas.ctx.bezierCurveTo(e*(t.particleSize/200),n*(t.particleSize/200),i*(t.particleSize/200),r*(t.particleSize/200),o*(t.particleSize/200),a*(t.particleSize/200))};this.canvas.ctx.moveTo(37.5/this.particleSize,20/this.particleSize),n(75,37,70,25,50,25),n(20,25,20,62.5,20,62.5),n(20,80,40,102,75,120),n(110,102,130,80,130,62.5),n(130,62.5,130,25,100,25),n(85,25,75,37,75,40),this.canvas.ctx.fill()}}])&&O(n.prototype,i),r&&O(n,r),e}();function M(t){return(M="function"==typeof Symbol&&"symbol"==typeof Symbol.iterator?function(t){return typeof t}:function(t){return t&&"function"==typeof Symbol&&t.constructor===Symbol&&t!==Symbol.prototype?"symbol":typeof t})(t)}function _(t,e){for(var n=0;n<e.length;n++){var i=e[n];i.enumerable=i.enumerable||!1,i.configurable=!0,"value"in i&&(i.writable=!0),Object.defineProperty(t,i.key,i)}}function E(t,e){return!e||"object"!==M(e)&&"function"!=typeof e?function(t){if(void 0===t)throw new ReferenceError("this hasn't been initialised - super() hasn't been called");return t}(t):e}function I(t,e,n){return(I="undefined"!=typeof Reflect&&Reflect.get?Reflect.get:function(t,e,n){var i=function(t,e){for(;!Object.prototype.hasOwnProperty.call(t,e)&&null!==(t=C(t)););return t}(t,e);if(i){var r=Object.getOwnPropertyDescriptor(i,e);return r.get?r.get.call(n):r.value}})(t,e,n||t)}function C(t){return(C=Object.setPrototypeOf?Object.getPrototypeOf:function(t){return t.__proto__||Object.getPrototypeOf(t)})(t)}function D(t,e){return(D=Object.setPrototypeOf||function(t,e){return t.__proto__=e,t})(t,e)}var R=function(t){function e(t,n){var i;return function(t,e){if(!(t instanceof e))throw new TypeError("Cannot call a class as a function")}(this,e),(i=E(this,C(e).call(this,t))).imgEl=n,i}var n,i,r;return function(t,e){if("function"!=typeof e&&null!==e)throw new TypeError("Super expression must either be null or a function");t.prototype=Object.create(e&&e.prototype,{constructor:{value:t,writable:!0,configurable:!0}}),e&&D(t,e)}(e,o),n=e,(i=[{key:"draw",value:function(){I(C(e.prototype),"draw",this).call(this),this.canvas.ctx.drawImage(this.imgEl,0,0,this.particleSize,this.particleSize)}}])&&_(n.prototype,i),r&&_(n,r),e}();function T(t,e){for(var n=0;n<e.length;n++){var i=e[n];i.enumerable=i.enumerable||!1,i.configurable=!0,"value"in i&&(i.writable=!0),Object.defineProperty(t,i.key,i)}}var z=function(){function t(){!function(t,e){if(!(t instanceof e))throw new TypeError("Cannot call a class as a function")}(this,t),this.cachedImage=null}var e,n,r;return e=t,(n=[{key:"createImageElement",value:function(t){var e=document.createElement("img");return e.setAttribute("src",t),e}},{key:"getImageElement",value:function(t){return this.cachedImage&&t===this.cachedImage.getAttribute("src")||(this.cachedImage=this.createImageElement(t)),this.cachedImage}},{key:"getRandomParticle",value:function(){var t=(arguments.length>0&&void 0!==arguments[0]?arguments[0]:{}).particles||[];return t.length<1?{}:t[Math.floor(Math.random()*t.length)]}},{key:"getDefaults",value:function(){var t=arguments.length>0&&void 0!==arguments[0]?arguments[0]:{};return{type:t.defaultType||"circle",size:t.defaultSize||10,dropRate:t.defaultDropRate||10,colors:t.defaultColors||["DodgerBlue","OliveDrab","Gold","pink","SlateBlue","lightblue","Violet","PaleGreen","SteelBlue","SandyBrown","Chocolate","Crimson"],url:null}}},{key:"create",value:function(t){var e=this.getDefaults(t),n=this.getRandomParticle(t),r=Object.assign(e,n),o=i(0,r.colors.length,!0);if(r.color=r.colors[o],"circle"===r.type)return new h(r);if("rect"===r.type)return new w(r);if("heart"===r.type)return new x(r);if("image"===r.type)return new R(r,this.getImageElement(r.url));throw Error('Unknown particle type: "'.concat(r.type,'"'))}}])&&T(e.prototype,n),r&&T(e,r),t}();function F(t,e){for(var n=0;n<e.length;n++){var i=e[n];i.enumerable=i.enumerable||!1,i.configurable=!0,"value"in i&&(i.writable=!0),Object.defineProperty(t,i.key,i)}}var A=function(){function t(e){!function(t,e){if(!(t instanceof e))throw new TypeError("Cannot call a class as a function")}(this,t),this.items=[],this.pool=[],this.particleOptions=e,this.particleFactory=new z}var e,n,i;return e=t,(n=[{key:"update",value:function(){var t,e=this,n=[],i=[];this.items.forEach(function(t){t.update(),t.pastBottom()?t.remove||(t.setup(e.particleOptions),n.push(t)):i.push(t)}),(t=this.pool).push.apply(t,n),this.items=i}},{key:"draw",value:function(){this.items.forEach(function(t){return t.draw()})}},{key:"add",value:function(){this.pool.length>0?this.items.push(this.pool.pop().setup(this.particleOptions)):this.items.push(this.particleFactory.create(this.particleOptions).setup(this.particleOptions))}},{key:"refresh",value:function(){this.items.forEach(function(t){t.kill()}),this.pool=[]}}])&&F(e.prototype,n),i&&F(e,i),t}();function B(t,e){for(var n=0;n<e.length;n++){var i=e[n];i.enumerable=i.enumerable||!1,i.configurable=!0,"value"in i&&(i.writable=!0),Object.defineProperty(t,i.key,i)}}var H=function(){function t(e){!function(t,e){if(!(t instanceof e))throw new TypeError("Cannot call a class as a function")}(this,t);var n=document.getElementById(e);if(this.isDefault=null==e,!this.isDefault&&!n)throw new Error('No element found with ID "'.concat(e,'"'));if(this.canvas=n||t.createDefaultCanvas("confetti-canvas"),!(this.canvas instanceof HTMLCanvasElement))throw new Error('Element with ID "'.concat("confetti-canvas",'" is not a valid HTMLCanvasElement'));this.ctx=this.canvas.getContext("2d")}var e,n,i;return e=t,i=[{key:"createDefaultCanvas",value:function(t){var e=document.createElement("canvas");return e.style.display="block",e.style.position="fixed",e.style.pointerEvents="none",e.style.top=0,e.style.width="100vw",e.style.height="100vh",e.id=t,document.querySelector("body").appendChild(e),e}}],(n=[{key:"clear",value:function(){this.ctx.setTransform(1,0,0,1,0,0),this.ctx.clearRect(0,0,this.width,this.height)}},{key:"updateDimensions",value:function(){this.isDefault&&(this.width===window.innerWidth&&this.height===window.innerHeight||(this.canvas.width=window.innerWidth,this.canvas.height=window.innerHeight))}},{key:"width",get:function(){return this.canvas.width}},{key:"height",get:function(){return this.canvas.height}}])&&B(e.prototype,n),i&&B(e,i),t}();function L(t,e){for(var n=0;n<e.length;n++){var i=e[n];i.enumerable=i.enumerable||!1,i.configurable=!0,"value"in i&&(i.writable=!0),Object.defineProperty(t,i.key,i)}}var W=function(){function t(){!function(t,e){if(!(t instanceof e))throw new TypeError("Cannot call a class as a function")}(this,t),this.setDefaults()}var e,n,i;return e=t,(n=[{key:"setDefaults",value:function(){this.killed=!1,this.framesSinceDrop=0,this.canvas=null,this.canvasId=null,this.W=0,this.H=0,this.particleManager=null,this.particlesPerFrame=0,this.wind=0,this.windSpeed=1,this.windSpeedMax=1,this.windChange=.01,this.windPosCoef=.002,this.animationId=null}},{key:"getParticleOptions",value:function(t){var e={canvas:this.canvas,W:this.W,H:this.H,wind:this.wind,windPosCoef:this.windPosCoef,windSpeedMax:this.windSpeedMax,count:0};return Object.assign(e,t),e}},{key:"createParticles",value:function(){var t=arguments.length>0&&void 0!==arguments[0]?arguments[0]:{},e=this.getParticleOptions(t);this.particleManager=new A(e)}},{key:"start",value:function(t){this.canvas&&t.canvasId===this.canvasId||(this.canvas=new H(t.canvasId),this.canvasId=t.canvasId),this.animationId&&cancelAnimationFrame(this.animationId),this.createParticles(t),this.canvas.updateDimensions(),this.setParticlesPerFrame(t),this.animationId=requestAnimationFrame(this.mainLoop.bind(this))}},{key:"setParticlesPerFrame",value:function(t){this.particlesPerFrame=t.particlesPerFrame||2}},{key:"stop",value:function(){this.killed=!0,this.particlesPerFrame=0}},{key:"update",value:function(t){this.canvas&&t.canvasId!==this.canvasId&&(this.stop(),this.canvas.clear(),this.start(t)),this.setParticlesPerFrame(t),this.particleManager&&(this.particleManager.particleOptions=this.getParticleOptions(t),this.particleManager.refresh())}},{key:"remove",value:function(){this.stop(),this.animationId&&cancelAnimationFrame(this.animationId),this.canvas.clear(),this.setDefaults()}},{key:"mainLoop",value:function(t){this.canvas.updateDimensions(),this.canvas.clear(),this.windSpeed=Math.sin(t/8e3)*this.windSpeedMax,this.wind=this.particleManager.particleOptions.wind+=this.windChange;for(var e=this.framesSinceDrop*this.particlesPerFrame;e>=1;)this.particleManager.add(),e-=1,this.framesSinceDrop=0;this.particleManager.update(),this.particleManager.draw(),this.killed&&!this.particleManager.items.length||(this.animationId=requestAnimationFrame(this.mainLoop.bind(this))),this.framesSinceDrop+=1}}])&&L(e.prototype,n),i&&L(e,i),t}();n.d(e,"Confetti",function(){return W});e.default={install:function(t,e){this.installed||(this.installed=!0,t.prototype.$confetti=new W(e))}}},,,function(t,e,n){t.exports=n(0)}])});
+!function(t,e){"object"==typeof exports&&"object"==typeof module?module.exports=e():"function"==typeof define&&define.amd?define([],e):"object"==typeof exports?exports["vue-confetti"]=e():t["vue-confetti"]=e()}(window,(function(){return function(t){var e={};function n(i){if(e[i])return e[i].exports;var r=e[i]={i:i,l:!1,exports:{}};return t[i].call(r.exports,r,r.exports,n),r.l=!0,r.exports}return n.m=t,n.c=e,n.d=function(t,e,i){n.o(t,e)||Object.defineProperty(t,e,{enumerable:!0,get:i})},n.r=function(t){"undefined"!=typeof Symbol&&Symbol.toStringTag&&Object.defineProperty(t,Symbol.toStringTag,{value:"Module"}),Object.defineProperty(t,"__esModule",{value:!0})},n.t=function(t,e){if(1&e&&(t=n(t)),8&e)return t;if(4&e&&"object"==typeof t&&t&&t.__esModule)return t;var i=Object.create(null);if(n.r(i),Object.defineProperty(i,"default",{enumerable:!0,value:t}),2&e&&"string"!=typeof t)for(var r in t)n.d(i,r,function(e){return t[e]}.bind(null,r));return i},n.n=function(t){var e=t&&t.__esModule?function(){return t.default}:function(){return t};return n.d(e,"a",e),e},n.o=function(t,e){return Object.prototype.hasOwnProperty.call(t,e)},n.p="",n(n.s=3)}([function(t,e,n){"use strict";n.r(e);var i=function(){var t=arguments.length>0&&void 0!==arguments[0]?arguments[0]:1,e=arguments.length>1&&void 0!==arguments[1]?arguments[1]:t+1,n=arguments.length>2&&void 0!==arguments[2]&&arguments[2],i=parseFloat(t),r=parseFloat(e),o=Math.random()*(r-i)+i;return n?Math.round(o):o};function r(t,e){for(var n=0;n<e.length;n++){var i=e[n];i.enumerable=i.enumerable||!1,i.configurable=!0,"value"in i&&(i.writable=!0),Object.defineProperty(t,i.key,i)}}var o=function(){function t(){var e=arguments.length>0&&void 0!==arguments[0]?arguments[0]:{},n=e.color,i=void 0===n?"blue":n,r=e.size,o=void 0===r?10:r,a=e.dropRate,c=void 0===a?10:a;!function(t,e){if(!(t instanceof e))throw new TypeError("Cannot call a class as a function")}(this,t),this.color=i,this.size=o,this.dropRate=c}var e,n,o;return e=t,(n=[{key:"setup",value:function(t){var e=t.canvas,n=t.wind,r=t.windPosCoef,o=t.windSpeedMax,a=t.count;return this.canvas=e,this.wind=n,this.windPosCoef=r,this.windSpeedMax=o,this.x=i(-35,this.canvas.width+35),this.y=i(-30,-35),this.d=i(150)+10,this.particleSize=i(this.size,2*this.size),this.tilt=i(10),this.tiltAngleIncremental=(i(0,.08)+.04)*(i()<.5?-1:1),this.tiltAngle=0,this.angle=i(2*Math.PI),this.count=a+1,this.remove=!1,this}},{key:"update",value:function(){this.tiltAngle+=this.tiltAngleIncremental*(.2*Math.cos(this.wind+(this.d+this.x+this.y)*this.windPosCoef)+1),this.y+=(Math.cos(this.angle+this.d)+parseInt(this.dropRate,10))/2,this.x+=Math.sin(this.angle),this.x+=Math.cos(this.wind+(this.d+this.x+this.y)*this.windPosCoef)*this.windSpeedMax,this.y+=Math.sin(this.wind+(this.d+this.x+this.y)*this.windPosCoef)*this.windSpeedMax,this.tilt=15*Math.sin(this.tiltAngle-this.count/3)}},{key:"pastBottom",value:function(){return this.y>this.canvas.height}},{key:"draw",value:function(){this.canvas.ctx.fillStyle=this.color,this.canvas.ctx.beginPath(),this.canvas.ctx.setTransform(Math.cos(this.tiltAngle),Math.sin(this.tiltAngle),0,1,this.x,this.y)}},{key:"kill",value:function(){this.remove=!0}}])&&r(e.prototype,n),o&&r(e,o),t}();function a(t){return(a="function"==typeof Symbol&&"symbol"==typeof Symbol.iterator?function(t){return typeof t}:function(t){return t&&"function"==typeof Symbol&&t.constructor===Symbol&&t!==Symbol.prototype?"symbol":typeof t})(t)}function c(t,e){for(var n=0;n<e.length;n++){var i=e[n];i.enumerable=i.enumerable||!1,i.configurable=!0,"value"in i&&(i.writable=!0),Object.defineProperty(t,i.key,i)}}function s(t,e){return!e||"object"!==a(e)&&"function"!=typeof e?function(t){if(void 0===t)throw new ReferenceError("this hasn't been initialised - super() hasn't been called");return t}(t):e}function l(t,e,n){return(l="undefined"!=typeof Reflect&&Reflect.get?Reflect.get:function(t,e,n){var i=function(t,e){for(;!Object.prototype.hasOwnProperty.call(t,e)&&null!==(t=u(t)););return t}(t,e);if(i){var r=Object.getOwnPropertyDescriptor(i,e);return r.get?r.get.call(n):r.value}})(t,e,n||t)}function u(t){return(u=Object.setPrototypeOf?Object.getPrototypeOf:function(t){return t.__proto__||Object.getPrototypeOf(t)})(t)}function f(t,e){return(f=Object.setPrototypeOf||function(t,e){return t.__proto__=e,t})(t,e)}var h=function(t){function e(){return function(t,e){if(!(t instanceof e))throw new TypeError("Cannot call a class as a function")}(this,e),s(this,u(e).apply(this,arguments))}var n,i,r;return function(t,e){if("function"!=typeof e&&null!==e)throw new TypeError("Super expression must either be null or a function");t.prototype=Object.create(e&&e.prototype,{constructor:{value:t,writable:!0,configurable:!0}}),e&&f(t,e)}(e,t),n=e,(i=[{key:"draw",value:function(){l(u(e.prototype),"draw",this).call(this),this.canvas.ctx.arc(0,0,this.particleSize/2,0,2*Math.PI,!1),this.canvas.ctx.fill()}}])&&c(n.prototype,i),r&&c(n,r),e}(o);function p(t){return(p="function"==typeof Symbol&&"symbol"==typeof Symbol.iterator?function(t){return typeof t}:function(t){return t&&"function"==typeof Symbol&&t.constructor===Symbol&&t!==Symbol.prototype?"symbol":typeof t})(t)}function y(t,e){for(var n=0;n<e.length;n++){var i=e[n];i.enumerable=i.enumerable||!1,i.configurable=!0,"value"in i&&(i.writable=!0),Object.defineProperty(t,i.key,i)}}function d(t,e){return!e||"object"!==p(e)&&"function"!=typeof e?function(t){if(void 0===t)throw new ReferenceError("this hasn't been initialised - super() hasn't been called");return t}(t):e}function v(t,e,n){return(v="undefined"!=typeof Reflect&&Reflect.get?Reflect.get:function(t,e,n){var i=function(t,e){for(;!Object.prototype.hasOwnProperty.call(t,e)&&null!==(t=b(t)););return t}(t,e);if(i){var r=Object.getOwnPropertyDescriptor(i,e);return r.get?r.get.call(n):r.value}})(t,e,n||t)}function b(t){return(b=Object.setPrototypeOf?Object.getPrototypeOf:function(t){return t.__proto__||Object.getPrototypeOf(t)})(t)}function m(t,e){return(m=Object.setPrototypeOf||function(t,e){return t.__proto__=e,t})(t,e)}var w=function(t){function e(){return function(t,e){if(!(t instanceof e))throw new TypeError("Cannot call a class as a function")}(this,e),d(this,b(e).apply(this,arguments))}var n,i,r;return function(t,e){if("function"!=typeof e&&null!==e)throw new TypeError("Super expression must either be null or a function");t.prototype=Object.create(e&&e.prototype,{constructor:{value:t,writable:!0,configurable:!0}}),e&&m(t,e)}(e,t),n=e,(i=[{key:"draw",value:function(){v(b(e.prototype),"draw",this).call(this),this.canvas.ctx.fillRect(0,0,this.particleSize,this.particleSize/2)}}])&&y(n.prototype,i),r&&y(n,r),e}(o);function g(t){return(g="function"==typeof Symbol&&"symbol"==typeof Symbol.iterator?function(t){return typeof t}:function(t){return t&&"function"==typeof Symbol&&t.constructor===Symbol&&t!==Symbol.prototype?"symbol":typeof t})(t)}function O(t,e){for(var n=0;n<e.length;n++){var i=e[n];i.enumerable=i.enumerable||!1,i.configurable=!0,"value"in i&&(i.writable=!0),Object.defineProperty(t,i.key,i)}}function P(t,e){return!e||"object"!==g(e)&&"function"!=typeof e?function(t){if(void 0===t)throw new ReferenceError("this hasn't been initialised - super() hasn't been called");return t}(t):e}function S(t,e,n){return(S="undefined"!=typeof Reflect&&Reflect.get?Reflect.get:function(t,e,n){var i=function(t,e){for(;!Object.prototype.hasOwnProperty.call(t,e)&&null!==(t=j(t)););return t}(t,e);if(i){var r=Object.getOwnPropertyDescriptor(i,e);return r.get?r.get.call(n):r.value}})(t,e,n||t)}function j(t){return(j=Object.setPrototypeOf?Object.getPrototypeOf:function(t){return t.__proto__||Object.getPrototypeOf(t)})(t)}function k(t,e){return(k=Object.setPrototypeOf||function(t,e){return t.__proto__=e,t})(t,e)}var x=function(t){function e(){return function(t,e){if(!(t instanceof e))throw new TypeError("Cannot call a class as a function")}(this,e),P(this,j(e).apply(this,arguments))}var n,i,r;return function(t,e){if("function"!=typeof e&&null!==e)throw new TypeError("Super expression must either be null or a function");t.prototype=Object.create(e&&e.prototype,{constructor:{value:t,writable:!0,configurable:!0}}),e&&k(t,e)}(e,t),n=e,(i=[{key:"draw",value:function(){var t=this;S(j(e.prototype),"draw",this).call(this);var n=function(e,n,i,r,o,a){t.canvas.ctx.bezierCurveTo(e*(t.particleSize/200),n*(t.particleSize/200),i*(t.particleSize/200),r*(t.particleSize/200),o*(t.particleSize/200),a*(t.particleSize/200))};this.canvas.ctx.moveTo(37.5/this.particleSize,20/this.particleSize),n(75,37,70,25,50,25),n(20,25,20,62.5,20,62.5),n(20,80,40,102,75,120),n(110,102,130,80,130,62.5),n(130,62.5,130,25,100,25),n(85,25,75,37,75,40),this.canvas.ctx.fill()}}])&&O(n.prototype,i),r&&O(n,r),e}(o);function M(t){return(M="function"==typeof Symbol&&"symbol"==typeof Symbol.iterator?function(t){return typeof t}:function(t){return t&&"function"==typeof Symbol&&t.constructor===Symbol&&t!==Symbol.prototype?"symbol":typeof t})(t)}function _(t,e){for(var n=0;n<e.length;n++){var i=e[n];i.enumerable=i.enumerable||!1,i.configurable=!0,"value"in i&&(i.writable=!0),Object.defineProperty(t,i.key,i)}}function E(t,e){return!e||"object"!==M(e)&&"function"!=typeof e?function(t){if(void 0===t)throw new ReferenceError("this hasn't been initialised - super() hasn't been called");return t}(t):e}function I(t,e,n){return(I="undefined"!=typeof Reflect&&Reflect.get?Reflect.get:function(t,e,n){var i=function(t,e){for(;!Object.prototype.hasOwnProperty.call(t,e)&&null!==(t=C(t)););return t}(t,e);if(i){var r=Object.getOwnPropertyDescriptor(i,e);return r.get?r.get.call(n):r.value}})(t,e,n||t)}function C(t){return(C=Object.setPrototypeOf?Object.getPrototypeOf:function(t){return t.__proto__||Object.getPrototypeOf(t)})(t)}function D(t,e){return(D=Object.setPrototypeOf||function(t,e){return t.__proto__=e,t})(t,e)}var R=function(t){function e(t,n){var i;return function(t,e){if(!(t instanceof e))throw new TypeError("Cannot call a class as a function")}(this,e),(i=E(this,C(e).call(this,t))).imgEl=n,i}var n,i,r;return function(t,e){if("function"!=typeof e&&null!==e)throw new TypeError("Super expression must either be null or a function");t.prototype=Object.create(e&&e.prototype,{constructor:{value:t,writable:!0,configurable:!0}}),e&&D(t,e)}(e,t),n=e,(i=[{key:"draw",value:function(){I(C(e.prototype),"draw",this).call(this),this.canvas.ctx.drawImage(this.imgEl,0,0,this.particleSize,this.particleSize)}}])&&_(n.prototype,i),r&&_(n,r),e}(o);function T(t,e){for(var n=0;n<e.length;n++){var i=e[n];i.enumerable=i.enumerable||!1,i.configurable=!0,"value"in i&&(i.writable=!0),Object.defineProperty(t,i.key,i)}}var z=function(){function t(){!function(t,e){if(!(t instanceof e))throw new TypeError("Cannot call a class as a function")}(this,t),this.cachedImage=null}var e,n,r;return e=t,(n=[{key:"createImageElement",value:function(t){var e=document.createElement("img");return e.setAttribute("src",t),e}},{key:"getImageElement",value:function(t){return this.cachedImage&&t===this.cachedImage.getAttribute("src")||(this.cachedImage=this.createImageElement(t)),this.cachedImage}},{key:"getRandomParticle",value:function(){var t=arguments.length>0&&void 0!==arguments[0]?arguments[0]:{},e=t.particles||[];return e.length<1?{}:e[Math.floor(Math.random()*e.length)]}},{key:"getDefaults",value:function(){var t=arguments.length>0&&void 0!==arguments[0]?arguments[0]:{};return{type:t.defaultType||"circle",size:t.defaultSize||10,dropRate:t.defaultDropRate||10,colors:t.defaultColors||["DodgerBlue","OliveDrab","Gold","pink","SlateBlue","lightblue","Violet","PaleGreen","SteelBlue","SandyBrown","Chocolate","Crimson"],url:null}}},{key:"create",value:function(t){var e=this.getDefaults(t),n=this.getRandomParticle(t),r=Object.assign(e,n),o=i(0,r.colors.length-1,!0);if(r.color=r.colors[o],"circle"===r.type)return new h(r);if("rect"===r.type)return new w(r);if("heart"===r.type)return new x(r);if("image"===r.type)return new R(r,this.getImageElement(r.url));throw Error('Unknown particle type: "'.concat(r.type,'"'))}}])&&T(e.prototype,n),r&&T(e,r),t}();function F(t,e){for(var n=0;n<e.length;n++){var i=e[n];i.enumerable=i.enumerable||!1,i.configurable=!0,"value"in i&&(i.writable=!0),Object.defineProperty(t,i.key,i)}}var A=function(){function t(e){!function(t,e){if(!(t instanceof e))throw new TypeError("Cannot call a class as a function")}(this,t),this.items=[],this.pool=[],this.particleOptions=e,this.particleFactory=new z}var e,n,i;return e=t,(n=[{key:"update",value:function(){var t,e=this,n=[],i=[];this.items.forEach((function(t){t.update(),t.pastBottom()?t.remove||(t.setup(e.particleOptions),n.push(t)):i.push(t)})),(t=this.pool).push.apply(t,n),this.items=i}},{key:"draw",value:function(){this.items.forEach((function(t){return t.draw()}))}},{key:"add",value:function(){this.pool.length>0?this.items.push(this.pool.pop().setup(this.particleOptions)):this.items.push(this.particleFactory.create(this.particleOptions).setup(this.particleOptions))}},{key:"refresh",value:function(){this.items.forEach((function(t){t.kill()})),this.pool=[]}}])&&F(e.prototype,n),i&&F(e,i),t}();function B(t,e){for(var n=0;n<e.length;n++){var i=e[n];i.enumerable=i.enumerable||!1,i.configurable=!0,"value"in i&&(i.writable=!0),Object.defineProperty(t,i.key,i)}}var H=function(){function t(e){!function(t,e){if(!(t instanceof e))throw new TypeError("Cannot call a class as a function")}(this,t);var n=document.getElementById(e);if(this.isDefault=null==e,!this.isDefault&&!n)throw new Error('No element found with ID "'.concat(e,'"'));if(this.canvas=n||t.createDefaultCanvas("confetti-canvas"),!(this.canvas instanceof HTMLCanvasElement))throw new Error('Element with ID "'.concat("confetti-canvas",'" is not a valid HTMLCanvasElement'));this.ctx=this.canvas.getContext("2d")}var e,n,i;return e=t,i=[{key:"createDefaultCanvas",value:function(t){var e=document.createElement("canvas");return e.style.display="block",e.style.position="fixed",e.style.pointerEvents="none",e.style.top=0,e.style.width="100vw",e.style.height="100vh",e.id=t,document.querySelector("body").appendChild(e),e}}],(n=[{key:"clear",value:function(){this.ctx.setTransform(1,0,0,1,0,0),this.ctx.clearRect(0,0,this.width,this.height)}},{key:"updateDimensions",value:function(){this.isDefault&&(this.width===window.innerWidth&&this.height===window.innerHeight||(this.canvas.width=window.innerWidth,this.canvas.height=window.innerHeight))}},{key:"width",get:function(){return this.canvas.width}},{key:"height",get:function(){return this.canvas.height}}])&&B(e.prototype,n),i&&B(e,i),t}();function L(t,e){for(var n=0;n<e.length;n++){var i=e[n];i.enumerable=i.enumerable||!1,i.configurable=!0,"value"in i&&(i.writable=!0),Object.defineProperty(t,i.key,i)}}var W=function(){function t(){!function(t,e){if(!(t instanceof e))throw new TypeError("Cannot call a class as a function")}(this,t),this.setDefaults()}var e,n,i;return e=t,(n=[{key:"setDefaults",value:function(){this.killed=!1,this.framesSinceDrop=0,this.canvas=null,this.canvasId=null,this.W=0,this.H=0,this.particleManager=null,this.particlesPerFrame=0,this.wind=0,this.windSpeed=1,this.windSpeedMax=1,this.windChange=.01,this.windPosCoef=.002,this.animationId=null}},{key:"getParticleOptions",value:function(t){var e={canvas:this.canvas,W:this.W,H:this.H,wind:this.wind,windPosCoef:this.windPosCoef,windSpeedMax:this.windSpeedMax,count:0};return Object.assign(e,t),e}},{key:"createParticles",value:function(){var t=arguments.length>0&&void 0!==arguments[0]?arguments[0]:{},e=this.getParticleOptions(t);this.particleManager=new A(e)}},{key:"start",value:function(){var t=arguments.length>0&&void 0!==arguments[0]?arguments[0]:{};this.canvas&&t.canvasId===this.canvasId||(this.canvas=new H(t.canvasId),this.canvasId=t.canvasId),this.animationId&&cancelAnimationFrame(this.animationId),this.createParticles(t),this.canvas.updateDimensions(),this.setParticlesPerFrame(t),this.animationId=requestAnimationFrame(this.mainLoop.bind(this))}},{key:"setParticlesPerFrame",value:function(t){this.particlesPerFrame=t.particlesPerFrame||2}},{key:"stop",value:function(){this.killed=!0,this.particlesPerFrame=0}},{key:"update",value:function(t){this.canvas&&t.canvasId!==this.canvasId&&(this.stop(),this.canvas.clear(),this.start(t)),this.setParticlesPerFrame(t),this.particleManager&&(this.particleManager.particleOptions=this.getParticleOptions(t),this.particleManager.refresh())}},{key:"remove",value:function(){this.stop(),this.animationId&&cancelAnimationFrame(this.animationId),this.canvas.clear(),this.setDefaults()}},{key:"mainLoop",value:function(t){this.canvas.updateDimensions(),this.canvas.clear(),this.windSpeed=Math.sin(t/8e3)*this.windSpeedMax,this.wind=this.particleManager.particleOptions.wind+=this.windChange;for(var e=this.framesSinceDrop*this.particlesPerFrame;e>=1;)this.particleManager.add(),e-=1,this.framesSinceDrop=0;this.particleManager.update(),this.particleManager.draw(),this.killed&&!this.particleManager.items.length||(this.animationId=requestAnimationFrame(this.mainLoop.bind(this))),this.framesSinceDrop+=1}}])&&L(e.prototype,n),i&&L(e,i),t}();n.d(e,"Confetti",(function(){return W}));e.default={install:function(t,e){this.installed||(this.installed=!0,t.prototype.$confetti=new W(e))}}},,,function(t,e,n){t.exports=n(0)}])}));
 },{}],"../node_modules/vue-scrollto/vue-scrollto.js":[function(require,module,exports) {
 var define;
 var global = arguments[3];
 /*!
-  * vue-scrollto v2.15.0
+  * vue-scrollto v2.17.1
   * (c) 2019 Randjelovic Igor
   * @license MIT
   */
@@ -37237,27 +36694,27 @@ var global = arguments[3];
 
   var easings = {
     ease: [0.25, 0.1, 0.25, 1.0],
-    linear: [0.00, 0.0, 1.00, 1.0],
-    "ease-in": [0.42, 0.0, 1.00, 1.0],
-    "ease-out": [0.00, 0.0, 0.58, 1.0],
-    "ease-in-out": [0.42, 0.0, 0.58, 1.0]
+    linear: [0.0, 0.0, 1.0, 1.0],
+    'ease-in': [0.42, 0.0, 1.0, 1.0],
+    'ease-out': [0.0, 0.0, 0.58, 1.0],
+    'ease-in-out': [0.42, 0.0, 0.58, 1.0]
   };
 
   // https://github.com/WICG/EventListenerOptions/blob/gh-pages/explainer.md#feature-detection
   var supportsPassive = false;
 
   try {
-    var opts = Object.defineProperty({}, "passive", {
+    var opts = Object.defineProperty({}, 'passive', {
       get: function get() {
         supportsPassive = true;
       }
     });
-    window.addEventListener("test", null, opts);
+    window.addEventListener('test', null, opts);
   } catch (e) {}
 
   var _ = {
     $: function $(selector) {
-      if (typeof selector !== "string") {
+      if (typeof selector !== 'string') {
         return selector;
       }
 
@@ -37302,11 +36759,11 @@ var global = arguments[3];
     }
   };
 
-  var abortEvents = ["mousedown", "wheel", "DOMMouseScroll", "mousewheel", "keyup", "touchmove"];
+  var abortEvents = ['mousedown', 'wheel', 'DOMMouseScroll', 'mousewheel', 'keyup', 'touchmove'];
   var defaults = {
-    container: "body",
+    container: 'body',
     duration: 500,
-    easing: "ease",
+    easing: 'ease',
     offset: 0,
     force: true,
     cancelable: true,
@@ -37376,7 +36833,7 @@ var global = arguments[3];
     function scrollTop(container) {
       var scrollTop = container.scrollTop;
 
-      if (container.tagName.toLowerCase() === "body") {
+      if (container.tagName.toLowerCase() === 'body') {
         // in firefox body.scrollTop always returns 0
         // thus if we are trying to get scrollTop on a body tag
         // we need to get it from the documentElement
@@ -37389,7 +36846,7 @@ var global = arguments[3];
     function scrollLeft(container) {
       var scrollLeft = container.scrollLeft;
 
-      if (container.tagName.toLowerCase() === "body") {
+      if (container.tagName.toLowerCase() === 'body') {
         // in firefox body.scrollLeft always returns 0
         // thus if we are trying to get scrollLeft on a body tag
         // we need to get it from the documentElement
@@ -37423,7 +36880,7 @@ var global = arguments[3];
       if (y) element.scrollTop = top;
       if (x) element.scrollLeft = left;
 
-      if (element.tagName.toLowerCase() === "body") {
+      if (element.tagName.toLowerCase() === 'body') {
         // in firefox body.scrollTop doesn't scroll the page
         // thus if we are trying to scrollTop on a body tag
         // we need to scroll on the documentElement
@@ -37435,24 +36892,24 @@ var global = arguments[3];
     function scrollTo(target, _duration) {
       var options = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : {};
 
-      if (_typeof(_duration) === "object") {
+      if (_typeof(_duration) === 'object') {
         options = _duration;
-      } else if (typeof _duration === "number") {
+      } else if (typeof _duration === 'number') {
         options.duration = _duration;
       }
 
       element = _.$(target);
 
       if (!element) {
-        return console.warn("[vue-scrollto warn]: Trying to scroll to an element that is not on the page: " + target);
+        return console.warn('[vue-scrollto warn]: Trying to scroll to an element that is not on the page: ' + target);
       }
 
       container = _.$(options.container || defaults.container);
       duration = options.duration || defaults.duration;
       easing = options.easing || defaults.easing;
       offset = options.offset || defaults.offset;
-      force = options.hasOwnProperty("force") ? options.force !== false : defaults.force;
-      cancelable = options.hasOwnProperty("cancelable") ? options.cancelable !== false : defaults.cancelable;
+      force = options.hasOwnProperty('force') ? options.force !== false : defaults.force;
+      cancelable = options.hasOwnProperty('cancelable') ? options.cancelable !== false : defaults.cancelable;
       onStart = options.onStart || defaults.onStart;
       onDone = options.onDone || defaults.onDone;
       onCancel = options.onCancel || defaults.onCancel;
@@ -37463,8 +36920,8 @@ var global = arguments[3];
 
       var cumulativeOffsetElement = _.cumulativeOffset(element);
 
-      if (typeof offset === "function") {
-        offset = offset();
+      if (typeof offset === 'function') {
+        offset = offset(element, container);
       }
 
       initialY = scrollTop(container);
@@ -37476,26 +36933,34 @@ var global = arguments[3];
       diffX = targetX - initialX;
 
       if (!force) {
+        // When the container is the default (body) we need to use the viewport
+        // height, not the entire body height
+        var containerHeight = container.tagName.toLowerCase() === 'body' ? document.documentElement.clientHeight || window.innerHeight : container.offsetHeight;
         var containerTop = initialY;
-        var containerBottom = containerTop + container.offsetHeight;
-        var elementTop = targetY;
+        var containerBottom = containerTop + containerHeight;
+        var elementTop = targetY - offset;
         var elementBottom = elementTop + element.offsetHeight;
 
         if (elementTop >= containerTop && elementBottom <= containerBottom) {
           // make sure to call the onDone callback even if there is no need to
           // scroll the container. Fixes #111 (ref #118)
-          onDone(element);
+          if (onDone) onDone(element);
           return;
         }
       }
 
-      if (typeof easing === "string") {
-        easing = easings[easing] || easings["ease"];
+      if (onStart) onStart(element);
+
+      if (!diffY && !diffX) {
+        if (onDone) onDone(element);
+        return;
+      }
+
+      if (typeof easing === 'string') {
+        easing = easings[easing] || easings['ease'];
       }
 
       easingFn = src.apply(src, easing);
-      if (!diffY && !diffX) return;
-      if (onStart) onStart(element);
 
       _.on(container, abortEvents, abortFn, {
         passive: true
@@ -37552,7 +37017,7 @@ var global = arguments[3];
     e.preventDefault();
     var ctx = getBinding(this).binding;
 
-    if (typeof ctx.value === "string") {
+    if (typeof ctx.value === 'string') {
       return _scroller(ctx.value);
     }
 
@@ -37563,12 +37028,12 @@ var global = arguments[3];
     bind: function bind(el, binding) {
       getBinding(el).binding = binding;
 
-      _.on(el, "click", handleClick);
+      _.on(el, 'click', handleClick);
     },
     unbind: function unbind(el) {
       deleteBinding(el);
 
-      _.off(el, "click", handleClick);
+      _.off(el, 'click', handleClick);
     },
     update: function update(el, binding) {
       getBinding(el).binding = binding;
@@ -37579,11 +37044,11 @@ var global = arguments[3];
 
   var install = function install(Vue, options) {
     if (options) setDefaults(options);
-    Vue.directive("scroll-to", VueScrollTo);
+    Vue.directive('scroll-to', VueScrollTo);
     Vue.prototype.$scrollTo = VueScrollTo.scrollTo;
   };
 
-  if (typeof window !== "undefined" && window.Vue) {
+  if (typeof window !== 'undefined' && window.Vue) {
     window.VueScrollTo = VueScrollTo;
     window.VueScrollTo.setDefaults = setDefaults;
     window.Vue.use(install);
@@ -38165,6 +37630,8 @@ exports.reload = tryWrap(function (id, options) {
         record.Ctor.extendOptions = options
       }
       var newCtor = record.Ctor.super.extend(options)
+      // prevent record.options._Ctor from being overwritten accidentally
+      newCtor.options._Ctor = record.options._Ctor
       record.Ctor.options = newCtor.options
       record.Ctor.cid = newCtor.cid
       record.Ctor.prototype = newCtor.prototype
@@ -38211,14 +37678,14 @@ function patchScopedSlots (instance) {
 
 },{}],"components/app.vue":[function(require,module,exports) {
 
-        var $3c7148 = exports.default || module.exports;
+        var $72d06e = exports.default || module.exports;
       
-      if (typeof $3c7148 === 'function') {
-        $3c7148 = $3c7148.options;
+      if (typeof $72d06e === 'function') {
+        $72d06e = $72d06e.options;
       }
     
         /* template */
-        Object.assign($3c7148, (function () {
+        Object.assign($72d06e, (function () {
           var render = function() {
   var _vm = this
   var _h = _vm.$createElement
@@ -38245,9 +37712,9 @@ render._withStripped = true
         if (api.compatible) {
           module.hot.accept();
           if (!module.hot.data) {
-            api.createRecord('$3c7148', $3c7148);
+            api.createRecord('$72d06e', $72d06e);
           } else {
-            api.reload('$3c7148', $3c7148);
+            api.reload('$72d06e', $72d06e);
           }
         }
 
@@ -38342,7 +37809,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "51939" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "37915" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
@@ -38373,8 +37840,9 @@ if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
         assetsToAccept.forEach(function (v) {
           hmrAcceptRun(v[0], v[1]);
         });
-      } else {
-        window.location.reload();
+      } else if (location.reload) {
+        // `location` global exists in a web worker context but lacks `.reload()` function.
+        location.reload();
       }
     }
 

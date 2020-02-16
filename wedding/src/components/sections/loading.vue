@@ -4,7 +4,7 @@
   </div>
 </template>
 <script>
-import headerText from "./headerText";
+import headerText from "./headertext";
 
 export default {
   components: {

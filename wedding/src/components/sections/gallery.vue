@@ -6,51 +6,22 @@
       </div>
     </div>
     <div class="row justify-content-center">
-      <div class="col">
+      <div class="col-auto">
         <button
-          @click="setbridegroom"
-          class="btn"
-          :class="{ 'btn-secondary': bridegroom(), 'btn-primary': !bridegroom() }"
-        >Bride & Groom</button>
-      </div>
-      <div class="col">
-        <button
-          @click="setceremony"
-          class="btn"
-          :class="{ 'btn-secondary': ceremony(), 'btn-primary': !ceremony() }"
-        >Ceremony</button>
-      </div>
-      <div class="col">
-        <button
-          @click="setfamily"
-          class="btn"
-          :class="{ 'btn-secondary': family(), 'btn-primary': !family() }"
-        >Family</button>
-      </div>
-      <div class="col">
-        <button
-          @click="setreception"
-          class="btn"
-          :class="{ 'btn-secondary': reception(), 'btn-primary': !reception() }"
-        >Receiption</button>
-      </div>
-      <div class="col">
-        <button
-          @click="setengagement"
-          class="btn"
-          :class="{ 'btn-secondary': engagement(), 'btn-primary': !engagement() }"
-        >Engagement</button>
+          v-for="category in categories"
+          :key="category.type"
+          @click="selection = category"
+          class="btn btn-sm ml-1"
+          :class="{ 'btn-outline-secondary': selection === category, 'btn-outline-primary': selection !== category }"
+        >{{category.display}}</button>
       </div>
     </div>
     <div class="lightgallery gallery">
-      <a
-        v-for="image in getimages()"
-        :key="image.name"
-        :data-src="image.image"
-        class="gallery-item"
-      >
-        <img v-lazy="image.image" class="img-fluid" @load="loaded" />
-      </a>
+      <isotope :list="selection.images">
+        <a v-for="image in selection.images" :key="image" :data-src="image" class="gallery-item">
+          <img v-lazy="image" class="img-fluid" @load="loaded" />
+        </a>
+      </isotope>
     </div>
   </div>
 </template>
@@ -62,94 +33,58 @@ import bridegroom from "../../images/gallery/bridegroom/*.jpg";
 import ceremony from "../../images/gallery/ceremony/*.jpg";
 import family from "../../images/gallery/family/*.jpg";
 import reception from "../../images/gallery/reception/*.jpg";
-import Isotope from "isotope-layout";
+import isotope from "vueisotope";
 
 export default {
   data() {
     return {
-      images: [],
-      selection: "bridegroom",
-      isotope: null
+      selection: {},
+      itemtemplate: {
+        props: []
+      },
+      isotope: null,
+      categories: [
+        { type: "bridgegroom", display: "Bride & Groom", images: bridegroom.values() },
+        { type: "ceremony", display: "Ceremony", images: ceremony },
+        { type: "family", display: "Family", images: family },
+        { type: "reception", display: "Reception", images: reception },
+        { type: "engagement", display: "Engagement", images: engagement }
+      ]
     };
   },
-  created() {
-    this.addimages("bridegroom", bridegroom);
-    this.addimages("ceremony", ceremony);
-    this.addimages("family", family);
-    this.addimages("reception", reception);
-    this.addimages("engagement", engagement);
+  components: {
+    isotope
   },
+  created() {},
   watch: {
     selection() {
-      this.reloadGallery();
+      // this.reloadGallery();
+      // this.isotope;
     }
   },
   methods: {
-    getimages() {
-      var images = [];
-      for (var i in this.images) {
-        if (this.images[i].name.indexOf(this.selection) >= 0)
-          images.push(this.images[i]);
-      }
-
-      return images;
-    },
-    addimages(name, images) {
-      for (var i in images)
-        this.images.push({ name: name + i, image: images[i] });
-    },
     loaded() {
-      this.isotope.layout();
+      // this.isotope.layout();
     },
     reloadGallery(destroy) {
-      var lightGallery = $(".lightgallery");
-      if (destroy) lightGallery.data("lightGallery").destroy(true);
-      
-      lightGallery.lightGallery({
-        selector: ".gallery-item"
-      });
+      // var lightGallery = $(".lightgallery");
+      // if (destroy) lightGallery.data("lightGallery").destroy(true);
 
-      this.isotope = new Isotope(".gallery", {
-        itemSelector: ".gallery-item",
-        percentPosition: true,
-        masonry: {
-          columnWidth: ".gallery-item"
-        }
-      });
-    },
-    bridegroom() {
-      return this.selection == "bridegroom";
-    },
-    ceremony() {
-      return this.selection == "ceremony";
-    },
-    engagement() {
-      return this.selection == "engagement";
-    },
-    family() {
-      return this.selection == "family";
-    },
-    reception() {
-      return this.selection == "reception";
-    },
-    setbridegroom() {
-      this.selection = "bridegroom";
-    },
-    setceremony() {
-      this.selection = "ceremony";
-    },
-    setengagement() {
-      this.selection = "engagement";
-    },
-    setfamily() {
-      this.selection = "family";
-    },
-    setreception() {
-      this.selection = "reception";
+      // lightGallery.lightGallery({
+      //   selector: ".gallery-item"
+      // });
+
+      // this.isotope = new Isotope(".gallery", {
+      //   itemSelector: ".gallery-item",
+      //   percentPosition: true,
+      //   masonry: {
+      //     columnWidth: ".gallery-item"
+      //   }
+      // });
     }
   },
   mounted() {
-    this.reloadGallery();
+    this.selection = this.categories[0];
   }
 };
 </script>

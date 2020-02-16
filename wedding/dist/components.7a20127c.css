@@ -3,9 +3,12 @@
   width: 300px;
 }
 
-.blur {
-  -webkit-filter: blur(0.6px);
-          filter: blur(0.6px);
+.bride-circle {
+  margin-left: 28px;
+}
+
+.groom-circle {
+  margin-left: 14px;
 }
 /*! lightgallery - v1.6.12 - 2019-02-19
 * http://sachinchoolur.github.io/lightGallery/
@@ -1022,9 +1025,9 @@ body:not(.lg-from-hash) .lg-outer.lg-start-zoom .lg-item.lg-complete .lg-object 
           filter: blur(.5px);
   -o-object-fit: cover;
      object-fit: cover;
-  -o-object-position: 50% 80%;
-     object-position: 50% 80%;
-  font-family: "object-fit: cover; object-position: 50% 80%;";
+  -o-object-position: 50% 30%;
+     object-position: 50% 30%;
+  font-family: "object-fit: cover; object-position: 50% 30%;";
   width: 100vw;
   height: 100vh;
 }

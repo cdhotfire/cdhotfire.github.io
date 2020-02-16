@@ -1,4 +1,4 @@
-@import "minty/variables";
+@import "cerulean/variables";
 
 @import "../../node_modules/bootstrap/scss/vendor/rfs";
 // Required
@@ -19,6 +19,6 @@
 @import "../../node_modules/bootstrap/scss/buttons";
 @import "../../node_modules/bootstrap/scss/alert";
 
-@import "minty/bootswatch";
+@import "cerulean/bootswatch";
 
 @import "custom";

@@ -3,8 +3,10 @@
     <div class="row justify-content-center mt-5">
       <div class="col-auto wow slideInLeft">
         <div class="text-center">
-          <img class="mx-auto rounded-circle mb-3 bride-groom-circle" src="../../images/groom.jpg" />
-          <div class="ml-3 circle-overlay rounded-circle bride-groom-circle"></div>
+          <div class="mb-3">
+          <img class="mx-auto rounded-circle bride-groom-circle" src="../../images/groom.jpg" />
+          <div class="circle-overlay groom-circle rounded-circle bride-groom-circle"></div>
+          </div>
           <h4>Isidro Arribas Jr</h4>
           <p class="text-muted">Husband</p>
         </div>
@@ -14,11 +16,13 @@
       </div>
       <div class="col-auto wow slideInRight">
         <div class="text-center">
+          <div class="mb-3">
           <img
-            class="mx-auto rounded-circle mb-3 bride-groom-circle blur"
+            class="mx-auto rounded-circle bride-groom-circle"
             src="../../images/bride.jpg"
           />
-          <div class="ml-3 circle-overlay rounded-circle bride-groom-circle"></div>
+          <div class="circle-overlay bride-circle rounded-circle bride-groom-circle"></div>
+          </div>
           <h4>Jocelyn Pui-Yin Wong</h4>
           <p class="text-muted">Wife</p>
         </div>
@@ -37,7 +41,11 @@
   width: 300px;
 }
 
-.blur {
-  filter: blur(0.6px);
+.bride-circle {
+  margin-left: 28px;
+}
+
+.groom-circle {
+  margin-left: 14px;
 }
 </style>

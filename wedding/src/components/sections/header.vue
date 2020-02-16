@@ -14,7 +14,7 @@
 import "../../library/sakura/jquery-sakura.min.js";
 import images from "../../images/header/*.jpg";
 import objectFitImages from "object-fit-images";
-import headerText from "./headerText";
+import headerText from "./headertext";
 
 export default {
   data: () => ({
@@ -60,8 +60,8 @@ export default {
 .header-image {
   filter: blur(.5px);
   object-fit: cover;
-  object-position: 50% 80%;
-  font-family: "object-fit: cover; object-position: 50% 80%;";
+  object-position: 50% 30%;
+  font-family: "object-fit: cover; object-position: 50% 30%;";
   width: 100vw;
   height: 100vh;
 }
