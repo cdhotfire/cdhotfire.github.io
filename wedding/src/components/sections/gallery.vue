@@ -74,7 +74,9 @@ export default {
   components: {
     isotope
   },
-  created() {},
+  created() {
+    this.loadimages();
+  },
   methods: {
     getimages() {
       return this._.filter(this.images, {
@@ -99,7 +101,6 @@ export default {
     }
   },
   mounted() {
-    this.loadimages();
   }
 };
 </script>

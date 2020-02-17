@@ -5,7 +5,6 @@
         <div class="text-center">
           <div class="mb-3">
           <img class="mx-auto rounded-circle bride-groom-circle" src="../../images/groom.jpg" />
-          <div class="circle-overlay groom-circle rounded-circle bride-groom-circle"></div>
           </div>
           <h4>Isidro Arribas Jr</h4>
           <p class="text-muted">Husband</p>
@@ -21,7 +20,6 @@
             class="mx-auto rounded-circle bride-groom-circle"
             src="../../images/bride.jpg"
           />
-          <div class="circle-overlay bride-circle rounded-circle bride-groom-circle"></div>
           </div>
           <h4>Jocelyn Pui-Yin Wong</h4>
           <p class="text-muted">Wife</p>
