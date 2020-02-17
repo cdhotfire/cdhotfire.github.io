@@ -25,7 +25,7 @@ export default {
   data: () => ({
     images: [],
     image: "",
-    imageIndex: 11
+    imageIndex: 0
   }),
   components: {
     headerText
@@ -44,7 +44,7 @@ export default {
     }
   },
   mounted() {
-    // setInterval(this.changeImage, 4000);
+    setInterval(this.changeImage, 4000);
     $(".flowers").sakura("start", { className: "particles" });
   }
 };
