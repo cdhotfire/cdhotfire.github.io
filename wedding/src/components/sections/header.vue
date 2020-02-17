@@ -2,7 +2,12 @@
   <div class="header">
     <div class="header-fixed">
       <transition name="fade">
-        <img :src="image" class="header-image" :loaded="imageLoaded" @load="loaded" />
+        <img
+          v-lazy="image"
+          class="header-image"
+          :class="'header-image-' + imageIndex"
+          @load="loaded"
+        />
       </transition>
       <div class="image-overlay"></div>
     </div>
@@ -20,29 +25,26 @@ export default {
   data: () => ({
     images: [],
     image: "",
-    imageIndex: 1,
-    imageLoaded: false
+    imageIndex: 11
   }),
   components: {
-      headerText
+    headerText
   },
   created() {
     this.images = Object.values(images);
-    this.image = this.images[0];
+    this.changeImage();    
   },
   methods: {
     changeImage() {
-      this.imageLoaded = false;
       this.image = this.images[this.imageIndex++];
       if (this.imageIndex == this.images.length) this.imageIndex = 0;
+      objectFitImages("img.header-image-" + this.imageIndex);
     },
-    loaded() {
-      this.imageLoaded = true;
+    loaded() {      
     }
   },
   mounted() {
-    objectFitImages("img.header-image");
-    setInterval(this.changeImage, 4000);
+    // setInterval(this.changeImage, 4000);
     $(".flowers").sakura("start", { className: "particles" });
   }
 };
@@ -58,12 +60,70 @@ export default {
 }
 
 .header-image {
-  filter: blur(.5px);
+  filter: blur(0.5px);
   object-fit: cover;
-  object-position: 50% 30%;
-  font-family: "object-fit: cover; object-position: 50% 30%;";
   width: 100vw;
   height: 100vh;
+}
+
+.header-image-1 {
+  object-position: 45% 30%;
+  font-family: "object-fit: cover; object-position: 45% 30%;";
+}
+
+.header-image-2 {
+  object-position: 55% center;
+  font-family: "object-fit: cover; object-position: 55% center;";
+}
+
+.header-image-3 {
+  object-position: center center;
+  font-family: "object-fit: cover; object-position: center center;";
+}
+
+.header-image-4 {
+  object-position: center 30%;
+  font-family: "object-fit: cover; object-position: center 30%;";
+}
+
+.header-image-5 {
+  object-position: 30% 30%;
+  font-family: "object-fit: cover; object-position: 30% 30%;";
+}
+
+.header-image-6 {
+  object-position: center center;
+  font-family: "object-fit: cover; object-position: center center;";
+}
+
+.header-image-7 {
+  object-position: 72% 30%;
+  font-family: "object-fit: cover; object-position: 72% 30%;";
+}
+
+.header-image-8 {
+  object-position: 55% 30%;
+  font-family: "object-fit: cover; object-position: 55% 30%;";
+}
+
+.header-image-9 {
+  object-position: 65% 30%;
+  font-family: "object-fit: cover; object-position: 65% 30%;";
+}
+
+.header-image-10 {
+  object-position: 55% 30%;
+  font-family: "object-fit: cover; object-position: 55% 30%;";
+}
+
+.header-image-11 {
+  object-position: 72% 30%;
+  font-family: "object-fit: cover; object-position: 72% 30%;";
+}
+
+.header-image-12 {
+  object-position: center 30%;
+  font-family: "object-fit: cover; object-position: center 30%;";
 }
 
 .flowers {

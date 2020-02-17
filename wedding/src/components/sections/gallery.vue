@@ -6,20 +6,26 @@
       </div>
     </div>
     <div class="row justify-content-center">
-      <div class="col-auto">
+      <div class="col-auto text-center">
         <button
           v-for="category in categories"
           :key="category.type"
-          @click="selection = category"
-          class="btn btn-sm ml-1"
-          :class="{ 'btn-outline-secondary': selection === category, 'btn-outline-primary': selection !== category }"
+          @click="changecategory(category)"
+          class="btn btn-sm ml-1 mt-1"
+          :class="{ 'btn-outline-secondary': selection === category.type, 'btn-outline-primary': selection !== category.type }"
         >{{category.display}}</button>
       </div>
     </div>
     <div class="lightgallery gallery">
-      <isotope :list="selection.images">
-        <a v-for="image in selection.images" :key="image" :data-src="image" class="gallery-item">
-          <img v-lazy="image" class="img-fluid" @load="loaded" />
+      <isotope ref="cpt" :list="getimages()" :options="options">
+        <a
+          v-for="image in getimages()"
+          :key="image.image"
+          :data-src="image.image"
+          class="gallery-item"
+        >
+          {{image.i}}
+          <img v-lazy="image.image" class="img-fluid" @load="loaded" />
         </a>
       </isotope>
     </div>
@@ -38,13 +44,28 @@ import isotope from "vueisotope";
 export default {
   data() {
     return {
-      selection: {},
       itemtemplate: {
         props: []
       },
-      isotope: null,
+      selection: "bridegroom",
+      options: {
+        initLayout: false,
+        // itemSelector: ".gallery-item",
+        // percentPosition: true,
+        // masonry: {
+        //   columnWidth: 25
+        // },
+        layoutMode: "packery",
+        sortBy: "image",
+        getSortData: {
+          image(item) {
+            return item.image;
+          }
+        }
+      },
+      images: [],
       categories: [
-        { type: "bridgegroom", display: "Bride & Groom", images: bridegroom.values() },
+        { type: "bridegroom", display: "Bride & Groom", images: bridegroom },
         { type: "ceremony", display: "Ceremony", images: ceremony },
         { type: "family", display: "Family", images: family },
         { type: "reception", display: "Reception", images: reception },
@@ -56,35 +77,34 @@ export default {
     isotope
   },
   created() {},
-  watch: {
-    selection() {
-      // this.reloadGallery();
-      // this.isotope;
-    }
-  },
   methods: {
-    loaded() {
-      // this.isotope.layout();
+    getimages() {
+      return this._.filter(this.images, {
+        category: this.selection
+      });
     },
-    reloadGallery(destroy) {
-      // var lightGallery = $(".lightgallery");
-      // if (destroy) lightGallery.data("lightGallery").destroy(true);
-
-      // lightGallery.lightGallery({
-      //   selector: ".gallery-item"
-      // });
-
-      // this.isotope = new Isotope(".gallery", {
-      //   itemSelector: ".gallery-item",
-      //   percentPosition: true,
-      //   masonry: {
-      //     columnWidth: ".gallery-item"
-      //   }
-      // });
+    loaded() {
+      this.$refs.cpt.layout("masonry");
+    },
+    changecategory(category) {
+      this.selection = category.type;
+      // this.$refs.cpt.filter(category.type);
+    },
+    loadimages() {
+      for (var category in this.categories) {
+        for (var img in this.categories[category].images)
+          this.images.push({
+            category: this.categories[category].type,
+            image: this.categories[category].images[img]
+          });
+      }
     }
   },
   mounted() {
-    this.selection = this.categories[0];
+    this.loadimages();
+    $(".lightgallery").lightGallery({
+      selector: ".gallery-item"
+    });
   }
 };
 </script>
