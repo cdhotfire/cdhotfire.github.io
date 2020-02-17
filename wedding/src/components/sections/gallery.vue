@@ -32,8 +32,6 @@
   </div>
 </template>
 <script>
-import "lightgallery/dist/js/lightgallery.js";
-import "lightgallery/dist/css/lightgallery.css";
 import engagement from "../../images/gallery/engagement/*.jpg";
 import bridegroom from "../../images/gallery/bridegroom/*.jpg";
 import ceremony from "../../images/gallery/ceremony/*.jpg";
@@ -102,9 +100,6 @@ export default {
   },
   mounted() {
     this.loadimages();
-    $(".lightgallery").lightGallery({
-      selector: ".gallery-item"
-    });
   }
 };
 </script>
